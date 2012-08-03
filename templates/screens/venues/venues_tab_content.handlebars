@@ -1,0 +1,37 @@
+
+{{#if view.content }}
+
+  {{#view App.VenuesScrollView
+    contentBinding="view.content"
+    showLikesBinding="view.showLikes"
+    isRefreshedBinding="isRefreshed"
+    lengthBinding="view.content.length" }}
+
+      <div class="scroller-container">
+
+          {{#each view.content}}
+
+            {{view App.VenueBoxView 
+              geopositionIsOn=true
+              showLikes="view.showLikes"
+              productsBinding="products"
+              venueBinding="this" }}
+
+          {{/each}}
+
+      </div>
+
+      {{#if view.showBottomView }}
+
+        <div class="scroller-bottom-spinner">
+
+        </div>
+
+      {{/if }}
+
+  {{/view}}
+
+{{else }}
+  {{view Yn.SpinnerView}}
+{{/if }}
+

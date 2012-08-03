@@ -1,0 +1,37 @@
+
+{{#view App.TabMainView id="app-tab-main" currentTabViewBinding="App.tabController.appTabView"}}
+
+  {{view Yn.NavigationView id="venues-navigation" 
+    initViewClass="App.VenuesScreenView"
+    viewName="venues"}}
+  {{view App.QrScreenView viewName="qr" }}
+  {{view App.MeScreenView viewName="me" }}
+
+{{/view}}
+
+
+{{#view Em.View id="footer" class="l-footer" }}
+	
+	<!--<div id="left-tab" class="tabs_bottom">-->
+	
+		{{view App.FooterOptionView tab="venues" id="left-tab" class="is-big" icon="q"}}
+		
+	<!--</div>-->
+	
+	<!--<div id="right-tab" class="tabs_bottom">-->
+	
+		{{view App.FooterOptionView tab="me" id="right-tab" class="is-big" icon="p"}}
+		
+	<!--</div>-->
+	
+	<div id="footer-middle">
+	
+		<!--<div id="inner-footer-middle" class="tabs_bottom">-->
+	
+			{{view App.FooterOptionView tab="qr" id="inner-footer-middle" class="is-x-big" icon="E"}}
+		
+		<!--</div>-->
+		
+	</div>	
+
+{{/view}}

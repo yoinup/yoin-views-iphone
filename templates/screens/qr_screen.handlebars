@@ -1,0 +1,35 @@
+{{#view Yn.HeaderView }}
+
+	<div class="header-title l-fit">{{I18n qr_title }}</div>
+	{{view Yn.HeaderButtonView class="l-right" icon="l" }}
+
+{{/view }}
+
+<div id="qr-screen-container" class="screen-container">
+	
+	<div id="qr-screen-content" class="box">
+
+		<div id="qr-image">
+
+			{{#view App.QrCodeView id="qr-code-container"}}
+
+			{{/view}}
+
+			<!--{{#view Yn.UnboundView item="I18n qr_description" class="center" }}
+			
+			{{/view}}-->
+			<div class="center">
+				{{I18n qr_description}}
+			</div>
+		
+		</div>
+		
+		<div id="qr-details" class="box-title box-title-bottom">
+
+			{{App.loginUserController.content.showName}}
+		
+		</div>
+	
+	</div>
+
+</div>

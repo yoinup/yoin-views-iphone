@@ -1,0 +1,72 @@
+{{#with view }}
+
+
+
+<div class="venue-box-info box-top">
+
+
+
+  <div class="venue-left-l">
+    {{view Yn.SquareImageView contentBinding="venue.brand" isDown=true}}
+  </div>
+
+  <div class="venue-middle-l">
+
+    <div class="venue-product-name">
+      {{selected.name}}    {{products.length}}
+    </div>
+
+    <div class="venue-location-name icon" icon="h">
+      {{venue.brand.name}}, {{venue.city.name}}
+    </div>
+
+  </div>
+
+  <div class="venue-right-l">
+
+    {{#if canShowGeoposition }}
+      {{#view Yn.IconView icon="h"}}
+      200m
+      {{/view}}
+    {{else }}
+      {{#view Yn.IconView icon="g"}}
+      8
+      {{/view}}
+    {{/if}}
+
+  </div>
+
+</div>
+
+
+<div class="venue-box-products">
+
+  {{view App.VenueProductSwipeView 
+    venueBinding="venue"
+    contentBinding="products"
+    selectedBinding="selected"}}
+
+  {{view Yn.CarouselCirclesView
+    contentBinding="products"
+    selectedBinding="selected"}}
+
+  {{view App.InviteButtonView
+    contentBinding="selected"}}
+
+</div>
+
+<div class="venue-box-users box-bottom">
+
+  {{#if venue.users.length }}
+
+    <div class="venue-box-users-list">
+      {{#each venue.users}}
+        {{view Yn.SquareImageView contentBinding="this" isUp=true }}
+      {{/each}}
+    </div>
+
+  {{/if}}
+
+</div>
+
+{{/with}}

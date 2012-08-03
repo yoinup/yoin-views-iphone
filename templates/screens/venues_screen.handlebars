@@ -1,0 +1,66 @@
+{{#view Yn.HeaderView }}
+
+	{{view App.VenuesGeoSwitchButton class="l-left" }}
+	{{view Yn.HeaderTitleView itemI18n="products_title" }}
+	{{view Yn.HeaderButtonView class="l-right" action="goToMap" icon="c" }}
+
+{{/view }}
+
+<div class="screen-container">
+
+
+	<div id="venues-option-tabs">
+
+		{{view App.VenuesTabView icon="b" tab="location" }}
+		{{view App.VenuesTabView icon="c" tab="favorite" }}
+		{{view App.VenuesTabView icon="d" tab="category" }}
+
+	</div>
+
+	{{#view App.TabMainView id="venues-tab-main" currentTabViewBinding="App.tabController.venuesTab" }}
+
+		{{#view id="vtp-location" class="venues-tab-pane" viewName="location" }}
+
+      {{#if App.geopositionController.isOn }}
+
+        {{view App.VenuesTabContentView
+          showLikes=true
+          isRefreshedBinding="App.locationVenuesController.isRefreshed"
+          contentBinding="App.locationVenuesController.content" }}
+
+      {{/if}}
+
+		{{/view}}
+
+		{{#view id="vtp-favorite" class="venues-tab-pane" viewName="favorite" }}
+
+      {{view App.VenuesTabContentView
+        showLikes=true
+        isRefreshedBinding="App.likeVenuesController.isRefreshed"
+        contentBinding="App.likeVenuesController.content" }}
+
+		{{/view}}
+
+
+		{{#view id="vtp-category" class="venues-tab-pane" viewName="category" }}
+
+			<div id="categories">
+
+				{{#each App.categoryController.selectables}}
+
+					{{view App.VenuesCategoryButtonView content=this }}
+
+				{{/each}}
+
+			</div>
+
+      {{view App.VenuesTabContentView
+        showLikes=false
+        isRefreshedBinding="App.categoryVenuesController.isRefreshed"
+        contentBinding="App.categoryVenuesController.content" }}
+
+		{{/view}}
+
+	{{/view}}
+
+</div>

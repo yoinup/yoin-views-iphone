@@ -1,0 +1,152 @@
+@import 'colors';
+@import 'sizes';
+
+#me_screen {
+
+	> #me-screen-container {
+
+		> #me-screen-content {
+
+			> #me-content-header {
+				background-image: -webkit-linear-gradient(220deg, #ecc591, #b87a40);
+				width: 100%;
+				height: 5em;
+				color: white;
+
+				> #me-content-header-image {
+
+					margin: 1em;
+
+          .square-image {
+
+          }
+
+				}
+
+				> #me-content-header-text {
+					text-shadow: 2px 2px 2px #666;
+					vertical-align: top;
+					margin-top: 1.3em;
+
+					> #me-content-header-text-name {
+						font-size: @font-big-small;
+					}
+
+					> #me-content-header-text-city {
+						font-size: @font-normal;
+
+					}
+
+				}
+
+			}
+
+			> #me-tabs {
+				position: relative;
+				width: 100%;
+				height: 3.5em/@font-big-small;
+				background-color: #CCC;
+				border-top: 2px solid @grey02;
+				box-shadow: 0px 2px 2px #666;
+
+				> .me-tab {
+					float: left;
+        	height: 100%;
+        	width: 33%;
+					text-align: center;
+
+					> .number {
+						font-weight: bold;
+						color: @grey_dark;
+						font-size: @font-big-small;
+					}
+					> .desc {
+						color: @grey04;
+						font-size: @font-normal;
+					}
+				}
+
+				> .me-tab.is-selected {
+					background-color: #BBB;
+				}
+
+
+			}
+
+			> #me-scroll-wrapper {
+
+                > #me-scroller {
+
+                    > div > .box-title {
+
+                      height: 24px;
+
+                    }
+
+                    > #me-content-unexchangedinvitations {
+
+                        margin-top: 1.2em;
+
+
+                        > .box-content {
+
+						              > .unexchangedinvitation {
+
+						                  //padding-bottom: 0.5em;
+
+						                  > .unexchangedinvitation-product {
+
+						                      vertical-align: top;
+						                      font-weight: bold;
+						                      color: @grey_dark;
+
+						                      > .unexchangedinvitation-city {
+
+						                          color: @grey03;
+
+						                          > .icon {
+						                          
+						                          }
+
+						                          > .icon:before {
+						                              /*Adjust font-size*/
+						                              font-size: 100%;
+						                              /*Clean possible text-shadow in text*/
+						                              text-shadow: 0px 0px 0px;
+						                              color: @grey03;
+						                          }
+
+						                          > .city-name {
+						                              
+						                          }
+
+						                      }
+
+						                  }
+
+						                  > .unexchangedinvitation-price {
+						                      vertical-align: top;
+						                      margin-top: 1em;
+						                      float: right;
+						                      font-weight: bold;
+						                      color: @grey_low;
+						                      background-color: @blue_bg;
+						                      border-radius: 1em;
+						                      padding: 0.3em 1em 0.3em 1em;
+						                  }
+
+						              }
+
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+		
+	}
+
+}
