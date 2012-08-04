@@ -3,7 +3,7 @@
 
 {{#view Yn.HeaderView }}
 
-	{{view App.VenuesGeoSwitchButton class="l-left" }}
+	{{view Yvi.VenuesGeoSwitchButton class="l-left" }}
 	{{view Yn.HeaderTitleView itemI18n="products_title" }}
 	{{view Yn.HeaderButtonView class="l-right" action="goToMap" icon="c" }}
 
@@ -14,24 +14,24 @@
 
 	<div id="venues-option-tabs">
 
-    {{view App.IconTabOptionView class="venues-tab"
+    {{view Yvi.IconTabOptionView class="venues-tab"
       icon="b" 
       tab="location" 
       currentTabViewBinding="currentTabView" }}
 
-    {{view App.IconTabOptionView class="venues-tab"
+    {{view Yvi.IconTabOptionView class="venues-tab"
       icon="c" 
       tab="favorite" 
       currentTabViewBinding="currentTabView" }}
 
-    {{view App.IconTabOptionView class="venues-tab"
+    {{view Yvi.IconTabOptionView class="venues-tab"
       icon="d" 
       tab="category"
       currentTabViewBinding="currentTabView" }}
 
 	</div>
 
-	{{#view App.TabMainView id="venues-tab-main"
+	{{#view Yvi.TabMainView id="venues-tab-main"
     currentTabViewBinding="currentTabView" }}
 
     {{#view id="vtp-location" class="venues-tab-pane" 
@@ -39,7 +39,7 @@
 
       {{#if geopositionIsOn }}
 
-        {{view App.VenuesTabContentView
+        {{view Yvi.VenuesTabContentView
           showLikes=true
           isRefreshedBinding="locationIsRefreshed"
           contentBinding="locationContent" }}
@@ -51,7 +51,7 @@
     {{#view id="vtp-favorite" class="venues-tab-pane" 
       viewName="favorite" }}
 
-      {{view App.VenuesTabContentView
+      {{view Yvi.VenuesTabContentView
         showLikes=true
         isRefreshedBinding="locationIsRefreshed"
         contentBinding="likeContent" }}
@@ -67,7 +67,7 @@
 
 				{{#each categories}}
 
-          {{view App.VenuesCategoryButtonView 
+          {{view Yvi.VenuesCategoryButtonView 
             class="category-button"
             content=this 
             selectedBinding="view.selected"}}
@@ -76,7 +76,7 @@
 
 			</div>
 
-      {{view App.VenuesTabContentView
+      {{view Yvi.VenuesTabContentView
         showLikes=false
         isRefreshedBinding="categoryIsRefreshed"
         contentBinding="categoryContent" }}

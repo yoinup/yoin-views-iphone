@@ -1,7 +1,7 @@
 
 {{#if view.content }}
 
-  {{#view App.VenuesScrollView
+  {{#view Yvi.VenuesScrollView
     contentBinding="view.content"
     showLikesBinding="view.showLikes"
     isRefreshedBinding="isRefreshed"
@@ -11,7 +11,7 @@
 
           {{#each view.content}}
 
-            {{view App.VenueBoxView 
+            {{view Yvi.VenueBoxView 
               geopositionIsOn=true
               showLikes="view.showLikes"
               productsBinding="products"

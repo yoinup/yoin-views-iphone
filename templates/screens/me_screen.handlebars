@@ -43,7 +43,7 @@
 
 		<div id="me-tabs">
 
-			{{#view App.MeTabOptionView tab="friends" }}
+			{{#view Yvi.MeTabOptionView tab="friends" }}
 
 				<div class="number">92</div>
 
@@ -51,7 +51,7 @@
 
 			{{/view}}
 
-			{{#view App.MeTabOptionView tab="sent" }}
+			{{#view Yvi.MeTabOptionView tab="sent" }}
 
 				<div class="number">20</div>
 
@@ -59,7 +59,7 @@
 
 			{{/view}}
 
-			{{#view App.MeTabOptionView tab="received" }}
+			{{#view Yvi.MeTabOptionView tab="received" }}
 
 				<div class="number">126</div>
 
@@ -71,7 +71,7 @@
 
 
 
-		{{#view App.TabMainView currentTabViewBinding="App.tabController.meTabView" }}
+		{{#view Yvi.TabMainView currentTabViewBinding="App.tabController.meTabView" }}
 
 				{{#view class="me-tab-pane" viewName="friends" }}
 
