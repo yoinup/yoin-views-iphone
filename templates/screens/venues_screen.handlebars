@@ -1,3 +1,6 @@
+
+{{#with view}}
+
 {{#view Yn.HeaderView }}
 
 	{{view App.VenuesGeoSwitchButton class="l-left" }}
@@ -11,44 +14,63 @@
 
 	<div id="venues-option-tabs">
 
-		{{view App.VenuesTabView icon="b" tab="location" }}
-		{{view App.VenuesTabView icon="c" tab="favorite" }}
-		{{view App.VenuesTabView icon="d" tab="category" }}
+    {{view App.IconTabOptionView class="venues-tab"
+      icon="b" 
+      tab="location" 
+      currentTabViewBinding="currentTabView" }}
+
+    {{view App.IconTabOptionView class="venues-tab"
+      icon="c" 
+      tab="favorite" 
+      currentTabViewBinding="currentTabView" }}
+
+    {{view App.IconTabOptionView class="venues-tab"
+      icon="d" 
+      tab="category"
+      currentTabViewBinding="currentTabView" }}
 
 	</div>
 
-	{{#view App.TabMainView id="venues-tab-main" currentTabViewBinding="App.tabController.venuesTab" }}
+	{{#view App.TabMainView id="venues-tab-main"
+    currentTabViewBinding="currentTabView" }}
 
-		{{#view id="vtp-location" class="venues-tab-pane" viewName="location" }}
+    {{#view id="vtp-location" class="venues-tab-pane" 
+      viewName="location" }}
 
-      {{#if App.geopositionController.isOn }}
+      {{#if geopositionIsOn }}
 
         {{view App.VenuesTabContentView
           showLikes=true
-          isRefreshedBinding="App.locationVenuesController.isRefreshed"
-          contentBinding="App.locationVenuesController.content" }}
+          isRefreshedBinding="locationIsRefreshed"
+          contentBinding="locationContent" }}
 
       {{/if}}
 
 		{{/view}}
 
-		{{#view id="vtp-favorite" class="venues-tab-pane" viewName="favorite" }}
+    {{#view id="vtp-favorite" class="venues-tab-pane" 
+      viewName="favorite" }}
 
       {{view App.VenuesTabContentView
         showLikes=true
-        isRefreshedBinding="App.likeVenuesController.isRefreshed"
-        contentBinding="App.likeVenuesController.content" }}
+        isRefreshedBinding="locationIsRefreshed"
+        contentBinding="likeContent" }}
 
 		{{/view}}
 
 
-		{{#view id="vtp-category" class="venues-tab-pane" viewName="category" }}
+    {{#view id="vtp-category" class="venues-tab-pane" 
+      selectedBinding="selectedCategory"
+      viewName="category" }}
 
-			<div id="categories">
+    <div id="categories">
 
-				{{#each App.categoryController.selectables}}
+				{{#each categories}}
 
-					{{view App.VenuesCategoryButtonView content=this }}
+          {{view App.VenuesCategoryButtonView 
+            class="category-button"
+            content=this 
+            selectedBinding="view.selected"}}
 
 				{{/each}}
 
@@ -56,11 +78,13 @@
 
       {{view App.VenuesTabContentView
         showLikes=false
-        isRefreshedBinding="App.categoryVenuesController.isRefreshed"
-        contentBinding="App.categoryVenuesController.content" }}
+        isRefreshedBinding="categoryIsRefreshed"
+        contentBinding="categoryContent" }}
 
 		{{/view}}
 
 	{{/view}}
 
 </div>
+
+{{/with}}
