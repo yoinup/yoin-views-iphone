@@ -25,13 +25,19 @@
   <div class="venue-right-l">
 
     {{#if canShowGeoposition }}
-      {{#view Yn.IconView icon="h"}}
-      200m
+      {{#view Yn.IconView icon="i"}}
+        {{venue.distance}}m
       {{/view}}
     {{else }}
-      {{#view Yn.IconView icon="g"}}
-      8
-      {{/view}}
+
+      {{#if selected.hasLikes }}
+
+        {{#view Yn.IconView icon="m"}}
+          {{selected.likeCount}}
+        {{/view}}
+
+      {{/if}}
+
     {{/if}}
 
   </div>

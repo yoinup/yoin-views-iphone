@@ -1,37 +1,40 @@
 
-{{#if view.content }}
+{{#with view }}
 
-  {{#view Yvi.VenuesScrollView
-    contentBinding="view.content"
-    showLikesBinding="view.showLikes"
-    isRefreshedBinding="isRefreshed"
-    lengthBinding="view.content.length" }}
+  {{#if content }}
 
-      <div class="scroller-container">
+    {{#view Yvi.VenuesScrollView
+      contentBinding="content"
+      showLikesBinding="showLikes"
+      isRefreshedBinding="isRefreshed"
+      lengthBinding="content.length" }}
 
-          {{#each view.content}}
+        <div class="scroller-container">
 
-            {{view Yvi.VenueBoxView 
-              geopositionIsOn=true
-              showLikes="view.showLikes"
-              productsBinding="products"
-              venueBinding="this" }}
+            {{#each content}}
 
-          {{/each}}
+              {{view Yvi.VenueBoxView 
+                productsBinding="products"
+                venue=this
+                showLikesBinding="view.showLikes" }}
 
-      </div>
-
-      {{#if view.showBottomView }}
-
-        <div class="scroller-bottom-spinner">
+            {{/each}}
 
         </div>
 
-      {{/if }}
+        {{#if view.showBottomView }}
 
-  {{/view}}
+          <div class="scroller-bottom-spinner">
 
-{{else }}
-  {{view Yn.SpinnerView}}
-{{/if }}
+          </div>
+
+        {{/if }}
+
+    {{/view}}
+
+  {{else }}
+    {{view Yn.SpinnerView}}
+  {{/if }}
+
+{{/with }}
 
