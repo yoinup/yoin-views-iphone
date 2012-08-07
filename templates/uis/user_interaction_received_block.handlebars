@@ -5,13 +5,13 @@
 		
 		<div class="user-interaction-received-block-content-image inline">
 		
-			{{view Yn.SquareImageView contentBinding="content.toUser" isUp=true class="is-small" }}
+			{{view Yn.SquareImageView class="is-small is-up-effect" contentBinding="content.toUser" }}
 
 		</div>
 
 		<div class="user-interaction-received-block-content-name inline">
 
-			{{content.toUser.showName}} recibió
+			{{content.toUser.name}} recibió
 
 			<div class="user-interaction-received-block-content-product">
 
@@ -33,7 +33,7 @@
 		
 		<div>
 		
-			{{view Yvi.UserShortBlockView contentBinding="content.fromUser" imagetype="is-x-small" }}
+			{{view Yvi.UserShortBlockView contentBinding="content.fromUser" imagetype="is-small" }}
 		
 		</div>
 

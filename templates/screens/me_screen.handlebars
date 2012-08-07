@@ -15,7 +15,7 @@
 
 				<div id="me-content-header-image" class="inline">
 
-					{{view Yn.SquareImageView contentBinding="user" isUp=true class="is-normal" }}
+					{{view Yn.SquareImageView class="is-normal is-up-effect" contentBinding="user" }}
 
 				</div>
 
@@ -23,19 +23,23 @@
 
 						<div id="me-content-header-text-name">
 
-							{{user.showName}}
+							{{user.name}}
 
 						</div>
 
-						<div id="me-content-header-text-city">
+						{{#if user.city}}
 
-							<div class="icon is-small inline" icon="i">
+							<div id="me-content-header-text-city">
 
-								{{user.city.name}}
+								<div class="icon is-small inline" icon="i">
+
+									{{user.city.name}}
+
+								</div>
 
 							</div>
 
-						</div>
+						{{/if}}
 
 				</div>
 
