@@ -1,38 +1,42 @@
 
 {{#with view }}
 
-  {{#view Yn.HeaderView }}
+	{{#view Yn.HeaderView }}
 
-    <div class="header-title">{{I18n qr_title }}</div>
-    {{view Yn.HeaderButtonView class="l-right" icon="l" }}
+		<div class="header-title">{{I18n qr_title }}</div>
+		{{view Yn.HeaderButtonView class="l-right" icon="l" }}
 
-  {{/view }}
+	{{/view }}
 
-  <div id="qr-screen-container" class="screen-container">
-    
-    <div id="qr-screen-content" class="box">
+	<div id="qr-screen-container" class="screen-container">
+		
+		<div class="space is-small"></div>
 
-      <div id="qr-image">
+		<div id="qr-screen-content" class="box">
 
-        {{view Yvi.QrCodeView id="qr-code-container"
-          unexchangedInvitationsBinding="unexchangedInvitations"
-          isRegisteredBinding="isRegistered"
-          userBinding="user"}}
+			<div id="qr-image" class="box-content">
 
-        <div class="center text is-black is-small">
-          {{I18n qr_description}}
-        </div>
-      
-      </div>
-      
-      <div id="qr-details" class="box-title box-title-bottom">
+				{{view Yvi.QrCodeView id="qr-code-container"
+					unexchangedInvitationsBinding="unexchangedInvitations"
+					isRegisteredBinding="isRegistered"
+					userBinding="user"}}
 
-        {{user.name}}
-      
-      </div>
-    
-    </div>
+				<div class="space is-small"></div>
 
-  </div>
+				<div class="center text is-black is-small">
+					{{I18n qr_description}}
+				</div>
+			
+			</div>
+			
+			<div id="qr-details" class="box-title box-title-bottom">
+
+				{{user.name}}
+			
+			</div>
+		
+		</div>
+
+	</div>
 
 {{/with}}

@@ -2,6 +2,8 @@
 @import 'sizes';
 
 @edipotrebol-border-subbox-radius-size: 3px;
+@qr-width: 200px;
+@qr-height: 200px;
 
 #qr_screen {
 
@@ -12,23 +14,26 @@
 			background-color: #eee; //TODO: Ajustar colores y pasarlos a colors.less de yoin-ember
 
 			> #qr-image {
-				padding: 2em;
-				border-bottom: 1px solid @grey03;
+				padding-top: 1.5em;
+				padding-bottom: 1em;
+				padding-left: 2em;
+				padding-right: 2em;
 
-        > #qr-code-container {
+				> #qr-code-container {
+					margin-left: 12px; // TODO : CAMBIAR ESTO - NO CONSEGUIA CENTRARLO
+					padding: 0.5em;
+					width: @qr-width;
+					height: @qr-height;
+					background-color: #fff;
+					border-radius: @edipotrebol-border-subbox-radius-size;
+					box-shadow: 0 0 5px 1px #AAA; //TODO: Ajustar colores y pasarlos a colors.less de yoin-ember
 
-					padding: 1.3em;
-        	background-color: #fff;
-        	border-radius: @edipotrebol-border-subbox-radius-size;
-        	box-shadow: 0 0 5px 1px #AAA; //TODO: Ajustar colores y pasarlos a colors.less de yoin-ember
+					> #qr-code {
+						width: @qr-width;
+						height: @qr-height;
+					}
 
-
-          > #qr-code {
-            width: 200px;
-            height: 200px;
-          }
-
-        }
+				}
 
 			}
 
