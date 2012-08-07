@@ -1,7 +1,22 @@
+{{#with view}}
+
 {{#view Yn.HeaderView }}
 
-	{{view Yn.BackButtonView  }}
-   Venue
-  {{view Yn.HeaderButtonView class="l-right" action="invite"}}
+	{{view Yn.BackButtonView }}
+
+  <div class="header-title is-subtitle">
+    {{selected.name}} 
+  </div>
+
+  <div class="header-subtitle">
+    {{venue.brand.name}}, {{venue.city.name}} 
+  </div>
+
+
+  {{view Yn.SquareImageView class="l-right is-small"
+    contentBinding="venue.brand"}}
 
 {{/view }}
+
+{{/with}}
+
