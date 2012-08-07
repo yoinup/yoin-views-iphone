@@ -19,14 +19,20 @@
 	background-image: url(../assets/images/BG2_50.png), -webkit-gradient(linear, left top, left bottom, color-stop(0%,@black_footer_00), color-stop(70%,@black_footer_01), color-stop(100%,@black_footer_02)); /* Chrome,Safari4+ */
 }
 
+.footer_active_gradient {
+	background-image: url(../assets/images/BG2_50.png), -moz-linear-gradient(top, @black_active_footer_00 0%, @black_active_footer_01 70%, @black_active_footer_02 100%); /* FF3.6+ */
+	background-image: url(../assets/images/BG2_50.png), -webkit-gradient(linear, left top, left bottom, color-stop(0%,@black_active_footer_00), color-stop(70%,@black_active_footer_01), color-stop(100%,@black_active_footer_02)); /* Chrome,Safari4+ */
+}
+
 .footer_orange_gradient {
   background-image: url(../assets/images/BG2.png),  -moz-linear-gradient(top, #f8b49a 0%, #f59773 50%, #f17140 100%); /* FF3.6+ */
   background-image: url(../assets/images/BG2.png), -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8b49a), color-stop(50%,#f59773), color-stop(100%,#f17140)); /* Chrome,Safari4+ */
 }
 
-.footer_active_gradient {
-	background-image: url(../assets/images/BG2_50.png), -moz-linear-gradient(top, @black_active_footer_00 0%, @black_active_footer_01 70%, @black_active_footer_02 100%); /* FF3.6+ */
-	background-image: url(../assets/images/BG2_50.png), -webkit-gradient(linear, left top, left bottom, color-stop(0%,@black_active_footer_00), color-stop(70%,@black_active_footer_01), color-stop(100%,@black_active_footer_02)); /* Chrome,Safari4+ */
+.footer-active-orange-gradient {
+	background-color: @orange01;
+	background-image: url(../assets/images/BG2.png), -moz-linear-gradient(top, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.25) 35%, rgba(255,255,255,0.6) 100%); /* FF3.6+ */
+	background-image: url(../assets/images/BG2.png), -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.25)), color-stop(35%,rgba(255,255,255,0.25)), color-stop(100%,rgba(255,255,255,0.6))); /* Chrome,Safari4+ */
 }
 
 
@@ -103,7 +109,7 @@
 		}
 			
 		> #inner-footer-middle.is-selected {
-				opacity: 0;
+				.footer-active-orange-gradient;
 		}
 			
 	}
