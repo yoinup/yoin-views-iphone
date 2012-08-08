@@ -5,20 +5,7 @@
 		
 		<div class="user-short-block-content-image inline">
 
-			<!-- imagetype: Only implemented by is-small and is-x-small classes -->
-
-			<!--{{#ifEquals imagetype imagetype}}
-		
-				{{view Yn.SquareImageView class="is-small is-up-effect" contentBinding="content" }}
-
-			{{else}}
-
-				{{view Yn.SquareImageView class="is-x-small is-up-effect" contentBinding="content" }}
-
-			{{/ifEquals}}-->
-
-
-			{{view Yn.SquareImageView class="is-x-small is-up-effect" contentBinding="content" }}
+			{{view Yn.SquareImageView class=imagetype contentBinding="content" }}
 
 
 		</div>
@@ -31,7 +18,7 @@
 
 				<div class="user-short-block-content-city">
 
-					<div class="icon is-x-small inline" icon="i">
+					<div class="icon is-icon-x-small inline" icon="i">
 
 					</div>
 
