@@ -31,7 +31,17 @@
 			
 			<div id="qr-details" class="box-title box-title-bottom">
 
-				{{user.name}}
+				<div id="qr-details-image" class="inline">
+
+					{{view Yn.SquareImageView class="is-small" contentBinding="user" }}
+
+				</div>
+				
+				<div id="qr-details-name" class="text is-font-bold inline">
+				
+					{{user.name}}
+					
+				</div>	
 			
 			</div>
 		
