@@ -13,29 +13,34 @@
 
 		<div id="me-content-header">
 
-				<div id="me-content-header-image" class="inline">
+				<div id="me-content-header-image">
 
 					{{view Yn.SquareImageView class="is-normal" contentBinding="user" }}
 
 				</div>
 
-				<div id="me-content-header-text" class="inline">
+				<div id="me-content-header-text">
 
-						<div id="me-content-header-text-name">
 
+						<!-- doing this, you cannot duplicate this block of code (user with or without city) -->
+						{{#view id="me-content-header-text-name"
+						   class="text is-font-bold is-white"
+						   classNameBindings="isUserCity" 
+						   isUserCityBinding="isUserCity"}}
+						
 							{{user.name}}
+							
+							<div id="me-content-header-text-user-state" class="text is-small is-white is-font-italic">"Writing code..."</div>
 
-						</div>
+						{{/view}}
 
-						{{#if user.city}}
+						{{#if isUserCity}}
 
-							<div id="me-content-header-text-city">
+							<div id="me-content-header-text-city text is-small is-white">
 
-								<div class="icon is-icon-small inline" icon="i">
+								<span class="icon is-icon-small" icon="i"></span>
 
-									{{user.city.name}}
-
-								</div>
+								{{user.city.name}}
 
 							</div>
 
@@ -78,6 +83,8 @@
 		{{#view Yvi.TabMainView currentTabViewBinding="currentTabView" }}
 
 				{{#view class="me-tab-pane" viewName="friends" }}
+				
+					<div class="space is-small"></div>
 
 					<div class="box">
 						<div class="box-content">
@@ -90,6 +97,8 @@
 				{{/view}}
 
 				{{#view class="me-tab-pane" viewName="sent" }}
+				
+					<div class="space is-small"></div>
 
 					{{#each sentinvitations}}
 					<div class="box">
@@ -105,11 +114,16 @@
 							</div>
 						</div>
 					</div>
+					
+					<div class="space is-small"></div>
+					
 					{{/each}}
 
 				{{/view}}
 
 				{{#view class="me-tab-pane" viewName="received" }}
+				
+					<div class="space is-small"></div>
 
 					{{#each receivedinvitations}}
 					<div class="box">
@@ -125,6 +139,9 @@
 							</div>
 						</div>
 					</div>
+					
+					<div class="space is-small"></div>
+					
 					{{/each}}
 
 				{{/view}}

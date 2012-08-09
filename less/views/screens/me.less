@@ -10,31 +10,30 @@
 			> #me-content-header {
 				background-image: -webkit-linear-gradient(220deg, #ecc591, #b87a40);
 				width: 100%;
-				height: 5em;
+				height: @size-square-image-is-normal;
 				color: white;
+				padding: 1em;
 
 				> #me-content-header-image {
 
-					margin: 1em;
-
-          .square-image {
-
-          }
+					float: left;
 
 				}
 
 				> #me-content-header-text {
-					text-shadow: 2px 2px 2px #666;
-					vertical-align: top;
-					margin-top: 1.3em;
+				
+					margin-left: @size-square-image-is-normal+10;
 
 					> #me-content-header-text-name {
-						font-size: @font-big-small;
+						
+					}
+					
+					> #me-content-header-text-name.is-user-city {
+						
 					}
 
 					> #me-content-header-text-city {
-						font-size: @font-normal;
-
+						
 					}
 
 				}

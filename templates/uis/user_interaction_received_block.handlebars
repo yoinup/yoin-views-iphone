@@ -1,42 +1,37 @@
 
 {{#with view}}
 
-	<div class="user-interaction-received-block-content">
+	<div id="user-interaction-received-block-content">
 		
-		<div class="user-interaction-received-block-content-image inline">
+		<div id="user-interaction-received-block-content-image">
 		
 			{{view Yn.SquareImageView class="is-small" contentBinding="content.toUser" }}
 
 		</div>
 
-		<div class="user-interaction-received-block-content-name inline">
+		<div id="user-interaction-received-block-content-name">
 
-			{{content.toUser.name}} recibió
+			<span class="text is-big is-black">{{content.toUser.name}}</span> recibió
 
-			<div class="user-interaction-received-block-content-product">
+			<div id="user-interaction-received-block-content-product">
 
-				<div class="icon is-icon-x-small inline" icon="v">
-
-				</div>
-
-				<div class="product-name inline">
-
-					{{content.product.name}}
-
-				</div>
+				<span class="icon is-icon-x-small" icon="v"></span>
+				{{content.product.name}}
 
 			</div>
 
 		</div>
 		
-		<div class="space is-small"></div>
+		<div id="user-interaction-received-block-icon">Icon!</div>
 		
-		<div>
+	</div>
+	
+	<div class="space is-small"></div>
 		
-			{{view Yvi.UserShortBlockView contentBinding="content.fromUser" imagetype="is-x-small" }}
+	<div id="user-block-inviting">
 		
-		</div>
-
+		{{view Yvi.UserShortBlockView contentBinding="content.fromUser" imagetype="is-x-small" }}
+		
 	</div>
 
 {{/with}}

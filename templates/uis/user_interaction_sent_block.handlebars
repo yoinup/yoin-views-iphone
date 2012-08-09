@@ -1,42 +1,37 @@
 
 {{#with view}}
 
-	<div class="user-interaction-sent-block-content">
+	<div id="user-interaction-sent-block-content">
 		
-		<div class="user-interaction-sent-block-content-image inline">
+		<div id="user-interaction-sent-block-content-image">
 		
 			{{view Yn.SquareImageView class="is-small" contentBinding="content.fromUser" }}
 
 		</div>
 
-		<div class="user-interaction-sent-block-content-name inline">
+		<div id="user-interaction-sent-block-content-name">
 
-			{{content.fromUser.name}} invitó a
+			<span class="text is-big is-black">{{content.fromUser.name}}</span> ha incitado a
 
-			<div class="user-interaction-sent-block-content-product">
+			<div id="user-interaction-sent-block-content-product">
 
-				<div class="icon is-icon-x-small inline" icon="v">
-
-				</div>
-
-				<div class="product-name inline">
-
-					{{content.product.name}}
-
-				</div>
+				<span class="icon is-icon-x-small" icon="v"></span>
+				{{content.product.name}}
 
 			</div>
 
 		</div>
 		
-		<div class="space is-small"></div>
+		<div id="user-interaction-sent-block-icon">Icon!</div>
 		
-		<div>
+	</div>
 		
-			{{view Yvi.UserShortBlockView contentBinding="content.toUser" imagetype="is-x-small" }}
+	<div class="space is-small"></div>
 		
-		</div>
-
+	<div id="user-block-invited">
+		
+		{{view Yvi.UserShortBlockView contentBinding="content.toUser" imagetype="is-x-small" }}
+		
 	</div>
 
 {{/with}}
