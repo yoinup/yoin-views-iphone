@@ -1,0 +1,132 @@
+@import 'aligns';
+
+
+
+@venue-products-height: 130px;
+@section-height: 60px;
+@middle-indent: 6px;
+
+#venue_screen {
+
+  > .screen-container {
+
+    > .venue-products {
+
+      height: @venue-products-height;
+      width: 100%;
+      background-color: red;
+      overflow: hidden;
+
+      > .venue-products-swipe {
+
+        position:relative;
+        height: 100%;
+        overflow: visible;
+
+        -webkit-transition: -webkit-transform 200ms ease-in-out;
+
+
+        > .venue-product {
+
+          position: absolute;
+          width: 100%;
+          height: 100%;
+
+          -webkit-transform: translateZ(0);
+
+          background-color: blue;
+
+        }
+
+
+        > .venue-product.is-loading {
+
+          background-color: green;
+
+        }
+
+
+      }
+
+
+      > .carousel-circles {
+
+        position: relative;
+        top: -1em;
+        left: 1em;
+
+        > .carousel-circle {
+
+        }
+
+      }
+
+    }
+
+
+
+    > #venue-middle-section {
+
+      height: @section-height;
+      width: 100%;
+      background-color: yellow;
+
+      > #venue-likes {
+
+        line-height: @section-height;
+        height: 100%;
+        width: 40%;
+
+        float: left;
+        text-indent: @middle-indent;
+
+        background-color: orange;
+
+        > .icon {
+
+          position: relative;
+          top: 2px;
+
+        }
+
+      }
+
+      > #venue-comments {
+
+        line-height: @section-height;
+        height: 100%;
+        width: 40%;
+
+        float: right;
+        padding-right: @middle-indent;
+        text-align: right;
+
+        background-color: white;
+
+        > .icon {
+
+          position: relative;
+          top: 2px;
+
+        }
+
+      }
+
+
+      > .invite-button {
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: 29px;
+        margin-left: -44px;
+
+      }
+
+
+
+    }
+
+  }
+
+}
