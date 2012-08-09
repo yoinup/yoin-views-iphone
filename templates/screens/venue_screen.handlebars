@@ -1,5 +1,3 @@
-{{#with view}}
-
 {{#view Yn.HeaderView }}
 
 	{{view Yn.BackButtonView }}
@@ -18,5 +16,37 @@
 
 {{/view }}
 
-{{/with}}
+<div class="screen-container">
 
+  <div class="venue-products">
+
+    {{view Yvi.VenueProductSwipeView 
+      contentBinding="venue.products"
+      selectedBinding="selected"}}
+
+    {{view Yn.CarouselCirclesView
+      contentBinding="venue.products"
+      selectedBinding="selected"}}
+
+  </div>
+
+  <div id="venue-middle-section">
+
+    <div id="venue-likes">
+
+      <span class="icon" icon="m"></span>Me gusta
+
+    </div>
+
+    {{view Yvi.InviteButtonView
+      contentBinding="selected"}}
+
+    <div id="venue-comments">
+
+      <span class="icon" icon="u"></span>5 reviews
+
+    </div>
+
+  </div>
+
+</div>
