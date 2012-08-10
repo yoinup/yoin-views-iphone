@@ -30,23 +30,33 @@
 
   </div>
 
+
+  
   <div id="venue-middle-section">
 
-    <div id="venue-likes">
+    {{#view Yn.BtapView id="venue-likes" 
+        classNameBindings="isVoted"
+        action="fireLike"
+        isVotedBinding="selected.hasVoted"}}
 
       <span class="icon" icon="m"></span> {{I18n i_like}} 
 
-    </div>
+
+    {{/view}}
 
     {{view Yvi.InviteButtonView
       contentBinding="selected"}}
 
     <div id="venue-comments">
 
-      <span class="icon" icon="u"></span> {{selected.commentCount}} {{I18n comment}}
+      <span class="icon" icon="u"></span> {{selected.commentCount}} 
+      {{I18n comment pluralizeBinding="selected.commentCount" }}
+
 
     </div>
 
   </div>
+
+
 
 </div>
