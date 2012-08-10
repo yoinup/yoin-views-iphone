@@ -20,43 +20,95 @@
 
   <div class="venue-products">
 
-    {{view Yvi.VenueProductSwipeView 
-      contentBinding="venue.products"
-      selectedBinding="selected"}}
+      {{view Yvi.VenueProductSwipeView 
+        contentBinding="products"
+        selectedBinding="selected"}}
 
-    {{view Yn.CarouselCirclesView
-      contentBinding="venue.products"
-      selectedBinding="selected"}}
+      {{view Yn.CarouselCirclesView
+        contentBinding="products"
+        selectedBinding="selected"}}
+
+      {{view Yn.MapButtonView}}
 
   </div>
-
 
   
   <div id="venue-middle-section">
 
-    {{#view Yn.BtapView id="venue-likes" 
-        classNameBindings="isVoted"
-        action="fireLike"
-        isVotedBinding="selected.hasVoted"}}
+      {{#view Yn.BtapView id="venue-likes" 
+          classNameBindings="isVoted"
+          action="fireLike"
+          isVotedBinding="selected.hasVoted"}}
 
-      <span class="icon" icon="m"></span> {{I18n i_like}} 
+        <span class="icon" icon="m"></span> {{I18n i_like}} 
 
+      {{/view}}
 
-    {{/view}}
+      {{view Yvi.InviteButtonView class="is-small"
+        contentBinding="selected"}}
 
-    {{view Yvi.InviteButtonView
-      contentBinding="selected"}}
+      <div id="venue-comments">
 
-    <div id="venue-comments">
+        <span class="icon" icon="u"></span> {{selected.commentCount}} 
+        {{I18n comment pluralizeBinding="selected.commentCount" }}
 
-      <span class="icon" icon="u"></span> {{selected.commentCount}} 
-      {{I18n comment pluralizeBinding="selected.commentCount" }}
+      </div>
 
+  </div>
 
-    </div>
+  {{#if people }}
+
+      <div id="venue-people">
+
+        <div id="vp-title">
+          {{I18n venue_people_title}}
+        </div>
+
+        <div id="vp-list">
+          {{#each people}}
+            {{name}}
+          {{/each}}
+        </div>
+
+      </div>
+
+  {{/if}}
+
+  <div id="venue-product-description">
+
+        <div id="vpd-title">
+          {{I18n description}}
+        </div>
+
+        <div id="vpd-info">
+          {{selected.description}}
+        </div>
 
   </div>
 
 
+  {{#if products.length }}
+
+      <div id="venue-products">
+
+        <div id="vpr-title">
+          {{I18n venue_products_title}}
+        </div>
+
+        <div id="vpr-list">
+          {{#each products}}
+            <div class="vpr-name">
+              {{name}}
+            </div>
+
+            <div class="price-label"> 
+              {{price}} {{I18n currency_symbol}}
+            </div>
+          {{/each}}
+        </div>
+
+      </div>
+
+  {{/if}}
 
 </div>

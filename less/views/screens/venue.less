@@ -1,10 +1,14 @@
 @import 'aligns';
+@import 'sizes';
 
 
 
 @venue-products-height: 130px;
-@section-height: 60px;
+
+@middle-section-height: 60px;
 @middle-indent: 6px;
+
+
 
 #venue_screen {
 
@@ -48,6 +52,15 @@
 
       }
 
+      > .map-button {
+
+        position: relative;
+        top: (@map-button-size + @middle-indent*2)*-1;
+        float: right;
+        right: @middle-indent;
+
+      }
+
 
       > .carousel-circles {
 
@@ -67,13 +80,13 @@
 
     > #venue-middle-section {
 
-      height: @section-height;
+      height: @middle-section-height;
       width: 100%;
       background-color: yellow;
 
       > #venue-likes {
 
-        line-height: @section-height;
+        line-height: @middle-section-height;
         height: 100%;
         width: 40%;
 
@@ -106,7 +119,7 @@
 
       > #venue-comments {
 
-        line-height: @section-height;
+        line-height: @middle-section-height;
         height: 100%;
         width: 40%;
 
@@ -126,17 +139,56 @@
       }
 
 
-      > .invite-button {
+      > .invite-button.is-small {
 
         position: absolute;
-        top: 50%;
         left: 50%;
-        margin-top: 29px;
-        margin-left: -44px;
+        margin-left: @invite-button-small-width*(-0.5);
+        margin-top: (@middle-section-height - @invite-button-small-height)/2;
 
       }
 
 
+
+    }
+
+  }
+
+  > #venue-people {
+
+    > #vp-title {
+
+    }
+
+    > #vp-list {
+
+    }
+
+  }
+
+  > #venue-product-description {
+
+    > #vpd-title {
+
+    }
+
+    > #vpd-info {
+
+    }
+
+  }
+
+  > #venue-products {
+
+    > #vpr-title {
+
+    }
+
+    > #vpr-list {
+
+      > .vpr-name {
+
+      }
 
     }
 
