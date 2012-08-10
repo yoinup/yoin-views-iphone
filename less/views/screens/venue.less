@@ -1,4 +1,5 @@
 @import 'aligns';
+@import 'sizes';
 
 
 
@@ -7,8 +8,7 @@
 @middle-section-height: 60px;
 @middle-indent: 6px;
 
-@invite-button-small-width: 100px;
-@invite-button-small-height: 70px;
+
 
 #venue_screen {
 
@@ -49,6 +49,15 @@
 
         }
 
+
+      }
+
+      > .map-button {
+
+        position: relative;
+        top: (@map-button-size + @middle-indent*2)*-1;
+        float: right;
+        right: @middle-indent;
 
       }
 
