@@ -41,6 +41,7 @@
 
       <span class="icon" icon="m"></span> {{I18n i_like}} 
 
+
     {{/view}}
 
     {{view Yvi.InviteButtonView
@@ -48,7 +49,9 @@
 
     <div id="venue-comments">
 
-      <span class="icon" icon="u"></span> {{selected.commentCount}} {{I18n comment}}
+      <span class="icon" icon="u"></span> {{selected.commentCount}} 
+      {{I18n comment pluralizeBinding="selected.commentCount" }}
+
 
     </div>
 
