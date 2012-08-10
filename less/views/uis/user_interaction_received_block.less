@@ -5,19 +5,21 @@
 
 	> #user-interaction-received-block-content {
 	
-		height: @size-square-image-is-small;
+		display: table;
+		width: 100%;
 		padding: 0.2em;
 		
 		> #user-interaction-received-block-content-image {
 		
-			float: left;
+			display: table-cell;
+			vertical-align: middle;
 		
 		}
 
 		> #user-interaction-received-block-content-name {
 
-			text-indent: 0.5em;
-			float: left;
+			display: table-cell;
+			vertical-align: middle;
 
 			> #user-interaction-received-block-content-product {
 				
@@ -27,8 +29,9 @@
 		
 		> #user-interaction-received-block-icon {
 		
-			float: right;
-			line-height: @size-square-image-is-small;
+			display: table-cell;
+			vertical-align: middle;
+			text-align: right;
 		
 		}
 
@@ -36,7 +39,7 @@
 	
 	> #user-block-inviting {
 	
-		margin-left: 1.5em;
+		margin-left: 1.2em;
 	
 	}
 

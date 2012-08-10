@@ -1,32 +1,29 @@
 
 {{#with view}}
 
-	<div class="user-short-block-content">
+	<div id="user-short-block-content">
 		
-		<div class="user-short-block-content-image inline">
+		<div id="user-short-block-content-image">
 
 			{{view Yn.SquareImageView class=imagetype contentBinding="content" }}
 
 
 		</div>
 
-		<div class="user-short-block-content-name inline">
+		<div id="user-short-block-content-name">
 
-			{{content.name}}
+			<span class="text is-big is-black">{{content.name}}</span>
 
 			{{#if user.city}}
 
-				<div class="user-short-block-content-city">
+				<div id="user-short-block-content-city">
 
-					<div class="icon is-icon-x-small inline" icon="i">
+					<span class="icon is-icon-x-small" icon="i">
 
-					</div>
+					</span>
 
-					<div class="city-name inline">
+					{{content.city.name}}
 
-						{{content.city.name}}
-
-					</div>
 
 				</div>
 

@@ -10,19 +10,23 @@
 			> #me-content-header {
 				background-image: -webkit-linear-gradient(220deg, #ecc591, #b87a40);
 				width: 100%;
-				height: @size-square-image-is-normal;
+				display: table;
 				color: white;
 				padding: 1em;
 
 				> #me-content-header-image {
 
-					float: left;
+					display: table-cell;
+					vertical-align: middle;
+					width: 20%;
 
 				}
 
 				> #me-content-header-text {
 				
-					margin-left: @size-square-image-is-normal+10;
+					display: table-cell;
+					vertical-align: middle;
+					width: 80%;
 
 					> #me-content-header-text-name {
 						
