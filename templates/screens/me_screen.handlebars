@@ -4,7 +4,7 @@
 {{#view Yn.HeaderView }}
 
 	{{view Yn.HeaderTitleView itemI18n="me_title" }} <!-- EL helper de I18n está hackeado ;) y permite esto -->
-	{{view Yn.HeaderButtonView class="l-right" icon="e" }}
+	{{view Yn.HeaderButtonView class="l-right" icon="t" }}
 
 {{/view }}
 
@@ -23,29 +23,25 @@
 				<div id="me-content-header-text">
 
 
-						<!-- doing this, you cannot duplicate this block of code (user with or without city) -->
-						{{#view id="me-content-header-text-name"
-						   class="text is-font-bold is-white"
-						   classNameBindings="isUserCity" 
-						   isUserCityBinding="isUserCity"}}
-						
+						<div id="me-content-header-text-name" class="text is-font-bold is-white">
+
 							{{user.name}}
 							
 							<div id="me-content-header-text-user-state" class="text is-small is-white is-font-italic">"Writing code..."</div>
 
-						{{/view}}
+							{{#if user.city}}
 
-						{{#if isUserCity}}
+								<div id="me-content-header-text-city text is-small is-white">
 
-							<div id="me-content-header-text-city text is-small is-white">
+									<span class="icon is-icon-small" icon="i"></span>
 
-								<span class="icon is-icon-small" icon="i"></span>
+									{{user.city.name}}
 
-								{{user.city.name}}
+								</div>
 
-							</div>
+							{{/if}}
 
-						{{/if}}
+						</div>
 
 				</div>
 
@@ -108,10 +104,12 @@
 						</div>
 						<div class="box-title box-title-bottom">
 							<div class="inline">
-								<div class="icon is-icon-small inline" icon="i">{{city.name}}</div>
+								<span class="icon is-icon-small" icon="i"></span>
+								{{city.name}}
 							</div>
-							<div class=""inline" style="float:right;">
-								<div class="icon is-icon-small inline" icon="w">22m</div>
+							<div class="f-right">
+								<span class="icon is-icon-small" icon="w"></span>
+								22m
 							</div>
 						</div>
 					</div>
@@ -133,10 +131,12 @@
 						</div>
 						<div class="box-title box-title-bottom">
 							<div class="inline">
-								<div class="icon is-icon-small inline" icon="i">{{city.name}}</div>
+								<span class="icon is-icon-small" icon="i"></span>
+								{{city.name}}
 							</div>
-							<div class=""inline" style="float:right;">
-								<div class="icon is-icon-small inline" icon="w">22m</div>
+							<div class="f-right">
+								<span class="icon is-icon-small" icon="w"></span>
+								22m
 							</div>
 						</div>
 					</div>

@@ -4,20 +4,24 @@
 #user-interaction-sent-block {
 
 	> #user-interaction-sent-block-content {
-	
-		height: @size-square-image-is-small;
+
+		display: table;
+		width: 100%;
 		padding: 0.2em;
 		
 		> #user-interaction-sent-block-content-image {
 		
-			float: left;
+			display: table-cell;
+			vertical-align: middle;
+			width: 15%;
 		
 		}
 
 		> #user-interaction-sent-block-content-name {
 
-			text-indent: 0.5em;
-			float: left;
+			display: table-cell;
+			vertical-align: middle;
+			width: 70%;
 
 			> #user-interaction-sent-block-content-product {
 
@@ -27,8 +31,10 @@
 		
 		> #user-interaction-sent-block-icon {
 		
-			float: right;
-			line-height: @size-square-image-is-small;
+			display: table-cell;
+			vertical-align: middle;
+			width: 15%;
+			text-align: right;
 		
 		}
 
@@ -36,7 +42,7 @@
 	
 	> #user-block-invited {
 	
-		margin-left: 1.5em;
+		margin-left: 1.2em;
 	
 	}
 
