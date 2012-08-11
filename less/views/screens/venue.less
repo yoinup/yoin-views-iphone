@@ -2,17 +2,39 @@
 @import 'sizes';
 
 
-
 @venue-products-height: 130px;
-
 @middle-section-height: 60px;
 @middle-indent: 6px;
 
+@venue-map-height: 200px;
 
+#venue_screen.is-map {
+
+  > #venue-map {
+
+  }
+
+  > .screen-container {
+    top: @venue-map-height;
+  }
+
+}
 
 #venue_screen {
 
+  > #venue-map {
+
+    position: absolute;
+    width: 100%;
+    height: @venue-map-height;
+    background-color: red;
+  }
+
   > .screen-container {
+
+    //position: relative;
+    //top: 0px;
+    -webkit-transition: top 200ms ease-in-out;
 
     > .venue-products {
 
