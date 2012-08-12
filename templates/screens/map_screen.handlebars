@@ -1,5 +1,13 @@
 {{#view Yn.HeaderView }}
 
-   Map
-  {{view Yn.HeaderButtonView class="l-right" action="closeMap"}}
+  <div class="header-title">{{I18n map_title}}</div>
+  {{view Yn.HeaderButtonView class="l-right" }}
+
 {{/view }}
+
+
+<div class="header-action">
+    {{view Yvi.MapInputView }}
+</div>
+
+{{view id="map-screen-container" class="screen-container"}}
