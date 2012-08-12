@@ -1,0 +1,33 @@
+{{#view Yn.HeaderView }}
+
+  {{view Yn.BackButtonView}}
+
+  <div class="header-title">{{I18n activity_title}}</div>
+
+{{/view }}
+
+<div class="screen-container">
+
+    {{#each activities}}
+
+        {{#if isLike}}
+             isLike
+            {{humanize dateBinding="like.createdAt" }}
+        {{/if}}
+
+        {{#if isComment}}
+              IsComment
+            {{humanize dateBinding="comment.createdAt" }}
+        {{/if}}
+
+        {{#if isInvitation}}
+              IsComment
+            {{humanize dateBinding="invitation.createdAt" }}
+        {{/if}}
+        <br/>
+        ----------------
+
+    {{/each}}
+
+
+</div>
