@@ -15,7 +15,9 @@
   }
 
   > .screen-container {
-    top: @venue-map-height;
+    //top: @venue-map-height; does not work on iOS simulator
+    -webkit-transform: translate3d(0, @venue-map-height,0);
+
   }
 
 }
@@ -32,12 +34,15 @@
 
   > .screen-container {
 
-    //position: relative;
-    //top: 0px;
-    -webkit-transition: top 200ms ease-in-out;
+    position: relative;
+    top: 0px;
+    -webkit-transition: -webkit-transform 200ms ease-in-out;
+    -webkit-transform: translate3d(0,0,0);
 
     > .venue-products {
 
+      position: relative;
+      top: 0px;
       height: @venue-products-height;
       width: 100%;
       background-color: red;
@@ -45,7 +50,7 @@
 
       > .venue-products-swipe {
 
-        position:relative;
+        position: relative;
         height: 100%;
         overflow: visible;
 

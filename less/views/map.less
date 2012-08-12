@@ -5,3 +5,78 @@
   height: 100%;
 
 }
+
+
+// Look at map.js parent properties
+@bubble-border: 8px;
+
+.map-bubble {
+
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(156,145,144,1)), color-stop(100%,rgba(102,95,94,0.15)));
+	background: -webkit-linear-gradient(top, rgba(156,145,144,1) 0%,rgba(102,95,94,0.15) 100%);
+	
+	border-top-left-radius: @bubble-border;
+	border-top-right-radius: @bubble-border; 
+
+
+  > .title, > .subtitle{
+
+    width: 100%;
+
+    text-align: center;
+    color: white;
+
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+  }
+
+
+}
+
+
+@bubble-height: 30px;
+
+.map-bubble {
+
+
+	height: @bubble-height;
+
+
+  > .title {
+
+    height: @bubble-height;
+    line-height: @bubble-height;
+
+  }
+
+
+}
+
+
+@bubble-subtitle-height: 50px;
+
+
+.map-bubble.is-subtitle {
+
+	height: @bubble-subtitle-height;
+
+
+  > .title , > .subtitle{
+
+    height: @bubble-subtitle-height/2;
+    line-height: @bubble-subtitle-height/2;
+
+  }
+
+  > .title {
+
+  }
+
+  > .subtitle {
+
+
+  }
+
+}
