@@ -1,0 +1,36 @@
+{{#view Yn.HeaderView }}
+
+  {{view Yn.BackButtonView}}
+
+  <div class="header-title is-subtitle">{{I18n comments_title}}</div>
+  <div class="header-subtitle">{{product.name}}</div>
+
+{{/view }}
+
+<div class="screen-container">
+
+  <div id="input-comments-section">
+      {{view Yvi.CommentInputView }}
+  </div>
+
+  <div id="activities-comments-section">
+
+      {{#each activities}}
+
+          {{#if isLike}}
+               isLike
+              {{humanize dateBinding="like.createdAt" }}
+          {{/if}}
+
+          {{#if isComment}}
+                IsComment
+              {{humanize dateBinding="comment.createdAt" }}
+          {{/if}}
+          <br/>
+          ----------------
+
+      {{/each}}
+
+  </div>
+
+</div>
