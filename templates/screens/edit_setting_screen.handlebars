@@ -1,0 +1,36 @@
+{{#view Yn.HeaderView }}
+
+  {{view Yn.BackButtonView  }}
+  <div class="header-title">{{I18n setting}}</div>
+
+{{/view }}
+
+<div class="screen-container">
+
+  <div id="es-user-name">
+    {{user.name}}
+  </div>
+
+  <div id="es-cities">
+    <div id="es-cities-title">
+      {{I18n choose_a_city}}
+    </div>
+
+    <div id="es-cities-content">
+
+      {{#each cities}}
+
+        {{name}}
+
+        {{view Yn.ToggleCircleButtonView 
+          action="selectCity" 
+          selectedBinding="view.user.city"
+          contentBinding="this"}}
+
+
+      {{/each}}
+    </div>
+
+  </div>
+
+</div>
