@@ -1,0 +1,40 @@
+{{#view Yn.HeaderView }}
+
+  {{view Yn.BackButtonView  }}
+  <div class="header-title is-subtitle">{{I18n status}}</div>
+  <div class="header-subtitle">{{user.status}}</div>
+
+{{/view }}
+
+<div class="header-action">
+
+  {{view Yvi.UserStatusInputView}}
+
+</div>
+
+<div class="screen-container">
+
+  <div id="status-box">
+
+    <div id="status-box-title">
+      {{I18n choose_one_by_default_message }}
+    </div>
+
+    <div id="status-box-list">
+
+      {{#each options}}
+
+          {{I18n key=name}}
+
+          {{view Yn.ToggleCircleButtonView 
+            action="selectStatus" 
+            selectedBinding="view.user.status"
+            contentI18n=name}}
+
+      {{/each}}
+
+    </div>
+
+  </div>
+
+</div>
