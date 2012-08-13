@@ -61,13 +61,15 @@
 
   {{#if people }}
 
-      <div id="venue-people">
+			<div class="space is-small"></div>
 
-        <div id="vp-title">
+      <div id="venue-people" class="box">
+
+        <div id="vp-title" class="box-title box-title-top">
           {{I18n venue_people_title}}
         </div>
 
-        <div id="vp-list">
+        <div id="vp-list" class="box-content box-content-with-title-top">
           {{#each people}}
             {{name}}
           {{/each}}
@@ -77,13 +79,15 @@
 
   {{/if}}
 
-  <div id="venue-product-description">
+	<div class="space is-small"></div>
 
-        <div id="vpd-title">
+  <div id="venue-product-description" class="box">
+
+        <div id="vpd-title" class="box-title box-title-top">
           {{I18n description}}
         </div>
 
-        <div id="vpd-info">
+        <div id="vpd-info" class="box-content box-content-with-title-top is-text">
           {{selected.description}}
         </div>
 
@@ -92,13 +96,15 @@
 
   {{#if products.length }}
 
-      <div id="venue-products">
+			<div class="space is-small"></div>
 
-        <div id="vpr-title">
+      <div id="venue-products" class="box">
+
+        <div id="vpr-title" class="box-title box-title-top">
           {{I18n venue_products_title}}
         </div>
 
-        <div id="vpr-list">
+        <div id="vpr-list" class="box-content box-content-with-title-top">
           {{#each products}}
             <div class="vpr-name">
               {{name}}
