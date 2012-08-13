@@ -106,13 +106,16 @@
 
         <div id="vpr-list" class="box-content box-content-with-title-top">
           {{#each products}}
-            <div class="vpr-name">
+					<div class="two-column-table">
+            <div class="vpr-name text is-big is-black left-column">
               {{name}}
             </div>
 
-            <div class="price-label"> 
+            <div class="price-label right-column"> 
               {{price}} {{I18n currency_symbol}}
             </div>
+					</div>
+					<div class="space is-small"></div>
           {{/each}}
         </div>
 
