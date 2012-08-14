@@ -1,0 +1,50 @@
+
+#touch-test {
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+}
+
+#hold {
+  position: relative;
+  width: 100%;
+
+  background-color: yellow;
+
+}
+#hold.is-on {
+
+  background-color: purple;
+
+}
+
+#hold-scroller {
+  overflow-y: auto !important; 
+  -webkit-overflow-scrolling: touch;
+}
+
+
+#hold-scroller-container {
+  width: 100%;
+  height: 80px;
+
+}
+
+#hold-scroller-container > div {
+
+  width: 100%;
+  height: 20px;
+
+}
+
+#hold-scroller-container > div:nth-child(even) {
+
+  background-color: red;
+
+}
