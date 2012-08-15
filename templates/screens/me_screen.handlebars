@@ -4,7 +4,8 @@
 {{#view Yn.HeaderView }}
 
 	{{view Yn.HeaderTitleView itemI18n="me_title" }} <!-- EL helper de I18n está hackeado ;) y permite esto -->
-	{{view Yn.HeaderButtonView class="l-right" icon="t" }}
+	
+	{{view Yn.IconBtapView class="l-right header-button rectangle-button is-small is-orange icon is-icon-small" icon="t" }}
 
 {{/view }}
 
@@ -92,6 +93,24 @@
 							
 						</div>
 					</div>
+					
+					<div class="space is-small"></div>
+					
+					<div class="rectangle-button is-social is-facebook">
+
+		            <div class="left-social-button is-facebook"></div>
+		            <div class="right-social-button buttom-text is-small is-font-white">Facebook </div>
+
+		      </div>
+		
+					<div class="space is-small"></div>
+
+		      <div class="rectangle-button is-social is-twitter">
+
+		            <div class="left-social-button is-twitter"></div>
+		            <div class="right-social-button buttom-text is-small is-font-white">Twitter</div>
+
+		      </div>
 
 				{{/view}}
 
