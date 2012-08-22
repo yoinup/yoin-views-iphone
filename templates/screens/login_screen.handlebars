@@ -1,18 +1,22 @@
+<div class="space by-eight"></div>
 
-<div class="">{{I18n email}}</div>
-<div class="">{{I18n password}}</div>
+<div class="big-input-content">
 
+	<input id="email" class="big-input up" type="email" placeholder={{I18n email}} />
+	<input id="password" class="big-input down" type="password" placeholder={{I18n password}} />
 
-{{#view Yn.BtapView action="goToLogged"}}
-  {{I18n enter}}
-{{/view }}
+</div>
 
-<div class="">{{I18n login_twitter}}</div>
-<div class="">{{I18n login_facebook}}</div>
+<div id="buttons" class="center">
 
+	{{view Yn.SingleBigButtonView class="enter-button is-grey button-text is-big is-font-black" contentI18n="enter" action="goToLogged" }}
+		
+	{{view Yn.SocialBigButtonView class="facebook" contentI18n="login_facebook" action="" }}
 
-{{#view Yn.BtapView action="showRegister"}}
-  {{I18n register}}
-{{/view }}
+	{{view Yn.SocialBigButtonView class="twitter" contentI18n="login_twitter" action="" }}
 
-<div class="">{{I18n about_us}}</div>
+	{{view Yn.AdaptativeButtonView class="register-button is-orange button-text is-small is-font-white" contentI18n="register" action="showRegister" }}
+
+	<div class="about-us text is-font-orange">{{I18n about_us}}</div>
+	
+</div>
