@@ -3,8 +3,16 @@
 <div class="">{{I18n password}}</div>
 
 
-<div class="">{{I18n enter}}</div>
+{{#view Yn.BtapView action="goToLogged"}}
+  {{I18n enter}}
+{{/view }}
+
 <div class="">{{I18n login_twitter}}</div>
 <div class="">{{I18n login_facebook}}</div>
-<div class="">{{I18n register}}</div>
+
+
+{{#view Yn.BtapView action="showRegister"}}
+  {{I18n register}}
+{{/view }}
+
 <div class="">{{I18n about_us}}</div>
