@@ -9,13 +9,21 @@
 
 <div id="buttons" class="center">
 
-	{{view Yn.SingleBigButtonView class="enter-button is-grey button-text is-big is-font-black" contentI18n="enter" action="goToLogged" }}
+  {{view Yn.SingleBigButtonView class="enter-button is-grey button-text is-big is-font-black" 
+    contentI18n="enter" 
+    action="goToLogged" }}
 		
-	{{view Yn.SocialBigButtonView class="facebook" contentI18n="login_facebook" action="" }}
+  {{view Yn.SocialBigButtonView class="facebook" 
+    contentI18n="login_facebook" 
+    action="loginWithFb" }}
 
-	{{view Yn.SocialBigButtonView class="twitter" contentI18n="login_twitter" action="" }}
+  {{view Yn.SocialBigButtonView class="twitter" 
+    contentI18n="login_twitter" 
+    action="loginWithTwitter" }}
 
-	{{view Yn.AdaptativeButtonView class="register-button is-orange button-text is-small is-font-white" contentI18n="register" action="showRegister" }}
+  {{view Yn.AdaptativeButtonView class="register-button is-orange button-text is-small is-font-white" 
+    contentI18n="register" 
+    action="showRegister" }}
 
 	<div class="about-us text is-font-orange">{{I18n about_us}}</div>
 	
