@@ -2,16 +2,35 @@
 
 <div class="big-input-content">
 
-	<input id="email" class="big-input up" type="email" placeholder={{I18n email}} />
-	<input id="password" class="big-input" type="password" placeholder={{I18n password}} />
-	<input id="phone" class="big-input" type="tel" placeholder={{I18n phone_register_placeholder}} />
-	<input id="username" class="big-input down" type="text" placeholder={{I18n user_register_placeholder}} />
+  {{view Yn.InputView id="register-email" class="big-input up" 
+    inputName="email"
+    type="email"
+    placeholderI18n="email" }} 
+
+  {{view Yn.InputView id="register-password" class="big-input" 
+    inputName="password"
+    type="pasword"
+    placeholderI18n="password" }} 
+
+  {{view Yn.InputView id="register-phone" class="big-input" 
+    inputName="phone"
+    type="tel"
+    placeholderI18n="phone_register_placeholder" }} 
+
+  {{view Yn.InputView id="register-name" class="big-input down" 
+    inputName="name"
+    type="text"
+    placeholderI18n="user_register_placeholder" }} 
 
 </div>
 
 <div id="buttons" class="center">
 
-	{{view Yn.SingleBigButtonView class="enter-button is-grey button-text is-big is-font-black" contentI18n="enter" action="goToLogged" }}
+  {{view Yn.SingleBigButtonView class="enter-button is-grey button-text is-big is-font-black" 
+    inputs="register-email register-password register-phone register-name"
+    mixins="Yn.FormActionContent"
+    contentI18n="enter" 
+    action="registerUser" }}
 	
 	<div class="register-with-social-networks text is-font-orange">
 	
@@ -19,13 +38,20 @@
 		
 		<div class="social-networks">
 		
-			{{view Yn.SocialSmallButtonView class="facebook inline" contentI18n="facebook"}}
-			{{view Yn.SocialSmallButtonView class="twitter inline" contentI18n="twitter"}}
+      {{view Yn.SocialSmallButtonView class="facebook inline" 
+        contentI18n="facebook"
+        action="registerWithFb" }}
+
+      {{view Yn.SocialSmallButtonView class="twitter inline" 
+        contentI18n="twitter"
+        action="registerWithTwitter" }}
 		
 		</div>
 	
 	</div>
 	
-	{{view Yn.AdaptativeButtonView class="login-button is-orange button-text is-small is-font-white" contentI18n="login" action="showLogin" }}
+  {{view Yn.AdaptativeButtonView class="login-button is-orange button-text is-small is-font-white" 
+    contentI18n="login" 
+    action="showLogin" }}
 	
 </div>
