@@ -1,20 +1,31 @@
+<div class="space by-eight"></div>
 
-<div class="">{{I18n email}}</div>
-<div class="">{{I18n password}}</div>
+<div class="big-input-content">
 
-<div class="">{{I18n phone_register_placeholder}}</div>
-<div class="">{{I18n user_register_placeholder}}</div>
+	<input id="email" class="big-input up" type="email" placeholder={{I18n email}} />
+	<input id="password" class="big-input" type="password" placeholder={{I18n password}} />
+	<input id="phone" class="big-input" type="tel" placeholder={{I18n phone_register_placeholder}} />
+	<input id="username" class="big-input down" type="text" placeholder={{I18n user_register_placeholder}} />
 
+</div>
 
-{{#view Yn.BtapView action="goToLogged"}}
-  {{I18n enter}}
-{{/view }}
+<div id="buttons" class="center">
 
-<div class="">{{I18n facebook}}</div>
-<div class="">{{I18n twitter}}</div>
-
-<div class="">{{I18n register_with_social_networks}}</div>
-
-{{#view Yn.BtapView action="showLogin"}}
-  {{I18n login}}
-{{/view }}
+	{{view Yn.SingleBigButtonView class="enter-button is-grey button-text is-big is-font-black" contentI18n="enter" action="goToLogged" }}
+	
+	<div class="register-with-social-networks text is-font-orange">
+	
+		{{I18n register_with_social_networks}}
+		
+		<div class="social-networks">
+		
+			{{view Yn.SocialSmallButtonView class="facebook inline" contentI18n="facebook"}}
+			{{view Yn.SocialSmallButtonView class="twitter inline" contentI18n="twitter"}}
+		
+		</div>
+	
+	</div>
+	
+	{{view Yn.AdaptativeButtonView class="login-button is-orange button-text is-small is-font-white" contentI18n="login" action="showLogin" }}
+	
+</div>

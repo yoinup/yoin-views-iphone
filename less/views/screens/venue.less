@@ -1,6 +1,9 @@
 @import 'aligns';
 @import 'sizes';
 @import 'colors';
+@import 'animations';
+@import 'appanimations';
+
 
 
 @venue-products-height: 130px;
@@ -37,7 +40,7 @@
 
     position: relative;
     top: 0px;
-    -webkit-transition: -webkit-transform 200ms ease-in-out;
+    -webkit-transition: -webkit-transform @modal-duration/2 @ease-animation-style;
     -webkit-transform: translate3d(0,0,0);
 
     > .venue-products {
