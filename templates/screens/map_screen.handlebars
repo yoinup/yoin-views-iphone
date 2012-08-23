@@ -1,12 +1,27 @@
 {{#view Yn.HeaderView }}
 
   <div class="header-title">{{I18n map_title}}</div>
-  {{view Yn.HeaderButtonView class="l-right" }}
+  
+	{{view Yn.IconBtapView class="l-right header-button rectangle-button is-small is-orange icon is-icon-small" icon="j" }}
 
 {{/view }}
 
 <div class="header-action">
-    {{view Yvi.MapInputView }}
+
+	<div class="left">
+	
+		{{view Yvi.MapInputView placeholder="_" }}
+		
+	</div>
+	
+	<div class="middle"></div>
+	
+	<div class="right">
+	
+		{{view Yn.IconBtapView class="rectangle-button is-small is-grey icon is-icon-small is-font-black" icon="o" action="" }}
+		
+	</div>
+	
 </div>
 
 {{view Em.ContainerView id="map-screen-container" class="screen-container is-header-action"}}
