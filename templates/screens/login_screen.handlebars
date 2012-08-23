@@ -2,16 +2,25 @@
 
 <div class="big-input-content">
 
-	<input id="email" class="big-input up" type="email" placeholder={{I18n email}} />
-	<input id="password" class="big-input down" type="password" placeholder={{I18n password}} />
+  {{view Yn.InputView id="login-email" class="big-input up" 
+    inputName="email"
+    type="email"
+    placeholderI18n="email" }} 
+
+  {{view Yn.InputView id="login-password" class="big-input down" 
+    inputName="password"
+    type="password"
+    placeholderI18n="password" }} 
 
 </div>
 
 <div id="buttons" class="center">
 
   {{view Yn.SingleBigButtonView class="enter-button is-grey button-text is-big is-font-black" 
+    inputs="login-email login-password"
+    mixins="Yn.FormActionContent"
     contentI18n="enter" 
-    action="goToLogged" }}
+    action="loginWithEmail" }}
 		
   {{view Yn.SocialBigButtonView class="facebook" 
     contentI18n="login_facebook" 
