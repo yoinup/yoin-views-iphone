@@ -1,5 +1,6 @@
 @import 'colors';
 @import 'sizes';
+@import 'textstyles';
 
 #me_screen {
 
@@ -59,13 +60,12 @@
 					text-align: center;
 
 					> .number {
-						font-weight: bold;
-						color: @grey_dark;
-						font-size: @font-big-small;
+						.text-is-big-style;
+						.text-is-font-black-style;
 					}
 					> .desc {
-						color: @grey04;
-						font-size: @font-normal;
+						.text-style;
+						.text-is-font-grey-style;
 					}
 				}
 

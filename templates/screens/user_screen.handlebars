@@ -1,42 +1,41 @@
 {{#with view}} <!-- Get view context -->
 
-
 {{#view Yn.HeaderView }}
 
-	{{view Yn.HeaderTitleView itemI18n="me_title" }} <!-- EL helper de I18n está hackeado ;) y permite esto -->
-	
-	{{view Yn.IconBtapView class="l-right header-button rectangle-button is-small is-orange icon is-icon-small" icon="t" }}
+	{{view Yn.BackButtonView }}
+
+	{{view Yn.HeaderTitleView itemI18n="user_title" }}
 
 {{/view }}
 
-<div id="me-screen-container" class="screen-container">
+<div id="user-screen-container" class="screen-container">
 
-	<div id="me-screen-content">
+	<div id="user-screen-content">
 
-		<div id="me-content-header">
+		<div id="user-content-header">
 
-				<div id="me-content-header-image">
+				<div id="user-content-header-image">
 
 					{{view Yn.SquareImageView class="is-normal" contentBinding="user" }}
 
 				</div>
 
-				<div id="me-content-header-text">
+				<div id="user-content-header-text">
 
 
-						<div id="me-content-header-text-name">
+						<div id="user-content-header-text-name">
 						
-							<div id="me-content-header-text-user-name" class="header-text">
+							<div id="user-content-header-text-user-name" class="header-text">
 								{{user.name}}
 							</div>
 							
-							<div id="me-content-header-text-user-state" class="state-text">
+							<div id="user-content-header-text-user-state" class="state-text">
 								{{user.status}}
 							</div>
 
 							{{#if user.city}}
 
-								<div id="me-content-header-text-city" class="text is-small is-white">
+								<div id="user-content-header-text-city" class="text is-small is-white">
 
 									<span class="icon is-icon-small" icon="i"></span>
 
@@ -52,9 +51,9 @@
 
 		</div>
 
-		<div id="me-tabs">
+		<div id="user-tabs">
 
-			{{#view Yvi.MeTabOptionView tab="friends" currentTabViewBinding="currentTabView" }}
+			{{#view Yvi.UserTabOptionView tab="friends" currentTabViewBinding="currentTabView" }}
 
 				<div class="number">92</div>
 
@@ -62,19 +61,19 @@
 
 			{{/view}}
 
-			{{#view Yvi.MeTabOptionView tab="unexchanged" currentTabViewBinding="currentTabView" }}
+			{{#view Yvi.UserTabOptionView tab="sent" currentTabViewBinding="currentTabView" }}
 
 				<div class="number">20</div>
 
-				<div class="desc">{{I18n user_unexchanged}}</div>
+				<div class="desc">{{I18n user_sent}}</div>
 
 			{{/view}}
 
-			{{#view Yvi.MeTabOptionView tab="sent" currentTabViewBinding="currentTabView" }}
+			{{#view Yvi.UserTabOptionView tab="received" currentTabViewBinding="currentTabView" }}
 
 				<div class="number">126</div>
 
-				<div class="desc">{{I18n user_sent}}</div>
+				<div class="desc">{{I18n user_received}}</div>
 
 			{{/view}}
 
@@ -84,11 +83,11 @@
 
 		{{#view Yvi.TabMainView currentTabViewBinding="currentTabView" }}
 
-				{{#view class="me-tab-pane" viewName="friends" }}
-				
-					<div class="space by-one"></div>
-
-					<!-- List of friends -->
+				{{#view class="user-tab-pane" viewName="friends" }}
+					
+					{{view Yn.MainButtonView id="user-invite" class="is-blue" contentI18n="invite" }}
+					
+					<div class="space by-two"></div>
 
 					<div class="box">
 						<div class="box-content">
@@ -100,15 +99,14 @@
 					
 				{{/view}}
 
-
-				{{#view class="me-tab-pane" viewName="unexchanged" }}
+				{{#view class="user-tab-pane" viewName="sent" }}
 				
 					<div class="space by-one"></div>
 
-					<!--{{#each unexchangedinvitations}}
+					{{#each sentinvitations}}
 					<div class="box">
 						<div class="box-content">
-							{{view Yvi.UserInteractionReceivedBlockView contentBinding="this" }}
+							{{view Yvi.UserInteractionSentBlockView contentBinding="this" }}
 						</div>
 						<div class="box-title box-title-bottom">
 							<div class="inline">
@@ -124,19 +122,18 @@
 					
 					<div class="space by-one"></div>
 					
-					{{/each}}-->
+					{{/each}}
 
 				{{/view}}
 
-
-				{{#view class="me-tab-pane" viewName="sent" }}
+				{{#view class="user-tab-pane" viewName="received" }}
 				
 					<div class="space by-one"></div>
 
-					{{#each sentinvitations}}
+					{{#each receivedinvitations}}
 					<div class="box">
 						<div class="box-content">
-							{{view Yvi.UserInteractionSentBlockView contentBinding="this" }}
+							{{view Yvi.UserInteractionReceivedBlockView contentBinding="this" }}
 						</div>
 						<div class="box-title box-title-bottom">
 							<div class="inline">
