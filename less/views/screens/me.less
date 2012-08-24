@@ -75,77 +75,92 @@
 
 
 			}
+			
+			> .tab-main {
+			
+				> .me-tab-pane.unexchanged {
 
-			> #me-scroll-wrapper {
-
-                > #me-scroller {
-
-                    > div > .box-title {
-
-                      height: 24px;
-
-                    }
-
-                    > #me-content-unexchangedinvitations {
-
-                        margin-top: 1.2em;
-
-
-                        > .box-content {
-
-						              > .unexchangedinvitation {
-
-						                  //padding-bottom: 0.5em;
-
-						                  > .unexchangedinvitation-product {
-
-						                      vertical-align: top;
-						                      font-weight: bold;
-						                      color: @grey_dark;
-
-						                      > .unexchangedinvitation-city {
-
-						                          color: @grey03;
-
-						                          > .icon {
-						                          
-						                          }
-
-						                          > .icon:before {
-						                              /*Adjust font-size*/
-						                              font-size: 100%;
-						                              /*Clean possible text-shadow in text*/
-						                              text-shadow: 0px 0px 0px;
-						                              color: @grey03;
-						                          }
-
-						                          > .city-name {
-						                              
-						                          }
-
-						                      }
-
-						                  }
-
-						                  > .unexchangedinvitation-price {
-						                      vertical-align: top;
-						                      margin-top: 1em;
-						                      float: right;
-						                      font-weight: bold;
-						                      color: @grey_low;
-						                      background-color: @blue_bg;
-						                      border-radius: 1em;
-						                      padding: 0.3em 1em 0.3em 1em;
-						                  }
-
-						              }
-
+					> .box {
+					
+						> .box-title {
+						
+							display: table;
+							position: relative;
+							width: 100%;
+							padding-top: 5px; //6px - 1px
+							padding-bottom: 6px;
+						
+							> .image {
+								
+								display: table-cell;
+								vertical-align: middle;
+								width: 10%;
+							
+							}
+							
+							> .name {
+							
+								display: table-cell;
+								vertical-align: middle;
+								width: 90%;
+								padding-left: 5px;
+								.text-style;
+								.text-is-font-grey-style;
+							
+							}
+						
 						}
-
+						
+						> .box-content {
+						
+							display: table;
+							position: relative;
+							width: 100%;
+							padding-top: 5px; //6px - 1px
+							padding-bottom: 6px;
+						
+							> .image {
+								
+								display: table-cell;
+								vertical-align: middle;
+								width: 20%;
+							
+							}
+							
+							> .product {
+							
+								display: table-cell;
+								vertical-align: middle;
+								width: 60%;
+								padding-left: 5px;
+								padding-right: 5px;
+								.text-is-big-style;
+								.text-is-font-black-style;
+								
+								.venue {
+								
+									.text-is-small-style;
+									.text-is-font-grey-style;
+									font-weight: normal;
+								
+								}
+							
+							}
+							
+							> .exchange-button {
+								
+								display: table-cell;
+								vertical-align: middle;
+								width: 20%;
+							
+							}
+						
+						}
+					
 					}
 
 				}
-
+			
 			}
 
 		}

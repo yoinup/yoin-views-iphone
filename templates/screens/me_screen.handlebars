@@ -101,30 +101,37 @@
 				{{/view}}
 
 
-				{{#view class="me-tab-pane" viewName="unexchanged" }}
+				{{#view class="me-tab-pane unexchanged" viewName="unexchanged" }}
 				
 					<div class="space by-one"></div>
 
-					<!--{{#each unexchangedinvitations}}
 					<div class="box">
-						<div class="box-content">
-							{{view Yvi.UserInteractionReceivedBlockView contentBinding="this" }}
-						</div>
-						<div class="box-title box-title-bottom">
-							<div class="inline">
-								<span class="icon is-icon-small" icon="i"></span>
-								{{city.name}}
+						<div class="box-title box-title-top">
+							<div class="image">
+								{{view Yn.SquareImageView class="is-x-small" contentBinding="" }}
 							</div>
-							<div class="f-right">
-								<span class="icon is-icon-small" icon="w"></span>
-								22m
+							<div class="name">
+								Linda te invitó
+							</div>
+						</div>
+						<div class="box-content">
+							<div class="image">
+								{{view Yn.SquareImageView class="is-normal" contentBinding="" }}
+							</div>
+							<div class="product">
+								Frapuccino de regalo
+								<div class="venue">
+									<span class="icon is-icon-small city" icon="i"></span>
+									Madrid
+								</div>
+							</div>
+							<div class="exchange-button">
+								{{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white" contentI18n="exchange" action="" }}
 							</div>
 						</div>
 					</div>
 					
 					<div class="space by-one"></div>
-					
-					{{/each}}-->
 
 				{{/view}}
 
