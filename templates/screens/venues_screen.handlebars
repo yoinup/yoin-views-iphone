@@ -4,10 +4,12 @@
 {{#view Yn.HeaderView }}
 
   {{view Yn.LogoSwitchButtonView class="l-left" 
+    isOnBinding="isCheckinOn"
     enabledEvent="checkin"
     disabledEvent="checkout" }}
   
-  {{view Yn.IconBtapView class="activity-button" action="goToActivity" }}
+  {{view Yn.IconBtapView class="activity-button" 
+    action="goToActivity" }}
 
   {{view Yn.IconBtapView class="l-right header-button rectangle-button is-small is-orange icon is-icon-small" icon="c" }}
 
