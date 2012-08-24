@@ -3,7 +3,9 @@
 
 {{#view Yn.HeaderView }}
 
-	{{view Yvi.VenuesGeoSwitchButton class="l-left" }}
+  {{view Yn.LogoSwitchButtonView class="l-left" 
+    enabledEvent="checkin"
+    disabledEvent="checkout" }}
   
   {{view Yn.IconBtapView class="activity-button" action="goToActivity" }}
 
