@@ -29,7 +29,7 @@
 
     {{view Yvi.IconTabOptionView class="venues-tab"
       icon="c" 
-      tab="favorite" 
+      tab="like" 
       currentTabViewBinding="currentTabView" }}
 
     {{view Yvi.IconTabOptionView class="venues-tab"
@@ -56,12 +56,12 @@
 
 		{{/view}}
 
-    {{#view id="vtp-favorite" class="venues-tab-pane" 
-      viewName="favorite" }}
+    {{#view id="vtp-like" class="venues-tab-pane" 
+      viewName="like" }}
 
       {{view Yvi.VenuesTabContentView
         showLikes=true
-        isRefreshedBinding="locationIsRefreshed"
+        isRefreshedBinding="likeIsRefreshed"
         contentBinding="likeContent" }}
 
 		{{/view}}
