@@ -7,222 +7,233 @@
 
 
 @venue-products-height: 130px;
-@middle-section-height: 60px;
+@middle-section-height: 45px;
 @middle-indent: 6px;
 
 @venue-map-height: 200px;
 
 #venue_screen.is-map {
 
-  > #venue-map {
+	> #venue-map {
 
-  }
+	}
 
-  > .screen-container {
-    //top: @venue-map-height; does not work on iOS simulator
-    -webkit-transform: translate3d(0, @venue-map-height,0);
+	> .screen-container {
+		//top: @venue-map-height; does not work on iOS simulator
+		-webkit-transform: translate3d(0, @venue-map-height,0);
 
-  }
+	}
 
 }
 
 #venue_screen {
 
-  > #venue-map {
+	> #venue-map {
 
-    position: absolute;
-    width: 100%;
-    height: @venue-map-height;
-    background-color: red;
-  }
+		position: absolute;
+		width: 100%;
+		height: @venue-map-height;
+		background-color: red;
+	}
 
-  > .screen-container {
+	> .screen-container {
 
-    position: relative;
-    top: 0px;
-    -webkit-transition: -webkit-transform @modal-duration/2 @ease-animation-style;
-    -webkit-transform: translate3d(0,0,0);
+		position: relative;
+		top: 0px;
+		-webkit-transition: -webkit-transform @modal-duration/2 @ease-animation-style;
+		-webkit-transform: translate3d(0,0,0);
 
-    > .venue-products {
+		> .venue-products {
 
-      position: relative;
-      top: 0px;
-      height: @venue-products-height;
-      width: 100%;
-      background-color: red;
-      overflow: hidden;
+			position: relative;
+			top: 0px;
+			height: @venue-products-height;
+			width: 100%;
+			background-color: red;
+			overflow: hidden;
 
-      > .venue-products-swipe {
+			> .venue-products-swipe {
 
-        position: relative;
-        height: 100%;
-        overflow: visible;
+				position: relative;
+				height: 100%;
+				overflow: visible;
 
-        -webkit-transition: -webkit-transform 200ms ease-in-out;
+				-webkit-transition: -webkit-transform 200ms ease-in-out;
 
 
-        > .venue-product {
+				> .venue-product {
 
-          position: absolute;
-          width: 100%;
-          height: 100%;
+					position: absolute;
+					width: 100%;
+					height: 100%;
 
-          -webkit-transform: translateZ(0);
+					-webkit-transform: translateZ(0);
 
-          background-color: blue;
+					background-color: blue;
 
-        }
+				}
 
 
-        > .venue-product.is-loading {
+				> .venue-product.is-loading {
 
-          background-color: green;
+					background-color: green;
 
-        }
+				}
 
 
-      }
+			}
 
-      > .map-button {
+			> .map-button {
 
-        position: relative;
-        top: (@map-button-size + @middle-indent*2)*-1;
-        float: right;
-        right: @middle-indent;
+				position: relative;
+				top: (@map-button-size + @middle-indent*2)*-1;
+				float: right;
+				right: @middle-indent;
 
-      }
+			}
 
 
-      > .carousel-circles {
+			> .carousel-circles {
 
-        position: relative;
-        top: -1em;
-        left: 1em;
+				position: relative;
+				top: -1em;
+				left: 1em;
 
-        > .carousel-circle {
+				> .carousel-circle {
 
-        }
+				}
 
-      }
+			}
 
-    }
+		}
 
 
 
-    > #venue-middle-section {
+		> #venue-middle-section {
 
-      height: @middle-section-height;
-      width: 100%;
-      background-color: yellow;
+			height: @middle-section-height;
+			width: 100%;
+			background-color: @grey04;
+			box-shadow: 0 @border-line-size @border-line-size 0 black;
+			-webkit-box-shadow: 0 @border-line-size @border-line-size*2 0 rgba(0, 0, 0, 0.7);
+			border-top: @border-line-size solid rgba(255, 255, 255, 0.7);
 
-      > #venue-likes {
+			> #venue-likes {
 
-        line-height: @middle-section-height;
-        height: 100%;
-        width: 40%;
+				line-height: @middle-section-height;
+				height: 100%;
+				width: 40%;
 
-        float: left;
-        text-indent: @middle-indent;
+				float: left;
+				text-indent: @middle-indent;
 
-        background-color: @grey03;
+				background-color: @grey03;
 
-        > .icon {
+				> .icon {
 
-          position: relative;
-          top: 2px;
+					position: relative;
+					top: 2px;
 
-        }
+				}
 
-      }
+			}
 
-      > #venue-likes.is-voted {
+			> #venue-likes.is-voted {
 
-        color: red;
+				color: red;
 
-        > .icon {
+				> .icon {
 
-          color: red;
+					color: red;
 
-        }
+				}
 
-      }
+			}
 
 
-      > #venue-comments {
+			> #venue-comments {
 
-        line-height: @middle-section-height;
-        height: 100%;
-        width: 40%;
+				line-height: @middle-section-height;
+				height: 100%;
+				width: 40%;
 
-        float: right;
-        padding-right: @middle-indent;
-        text-align: right;
+				float: right;
+				padding-right: @middle-indent;
+				text-align: right;
 
-        background-color: @grey03;
+				background-color: @grey03;
 
-        > .icon {
+				> .icon {
 
-          position: relative;
-          top: 2px;
+					position: relative;
+					top: 2px;
 
-        }
+				}
 
-      }
+			}
 
 
-      > .invite-button {
+			> .invite-button {
 
-        position: absolute;
-        left: 50%;
-        margin-left: @invite-button-width*(-0.5);
-        margin-top: (@middle-section-height - @invite-button-height)/2;
+				position: absolute;
+				left: 50%;
+				margin-left: @invite-button-width*(-0.5);
+				//margin-top: (@middle-section-height - @invite-button-height)/2;
+				margin-top: -6px;
 
-      }
+			}
 
 
 
-    }
+		}
 
-  }
 
-  > #venue-people {
+		> #venue-people {
 
-    > #vp-title {
+			> #vp-title {
 
-    }
+			}
 
-    > #vp-list {
+			> #vp-list {
 
-    }
+				> .vp-list-element {
 
-  }
+					padding-right: @box-content-padding-horizontal;
 
-  > #venue-product-description {
+				}
 
-    > #vpd-title {
+			}
 
-    }
+		}
 
-    > #vpd-info {
+		> #venue-product-description {
 
-    }
+			> #vpd-title {
 
-  }
+			}
 
-  > #venue-products {
+			> #vpd-info {
 
-    > #vpr-title {
+			}
 
-    }
+		}
 
-    > #vpr-list {
+		> #venue-products {
 
-      > .vpr-name {
-				
-      }
+			> #vpr-title {
 
-    }
+			}
 
-  }
+			> #vpr-list {
+
+				> .vpr-name {
+					
+				}
+
+			}
+
+		}
+
+	}
 
 }
