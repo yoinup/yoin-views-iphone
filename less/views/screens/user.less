@@ -3,6 +3,8 @@
 @import 'textstyles';
 @import 'action_bar';
 
+@tab-color: @grey06;
+
 #user_screen {
 
 	> #user-screen-container {
@@ -50,13 +52,14 @@
 				position: relative;
 				width: 100%;
 				height: @action-bar-height - 1;
-				.action-bar-style(@grey06);
+				.action-bar-style(@tab-color);
 
 				> .user-tab {
 					float: left;
         			height: 100%;
         			width: 100%/3;
 					text-align: center;
+					.action-bar-border-tab-style(@tab-color);
 
 					> .number {
 						.text-is-big-style;
@@ -68,8 +71,20 @@
 					}
 				}
 
+				> .user-tab.last {
+
+					-webkit-box-shadow: none;
+
+				}
+
 				> .user-tab.is-selected {
-					background-color: #AAA;
+					.action-bar-border-tab-selected-style(@tab-color);
+				}
+
+				> .user-tab.last.is-selected {
+
+					.action-bar-border-last-tab-selected-style(@tab-color);
+
 				}
 				
 			}

@@ -70,7 +70,7 @@
 
 			{{/view}}
 
-			{{#view Yvi.MeTabOptionView tab="sent" currentTabViewBinding="currentTabView" }}
+			{{#view Yvi.MeTabOptionView class="last" tab="sent" currentTabViewBinding="currentTabView" }}
 
 				<div class="number">126</div>
 
@@ -90,11 +90,27 @@
 
 					<!-- List of friends -->
 
-					<div class="box">
+					<!--<div class="box">
 						<div class="box-content">
 							
 								{{view Yvi.UserShortBlockView contentBinding="view.user" }}
 							
+						</div>
+					</div>-->
+
+					<div class="box">
+						<div class="box-content">
+							{{view Yvi.UserInteractionLikedBlockView contentBinding="this" }}
+						</div>
+						<div class="box-title box-title-bottom">
+							<div class="inline">
+								<span class="icon is-icon-small" icon="i"></span>
+								{{city.name}}
+							</div>
+							<div class="f-right">
+								<span class="icon is-icon-small" icon="w"></span>
+								22m
+							</div>
 						</div>
 					</div>
 					
