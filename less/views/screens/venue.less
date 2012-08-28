@@ -3,6 +3,7 @@
 @import 'colors';
 @import 'animations';
 @import 'appanimations';
+@import 'action_bar';
 
 
 
@@ -109,16 +110,15 @@
 		}
 
 
-
 		> #venue-middle-section {
 
 			height: @middle-section-height;
 			width: 100%;
-			background-color: @grey04;
-			box-shadow: 0 @border-line-size @border-line-size 0 black;
-			-webkit-box-shadow: 0 @border-line-size @border-line-size*2 0 rgba(0, 0, 0, 0.7);
-			border-top: @border-line-size solid rgba(255, 255, 255, 0.7);
 
+
+			.action-bar-style (@grey06);
+
+			
 			> #venue-likes {
 
 				line-height: @middle-section-height;
@@ -128,7 +128,7 @@
 				float: left;
 				text-indent: @middle-indent;
 
-				background-color: @grey03;
+				
 
 				> .icon {
 
@@ -162,7 +162,6 @@
 				padding-right: @middle-indent;
 				text-align: right;
 
-				background-color: @grey03;
 
 				> .icon {
 
