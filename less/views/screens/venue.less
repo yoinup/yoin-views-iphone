@@ -6,6 +6,7 @@
 
 
 
+
 @venue-products-height: 130px;
 @middle-section-height: 45px;
 @middle-indent: 6px;
@@ -114,6 +115,8 @@
 			height: @middle-section-height;
 			width: 100%;
 			background-color: @grey04;
+		
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@grey02), color-stop(50%,#@grey04), color-stop(100%,@grey05)); /* Chrome,Safari4+ */
 			box-shadow: 0 @border-line-size @border-line-size 0 black;
 			-webkit-box-shadow: 0 @border-line-size @border-line-size*2 0 rgba(0, 0, 0, 0.7);
 			border-top: @border-line-size solid rgba(255, 255, 255, 0.7);
