@@ -1,5 +1,8 @@
+@import 'colors';
 @import 'aligns';
+@import 'action_bar';
 
+@tab-color:@brown01;
 
 #venues_screen {
 
@@ -14,6 +17,7 @@
 
   }
 
+
   > .screen-container {
 
     > #venues-option-tabs {
@@ -21,7 +25,8 @@
       position: relative;
       width: 100%;
       height: 44px;
-      background-color: yellow;
+     
+      .action-bar-style (@tab-color);
 
       > .venues-tab {
 
@@ -30,26 +35,45 @@
         width: 33.333333333%;
         text-align: center;
 
+        .action-bar-border-tab-style (@tab-color);
+
+
+      }
+
+      > .venues-tab.last {
+
+         -webkit-box-shadow:none; 
+
       }
 
       > .venues-tab:before {
 
         line-height: 154%;
-        text-shadow: 0 0.03em 0 rgba(255,255,255,0.5);
+        color: @white00;
+        text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.9);
 
       }
 
       > .venues-tab.is-selected {
 
-        background-color: blue;
+
+        .action-bar-border-tab-selected-style (@tab-color); 
+         
+      }
+
+      >.venues-tab.last.is-selected {
+
+        
+          .action-bar-border-last-tab-selected-style (@tab-color); 
+
 
       }
 
       > .venues-tab.is-selected:before {
 
         opacity: 0.9;
-        color: white;
-        text-shadow:0 -0.03em 0 rgba(0,0,0,0.2);
+        //color: white;
+        //text-shadow:0 -0.03em 0 rgba(0,0,0,0.2);
 
       }
 
