@@ -1,0 +1,35 @@
+
+{{#with view}}
+
+	<div id="user-interaction-commented-block-content">
+		
+		<div id="user-interaction-commented-block-content-image">
+		
+			{{view Yn.SquareImageView class="is-small" contentBinding="content.fromUser" }}
+
+		</div>
+
+		<div id="user-interaction-commented-block-content-name">
+
+			<span class="text is-big is-black">{{content.fromUser.name}}</span> ha invitado a
+
+			<div id="user-interaction-commented-block-content-product">
+
+				<span class="icon is-icon-x-small" icon="v"></span>
+				{{content.product.name}}
+
+			</div>
+
+		</div>
+		
+		<div id="user-interaction-commented-block-icon">
+
+			{{view Yn.NotificationImageView class="commented" }}
+
+		</div>
+		
+	</div>
+
+	<!--TODO: Add DIV comment -->
+
+{{/with}}

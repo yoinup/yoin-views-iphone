@@ -1,0 +1,33 @@
+
+{{#with view}}
+
+	<div id="user-interaction-liked-block-content">
+		
+		<div id="user-interaction-liked-block-content-image">
+		
+			{{view Yn.SquareImageView class="is-small" contentBinding="content.fromUser" }}
+
+		</div>
+
+		<div id="user-interaction-liked-block-content-name">
+
+			<span class="text is-big is-black">{{content.fromUser.name}}</span> ha invitado a
+
+			<div id="user-interaction-liked-block-content-product">
+
+				<span class="icon is-icon-x-small" icon="v"></span>
+				{{content.product.name}}
+
+			</div>
+
+		</div>
+		
+		<div id="user-interaction-liked-block-icon">
+
+			{{view Yn.NotificationImageView class="liked" }}
+
+		</div>
+		
+	</div>
+
+{{/with}}
