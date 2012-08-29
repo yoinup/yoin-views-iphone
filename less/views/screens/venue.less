@@ -183,8 +183,6 @@
 
 			}
 
-
-
 		}
 
 
@@ -193,10 +191,19 @@
 			> #vp-title {
 
 				.text-is-font-bold-style;
+				padding-left: @box-title-padding-horizontal;
+				padding-right: @box-title-padding-horizontal;
+				padding-top: @box-title-padding-vertical;
+				padding-bottom: @box-title-padding-vertical;
 
 			}
 
 			> #vp-list {
+
+				padding-left: @box-title-padding-horizontal;
+				padding-right: @box-title-padding-horizontal;
+				padding-top: @box-title-padding-horizontal;
+				padding-bottom: @box-title-padding-horizontal / 2;
 
 				> .vp-list-element {
 
@@ -213,10 +220,19 @@
 			> #vpd-title {
 
 				.text-is-font-bold-style;
+				padding-left: @box-title-padding-horizontal;
+				padding-right: @box-title-padding-horizontal;
+				padding-top: @box-title-padding-vertical;
+				padding-bottom: @box-title-padding-vertical;
 
 			}
 
 			> #vpd-info {
+
+				padding-left: @box-content-padding-horizontal;
+				padding-right: @box-content-padding-horizontal;
+				padding-top: @box-content-padding-vertical;
+				padding-bottom: @box-content-padding-vertical;
 
 			}
 
@@ -227,13 +243,35 @@
 			> #vpr-title {
 
 				.text-is-font-bold-style;
+				padding-left: @box-title-padding-horizontal;
+				padding-right: @box-title-padding-horizontal;
+				padding-top: @box-title-padding-vertical;
+				padding-bottom: @box-title-padding-vertical;
 
 			}
 
 			> #vpr-list {
 
-				> .vpr-name {
-					
+				> #vpr-element {
+
+					padding-left: @box-content-padding-horizontal;
+					padding-right: @box-content-padding-horizontal;
+					padding-top: @box-content-padding-vertical;
+					padding-bottom: @box-content-padding-vertical;
+
+				}
+
+				> #vpr-element.no-last {
+
+					border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+					-webkit-box-shadow: inset 0 -(@border-line-size) 0 0 @grey09;
+
+				}
+
+				> #vpr-element.last {
+
+					//No style (clean)
+
 				}
 
 			}

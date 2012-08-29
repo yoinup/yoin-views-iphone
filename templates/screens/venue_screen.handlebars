@@ -59,7 +59,7 @@
 
 	</div>
 
-	
+<!--	
 	{{#if people}}
 
 		<div class="space by-one"></div>
@@ -97,7 +97,7 @@
 				</div>
 
 	</div>
-
+-->
 
 	{{#if products.length }}
 
@@ -110,20 +110,18 @@
 				</div>
 
 				<div id="vpr-list" class="box-content">
-					{{#each products}}
-					<div class="two-column-table">
-						<div class="vpr-name text is-big is-font-black left-column">
-							{{name}}
-						</div>
 
-						<div class="price-label right-column"> 
-							{{price}} {{I18n currency_symbol}}
+					{{#each products}}
+						<div id="vpr-element" class="two-column-table no-last">
+							<div class="vpr-name text is-big is-font-black left-column">
+								{{name}}
+							</div>
+							<div class="price-label right-column"> 
+								{{price}} {{I18n currency_symbol}}
+							</div>
 						</div>
-					</div>
-					
-					<div class="space by-one"></div>
-					
 					{{/each}}
+
 				</div>
 
 			</div>
