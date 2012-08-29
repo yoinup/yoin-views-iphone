@@ -1,37 +1,51 @@
 {{#view Yn.HeaderView }}
 
-  {{view Yn.BackButtonView}}
+	{{view Yn.BackButtonView}}
 
-  <div class="header-title is-subtitle">{{I18n comment_pl}}</div>
-  <div class="header-subtitle">{{product.name}}</div>
+	<div class="header-title is-subtitle">{{I18n comment_pl}}</div>
+	<div class="header-subtitle">{{product.name}}</div>
 
 {{/view }}
 
 <div class="header-action">
-    {{view Yvi.CommentInputView }}
+
+	<div class="left">
+	
+		{{view Yvi.CommentInputView }}
+		
+	</div>
+	
+	<div class="middle"></div>
+	
+	<div class="right">
+	
+		{{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white" contentI18n="send" action="" }}
+		
+	</div>
+	
 </div>
 
 <div class="screen-container is-header-action">
 
 
-  <div id="activities-comments-section">
+	<div id="activities-comments-section">
 
-      {{#each activities}}
+		<div class="space by-one"></div>
 
-          {{#if isLike}}
-               isLike
-              {{humanize dateBinding="like.createdAt" }}
-          {{/if}}
+		{{#each activities}}
 
-          {{#if isComment}}
-                IsComment
-              {{humanize dateBinding="comment.createdAt" }}
-          {{/if}}
-          <br/>
-          ----------------
+			{{#if isLike}}
+				{{view Yvi.UserInteractionLikedBlockView contentBinding="like" }}
+			{{/if}}
 
-      {{/each}}
+			{{#if isComment}}
+				{{view Yvi.UserInteractionCommentedBlockView contentBinding="comment" }}
+			{{/if}}
 
-  </div>
+			<div class="space by-one"></div>
+
+		{{/each}}
+
+	</div>
 
 </div>

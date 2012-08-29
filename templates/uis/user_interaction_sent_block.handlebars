@@ -1,41 +1,67 @@
 
 {{#with view}}
 
-	<div id="user-interaction-sent-block-content">
-		
-		<div id="user-interaction-sent-block-content-image">
-		
-			{{view Yn.SquareImageView class="is-small" contentBinding="content.fromUser" }}
+<div id="user-interaction-box" class="box">
 
-		</div>
+	<div id="user-interaction-box-content" class="box-content">
 
-		<div id="user-interaction-sent-block-content-name">
-
-			<span class="text is-big is-black">{{content.fromUser.name}}</span> {{I18n interaction_sent}}
-
-			<div id="user-interaction-sent-block-content-product">
-
-				<span class="icon is-icon-x-small" icon="v"></span>
-				{{content.product.name}}
+		<div id="user-interaction-sent-block-content">
+			
+			<div id="user-interaction-sent-block-content-image">
+			
+				{{view Yn.SquareImageView class="is-small" contentBinding="content.fromUser" }}
 
 			</div>
 
-		</div>
-		
-		<div id="user-interaction-sent-block-icon">
+			<div id="user-interaction-sent-block-content-name">
 
-			{{view Yn.NotificationImageView class="sent" }}
+				<span class="text is-big is-black">{{content.fromUser.name}}</span> {{I18n interaction_sent}}
 
+				<div id="user-interaction-sent-block-content-product">
+
+					<span class="icon is-icon-x-small" icon="v"></span>
+					{{content.product.name}}
+
+				</div>
+
+			</div>
+			
+			<div id="user-interaction-sent-block-icon">
+
+				{{view Yn.NotificationImageView class="sent" }}
+
+			</div>
+			
 		</div>
-		
+			
+		<div class="space by-one"></div>
+			
+		<div id="user-block-invited">
+			
+			{{view Yvi.UserShortBlockView contentBinding="content.toUser" imagetype="is-x-small" }}
+			
+		</div>
+
 	</div>
+
+	<div id="user-interaction-sent-details" class="box-title box-title-bottom">
 		
-	<div class="space by-one"></div>
+		<div id="user-interaction-sent-details-city" class="inline">
 		
-	<div id="user-block-invited">
+			<span class="icon is-icon-small" icon="i"></span>
+			{{content.venue_user.name}}, {{content.venue.city.name}}
+							
+		</div>
+							
+		<div id="user-interaction-sent-details-time" class="f-right">
 		
-		{{view Yvi.UserShortBlockView contentBinding="content.toUser" imagetype="is-x-small" }}
+			<span class="icon is-icon-small" icon="w"></span>
+			{{humanize dateBinding="like.createdAt" }}
 		
+		</div>
+
 	</div>
+
+</div>
 
 {{/with}}

@@ -1,43 +1,67 @@
 
 {{#with view}}
 
-	<div id="user-interaction-commented-block-content">
+<div id="user-interaction-box" class="box">
+
+	<div id="user-interaction-box-content" class="box-content">
+	
+		<div id="user-interaction-commented-block-content">
 		
-		<div id="user-interaction-commented-block-content-image">
-		
-			{{view Yn.SquareImageView class="is-small" contentBinding="content.fromUser" }}
-
-		</div>
-
-		<div id="user-interaction-commented-block-content-name">
-
-			<span class="text is-big is-black">{{content.fromUser.name}}</span> {{I18n interaction_commented}}
-
-			<div id="user-interaction-commented-block-content-product">
-
-				<span class="icon is-icon-x-small" icon="v"></span>
-				{{content.product.name}}
+			<div id="user-interaction-commented-block-content-image">
+			
+				{{view Yn.SquareImageView class="is-small" contentBinding="content.fromUser" }}
 
 			</div>
 
-		</div>
-		
-		<div id="user-interaction-commented-block-icon">
+			<div id="user-interaction-commented-block-content-name">
 
-			{{view Yn.NotificationImageView class="commented" }}
+				<span class="text is-big is-black">{{content.user.name}}</span> {{I18n interaction_commented}}
 
+				<div id="user-interaction-commented-block-content-product">
+
+					<span class="icon is-icon-x-small" icon="v"></span>
+					{{content.product.name}}
+
+				</div>
+
+			</div>
+			
+			<div id="user-interaction-commented-block-icon">
+
+				{{view Yn.NotificationImageView class="commented" }}
+
+			</div>
+			
 		</div>
+
+		<div class="space by-one"></div>
+			
+		<div id="user-block-comment">
+			
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			
+		</div>
+
+	</div>
+	
+	<div id="user-interaction-commented-details" class="box-title box-title-bottom">
 		
+		<div id="user-interaction-commented-details-city" class="inline">
+		
+			<span class="icon is-icon-small" icon="i"></span>
+			{{content.venue.name}}, {{content.venue.city.name}}
+							
+		</div>
+							
+		<div id="user-interaction-commented-details-time" class="f-right">
+		
+			<span class="icon is-icon-small" icon="w"></span>
+			{{humanize dateBinding="like.createdAt" }}
+		
+		</div>
+
 	</div>
 
-	<div></div>
-
-	<div class="space by-one"></div>
-		
-	<div id="user-block-comment">
-		
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-		
-	</div>
+</div>
 
 {{/with}}

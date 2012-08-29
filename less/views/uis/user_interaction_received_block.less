@@ -1,46 +1,85 @@
 @import 'colors';
 @import 'sizes';
+@import 'textstyles';
 
-#user-interaction-received-block {
+#user-interaction-received {
 
-	> #user-interaction-received-block-content {
+	> #user-interaction-box {
+
+		> #user-interaction-box-content {
+
+			> #user-interaction-received-block-content {
 	
-		display: table;
-		width: 100%;
-		//padding: 0.2em;
-		
-		> #user-interaction-received-block-content-image {
-		
-			display: table-cell;
-			vertical-align: middle;
-		
-		}
-
-		> #user-interaction-received-block-content-name {
-
-			display: table-cell;
-			vertical-align: middle;
-
-			> #user-interaction-received-block-content-product {
+				display: table;
+				width: 100%;
+				padding-left: @box-title-padding-horizontal;
+				padding-right: @box-title-padding-horizontal;
+				padding-top: @box-title-padding-horizontal;
+				padding-bottom: @box-title-padding-horizontal;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+				-webkit-box-shadow: inset 0 -(@border-line-size) 0 0 @grey09;
 				
+				> #user-interaction-received-block-content-image {
+				
+					display: table-cell;
+					vertical-align: middle;
+				
+				}
+
+				> #user-interaction-received-block-content-name {
+
+					display: table-cell;
+					vertical-align: middle;
+
+					> #user-interaction-received-block-content-product {
+
+						.text-is-font-grey-style;
+						
+					}
+
+				}
+				
+				> #user-interaction-received-block-icon {
+				
+					display: table-cell;
+					vertical-align: middle;
+					text-align: right;
+				
+				}
+
+			}
+			
+			> #user-block-inviting {
+			
+				margin-left: @box-content-interaction-indent;
+				margin-right: @box-content-interaction-indent;
+				padding-bottom: @box-content-padding-vertical;
+			
 			}
 
 		}
-		
-		> #user-interaction-received-block-icon {
-		
-			display: table-cell;
-			vertical-align: middle;
-			text-align: right;
-		
+
+		> #user-interaction-received-details {
+
+			padding-left: @box-title-padding-horizontal;
+			padding-right: @box-title-padding-horizontal;
+			padding-top: @box-title-padding-vertical;
+			padding-bottom: @box-title-padding-vertical;
+
+			> #user-interaction-received-details-city {
+
+				//
+
+			}
+
+			> #user-interaction-received-details-time {
+
+				//
+
+			}
+
 		}
 
-	}
-	
-	> #user-block-inviting {
-	
-		margin-left: @box-content-interaction-indent;
-	
 	}
 
 }

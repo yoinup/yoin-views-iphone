@@ -1,43 +1,78 @@
 @import 'colors';
 @import 'sizes';
+@import 'textstyles';
 
-#user-interaction-liked-block {
+#user-interaction-liked {
 
-	> #user-interaction-liked-block-content {
+	> #user-interaction-box {
 
-		display: table;
-		width: 100%;
-		//padding: 0.2em;
-		
-		> #user-interaction-liked-block-content-image {
-		
-			display: table-cell;
-			vertical-align: middle;
-			width: 15%;
-		
-		}
+		> #user-interaction-box-content {
 
-		> #user-interaction-liked-block-content-name {
+			> #user-interaction-liked-block-content {
 
-			display: table-cell;
-			vertical-align: middle;
-			width: 70%;
+				display: table;
+				width: 100%;
+				padding-left: @box-title-padding-horizontal;
+				padding-right: @box-title-padding-horizontal;
+				padding-top: @box-title-padding-horizontal;
+				padding-bottom: @box-title-padding-horizontal;
+				
+				> #user-interaction-liked-block-content-image {
+				
+					display: table-cell;
+					vertical-align: middle;
+					width: 15%;
+				
+				}
 
-			> #user-interaction-liked-block-content-product {
+				> #user-interaction-liked-block-content-name {
+
+					display: table-cell;
+					vertical-align: middle;
+					width: 70%;
+
+					> #user-interaction-liked-block-content-product {
+
+						.text-is-font-grey-style;
+
+					}
+
+				}
+				
+				> #user-interaction-liked-block-icon {
+				
+					display: table-cell;
+					vertical-align: middle;
+					width: 15%;
+					text-align: right;
+				
+				}
 
 			}
 
 		}
-		
-		> #user-interaction-liked-block-icon {
-		
-			display: table-cell;
-			vertical-align: middle;
-			width: 15%;
-			text-align: right;
-		
+
+		> #user-interaction-liked-details {
+
+				padding-left: @box-title-padding-horizontal;
+				padding-right: @box-title-padding-horizontal;
+				padding-top: @box-title-padding-vertical;
+				padding-bottom: @box-title-padding-vertical;
+
+				> #user-interaction-liked-details-city {
+
+					//
+
+				}
+
+				> #user-interaction-liked-details-time {
+
+					//
+
+				}
+
 		}
 
-	}
+	}	
 
 }

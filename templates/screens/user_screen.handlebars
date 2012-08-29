@@ -104,23 +104,10 @@
 					<div class="space by-one"></div>
 
 					{{#each sentinvitations}}
-					<div class="box">
-						<div class="box-content">
-							{{view Yvi.UserInteractionSentBlockView contentBinding="this" }}
-						</div>
-						<div class="box-title box-title-bottom">
-							<div class="inline">
-								<span class="icon is-icon-small" icon="i"></span>
-								{{city.name}}
-							</div>
-							<div class="f-right">
-								<span class="icon is-icon-small" icon="w"></span>
-								22m
-							</div>
-						</div>
-					</div>
+
+						{{view Yvi.UserInteractionSentBlockView contentBinding="this" }}
 					
-					<div class="space by-one"></div>
+						<div class="space by-one"></div>
 					
 					{{/each}}
 
@@ -131,23 +118,10 @@
 					<div class="space by-one"></div>
 
 					{{#each receivedinvitations}}
-					<div class="box">
-						<div class="box-content">
-							{{view Yvi.UserInteractionReceivedBlockView contentBinding="this" }}
-						</div>
-						<div class="box-title box-title-bottom">
-							<div class="inline">
-								<span class="icon is-icon-small" icon="i"></span>
-								{{city.name}}
-							</div>
-							<div class="f-right">
-								<span class="icon is-icon-small" icon="w"></span>
-								22m
-							</div>
-						</div>
-					</div>
 					
-					<div class="space by-one"></div>
+						{{view Yvi.UserInteractionReceivedBlockView contentBinding="this" }}
+					
+						<div class="space by-one"></div>
 					
 					{{/each}}
 
