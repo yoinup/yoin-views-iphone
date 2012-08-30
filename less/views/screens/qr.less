@@ -1,5 +1,7 @@
 @import 'colors';
 @import 'sizes';
+@import 'textstyles';
+@import 'paddings';
 
 @edipotrebol-border-subbox-radius-size: 3px;
 @qr-width: 200px;
@@ -38,7 +40,8 @@
 			}
 
 			#qr-details {
-				color: @grey_dark;
+				.text-is-font-black-style;
+				.box-small-padding-style;
 				
 				> #qr-details-name {
 					vertical-align: top;

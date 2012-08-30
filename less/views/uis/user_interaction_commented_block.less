@@ -1,6 +1,7 @@
 @import 'colors';
 @import 'sizes';
 @import 'textstyles';
+@import 'paddings';
 
 #user-interaction-commented {
 
@@ -11,11 +12,8 @@
 			> #user-interaction-commented-block-content {
 
 				display: table;
-				width: 100%;
-				padding-left: @box-title-padding-horizontal;
-				padding-right: @box-title-padding-horizontal;
-				padding-top: @box-title-padding-horizontal;
-				padding-bottom: @box-title-padding-horizontal;
+				width: 100%; 
+				.box-small-padding-style;
 				border-bottom: 1px solid rgba(255, 255, 255, 0.7);
 				-webkit-box-shadow: inset 0 -(@border-line-size) 0 0 @grey09;
 				
@@ -55,10 +53,9 @@
 			> #user-block-comment {
 			
 				.text-is-font-grey-style;
-				padding-left: @box-content-padding-horizontal;
-				padding-right: @box-content-padding-horizontal;
-				//padding-top: @box-content-padding-vertical;
-				padding-bottom: @box-content-padding-vertical;
+				.box-big-padding-style;
+				//Clean padding top
+				padding-top: 0px;
 			
 			}
 
@@ -66,10 +63,7 @@
 
 		> #user-interaction-commented-details {
 
-			padding-left: @box-title-padding-horizontal;
-			padding-right: @box-title-padding-horizontal;
-			padding-top: @box-title-padding-vertical;
-			padding-bottom: @box-title-padding-vertical;
+			.box-small-padding-style;
 
 			> #user-interaction-commented-details-city {
 

@@ -1,6 +1,7 @@
 @import 'colors';
 @import 'sizes';
 @import 'textstyles';
+@import 'paddings';
 
 #user-interaction-liked {
 
@@ -12,10 +13,7 @@
 
 				display: table;
 				width: 100%;
-				padding-left: @box-title-padding-horizontal;
-				padding-right: @box-title-padding-horizontal;
-				padding-top: @box-title-padding-horizontal;
-				padding-bottom: @box-title-padding-horizontal;
+				.box-small-padding-style;
 				
 				> #user-interaction-liked-block-content-image {
 				
@@ -54,10 +52,7 @@
 
 		> #user-interaction-liked-details {
 
-				padding-left: @box-title-padding-horizontal;
-				padding-right: @box-title-padding-horizontal;
-				padding-top: @box-title-padding-vertical;
-				padding-bottom: @box-title-padding-vertical;
+				.box-small-padding-style;
 
 				> #user-interaction-liked-details-city {
 

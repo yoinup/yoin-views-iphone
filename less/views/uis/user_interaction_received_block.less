@@ -1,6 +1,7 @@
 @import 'colors';
 @import 'sizes';
 @import 'textstyles';
+@import 'paddings';
 
 #user-interaction-received {
 
@@ -12,10 +13,7 @@
 	
 				display: table;
 				width: 100%;
-				padding-left: @box-title-padding-horizontal;
-				padding-right: @box-title-padding-horizontal;
-				padding-top: @box-title-padding-horizontal;
-				padding-bottom: @box-title-padding-horizontal;
+				.box-small-padding-style;
 				border-bottom: 1px solid rgba(255, 255, 255, 0.7);
 				-webkit-box-shadow: inset 0 -(@border-line-size) 0 0 @grey09;
 				
@@ -51,9 +49,9 @@
 			
 			> #user-block-inviting {
 			
-				margin-left: @box-content-interaction-indent;
-				margin-right: @box-content-interaction-indent;
-				padding-bottom: @box-content-padding-vertical;
+				.box-big-padding-style;
+				//Clean padding top
+				padding-top: 0px;
 			
 			}
 
@@ -61,10 +59,7 @@
 
 		> #user-interaction-received-details {
 
-			padding-left: @box-title-padding-horizontal;
-			padding-right: @box-title-padding-horizontal;
-			padding-top: @box-title-padding-vertical;
-			padding-bottom: @box-title-padding-vertical;
+			.box-small-padding-style;
 
 			> #user-interaction-received-details-city {
 

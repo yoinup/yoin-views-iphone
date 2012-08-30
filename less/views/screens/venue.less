@@ -5,6 +5,7 @@
 @import 'appanimations';
 @import 'action_bar';
 @import 'textstyles';
+@import 'paddings';
 
 
 
@@ -191,6 +192,7 @@
 			> #vp-title {
 
 				.text-is-font-bold-style;
+				.box-small-padding-style;
 				padding-left: @box-title-padding-horizontal;
 				padding-right: @box-title-padding-horizontal;
 				padding-top: @box-title-padding-vertical;
@@ -200,10 +202,10 @@
 
 			> #vp-list {
 
-				padding-left: @box-title-padding-horizontal;
-				padding-right: @box-title-padding-horizontal;
-				padding-top: @box-title-padding-horizontal;
+				.box-small-padding-style;
+				//Override padding bottom
 				padding-bottom: @box-title-padding-horizontal / 2;
+				
 
 				> .vp-list-element {
 
@@ -220,20 +222,14 @@
 			> #vpd-title {
 
 				.text-is-font-bold-style;
-				padding-left: @box-title-padding-horizontal;
-				padding-right: @box-title-padding-horizontal;
-				padding-top: @box-title-padding-vertical;
-				padding-bottom: @box-title-padding-vertical;
+				.box-small-padding-style;
 
 			}
 
 			> #vpd-info {
 
 				.text-is-font-grey-style;
-				padding-left: @box-content-padding-horizontal;
-				padding-right: @box-content-padding-horizontal;
-				padding-top: @box-content-padding-vertical;
-				padding-bottom: @box-content-padding-vertical;
+				.box-big-padding-style;
 
 			}
 
@@ -244,10 +240,7 @@
 			> #vpr-title {
 
 				.text-is-font-bold-style;
-				padding-left: @box-title-padding-horizontal;
-				padding-right: @box-title-padding-horizontal;
-				padding-top: @box-title-padding-vertical;
-				padding-bottom: @box-title-padding-vertical;
+				.box-small-padding-style;
 
 			}
 
@@ -255,10 +248,7 @@
 
 				> #vpr-element {
 
-					padding-left: @box-content-padding-horizontal;
-					padding-right: @box-content-padding-horizontal;
-					padding-top: @box-content-padding-vertical;
-					padding-bottom: @box-content-padding-vertical;
+					.box-big-padding-style;
 
 				}
 
