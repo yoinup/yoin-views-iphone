@@ -35,7 +35,7 @@
 		position: absolute;
 		width: 100%;
 		height: @venue-map-height;
-		background-color: red;
+		
 	}
 
 	> .screen-container {
@@ -51,8 +51,9 @@
 			top: 0px;
 			height: @venue-products-height;
 			width: 100%;
-			background-color: red;
 			overflow: hidden;
+			background-image: url(assets/images/product_default.png);
+
 
 			> .venue-products-swipe {
 
@@ -71,14 +72,15 @@
 
 					-webkit-transform: translateZ(0);
 
-					background-color: blue;
+					
 
 				}
 
 
 				> .venue-product.is-loading {
 
-					background-color: green;
+					background-image: url(assets/images/product_default.png);
+					
 
 				}
 
