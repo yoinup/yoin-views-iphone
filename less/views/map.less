@@ -1,3 +1,9 @@
+@import 'colors';
+@import 'sizes';
+@import 'buttons';
+
+
+
 .map {
 
   position: relative;
@@ -10,13 +16,20 @@
 // Look at map.js parent properties
 @bubble-border: 8px;
 
+@button-color:#665F59;
+
 .map-bubble {
 
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(156,145,144,1)), color-stop(100%,rgba(102,95,94,0.15)));
-	background: -webkit-linear-gradient(top, rgba(156,145,144,1) 0%,rgba(102,95,94,0.15) 100%);
 	
+  background-color: @button-color;
+  background: -moz-linear-gradient(top, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%); 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.45)), color-stop(50%,rgba(255,255,255,0.2)), color-stop(100%,rgba(255,255,255,0))); 
+	
+  -webkit-box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.6);
+
 	border-top-left-radius: @bubble-border;
-	border-top-right-radius: @bubble-border; 
+	border-top-right-radius: @bubble-border;
+  
 
 
   > .title, > .subtitle{
@@ -24,7 +37,8 @@
     width: 100%;
 
     text-align: center;
-    color: white;
+    color:@pure-white;
+    text-shadow: 0 -1px 0px rgba(0,0,0,0.5);
 
     text-overflow: ellipsis;
     overflow: hidden;
