@@ -1,30 +1,107 @@
+{{#with view}}
+
 {{#view Yn.HeaderView }}
 
-  {{view Yn.BackButtonView }}
-  <div class="header-title">{{I18n product}}</div>
+	{{view Yn.BackButtonView }}
+
+	<div class="header-title">{{I18n product}}</div>
+
+	{{view Yn.IconBtapView class="l-right header-button rectangle-button is-small is-orange icon is-icon-small" icon="q" }}
 
 {{/view }}
 
 <div class="screen-container">
 
-	{{view Yvi.ChooseProductMenuTabsView }}
+	{{view Yvi.ChooseProductMenuTabsView id="choose-product-menu-tabs" selected=option }}
 
-  <div class="">{{I18n friends}}</div>
-  <div class="">{{I18n consignee}}</div>
+	{{#if optionIsAll }}
 
-  <div class=""> optionTitle {{title}}</div>
+		<div id="categories">
 
-  {{#if optionIsAll }} 
-      show categories
-  {{else }}
-      user: {{user.name}}
-  {{/if}}
+			{{#each categories}}
+
+				{{view Yvi.ChooseProductCategoryButtonView 
+					class="category-button"
+					content=this 
+					selectedBinding="view.selectedCategory"}}
+
+			{{/each}}
+
+		</div>
+
+		<div class="space by-one"></div>
+
+		<div id="product-list-box" class="box">
+
+			<div id="product-list-title" class="box-title box-title-top">{{selectedCategory.name}}</div>
+
+			<div id="product-list-content" class="box-content">
+
+				{{#each content}}
+
+					<div id="product-list-element" class="three-column-table no-last">
+						<div id="product-list-element-image" class="left-column"> 
+							{{view Yn.SquareImageView class="is-small" contentBinding="product" }}
+						</div>
+						<div id="product-list-element-name" class="text is-big is-font-black middle-column">
+							{{product.name}}
+						</div>
+						<div class="price-label right-column"> 
+							{{product.price}} {{I18n currency_symbol}}
+						</div>
+					</div>
+				{{/each}}
+
+			</div>
+
+		</div>
+
+	{{else}}
+
+		<div class="space by-one"></div>
+
+		<div id="selected-user" class="box">
+
+			<div id="selected-user-title" class="box-title box-title-top">{{I18n products_closed_to}}</div>
+
+			<div id="selected-user-content" class="box-content">
+
+				{{view Yvi.UserShortBlockView contentBinding="user" imagetype="is-normal" class="is-normal" }}
+
+			</div>
+
+		</div>
+
+		<div class="space by-one"></div>
+
+		<div id="product-list-box" class="box">
+
+			<div id="product-list-title" class="box-title box-title-top">{{I18n all_products}}</div>
+
+			<div id="product-list-content" class="box-content">
+
+				{{#each content}}
+
+					<div id="product-list-element" class="three-column-table no-last">
+						<div id="product-list-element-image" class="left-column"> 
+							{{view Yn.SquareImageView class="is-small" contentBinding="product" }}
+						</div>
+						<div id="product-list-element-name" class="text is-big is-font-black middle-column">
+							{{product.name}}
+						</div>
+						<div class="price-label right-column"> 
+							{{product.price}} {{I18n currency_symbol}}
+						</div>
+					</div>
+				{{/each}}
+
+			</div>
+
+		</div>
 
 
-  {{#each content}}
-    {{product.name}}
-    {{venue.name}}
-    --------------
-  {{/each}}
+	{{/if}}
 
 </div>
+
+{{/with}}

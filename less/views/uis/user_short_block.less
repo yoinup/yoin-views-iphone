@@ -1,4 +1,5 @@
 @import 'colors';
+@import 'textstyles';
 
 #user-short-block {
 
@@ -12,7 +13,7 @@
 
 			display: table-cell;
 			vertical-align: middle;
-			width: 15%;
+			//width: 20%;
 
 		}
 
@@ -21,11 +22,11 @@
 			display: table-cell;
 			vertical-align: middle;
 			color: @grey_dark;
-			width: 85%;
+			//width: 80%;
 
 			> #user-short-block-content-city {
 
-					color: @grey03;
+					.text-is-font-grey-style;
 
 					> #city-name {
 						
@@ -36,5 +37,45 @@
 		}
 
 	}
+
+}
+
+#user-short-block.is-x-small, #user-short-block.is-small {
+
+	> #user-short-block-content {
+			
+			> #user-short-block-content-image {
+
+				width: 15%;
+
+			}
+
+			> #user-short-block-content-name {
+
+				width: 85%;
+
+			}
+
+		}
+
+}
+
+#user-short-block.is-normal, #user-short-block.is-big {
+
+	> #user-short-block-content {
+			
+			> #user-short-block-content-image {
+
+				width: 20%;
+
+			}
+
+			> #user-short-block-content-name {
+
+				width: 80%;
+
+			}
+
+		}
 
 }
