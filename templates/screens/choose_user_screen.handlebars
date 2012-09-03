@@ -1,52 +1,76 @@
 {{#view Yn.HeaderView }}
 
-  {{view Yn.BackButtonView }}
-  <div class="header-title">{{I18n consignee}}</div>
+	{{view Yn.BackButtonView }}
+
+	<div class="header-title">{{I18n consignee}}</div>
+
+	{{view Yn.IconBtapView class="l-right header-button rectangle-button is-small is-orange icon is-icon-small" icon="q" }}
 
 {{/view }}
 
 <div class="screen-container">
 
-  <div class="">{{I18n all}}</div>
-  <div class="">{{I18n nears}}</div>
-  <div class="">{{I18n friends}}</div>
-  <div class="">{{I18n consignee}}</div>
+	{{view Yvi.ChooseUserMenuTabsView id="choose-user-menu-tabs" selected=option }}
 
-  <div class=""> optionTitle {{title}}</div>
+	{{#if optionIsFriends }}
 
-  {{#if optionIsAll }} 
-      show channels options
-  {{else }}
-      venue: {{venue.name}}
-  {{/if}}
+		<div id="channels">
+
+			{{#each allOptions}}
+
+				{{view Yvi.ChooseUserChannelButtonView 
+					class="channel-button"
+					content=this 
+					selectedBinding="view.selectedFriendsOption"}}
+
+			{{/each}}
+
+		</div>
+
+		<div class="space by-one"></div>
+
+		<div class=""> optionTitle {{title}}</div>
+
+		{{#if optionIsAll }} 
+				show channels options
+		{{else }}
+				venue: {{venue.name}}
+		{{/if}}
 
 
-	{{#view Yvi.TabMainView id="ch-user-tab-main"
-    currentTabViewBinding="tabOption" }}
+		{{#view Yvi.TabMainView id="ch-user-tab-main"
+			currentTabViewBinding="tabOption" }}
 
-    Title: {{title}}
+			Title: {{title}}
 
-    {{#view id="ch-user-nears" class="ch-user-tab" 
-      viewName="nears" }}
-      nears {{nearUsers.length}}
-    {{/view}}
+			{{#view id="ch-user-nears" class="ch-user-tab" 
+				viewName="nears" }}
+				nears {{nearUsers.length}}
+			{{/view}}
 
-    {{#view id="ch-user-agenda" class="ch-user-tab" 
-      viewName="agenda" }}
-      agenda {{agendaUsers.length}}
-    {{/view}}
+			{{#view id="ch-user-agenda" class="ch-user-tab" 
+				viewName="agenda" }}
+				agenda {{agendaUsers.length}}
+			{{/view}}
 
-    {{#view id="ch-user-facebook" class="ch-user-tab" 
-      viewName="facebook" }}
-      facebook {{fbUsers.length}}
-    {{/view}}
+			{{#view id="ch-user-facebook" class="ch-user-tab" 
+				viewName="facebook" }}
+				facebook {{fbUsers.length}}
+			{{/view}}
 
-    {{#view id="ch-user-yoin" class="ch-user-tab" 
-      viewName="yoin" }}
-      yoin {{friendUsers.length}}
-    {{/view}}
+			{{#view id="ch-user-yoin" class="ch-user-tab" 
+				viewName="yoin" }}
+				yoin {{friendUsers.length}}
+			{{/view}}
 
-	{{/view}}
+		{{/view}}
+
+	{{else}}
+
+		
+
+
+	{{/if}}
 
 
 </div>
