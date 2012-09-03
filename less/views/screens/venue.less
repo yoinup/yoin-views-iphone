@@ -9,7 +9,7 @@
 
 
 
-@venue-products-height: 130px;
+@venue-products-height: 128px;
 @middle-section-height: 45px;
 @middle-indent: 6px;
 
@@ -53,7 +53,13 @@
 			height: @venue-products-height;
 			width: 100%;
 			overflow: hidden;
-			background-image: url(assets/images/product_default.png);
+
+
+			//-webkit-box-shadow: 0 1px 0 0px @black00, inset 0 -1px 0 0px @black00;
+			border-top: 1px solid @grey05;
+			border-bottom: 1px solid @grey08;
+
+
 
 
 			> .venue-products-swipe {
@@ -61,6 +67,8 @@
 				position: relative;
 				height: 100%;
 				overflow: visible;
+
+
 
 				-webkit-transition: -webkit-transform 200ms ease-in-out;
 
@@ -124,19 +132,22 @@
 			
 			> #venue-likes {
 
-				line-height: @middle-section-height;
+				line-height: @middle-section-height - 10;
 				height: 100%;
-				width: 40%;
+				width: 31%;
 
 				float: left;
-				text-indent: @middle-indent;
+				//text-indent: @middle-indent;
+				text-align: center;
+
+				.button-text-is-font-grey-style;
 
 				
 
 				> .icon {
 
 					position: relative;
-					top: 2px;
+					top: 6px;
 
 				}
 
@@ -144,11 +155,11 @@
 
 			> #venue-likes.is-voted {
 
-				color: red;
+				
 
 				> .icon {
 
-					color: red;
+					color: @pink01;
 
 				}
 
@@ -157,19 +168,21 @@
 
 			> #venue-comments {
 
-				line-height: @middle-section-height;
+				line-height: @middle-section-height - 10;
 				height: 100%;
-				width: 40%;
+				width: 31%;
 
 				float: right;
-				padding-right: @middle-indent;
-				text-align: right;
+				//padding-right: @middle-indent;
+				text-align: center;
+
+				.button-text-is-font-grey-style;
 
 
 				> .icon {
 
 					position: relative;
-					top: 2px;
+					top: 6px;
 
 				}
 
