@@ -17,7 +17,7 @@
 
 				<div id="me-content-header-image">
 
-					{{view Yn.SquareImageView class="is-big" contentBinding="user" }}
+					{{view Yn.SquareImageView class="is-big" contentBinding="user" withPhoto=true }}
 
 				</div>
 
@@ -88,16 +88,17 @@
 				
 					<div class="space by-one"></div>
 
-					<!-- List of friends -->
+						<div class="box">
+							<div class="box-content">
 
-					<div class="box">
-						<div class="box-content">
-							
-								{{view Yvi.UserShortBlockView contentBinding="view.user" }}
-							
+								{{#each friends}}
+								
+									{{view Yvi.UserShortBlockView contentBinding="this" }}
+
+								{{/each}}
+								
+							</div>
 						</div>
-					</div>
-
 					
 				{{/view}}
 

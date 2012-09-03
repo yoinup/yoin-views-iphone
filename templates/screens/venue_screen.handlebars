@@ -11,8 +11,9 @@
 	</div>
 
 
-	{{view Yn.SquareImageView class="l-right with-icon is-small"
-		contentBinding="venue.brand"}}
+	{{view Yn.SquareImageView class="l-right is-small"
+		contentBinding="venue.brand"
+		withIcon=true }}
 
 {{/view }}
 
@@ -73,7 +74,7 @@
 			<div id="vp-list" class="box-content">
 				{{#each six_people}}
 					<div class="vp-list-element inline">
-						{{view Yn.SquareImageView class="with-photo is-normal" contentBinding="this" }}
+						{{view Yn.SquareImageView class="is-normal" contentBinding="this" withPhoto=true }}
 					</div>
 				{{/each}}
 			</div>
