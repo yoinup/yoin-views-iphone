@@ -2,31 +2,55 @@
 @import 'textstyles';
 
 
-#edit_setting_screen {
+#settings_screen {
 
 	> .screen-container {
 
-		> #block-avatar {
+		> #block-basic-info {
 
-			> #block-avatar-content {
+			> #block-basic-info-title {
 
-				//Hacking this to add normal image padding into small image content
+				.text-is-font-bold-style;
+				.box-padding-style;
+
+			}
+
+			> #block-basic-info-content {
+
 				.box-padding-with-normal-image;
 
-				> #block-avatar-content-element-name {
+				> #block-basic-info-data {
 
-					.text-is-big-style;
-					.text-is-font-black-style;
+					> #block-basic-info-image {
+
+						width: 20%;
+
+					}
+
+					> #block-basic-info-user {
+
+						width: 65%;
+						.text-is-big-style;
+						.text-is-font-black-style;
+
+						> #block-basic-info-cityname {
+
+							.text-is-small-style;
+							.button-text-is-font-grey-style;
+
+						}
+
+					}
+
+					> #block-basic-info-button {
+
+						width: 15%;
+
+					}
 
 				}
 
-				> #block-avatar-content-element-icon {
-
-					.text-is-font-grey-style;
-
-				}				
-
-			}
+			}			
 
 		}
 

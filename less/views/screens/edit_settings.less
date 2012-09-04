@@ -1,0 +1,106 @@
+@import 'paddings';
+@import 'textstyles';
+
+
+#edit_settings_screen {
+
+	> .screen-container {
+
+		> #block-avatar {
+
+			> #block-avatar-content {
+
+				//Hacking this to add normal image padding into small image content
+				.box-padding-with-normal-image;
+
+				> #block-avatar-content-element-name {
+
+					.text-is-big-style;
+					.text-is-font-black-style;
+
+				}
+
+				> #block-avatar-content-element-icon {
+
+					.text-is-font-grey-style;
+
+				}				
+
+			}
+
+		}
+
+		> #block-username {
+
+			> #block-username-content {
+
+				.box-padding-style;
+
+				> #input-username {
+
+					width: 100%;
+					height: 100%;
+					.text-is-big-style;
+					.text-is-font-black-style;
+					background-color: transparent;
+					border: 0px solid;
+					outline: none;
+
+				}
+
+			}
+
+		}
+
+		> #block-cities {
+
+			> #block-cities-title {
+
+				.text-is-font-bold-style;
+				.box-padding-style;
+
+			}
+
+			> #block-cities-content {
+
+				> #block-cities-element {
+
+					.box-padding-style;
+
+					> .cityname {
+
+						.text-is-big-style;
+						.text-is-font-black-style;
+
+					}
+
+					> .control {
+
+						float: right;
+
+					}
+
+				}
+
+				> #block-cities-element.no-last {
+
+					border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+					-webkit-box-shadow: inset 0 -(@border-line-size) 0 0 @grey09;
+
+				}
+
+				> #block-cities-element.last {
+
+					//No style (clean)
+
+				}
+
+			}
+
+
+		}
+
+
+	}
+
+}
