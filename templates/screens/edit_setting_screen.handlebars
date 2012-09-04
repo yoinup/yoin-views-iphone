@@ -1,36 +1,78 @@
+{{#with view}}
+
 {{#view Yn.HeaderView }}
 
-  {{view Yn.BackButtonView  }}
-  <div class="header-title">{{I18n setting}}</div>
+	{{view Yn.BackButtonView  }}
+	<div class="header-title">{{I18n setting}}</div>
 
 {{/view }}
 
 <div class="screen-container">
 
-  <div id="es-user-name">
-    {{user.name}}
-  </div>
+	<div class="space by-one"></div>
 
-  <div id="es-cities">
-    <div id="es-cities-title">
-      {{I18n choose_a_city}}
-    </div>
+	<div id="block-avatar" class="box">
+		<div id="block-avatar-content" class="box-content three-column-table">
+				<div id="block-avatar-content-element-image" class="left-column"> 
+					{{view Yn.SquareImageView class="is-small" contentBinding="user" withPhoto=true }}
+				</div>
+				<div id="block-avatar-content-element-name" class="middle-column">
+					{{I18n change_profile_picture}}
+				</div>
+				<div id="block-avatar-content-element-icon" class="right-column">
+					<span class="icon is-icon-normal is-icon-grey" icon="d"></span>
+				</div>
+		</div>
+	</div>
 
-    <div id="es-cities-content">
+	<div class="space by-one"></div>
 
-      {{#each cities}}
+	<div id="block-username" class="box">
+		<div id="block-username-content" class="box-content">
+			{{#if user.name}}
 
-        {{name}}
+				{{view Yn.InputView id="input-username" 
+					inputName="username"
+					type="text"
+					value="user.name" }}
 
-        {{view Yn.ToggleCircleButtonView 
-          action="selectCity" 
-          selectedBinding="view.user.city"
-          contentBinding="this"}}
+			{{else}}
 
+				{{view Yn.InputView id="input-username" 
+					inputName="username"
+					type="text"
+					placeholderI18n="name" }}
 
-      {{/each}}
-    </div>
+			{{/if}}
+			
+		</div>
+	</div>
 
-  </div>
+	<div class="space by-one"></div>
+
+	<div id="block-cities" class="box">
+		<div id="block-cities-title" class="box-title box-title-top">
+			{{I18n choose_a_city}}
+		</div>
+		<div id="block-cities-content" class="box-content">
+			{{#each cities}}
+				<div id="block-cities-element" class="two-column-table no-last">
+					<div class="cityname left-column">
+						{{name}}
+					</div>
+					<div class="control right-column">
+						{{view Yn.ToggleCircleButtonView 
+							action="selectCity" 
+							selectedBinding="view.user.city"
+							contentBinding="this"}}
+					</div>
+				</div>
+			{{/each}}
+		</div>
+
+	</div>
 
 </div>
+
+{{/with}}
+

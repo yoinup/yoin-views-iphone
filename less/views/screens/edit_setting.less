@@ -1,26 +1,105 @@
+@import 'paddings';
+@import 'textstyles';
+
 
 #edit_setting_screen {
 
-  > .screen-container {
+	> .screen-container {
 
-    > #es-user-name {
+		> #block-avatar {
 
-      height: 50px;
-      background-color: red;
+			> #block-avatar-content {
 
-    }
+				.box-big-padding-style;
 
-    > #es-cities {
+				> #block-avatar-content-element-name {
 
-      > #es-cities-title {
+					.text-is-big-style;
+					.text-is-font-black-style;
+
+				}
+
+				> #block-avatar-content-element-icon {
+
+					.text-is-font-grey-style;
+
+				}				
+
+			}
+
+		}
+
+		> #block-username {
+
+			> #block-username-content {
+
+				.box-big-padding-style;
+
+				> #input-username {
+
+					width: 100%;
+					height: 100%;
+					.text-is-big-style;
+					.text-is-font-black-style;
+					background-color: transparent;
+					border: 0px solid;
+					outline: none;
+
+				}
+
+			}
+
+		}
+
+		> #block-cities {
+
+			> #block-cities-title {
+
+				.text-is-font-bold-style;
+				.box-small-padding-style;
+
+			}
+
+			> #block-cities-content {
+
+				> #block-cities-element {
+
+					.box-big-padding-style;
+
+					> .cityname {
+
+						.text-is-big-style;
+						.text-is-font-black-style;
+
+					}
+
+					> .control {
+
+						float: right;
+
+					}
+
+				}
+
+				> #block-cities-element.no-last {
+
+					border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+					-webkit-box-shadow: inset 0 -(@border-line-size) 0 0 @grey09;
+
+				}
+
+				> #block-cities-element.last {
+
+					//No style (clean)
+
+				}
+
+			}
 
 
-      }
+		}
 
 
-    }
-
-
-  }
+	}
 
 }
