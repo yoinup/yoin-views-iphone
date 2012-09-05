@@ -1,16 +1,53 @@
+@import 'paddings';
+@import 'textstyles';
 
 #user_status_screen {
 
   > .screen-container {
 
 
-    > #status-box {
+    > #block-status {
 
-      > #status-box-title {
+      > #block-status-title {
+
+      	.text-is-font-bold-style;
+				.box-padding-style;
 
       }
 
-      > #status-box-list {
+      > #block-status-list {
+
+      	> .block-status-element {
+
+      		.box-padding-style;
+
+      		> .value {
+
+      			.text-is-big-style;
+						.text-is-font-black-style;
+
+      		}
+
+      		> .control {
+
+      			float: right;
+
+      		}
+
+      	}
+
+      	> .block-status-element.no-last {
+
+					border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+					-webkit-box-shadow: inset 0 -(@border-line-size) 0 0 @grey09;
+
+				}
+
+				> .block-status-element.last {
+
+					//No style (clean)
+
+				}
 
       }
     }
