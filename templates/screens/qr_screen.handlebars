@@ -23,7 +23,7 @@
 
 				<div class="space by-one"></div>
 
-				<div class="center text is-black is-small">
+				<div class="center">
 					{{I18n qr_description}}
 				</div>
 			
@@ -33,11 +33,11 @@
 
 				<div id="qr-details-image" class="inline">
 
-					{{view Yn.SquareImageView class="is-small" contentBinding="user" }}
+					{{view Yn.SquareImageView class="is-small" contentBinding="user" withPhoto=true }}
 
 				</div>
 				
-				<div id="qr-details-name" class="text is-font-bold inline">
+				<div id="qr-details-name" class="inline">
 				
 					{{user.name}}
 					
