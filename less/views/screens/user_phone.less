@@ -1,7 +1,69 @@
+@import 'paddings';
+@import 'textstyles';
 
 #user_phone_screen {
 
   > .screen-container {
+
+  	> #block-phone-description {
+
+  		> #block-phone-description-content {
+
+  			.box-padding-style;
+
+  		}
+
+  	}
+
+  	> #block-phone-number {
+
+  		> #block-phone-number-title {
+
+  			.text-is-font-bold-style;
+  			.box-padding-style;
+
+  		}
+
+  		> #block-phone-number-content {
+
+  			> .block-phone-number-element {
+
+  				.box-padding-style;
+
+  				> .text {
+
+  					.text-is-big-style;
+						.text-is-font-black-style;
+
+  				}
+
+  				> .control {
+
+  					.text-is-font-grey-style;
+  					float: right;
+
+  				}
+
+  			}
+
+				> .block-phone-number-element.no-last {
+
+					border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+					-webkit-box-shadow: inset 0 -(@border-line-size) 0 0 @grey09;
+
+				}
+
+				> .block-phone-number-element.last {
+
+					//No style (clean)
+
+				}
+
+
+
+  		}
+
+  	}
 
   }
 
