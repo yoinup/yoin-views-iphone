@@ -1,6 +1,7 @@
 {{#view Yn.HeaderView }}
 
 	{{view Yn.BackButtonView  }}
+
 	<div class="header-title">{{I18n settings}}</div>
 
 {{/view }}
@@ -10,64 +11,189 @@
 	<div class="space by-one"></div>
 
 	<div id="block-basic-info" class="box">
+
 		<div id="block-basic-info-title" class="box-title box-title-top">
+
 			{{I18n basic_settings}}
+
 		</div>
+
 		<div id="block-basic-info-content" class="box-content">
+
 			<div id="block-basic-info-data" class="three-column-table">
+
 				<div id="block-basic-info-image" class="left-column"> 
+
 					{{view Yn.SquareImageView class="is-normal" contentBinding="user" withPhoto=true }}
+
 				</div>
+
 				<div id="block-basic-info-user" class="middle-column">
-					{{user.name}}
+
+					<div id="block-basic-info-username">
+
+						{{user.name}}
+
+					</div>
+
 					{{#if user.city}}
+
 						<div id="block-basic-info-cityname">
+
 							<span class="icon is-icon-small" icon="i"></span>
+
 							{{user.city.name}}
+
 						</div>
+
 					{{/if}}
+
 				</div>
+
 				<div id="block-basic-info-button" class="right-column">
+
 					{{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black" contentI18n="edit" action="" }}
+
 				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="settings-status">
-		<div> {{I18n status}}</div>
-		<div>{{user.status}}</div>
-	</div>
-
-	<div id="settings-channels">
-		<div> {{I18n channel pluralize=true}}</div>
-
-		<div id="settings-channels-list"> 
-
-			<div> 
-				<div>{{I18n agenda}}</div> {{hasPhone}}
-				<div></div>
-			</div>
-
-			<div> 
-				<div>Facebook</div>
-				{{view Yn.SwitchButtonView isOn=hasFacebook }}
-				<div></div>
-			</div>
-
-			<div class="is-disabled"> 
-				<div>Twitter</div>
-				{{view Yn.SwitchButtonView isOn=hasTwitter isDisabled=true}}
-				<div></div>
 
 			</div>
-			
+
 		</div>
 
 	</div>
 
-	<div id="settings-logout">
-		{{I18n close_session}}
+	<div class="space by-one"></div>
+
+	<div id="block-status" class="box">
+
+		<div id="block-status-content" class="box-content">
+
+			<div id="block-status-content-table" class="two-column-table">
+
+				<div id="status-block" class="left-column">
+
+					<div id="label">{{I18n status}}</div>
+
+					<div id="status">"{{user.status}}"</div>
+
+				</div>
+
+				<div id="icon-block" class="right-column">
+
+					<span class="icon is-icon-normal is-icon-grey" icon="d"></span>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="space by-one"></div>
+
+	<div id="block-channels" class="box">
+
+		<div id="block-channels-title" class="box-title box-title-top">
+
+			{{I18n channel pluralize=true}}
+
+		</div>
+
+		<div id="block-channels-list" class="box-content"> 
+
+			<div id="agenda-channel" class="block-channels-element no-last three-column-table">
+
+				<div class="image left-column">
+					
+				</div>
+
+				<div class="channel middle-column">
+
+					{{I18n agenda}}
+
+					<!--{{hasPhone}}-->
+
+				</div>
+
+				<div class="control right-column">
+
+					<span class="icon is-icon-normal is-icon-grey" icon="d"></span>
+
+				</div>
+
+			</div>
+
+			<div id="facebook-channel" class="block-channels-element no-last three-column-table">
+
+				<div class="image left-column">
+					
+				</div>
+
+				<div class="channel middle-column">
+
+					Facebook
+
+				</div>
+
+				<div class="control right-column">
+
+					{{view Yn.SwitchButtonView isOn=hasFacebook }}
+
+				</div>
+
+			</div>
+
+			<div id="agenda-channel" class="block-channels-element last three-column-table">
+
+				<div class="image left-column">
+					
+				</div>
+
+				<div class="channel middle-column">
+
+					Twitter
+
+				</div>
+
+				<div class="control right-column">
+
+					{{view Yn.SwitchButtonView isOn=hasTwitter isDisabled=true}}
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="space by-one"></div>
+
+	<div id="block-logout" class="box">
+
+		<div id="block-logout-label" class="box-content">
+
+			{{I18n close_session}}
+
+		</div>
+		
 	</div>
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
