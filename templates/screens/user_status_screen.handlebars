@@ -1,70 +1,69 @@
 {{#view Yn.HeaderView }}
 
-  {{view Yn.BackButtonView  }}
-  <div class="header-title is-subtitle">{{I18n status}}</div>
-  <div class="header-subtitle">"{{user.status}}"</div>
+	{{view Yn.BackButtonView }}
+
+	<div class="header-title is-subtitle">{{I18n status}}</div>
+	<div class="header-subtitle">"{{user.status}}"</div>
 
 {{/view }}
 
 <div class="header-action">
 
-  {{view Yvi.UserStatusInputView}}
-
+	<div class="left">
+	
+		{{view Yvi.UserStatusInputView}}
+		
+	</div>
+	
+	<div class="middle"></div>
+	
+	<div class="right">
+	
+		{{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white" contentI18n="save" action="" }}
+		
+	</div>
+	
 </div>
 
 <div class="screen-container">
 
-  <div id="status-box">
+	<div class="space by-one"></div>
 
-    <div id="status-box-title">
-      {{I18n choose_one_by_default_message }}
-    </div>
+	<div id="block-status" class="box">
 
-    <div id="status-box-list">
+		<div id="block-status-title" class="box-title box-title-top">
 
-      {{#each options}}
+			{{I18n choose_one_by_default_message }}
 
-          {{I18n key=name}}
+		</div>
 
-          {{view Yn.ToggleCircleButtonView 
-            action="selectStatus" 
-            selectedBinding="view.user.status"
-            contentI18n=name}}
+		<div id="block-status-list" class="box-content">
 
-      {{/each}}
+			{{#each options}}
 
-    </div>
+				<div class="block-status-element no-last two-column-table no-last">
 
-  </div>
+					<div class="value left-column">
 
+						{{I18n key=name}}
 
+					</div>
+					
+					<div class="control right-column"> 
 
-  <div class="space by-one"></div>
+						{{view Yn.ToggleCircleButtonView 
+							action="selectStatus" 
+							selectedBinding="view.user.status"
+							contentI18n=name}}            
 
-      <div id="venue-products" class="box">
+					</div>
 
-        <div id="vpr-title" class="box-title box-title-top">
-          Testing
-        </div>
+				</div>
 
-        <div id="vpr-list" class="box-content">
-          
-          <div class="two-column-table">
-            <div class="vpr-name text is-big is-font-black left-column">
-              Test 1
-            </div>
+			{{/each}}
 
-            <div class="right-column"> 
-              {{view Yn.SwitchButtonView isOn=true isDisabled=true}}
-            </div>
-          </div>
-          
-          
-        </div>
+		</div>
 
-      </div>
-
-
-
+	</div>
 
 </div>
