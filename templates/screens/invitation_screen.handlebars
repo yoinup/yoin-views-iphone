@@ -1,8 +1,10 @@
 {{#view Yn.HeaderView }}
 
-    <div class="back-button">Back</div>
+    {{view Yn.BackButtonView }}
+
     <div class="header-title">{{I18n invitation}}</div>
-    {{view Yn.I18nBtapView id="exchange" class="header-button l-right rectangle-button-adaptative is-blue button-text is-small is-font-white" action=""}}
+
+    {{view Yn.AdaptativeButtonView class="header-button l-right is-blue button-text is-small is-font-white" contentI18n="exchange" action=""}}
 
 {{/view }}
 
@@ -38,7 +40,7 @@
 
 		<div id="invitation-block-product-content" class="box-content">
 
-			{{view Yvi.ProductShortBlockView contentBinding="invitation.product" imagetype="is-big" class="is-big" }}
+			{{view Yvi.ProductShortBlockView contentBinding="invitation.product" imagetype="is-normal" class="is-normal" }}
 
 		</div>
 

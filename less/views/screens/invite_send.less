@@ -1,0 +1,68 @@
+@import 'sizes';
+@import 'textstyles';
+@import 'paddings';
+
+
+#invite_send_screen {
+
+	> .screen-container {
+
+		> #block-notifications {
+
+			> #block-notifications-title {
+
+				.text-is-font-bold-style;
+				.box-padding-style;
+
+			}
+
+			> #block-notifications-list {
+
+				> .block-notifications-element {
+
+					.box-padding-style;
+
+					> .notification-label {
+
+						.text-is-big-style;
+						.text-is-font-black-style;
+						width: 65%;
+						text-align: left;
+
+					}
+
+					> .control {
+
+						.text-is-font-grey-style;
+						float: right;
+
+					}
+
+				}
+
+				> .block-notifications-element.no-last {
+
+					border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+					-webkit-box-shadow: inset 0 -(@border-line-size) 0 0 @grey09;
+
+				}
+
+				> .block-notifications-element.last {
+
+					//No style (clean)
+
+				}
+
+			}
+
+		}
+
+		> #invite-send {
+
+			margin: (@size-one-space * 2) auto;
+
+		}
+
+	}
+
+}

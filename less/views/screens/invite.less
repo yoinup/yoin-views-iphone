@@ -1,18 +1,181 @@
+@import 'sizes';
+@import 'textstyles';
+@import 'paddings';
 
 
 #invite_screen {
 
-
   > .screen-container {
 
+  	> #block-invite-product {
 
-    .activity-button {
+  		> #block-invite-product-title {
 
-      position: absolute;
-      right: 50px;
-      top: 200px;
+  			.text-is-font-bold-style;
+				.box-padding-style;
 
-    }
+  		}
+
+  		> #block-invite-product-content {
+
+  			.box-padding-with-normal-image;
+
+  			> .block-invite-product-element {
+
+  				> .text {
+
+  					.text-is-big-style;
+						.text-is-font-black-style;
+
+  				}
+
+  				> .control {
+
+  					float: right;
+
+  				}
+
+  				> .picture {
+
+						width: 20%;
+
+					}
+
+					> .name {
+
+						width: 65%;
+						.text-is-big-style;
+						.text-is-font-black-style;
+
+					}
+
+					> .price-label-content {
+
+						width: 15%;
+
+					}
+
+  			}
+
+  		}
+
+  	}
+
+  	> #block-invite-user {
+
+  		> #block-invite-user-title {
+
+  			.text-is-font-bold-style;
+				.box-padding-style;
+
+  		}
+
+  		> #block-invite-user-content {
+
+				> .block-invite-user-element {
+
+					.box-padding-style;
+
+					> .text {
+
+						.text-is-big-style;
+						.text-is-font-black-style;
+
+					}
+
+					> .control {
+
+						float: right;
+
+					}
+
+					> .picture {
+
+						width: 20%;
+
+					}
+
+					> .name {
+
+						width: 65%;
+
+						> .username {
+						
+							.text-is-big-style;
+							.text-is-font-black-style;
+
+						}
+
+						> .cityname {
+
+							.text-is-small-style;
+							.text-is-font-grey-style;
+
+						}
+
+					}
+
+					> .change-button {
+
+						width: 15%;
+
+					}
+
+  			}
+
+  		}
+
+  	}
+
+  	> #block-invite-message {
+
+  		> #block-invite-message-title {
+
+  			.text-is-font-bold-style;
+				.box-padding-style;
+
+  		}
+
+  		> #block-invite-message-content {
+
+  			.box-padding-style;
+
+  		}
+
+  	}
+
+  	> #block-invite-surprise {
+
+  		> #block-invite-surprise-content {
+
+				.box-padding-style;
+
+  			> #block-invite-surprise-element {
+
+  				> .text {
+
+  					.text-is-big-style;
+						.text-is-font-black-style;
+
+  				}
+
+  				> .control {
+
+  					float:right;
+
+  				}
+
+  			}
+
+  		}
+
+  	}
+
+  	> #invite-next-step {
+
+			margin: (@size-one-space * 2) auto;
+
+		}
 
   }
 

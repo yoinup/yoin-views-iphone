@@ -1,61 +1,149 @@
 {{#view Yn.HeaderView }}
 
+		{{view Yn.BackButtonView }}
+		
+		<div class="header-title">{{I18n invite}}</div>
 
-    <div class="back-button">Back</div>
-    <div class="header-title">{{I18n invite}}</div>
-
-		{{view Yn.I18nBtapView id="next" class="header-button l-right rectangle-button-adaptative is-black button-text is-small is-font-white" action="next"}}
+		{{view Yn.AdaptativeButtonView class="header-button l-right is-black button-text is-small is-font-white" contentI18n="next" action="next"}}
 
 {{/view }}
 
 <div class="screen-container">
 
-  
-  {{view Yn.MiniSpinnerView }}
+	<div class="space by-one"></div>
 
+	<div id="block-invite-product" class="box">
 
-  <div id="invite-product">
-    <div class="title">
-      {{I18n invite_to_product_title}}:
-    </div>
+		<div id="block-invite-product-title" class="box-title box-title-top">
 
-    <div class="content">
+			{{I18n invite_to_product_title}}:
 
+		</div>
 
-        <div class="price-label"> 
-          {{product.price}} {{I18n currency_symbol}}
-        </div>
+		<div id="block-invite-product-content" class="box-content">
 
-    </div>
+			{{#if product}}
 
-  </div>
+				<div class="block-invite-product-element three-column-table">
+				<div class="picture left-column">
+					{{view Yn.SquareImageView class="is-normal" contentBinding="product" withPhoto=true }}
+				</div>
+				<div class="name middle-column">
+					{{product.name}}
+				</div>
+				<div class="right-column price-label-content">
+					<div class="price-label">{{product.price}} {{I18n currency_symbol}}</div>
+				</div>
+			</div>
 
+			{{else}}
 
-  <div id="invite-user">
+				<div class="block-invite-product-element two-column-table">
+					<div class="text left-column">
+						{{I18n select_something_for_inviting}}
+					</div>
+					<div class="control right-column">
+						{{view Yn.PlusButtonView action="" }}
+					</div>
+				</div>
 
-    <div class="title">
-      {{I18n invite_to_person_title}}:
-    </div>
+			{{/if}}
 
+		</div>
 
-    <div class="plus-button icon">
-    </div>
+	</div>
 
-    <div class="plus-button icon is-grey">
-    </div>
+	<div class="space by-one"></div>
 
-    <div class="activity-button icon"></div>
+	<div id="block-invite-user" class="box">
 
+		<div id="block-invite-user-title" class="box-title box-title-top">
 
-  </div>
+			{{I18n invite_to_person_title}}:
 
+		</div>
 
-  <div id="invite-message">
+		<div id="block-invite-user-content" class="box-content">
 
-    <div class="title">
-      {{I18n message}}:
-    </div>
+			{{#if user}}
 
-  </div>
+				<div class="block-invite-user-element three-column-table">
+					<div class="picture left-column">
+						{{view Yn.SquareImageView class="is-normal" contentBinding="user" withPhoto=true }}
+					</div>
+					<div class="name middle-column">
+						<div class="username">{{userName}}</div>
+						{{#if user.city}}
+							<div class="cityname">
+								<span class="icon is-icon-x-small" icon="i"></span>
+								{{user.city.name}}
+							</div>
+						{{/if}}
+					</div>
+					<div class="change-button right-column">
+						{{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black" contentI18n="change" action="" }}
+					</div>
+				</div>
+
+			{{else}}
+
+				<div class="block-invite-user-element two-column-table">
+					<div class="text left-column">
+						{{I18n select_someone_to_invite}}
+					</div>
+					<div class="control right-column">
+						{{view Yn.PlusButtonView action="" }}
+					</div>
+				</div>
+
+			{{/if}}
+
+			
+		</div>
+
+	</div>
+
+	<div class="space by-one"></div>
+
+	<div id="block-invite-message" class="box">
+
+		<div id="block-invite-message-title" class="box-title box-title-top">
+
+			{{I18n message}}:
+
+		</div>
+
+		<div id="block-invite-message-content" class="box-content">
+
+			{{view Yvi.InviteInputView }}
+
+		</div>
+
+	</div>
+
+	<div class="space by-one"></div>
+
+	<div id="block-invite-surprise" class="box">
+
+		<div id="block-invite-surprise-content" class="box-content">
+
+			<div id="block-invite-surprise-element" class="two-column-table">
+
+				<div class="text left-column">
+					{{I18n surprise}}
+				</div>
+				<div class="control right-column">
+					{{view Yn.SwitchButtonView isOn=false }}
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="space by-two"></div>
+
+	{{view Yn.MainButtonView id="invite-next-step" class="is-black" contentI18n="next" }}
 
 </div>
