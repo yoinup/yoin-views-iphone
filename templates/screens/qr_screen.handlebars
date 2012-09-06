@@ -31,15 +31,15 @@
 			
 			<div id="qr-details" class="box-title box-title-bottom">
 
-				<div id="qr-details-image" class="inline">
+				<div id="qr-details-image">
 
-					{{view Yn.SquareImageView class="is-small" contentBinding="user" withPhoto=true }}
+					{{view Yn.SquareImageView class="is-small" contentBinding="selectedUnexchangedInvitation.product" withPhoto=true }}
 
 				</div>
 				
-				<div id="qr-details-name" class="inline">
+				<div id="qr-details-name">
 				
-					{{user.name}}
+					{{selectedUnexchangedInvitation.product.name}}
 					
 				</div>	
 			
