@@ -41,19 +41,33 @@
 
 			#qr-details {
 
+				display: table;
+				position: relative;
+				width:100%;
+
 				.text-is-small-style;
 				.text-plain-is-font-black-style;
-
 				.box-padding-style;
+
+				> #qr-details-image {
+
+					display: table-cell;
+					vertical-align: middle;
+					text-align: left;
+					width: 15%;
+
+				}
 				
 				> #qr-details-name {
 
+					display: table-cell;
+					vertical-align: middle;
+					text-align: left;
+					width: 85%;
 					.text-is-font-bold-style;
 					.text-is-font-black-style;
-					.button-text-is-big-style;
+					.text-is-big-style;
 
-					vertical-align: top;
-					margin-top: 0.5em;
 				}
 				
 			}
