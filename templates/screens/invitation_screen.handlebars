@@ -2,18 +2,66 @@
 
     <div class="back-button">Back</div>
     <div class="header-title">{{I18n invitation}}</div>
-    <!--<div class="header-button">{{I18n exchange}}</div>-->
+    {{view Yn.I18nBtapView id="exchange" class="header-button l-right rectangle-button-adaptative is-blue button-text is-small is-font-white" action=""}}
 
 {{/view }}
 
 <div class="screen-container">
 
-	<!--<div class="space by-one"></div>-->
+	<div class="space by-one"></div>
 
-    <div class="">{{I18n invitation_from_person_title}}</div>
-    <div class="">{{I18n invitation}}</div>
-    <div class="">{{I18n description}}</div>
-    <div class="">{{invitation.fromUser.name}}</div>
-    <div class="">{{invitation.product.name}}</div>
+	<div id="invitation-block-who" class="box">
+
+		<div id="invitation-block-who-title" class="box-title box-title-top">
+
+			{{I18n invitation_from_person_title}}
+
+		</div>
+
+		<div id="invitation-block-who-content" class="box-content">
+
+			{{view Yvi.UserShortBlockView contentBinding="invitation.fromUser" imagetype="is-normal" class="is-normal" }}
+
+		</div>
+
+	</div>
+
+	<div class="space by-one"></div>
+
+	<div id="invitation-block-product" class="box">
+
+		<div id="invitation-block-product-title" class="box-title box-title-top">
+
+			{{I18n invitation}}
+
+		</div>
+
+		<div id="invitation-block-product-content" class="box-content">
+
+			{{view Yvi.ProductShortBlockView contentBinding="invitation.product" imagetype="is-big" class="is-big" }}
+
+		</div>
+
+	</div>
+
+	<div class="space by-one"></div>
+
+	<div id="invitation-block-product-description" class="box">
+
+		<div id="invitation-block-product-description-title" class="box-title box-title-top">
+
+			{{I18n description}}
+
+		</div>
+
+		<div id="invitation-block-product-description-content" class="box-content is-text">
+
+			{{invitation.product.description}}
+
+		</div>
+
+	</div>
+
+	{{view Yn.MainButtonView id="exchange-invitation" class="is-blue" contentI18n="exchange" }}
 
 </div>

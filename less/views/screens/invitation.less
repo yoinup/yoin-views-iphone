@@ -1,11 +1,70 @@
-
+@import 'sizes';
+@import 'textstyles';
+@import 'paddings';
 
 #invitation_screen {
 
 
-  > .screen-container {
+	> .screen-container {
 
+		> #invitation-block-who {
 
-  }
+			> #invitation-block-who-title {
+
+				.text-is-font-bold-style;
+				.box-padding-style;
+
+			}
+
+			> #invitation-block-who-content {
+
+				.box-padding-with-normal-image;
+
+			}
+
+		}
+
+		> #invitation-block-product {
+
+			> #invitation-block-product-title {
+
+				.text-is-font-bold-style;
+				.box-padding-style;
+
+			}
+
+			> #invitation-block-product-content {
+
+				.box-padding-with-normal-image;
+
+			}
+
+		}
+
+		> #invitation-block-product-description {
+
+			> #invitation-block-product-description-title {
+
+				.text-is-font-bold-style;
+				.box-padding-style;
+
+			}
+
+			> #invitation-block-product-description-content {
+
+				.text-is-font-grey-style;
+				.box-padding-style;
+
+			}
+
+		}
+
+		> #exchange-invitation {
+
+			margin: (@size-one-space * 2) auto;
+
+		}
+
+	}
 
 }
