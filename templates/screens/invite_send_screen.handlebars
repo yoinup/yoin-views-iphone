@@ -30,29 +30,49 @@
 
 				<div class="control right-column">
 
-					{{view Yn.SwitchButtonView isOn=true }}
+					{{view Yn.SwitchButtonView isOn=smsNotification }}
 
 				</div>
 
 			</div>
+
+			{{#if smsNotification}}
+
+				<div id="sms-notification-message" class="block-notifications-element no-last">
+
+					{{view Yvi.InviteSendInputView id="sms-notification-message-text" default_text="enter_the_phone_number" }}
+
+				</div>				
+
+			{{/if}}
 
 			<div id="mail-notification" class="block-notifications-element no-last two-column-table">
 
 				<div class="notification-label left-column">
 
-					{{I18n agenda}}
+					{{I18n email}}
 
 				</div>
 
 				<div class="control right-column">
 
-					{{view Yn.SwitchButtonView isOn=false }}
+					{{view Yn.SwitchButtonView isOn=mailNotification }}
 
 				</div>
 
 			</div>
 
-			<div id="facebook-notification" class="block-notifications-element last two-column-table">
+			{{#if mailNotification}}
+
+				<div id="mail-notification-message" class="block-notifications-element no-last">
+
+					{{view Yvi.InviteSendInputView id="mail-notification-message-text" default_text="write_something_message" }}
+
+				</div>				
+
+			{{/if}}
+
+			<div id="facebook-notification" class="block-notifications-element no-last two-column-table">
 
 				<div class="notification-label left-column">
 
@@ -62,27 +82,65 @@
 
 				<div class="control right-column">
 
-					{{view Yn.SwitchButtonView isOn=false }}
+					{{view Yn.SwitchButtonView isOn=facebookNotification }}
 
 				</div>
 
 			</div>
 
-			<div id="twitter-notification" class="block-notifications-element last two-column-table">
+			{{#if facebookNotification}}
 
-				<div class="notification-label left-column">
+				<div id="facebook-notification-message" class="block-notifications-element no-last">
 
-					Twitter
+					{{view Yvi.InviteSendInputView id="facebook-notification-message-text" default_text="write_something_message" }}
+
+				</div>				
+
+			{{/if}}
+
+			{{#if twitterNotification}}
+
+				<div id="twitter-notification" class="block-notifications-element no-last two-column-table">
+
+					<div class="notification-label left-column">
+
+						Twitter
+
+					</div>
+
+					<div class="control right-column">
+
+						{{view Yn.SwitchButtonView isOn=twitterNotification }}
+
+					</div>
 
 				</div>
 
-				<div class="control right-column">
+				<div id="twitter-notification-message" class="block-notifications-element last">
 
-					{{view Yn.SwitchButtonView isOn=false }}
+					{{view Yvi.InviteSendInputView id="twitter-notification-message-text" default_text="write_something_message" }}
 
 				</div>
 
-			</div>
+			{{else}}
+
+				<div id="twitter-notification" class="block-notifications-element last two-column-table">
+
+					<div class="notification-label left-column">
+
+						Twitter
+
+					</div>
+
+					<div class="control right-column">
+
+						{{view Yn.SwitchButtonView isOn=twitterNotification }}
+
+					</div>
+
+				</div>
+
+			{{/if}}
 
 		</div>
 
