@@ -107,33 +107,66 @@
 				
 					<div class="space by-one"></div>
 
-					<div class="box">
-						<div class="box-title box-title-top">
-							<div class="image">
-								{{view Yn.SquareImageView class="is-x-small" contentBinding="" withPhoto=true }}
-							</div>
-							<div class="name">
-								Linda te invitó
-							</div>
-						</div>
-						<div class="box-content">
-							<div class="image">
-								{{view Yn.SquareImageView class="is-normal" contentBinding="" withPhoto=true }}
-							</div>
-							<div class="product">
-								Frapuccino
-								<div class="venue">
-									<span class="icon is-icon-small city" icon="i"></span>
-									Madrid
+					{{#each unexchangedinvitations}}
+
+						<div class="block-unexchanged box">
+
+							<div class="block-unexchanged-title box-title box-title-top">
+
+								<div class="image">
+
+									{{view Yn.SquareImageView class="is-x-small" contentBinding="fromUser" withPhoto=true }}
+
 								</div>
+
+								<div class="name">
+
+									{{fromUser.name}} {{I18n invites_you}}
+
+								</div>
+
 							</div>
-							<div class="exchange-button">
-								{{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white" contentI18n="exchange" action="" }}
+
+							<div class="block-unexchanged-content box-content">
+
+								<div class="image">
+
+									{{view Yn.SquareImageView class="is-normal" contentBinding="product" withPhoto=true }}
+
+								</div>
+
+								<div class="product">
+
+									{{product.name}}
+
+									{{#if product.city}}
+
+										<div class="venue">
+
+											<span class="icon is-icon-small city" icon="i"></span>
+
+											{{product.city}}
+
+										</div>
+
+									{{/if}}
+
+								</div>
+
+								<div class="exchange-button">
+
+									{{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white" contentI18n="exchange" 
+									action="" }}
+
+								</div>
+
 							</div>
+
 						</div>
-					</div>
-					
-					<div class="space by-one"></div>
+						
+						<div class="space by-one"></div>
+
+					{{/each}}
 
 				{{/view}}
 
