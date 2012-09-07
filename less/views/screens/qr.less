@@ -3,7 +3,6 @@
 @import 'textstyles';
 @import 'paddings';
 
-@edipotrebol-border-subbox-radius-size: 3px;
 @qr-width: 200px;
 @qr-height: 200px;
 
@@ -13,24 +12,26 @@
 
 		> #qr-screen-content {
 
-			background-color: #eee; //TODO: Ajustar colores y pasarlos a colors.less de yoin-ember
+			background-color: @white00; //TODO: Ajustar colores y pasarlos a colors.less de yoin-ember
+			.text-is-smallest-style;
 
 			> #qr-image {
-				padding-top: 1.5em;
-				padding-bottom: 1em;
-				padding-left: 2em;
-				padding-right: 2em;
+				padding-top: 10%;
+				padding-bottom: 5%;
+				padding-left: 10%;
+				padding-right: 10%;
 
 				> #qr-code-container {
 					margin-left: 12px; // TODO : CAMBIAR ESTO - NO CONSEGUIA CENTRARLO
 					padding: 0.5em;
 					width: @qr-width;
 					height: @qr-height;
-					background-color: #fff;
-					border-radius: @edipotrebol-border-subbox-radius-size;
-					box-shadow: 0 0 5px 1px #AAA; //TODO: Ajustar colores y pasarlos a colors.less de yoin-ember
+					background-color: @pure-white;
+					border-radius: @button_rounded_header-margin;
+					box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.3);
 
 					> #qr-code {
+
 						width: @qr-width;
 						height: @qr-height;
 					}
