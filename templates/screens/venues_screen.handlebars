@@ -1,4 +1,4 @@
-{{#with vieww}}
+{{#with view}}
 
 {{#view Yn.HeaderView}}
 
@@ -13,11 +13,9 @@
 	{{view Yn.IconBtapView class="l-right header-button rectangle-button is-small is-orange icon is-icon-small" icon="c" 
 		action="goToMap" }}
 
-
 {{/view }}
 
 <div class="screen-container">
-
 
 	<div id="venues-option-tabs">
 
@@ -70,7 +68,7 @@
 			selectedBinding="selectedCategory"
 			viewName="category" }}
 
-		<div id="categories">
+			<div id="categories">
 
 				{{#each categories}}
 

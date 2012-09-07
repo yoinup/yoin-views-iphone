@@ -1,77 +1,77 @@
 {{#with view }}
 
+<div class="venue-box-content box-content">
 
 
-<div class="venue-box-info box-top">
+		<div class="venue-left-l">
+			{{view Yn.SquareImageView contentBinding="venue.brand" isDown=true}}
+		</div>
+
+		<div class="venue-middle-l">
+
+			<div class="venue-product-name">
+				{{selected.name}}    {{products.length}}
+			</div>
+
+			<div class="venue-location-name icon" icon="h">
+				{{venue.brand.name}}, {{venue.city.name}}
+			</div>
+
+		</div>
+
+		<div class="venue-right-l">
+
+			{{#if canShowGeoposition }}
+				{{#view Yn.IconView icon="i"}}
+					{{venue.distance}}m
+				{{/view}}
+			{{else }}
+
+				{{#if selected.hasLikes }}
+
+					{{#view Yn.IconView icon="m"}}
+						{{selected.likeCount}}
+					{{/view}}
+
+				{{/if}}
+
+			{{/if}}
+
+		</div>
 
 
+		<div class="venue-box-products">
 
-  <div class="venue-left-l">
-    {{view Yn.SquareImageView contentBinding="venue.brand" isDown=true}}
-  </div>
+			{{view Yvi.VenueBoxProductSwipeView 
+				venueBinding="venue"
+				contentBinding="products"
+				selectedBinding="selected"}}
 
-  <div class="venue-middle-l">
+			{{view Yn.CarouselCirclesView
+				contentBinding="products"
+				selectedBinding="selected"}}
 
-    <div class="venue-product-name">
-      {{selected.name}}    {{products.length}}
-    </div>
+			{{view Yvi.InviteButtonView class="is-small"
+				contentBinding="selected"}}
 
-    <div class="venue-location-name icon" icon="h">
-      {{venue.brand.name}}, {{venue.city.name}}
-    </div>
-
-  </div>
-
-  <div class="venue-right-l">
-
-    {{#if canShowGeoposition }}
-      {{#view Yn.IconView icon="i"}}
-        {{venue.distance}}m
-      {{/view}}
-    {{else }}
-
-      {{#if selected.hasLikes }}
-
-        {{#view Yn.IconView icon="m"}}
-          {{selected.likeCount}}
-        {{/view}}
-
-      {{/if}}
-
-    {{/if}}
-
-  </div>
-
-</div>
+		</div>
 
 
-<div class="venue-box-products">
+		<div class="venue-box-users box-bottom">
 
-  {{view Yvi.VenueBoxProductSwipeView 
-    venueBinding="venue"
-    contentBinding="products"
-    selectedBinding="selected"}}
+			{{#if venue.users.length }}
 
-  {{view Yn.CarouselCirclesView
-    contentBinding="products"
-    selectedBinding="selected"}}
+				<div class="venue-box-users-list">
+					{{I18n venue_people_title}}
+					{{#each venue.users}}
+						{{view Yn.SquareImageView contentBinding="this" isPhoto=true }}
+					{{/each}}
+				</div>
 
-  {{view Yvi.InviteButtonView class="is-small"
-    contentBinding="selected"}}
+			{{/if}}
 
-</div>
+		</div>
 
-<div class="venue-box-users box-bottom">
-
-  {{#if venue.users.length }}
-
-    <div class="venue-box-users-list">
-      {{#each venue.users}}
-        {{view Yn.SquareImageView contentBinding="this" isUp=true }}
-      {{/each}}
-    </div>
-
-  {{/if}}
 
 </div>
 
