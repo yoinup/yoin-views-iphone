@@ -14,11 +14,14 @@
 
 
 // Look at map.js parent properties
-@bubble-border: 8px;
+@bubble-border: 5px;
 
-@button-color:#665F59;
+@button-color:@black00;
 
 .map-bubble {
+
+  padding-left: 5px;
+  padding-right: 5px;
 
 	
   background-color: @button-color;
@@ -38,11 +41,13 @@
 
     text-align: center;
     color:@pure-white;
-    text-shadow: 0 -1px 0px rgba(0,0,0,0.5);
+    text-shadow: 0 -1px 0px rgba(0,0,0,0.9);
 
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+
+    
 
   }
 
