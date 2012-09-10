@@ -3,8 +3,8 @@
 @import 'textstyles';
 @import 'paddings';
 
-@qr-width: 200px;
-@qr-height: 200px;
+@qr-width: 220px;
+@qr-height: 220px;
 
 #qr_screen {
 
@@ -12,17 +12,17 @@
 
 		> #qr-screen-content {
 
-			background-color: @white00; //TODO: Ajustar colores y pasarlos a colors.less de yoin-ember
+			background-color: @white00;
 			.text-is-smallest-style;
 
 			> #qr-image {
-				padding-top: 10%;
-				padding-bottom: 5%;
-				padding-left: 10%;
-				padding-right: 10%;
+				padding-top: 9%;
+				padding-bottom: 4%;
+				padding-left: 5%;
+				padding-right: 5%;
 
 				> #qr-code-container {
-					margin-left: 10px; // TODO : CAMBIAR ESTO - NO CONSEGUIA CENTRARLO
+					margin-left: 15px; // TODO : CAMBIAR ESTO - NO CONSEGUIA CENTRARLO
 					padding: 10px;
 					width: @qr-width;
 					height: @qr-height;
