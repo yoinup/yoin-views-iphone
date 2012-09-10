@@ -14,16 +14,21 @@
 
 		<div class="space by-one"></div>
 
+		{{#if isInvitation}}
+
+			{{#if_eq invitation compare="view.loggedUser"}}
+				Enviada!
+			{{/if_eq}}
+			
+		{{/if}}
+
 		{{#if isLike}}
 			{{view Yvi.UserInteractionLikedBlockView contentBinding="like" }}
+			{{view Yvi.UserInteractionInvitationBlockView contentBinding="invitation" loggedUserBinding="view.loggedUser"}}
 		{{/if}}
 
 		{{#if isComment}}
 			{{view Yvi.UserInteractionCommentedBlockView contentBinding="comment" }}
-		{{/if}}
-
-		{{#if isInvitation}}
-			{{view Yvi.UserInteractionInvitationBlockView contentBinding="invitation" loggedUserBinding="view.loggedUser"}}
 		{{/if}}
 
 	{{/each}}
