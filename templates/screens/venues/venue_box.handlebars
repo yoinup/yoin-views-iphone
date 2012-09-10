@@ -2,18 +2,20 @@
 
 <div class="venue-box-content box-content">
 
+	<div class="venue-box-content-element">
 
 		<div class="venue-left-l">
-			{{view Yn.SquareImageView contentBinding="venue.brand" isDown=true}}
+			{{view Yn.SquareImageView contentBinding="venue.brand" withPhoto=true }}
 		</div>
 
 		<div class="venue-middle-l">
 
 			<div class="venue-product-name">
-				{{selected.name}}    {{products.length}}
+				{{selected.name}}
 			</div>
 
-			<div class="venue-location-name icon" icon="h">
+			<div class="venue-location-name">
+				<span class="icon is-icon-small" icon="i"></span>
 				{{venue.brand.name}}, {{venue.city.name}}
 			</div>
 
@@ -22,22 +24,19 @@
 		<div class="venue-right-l">
 
 			{{#if canShowGeoposition }}
-				{{#view Yn.IconView icon="i"}}
-					{{venue.distance}}m
-				{{/view}}
-			{{else }}
-
-				{{#if selected.hasLikes }}
-
-					{{#view Yn.IconView icon="m"}}
-						{{selected.likeCount}}
-					{{/view}}
-
-				{{/if}}
-
+				<span class="icon is-icon-small" icon="o"></span>
+				{{venue.distance}}m
 			{{/if}}
+			
+				{{#if selected.hasLikes }}
+					<span class="icon is-icon-small" icon="m"></span>
+					{{selected.likeCount}}		
+				{{/if}}
+			
 
 		</div>
+
+	</div>
 
 
 		<div class="venue-box-products">
@@ -57,14 +56,15 @@
 		</div>
 
 
-		<div class="venue-box-users box-bottom">
+		<div class="venue-box-users">
 
-			{{#if venue.users.length }}
-
+			{{#if venue.nearUsers.length }}
+				<div class="venue-box-users-title">
+					{{I18n venue_people_title}}:
+				</div>
 				<div class="venue-box-users-list">
-					{{I18n venue_people_title}}
-					{{#each venue.users}}
-						{{view Yn.SquareImageView contentBinding="this" isPhoto=true }}
+					{{#each six_people}}
+						{{view Yn.SquareImageView class="is-normal inline" contentBinding="this" withPhoto=true }}
 					{{/each}}
 				</div>
 
