@@ -1,0 +1,16 @@
+{{#with view}}
+
+	{{#if sentInvitation}}
+
+		{{view Yvi.UserInteractionSentBlockView contentBinding="content" }}
+
+	{{/if}}
+
+	{{#if receivedInvitation}}
+
+		{{view Yvi.UserInteractionReceivedBlockView contentBinding="content" }}
+
+	{{/if}}
+
+
+{{/with}}

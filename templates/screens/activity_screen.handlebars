@@ -10,25 +10,21 @@
 
 <div class="screen-container">
 
-	<div class="space by-one"></div>	
-
 	{{#each activities}}
+
+		<div class="space by-one"></div>
 
 		{{#if isLike}}
 			{{view Yvi.UserInteractionLikedBlockView contentBinding="like" }}
-			
 		{{/if}}
 
 		{{#if isComment}}
 			{{view Yvi.UserInteractionCommentedBlockView contentBinding="comment" }}
-			
 		{{/if}}
 
 		{{#if isInvitation}}
-			<h2>1 invitation</h2>
+			{{view Yvi.UserInteractionInvitationBlockView contentBinding="invitation" loggedUserBinding="view.loggedUser"}}
 		{{/if}}
-		
-		<div class="space by-one"></div>
 
 	{{/each}}
 
