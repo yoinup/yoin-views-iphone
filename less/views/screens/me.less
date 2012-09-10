@@ -6,6 +6,8 @@
 
 
 @tab-color: @grey06;
+@venue-products-height: 80px;	
+
 
 #me_screen {
 
@@ -14,11 +16,18 @@
 		> #me-screen-content {
 
 			> #me-content-header {
-				background-image: -webkit-linear-gradient(220deg, #ecc591, #b87a40);
+				
+				height: @venue-products-height;	
+
+				background-size: 100%;
+				background-image: url(./assets/images/user-container.png);
 				width: 100%;
 				display: table;
 				color: white;
-				padding: 1em;
+				padding-left: 1em;
+
+				//border-top: 1px solid @grey05;
+				//border-bottom: 1px solid @grey08;
 
 				> #me-content-header-image {
 
