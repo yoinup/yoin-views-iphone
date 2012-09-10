@@ -7,7 +7,7 @@
 
 <div class="screen-container">
 
-	{{#unless phone}}
+	{{#unless user.phoneChannels}}
 
 		<div class="space by-one"></div>
 
@@ -35,7 +35,7 @@
 
 		<div id="block-phone-number-content" class="box-content">
 
-			{{#if phone}}
+			{{#each user.phoneChannels}}
 
 				<div class="block-phone-number-element no-last two-column-table">
 
@@ -53,41 +53,23 @@
 
 				</div>
 
-				<div class="block-phone-number-element last two-column-table">
+			{{/each}}
 
-					<div class="text left-column">
+			<div class="block-phone-number-element last two-column-table">
 
-						{{I18n add_another_phone_number}}
+				<div class="text left-column">
 
-					</div>
-
-					<div class="control right-column">
-
-						<span class="icon is-icon-normal is-icon-grey" icon="g"></span>
-
-					</div>				
+					{{I18n add_another_phone_number}}
 
 				</div>
 
-			{{else}}
+				<div class="control right-column">
 
-				<div class="block-phone-number-element last two-column-table">
-
-					<div class="text left-column">
-
-						{{I18n add_new_phone_number}}
-
-					</div>
-
-					<div class="control right-column">
-
-						<span class="icon is-icon-normal is-icon-grey" icon="g"></span>
-
-					</div>				
+					<span class="icon is-icon-normal is-icon-grey" icon="g"></span>
 
 				</div>
 
-			{{/if}}
+			</div>
 
 		</div>
 
