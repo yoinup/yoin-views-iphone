@@ -1,14 +1,30 @@
 @import 'sizes';
 @import 'colors';
 
+
+
+
+.header-action {
+
+
+	z-index: 1;
+}
+
+
 #map_screen {
 
+	> .header {
 
-  > .screen-container {
-    
-    // this should be done dinamically
-    height: 460px - @header-height - @header-action-height - @footer-height;
+		z-index: 2;
+	
+	}	
 
-  }
+
+	> .screen-container {
+	    
+	    // this should be done dinamically
+	    height: 460px - @header-height - @header-action-height - @footer-height;
+
+	}
 
 }
