@@ -25,23 +25,42 @@
 
 				<div class="center">
 					{{I18n qr_description}}
+					{{selectedUnexchangedInvitation.product.name}}
 				</div>
 			
 			</div>
 			
 			<div id="qr-details" class="box-title box-title-bottom">
 
-				<div id="qr-details-image">
+				{{#if selectedUnexchangedInvitation }}
 
-					{{view Yn.SquareImageView class="is-small" contentBinding="selectedUnexchangedInvitation.product" withPhoto=true }}
+					<div id="qr-details-image">
 
-				</div>
-				
-				<div id="qr-details-name">
-				
-					{{selectedUnexchangedInvitation.product.name}}
+						{{view Yn.SquareImageView class="is-small" contentBinding="selectedUnexchangedInvitation.product" withPhoto=true }}
+
+					</div>
 					
-				</div>	
+					<div id="qr-details-name">
+					
+						{{selectedUnexchangedInvitation.product.name}}
+						
+					</div>
+
+				{{else}}
+
+					<div id="qr-details-image">
+
+						{{view Yn.SquareImageView class="is-small" contentBinding="user" withPhoto=true }}
+
+					</div>
+					
+					<div id="qr-details-name">
+					
+						{{user.name}}
+						
+					</div>
+
+				{{/if}}
 			
 			</div>
 		
