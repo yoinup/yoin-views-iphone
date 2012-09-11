@@ -14,20 +14,18 @@
 
 		<div class="space by-one"></div>
 
-
-		{{#if isInvitation}}
+		 {{#if isInvitation}}
 
 			{{#if_eq "invitation.fromUser view.loggedUser"}}
-        Enviada
-      {{ else }}
-        No Enviada
+				{{view Yvi.UserInteractionSentBlockView contentBinding="invitation" }}
+			{{ else }}
+				{{view Yvi.UserInteractionReceivedBlockView contentBinding="invitation" }}
 			{{/if_eq}}
 			
 		{{/if}}
 
 		{{#if isLike}}
 			{{view Yvi.UserInteractionLikedBlockView contentBinding="like" }}
-			{{view Yvi.UserInteractionInvitationBlockView contentBinding="invitation" loggedUserBinding="view.loggedUser"}}
 		{{/if}}
 
 		{{#if isComment}}
