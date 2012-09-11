@@ -20,7 +20,7 @@
 
 		<div id="block-notifications-list" class="box-content"> 
 
-			<div id="sms-notification" class="block-notifications-element no-last two-column-table">
+			<div id="sms-notification" class="block-notifications-element two-column-table">
 
 				<div class="notification-label left-column">
 
@@ -38,7 +38,7 @@
 
 			{{#if smsNotification}}
 
-				<div id="sms-notification-message" class="block-notifications-element no-last">
+				<div id="sms-notification-message" class="block-notifications-element">
 
 					{{view Yvi.InviteSendInputView id="sms-notification-message-text" default_text="enter_the_phone_number" }}
 
@@ -46,7 +46,7 @@
 
 			{{/if}}
 
-			<div id="mail-notification" class="block-notifications-element no-last two-column-table">
+			<div id="mail-notification" class="block-notifications-element two-column-table">
 
 				<div class="notification-label left-column">
 
@@ -64,7 +64,7 @@
 
 			{{#if mailNotification}}
 
-				<div id="mail-notification-message" class="block-notifications-element no-last">
+				<div id="mail-notification-message" class="block-notifications-element">
 
 					{{view Yvi.InviteSendInputView id="mail-notification-message-text" default_text="write_something_message" }}
 
@@ -72,7 +72,7 @@
 
 			{{/if}}
 
-			<div id="facebook-notification" class="block-notifications-element no-last two-column-table">
+			<div id="facebook-notification" class="block-notifications-element two-column-table">
 
 				<div class="notification-label left-column">
 
@@ -90,7 +90,7 @@
 
 			{{#if facebookNotification}}
 
-				<div id="facebook-notification-message" class="block-notifications-element no-last">
+				<div id="facebook-notification-message" class="block-notifications-element">
 
 					{{view Yvi.InviteSendInputView id="facebook-notification-message-text" default_text="write_something_message" }}
 
@@ -100,7 +100,7 @@
 
 			{{#if twitterNotification}}
 
-				<div id="twitter-notification" class="block-notifications-element no-last two-column-table">
+				<div id="twitter-notification" class="block-notifications-element two-column-table">
 
 					<div class="notification-label left-column">
 
@@ -116,7 +116,7 @@
 
 				</div>
 
-				<div id="twitter-notification-message" class="block-notifications-element last">
+				<div id="twitter-notification-message" class="block-notifications-element">
 
 					{{view Yvi.InviteSendInputView id="twitter-notification-message-text" default_text="write_something_message" }}
 
@@ -124,7 +124,7 @@
 
 			{{else}}
 
-				<div id="twitter-notification" class="block-notifications-element last two-column-table">
+				<div id="twitter-notification" class="block-notifications-element two-column-table">
 
 					<div class="notification-label left-column">
 

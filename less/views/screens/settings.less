@@ -1,5 +1,6 @@
 @import 'paddings';
 @import 'textstyles';
+@import 'borders';
 
 
 #settings_screen {
@@ -136,16 +137,15 @@
 
 				}
 
-				> .block-channels-element.no-last {
+				> .block-channels-element {
 
-					border-bottom: 1px solid rgba(255, 255, 255, 0.7);
-					-webkit-box-shadow: inset 0 -(@border-line-size) 0 0 @grey09;
+					.list-element-fill-border;
 
 				}
 
-				> .block-channels-element.last {
+				> .block-channels-element:last-child {
 
-					//No style (clean)
+					.list-element-clear-border;
 
 				}
 

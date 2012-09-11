@@ -1,6 +1,7 @@
 @import 'sizes';
 @import 'textstyles';
 @import 'paddings';
+@import 'borders';
 
 
 #invite_send_screen {
@@ -40,16 +41,15 @@
 
 				}
 
-				> .block-notifications-element.no-last {
+				> .block-notifications-element {
 
-					border-bottom: 1px solid rgba(255, 255, 255, 0.7);
-					-webkit-box-shadow: inset 0 -(@border-line-size) 0 0 @grey09;
+					.list-element-fill-border;
 
 				}
 
-				> .block-notifications-element.last {
+				> .block-notifications-element:nth-last-child(2) {
 
-					//No style (clean)
+					.list-element-clear-border;
 
 				}
 

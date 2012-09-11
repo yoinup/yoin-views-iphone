@@ -1,5 +1,6 @@
 @import 'paddings';
 @import 'textstyles';
+@import 'borders';
 
 
 #edit_settings_screen {
@@ -63,9 +64,10 @@
 
 			> #block-cities-content {
 
-				> #block-cities-element {
+				> .block-cities-element  {
 
 					.box-padding-style;
+					.list-element-fill-border;
 
 					> .cityname {
 
@@ -82,16 +84,9 @@
 
 				}
 
-				> #block-cities-element.no-last {
+				> .block-cities-element:nth-last-child(3) {
 
-					border-bottom: 1px solid rgba(255, 255, 255, 0.7);
-					-webkit-box-shadow: inset 0 -(@border-line-size) 0 0 @grey09;
-
-				}
-
-				> #block-cities-element.last {
-
-					//No style (clean)
+					.list-element-clear-border;
 
 				}
 

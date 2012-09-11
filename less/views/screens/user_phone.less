@@ -1,5 +1,6 @@
 @import 'paddings';
 @import 'textstyles';
+@import 'borders';
 
 #user_phone_screen {
 
@@ -29,6 +30,7 @@
   			> .block-phone-number-element {
 
   				.box-padding-style;
+          .list-element-fill-border;
 
   				> .text {
 
@@ -46,16 +48,9 @@
 
   			}
 
-				> .block-phone-number-element.no-last {
+				> .block-phone-number-element:last-child {
 
-					border-bottom: 1px solid rgba(255, 255, 255, 0.7);
-					-webkit-box-shadow: inset 0 -(@border-line-size) 0 0 @grey09;
-
-				}
-
-				> .block-phone-number-element.last {
-
-					//No style (clean)
+					.list-element-clear-border;
 
 				}
 

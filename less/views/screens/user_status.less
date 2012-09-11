@@ -1,5 +1,6 @@
 @import 'paddings';
 @import 'textstyles';
+@import 'borders';
 
 #user_status_screen {
 
@@ -20,6 +21,7 @@
       	> .block-status-element {
 
       		.box-padding-style;
+          .list-element-fill-border;
 
       		> .value {
 
@@ -36,16 +38,9 @@
 
       	}
 
-      	> .block-status-element.no-last {
+				> .block-status-element:nth-last-child(3) {
 
-					border-bottom: 1px solid rgba(255, 255, 255, 0.7);
-					-webkit-box-shadow: inset 0 -(@border-line-size) 0 0 @grey09;
-
-				}
-
-				> .block-status-element.last {
-
-					//No style (clean)
+					.list-element-clear-border;
 
 				}
 
