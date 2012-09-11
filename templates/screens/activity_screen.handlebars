@@ -14,10 +14,13 @@
 
 		<div class="space by-one"></div>
 
+
 		{{#if isInvitation}}
 
-			{{#if_eq invitation compare="view.loggedUser"}}
-				Enviada!
+			{{#if_eq "invitation.fromUser view.loggedUser"}}
+        Enviada
+      {{ else }}
+        No Enviada
 			{{/if_eq}}
 			
 		{{/if}}
