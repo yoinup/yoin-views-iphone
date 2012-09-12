@@ -19,7 +19,7 @@
 
 				<div id="user-interaction-liked-block-content-product">
 
-					{{view Yn.IconView class="is-icon-x-small" iconBinding="content.product.category.icon" }}
+					{{view Yn.IconView class="with-text is-icon-x-small" iconBinding="content.product.category.icon" }}
 					{{content.product.name}}
 
 				</div>
@@ -40,14 +40,14 @@
 		
 		<div id="user-interaction-like-details-city" class="inline">
 		
-			<span class="icon is-icon-small" icon="i"></span>
+			<span class="icon with-text is-icon-small" icon="i"></span>
 			{{content.venue.name}}, {{content.venue.city.name}}
 							
 		</div>
 							
 		<div id="user-interaction-like-details-time" class="f-right">
 		
-			<span class="icon is-icon-small" icon="w"></span>
+			<span class="icon with-text is-icon-small" icon="w"></span>
 			{{humanize dateBinding="content.createdAt" }}
 		
 		</div>
