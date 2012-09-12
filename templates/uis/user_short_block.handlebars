@@ -14,18 +14,22 @@
 
 			<span id="user-short-block-content-username">{{content.name}}</span>
 
-			{{#if content.city}}
+			{{#if showCity}}
 
-				<div id="user-short-block-content-city">
+				{{#if content.city}}
 
-					<span class="icon with-text is-icon-x-small" icon="i">
+					<div id="user-short-block-content-city">
 
-					</span>
+						<span class="icon with-text is-icon-x-small" icon="i">
 
-					{{content.city.name}}
+						</span>
+
+						{{content.city.name}}
 
 
-				</div>
+					</div>
+
+				{{/if}}
 
 			{{/if}}
 

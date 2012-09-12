@@ -10,67 +10,211 @@
 
 <div class="screen-container">
 
-	{{view Yvi.ChooseUserMenuTabsView id="choose-user-menu-tabs" selected=option }}
+	{{view Yvi.ChooseUserMenuTabsView id="choose-user-menu-tabs" selectedBinding="option" }}
 
-	{{#if optionIsFriends }}
+		{{#view Yvi.TabMainView id="choose-user-type-tab-main"
+			currentTabViewBinding="option"}}
 
-		<div id="channels">
+			{{#view id="choose-user-type-friends" class="choose-user-type-tab" 
+				viewName="friends" 
+				selectedFriendsOptionBinding="selectedFriendsOption" }}
 
-			{{#each allOptions}}
+					<div id="channels">
 
-				{{view Yvi.ChooseUserChannelButtonView 
-					class="channel-button"
-					content=this 
-					selectedBinding="view.selectedFriendsOption"}}
+						{{#each allOptions}}
 
-			{{/each}}
+							{{view Yvi.ChooseUserChannelButtonView 
+								class="channel-button"
+								content=this
+								selectedBinding="view.selectedFriendsOption"}}
 
-		</div>
+						{{/each}}
 
-		<div class="space by-one"></div>
-
-		<div class=""> optionTitle {{title}}</div>
-
-		{{#if optionIsAll }} 
-				show channels options
-		{{else }}
-				venue: {{venue.name}}
-		{{/if}}
+					</div>
 
 
-		{{#view Yvi.TabMainView id="ch-user-tab-main"
-			currentTabViewBinding="tabOption" }}
+					{{#view Yvi.TabMainView id="choose-user-tab-main"
+						currentTabViewBinding="tabOption" }}
 
-			Title: {{title}}
+						{{#view id="choose-user-agenda" class="choose-user-tab" 
+							viewName="agenda" }}
 
-			{{#view id="ch-user-nears" class="ch-user-tab" 
+							<div class="space by-one"></div>
+
+							<div class="choose-user-channel-people box">
+
+								<div class="choose-user-channel-people-title box-title box-title-top">
+
+									{{title}}:
+
+								</div>
+
+								<div class="choose-user-channel-people-content box-content">
+
+									{{#each agendaUsers}}
+
+										<div class="choose-user-channel-people-content-element">
+
+											{{name}}
+
+										</div>
+
+									{{/each}}
+
+								</div>
+
+							</div>
+
+						{{/view}}
+
+						{{#view id="choose-user-yoin" class="choose-user-tab" 
+							viewName="yoin" }}
+
+							<div class="space by-one"></div>
+
+							<div class="choose-user-channel-people box">
+
+								<div class="choose-user-channel-people-title box-title box-title-top">
+
+									{{title}}:
+
+								</div>
+
+								<div class="choose-user-channel-people-content box-content">
+
+									{{#each friendUsers}}
+
+										<div class="choose-user-channel-people-content-element">
+
+											{{view Yvi.UserShortBlockView class="is-small" imagetype="is-small" contentBinding="this" showCity=false }}
+
+										</div>
+
+									{{/each}}
+
+								</div>
+
+							</div>
+
+						{{/view}}
+
+						{{#view id="choose-user-facebook" class="choose-user-tab" 
+							viewName="facebook" }}
+
+							<div class="space by-one"></div>
+
+							<div class="choose-user-channel-people box">
+
+								<div class="choose-user-channel-people-title box-title box-title-top">
+
+									{{title}}:
+
+								</div>
+
+								<div class="choose-user-channel-people-content box-content">
+
+									{{#each fbUsers}}
+
+										<div class="choose-user-channel-people-content-element">
+
+											{{name}}
+
+										</div>
+
+									{{/each}}
+
+								</div>
+
+							</div>
+
+						{{/view}}
+
+						{{#view id="choose-user-twitter" class="choose-user-tab" 
+							viewName="twitter" }}
+
+							<div class="space by-one"></div>
+
+							<div class="choose-user-channel-people box">
+
+								<div class="choose-user-channel-people-title box-title box-title-top">
+
+									{{title}}:
+
+								</div>
+
+								<div class="choose-user-channel-people-content box-content">
+
+									{{#each nearUsers}}
+
+										<div class="choose-user-channel-people-content-element">
+
+											{{name}}
+
+										</div>
+
+									{{/each}}
+
+								</div>
+
+							</div>
+
+						{{/view}}
+
+					{{/view}}
+
+			{{/view}}
+
+
+
+			{{#view id="choose-user-type-nears" class="choose-user-type-tab" 
 				viewName="nears" }}
-				nears {{nearUsers.length}}
-			{{/view}}
 
-			{{#view id="ch-user-agenda" class="ch-user-tab" 
-				viewName="agenda" }}
-				agenda {{agendaUsers.length}}
-			{{/view}}
+					<div class="space by-one"></div>
 
-			{{#view id="ch-user-facebook" class="ch-user-tab" 
-				viewName="facebook" }}
-				facebook {{fbUsers.length}}
-			{{/view}}
+					<div id="choose-user-venue" class="box">
 
-			{{#view id="ch-user-yoin" class="ch-user-tab" 
-				viewName="yoin" }}
-				yoin {{friendUsers.length}}
+						<div id="choose-user-venue-title" class="box-title box-title-top">
+
+							{{I18n people_near}}:
+
+						</div>
+
+						<div id="choose-user-venue-content" class="box-content">
+
+							{{view Yvi.VenueShortBlockView class="is-normal" imagetype="is-normal" contentBinding="venue" }}
+
+						</div>
+
+					</div>
+
+					<div class="space by-one"></div>
+
+					<div id="choose-user-near-people" class="box">
+
+						<div id="choose-user-near-people-title" class="box-title box-title-top">
+
+							{{I18n all_people}}
+
+						</div>
+
+						<div id="choose-user-near-people-content" class="box-content">
+
+							{{#each nearUsers}}
+
+								<div class="choose-user-near-people-content-element">
+
+									{{view Yvi.UserShortBlockView class="is-small" imagetype="is-small" contentBinding="this" showCity=false }}
+
+								</div>
+
+							{{/each}}
+
+						</div>
+
+					</div>
+
 			{{/view}}
 
 		{{/view}}
-
-	{{else}}
-
-		
-
-
-	{{/if}}
-
 
 </div>

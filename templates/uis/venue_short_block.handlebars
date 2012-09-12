@@ -1,0 +1,34 @@
+
+{{#with view}}
+
+	<div id="venue-short-block-content">
+		
+		<div id="venue-short-block-content-image">
+
+			{{view Yn.SquareImageView class=imagetype contentBinding="content" withIcon=true }}
+
+		</div>
+
+		<div id="venue-short-block-content-name">
+
+			<span id="venue-short-block-content-venuename">{{content.name}}</span>
+
+			{{#if content.city}}
+
+				<div id="venue-short-block-content-city">
+
+					<span class="icon with-text is-icon-x-small" icon="i">
+
+					</span>
+
+					{{content.city.name}}
+
+				</div>
+
+			{{/if}}
+
+		</div>
+
+	</div>
+
+{{/with}}
