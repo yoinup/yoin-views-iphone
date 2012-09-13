@@ -34,13 +34,14 @@
 
 				</div>
 
-				{{#view Yvi.TabMainView id="choose-product-tab-main"
-					currentTabViewBinding="tabOption"}}
+				{{#view id="choose-product-tab-main"
+					currentTabViewBinding="selectedCategory.name"}}
 
 					{{#each categories}}
 
-						{{#view class="choose-product-tab" 
-							viewName="name" }}
+						{{#view Yvi.IndependentTabPaneView class="choose-product-tab" 
+              currentTabViewBinding="view.currentTabView"
+							viewNameBinding="name" }}
 
 							<div class="space by-one"></div>
 
