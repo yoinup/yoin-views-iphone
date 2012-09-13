@@ -1,3 +1,5 @@
+{{#with view}}
+
 {{#view Yn.HeaderView class="with-big-shadow"}}
 
 	{{view Yn.BackButtonView }}
@@ -42,7 +44,7 @@
 			{{#view Yn.BtapView id="venue-likes" 
 					classNameBindings="isVoted"
 					action="fireLike"
-					isVotedBinding="selected.hasVoted"}}
+					isVotedBinding="selected.hasVoted" }}
 
 				<span class="icon with-text" icon="m"></span> {{I18n i_like}} 
 
@@ -130,3 +132,5 @@
 	{{/if}}
 
 </div>
+
+{{/with}}
