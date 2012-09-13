@@ -1,14 +1,26 @@
 {{#with view}}
 
-{{view Yvi.FooterOptionView id="left-tab" class="is-icon-big" tab="venues" icon="q" currentTabViewBinding="currentTabView" manager=manager }}
+  {{view Yvi.FooterOptionView id="left-tab" class="is-icon-big" 
+    tab="venues" 
+    icon="q" 
+    isQrSelectedBinding="isQrSelected"
+    currentTabViewBinding="currentTabView" 
+    manager=manager }}
 
 
-{{view Yvi.FooterOptionView id="right-tab" class="is-icon-big" tab="me" icon="p" currentTabViewBinding="currentTabView" manager=manager }}
+  {{view Yvi.FooterOptionView id="right-tab" class="is-icon-big" 
+    tab="me" 
+    icon="p" 
+    isQrSelectedBinding="isQrSelected"
+    currentTabViewBinding="currentTabView" 
+    manager=manager }}
 
-<div id="footer-middle">
+  <div id="footer-middle">
 
-	{{view Yvi.FooterOptionView id="inner-footer-middle" class="is-icon-x-big" tab="qr" icon="E" currentTabViewBinding="currentTabView" manager=manager }}
+    {{view Yvi.FooterQrOptionView id="inner-footer-middle" class="is-icon-x-big" 
+      isQrSelectedBinding="isQrSelected"
+      manager=manager }}
 
-</div>
+  </div>
 
 {{/with}}
