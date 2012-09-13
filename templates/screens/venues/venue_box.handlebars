@@ -15,7 +15,7 @@
 			</div>
 
 			<div class="venue-location-name">
-				<span class="icon is-icon-small" icon="i"></span>
+				<span class="icon with-text is-icon-small" icon="i"></span>
 				{{venue.brand.name}}, {{venue.city.name}}
 			</div>
 
@@ -24,12 +24,12 @@
 		<div class="venue-right-l">
 
 			{{#if canShowGeoposition }}
-				<span class="icon is-icon-small" icon="o"></span>
+				<span class="icon with-text is-icon-small" icon="o"></span>
 				{{venue.distance}}m
 			{{/if}}
 			
 				{{#if selected.hasLikes }}
-					<span class="icon is-icon-small" icon="m"></span>
+					<span class="icon with-text is-icon-small" icon="m"></span>
 					{{selected.likeCount}}		
 				{{/if}}
 			
