@@ -24,7 +24,7 @@
 
 <div class="screen-container">
 
-	<div class="venue-products">
+	<div id= "venue-products-section">
 
 			{{view Yvi.VenueProductSwipeView 
 				contentBinding="products"
@@ -62,74 +62,89 @@
 
 	</div>
 
+	<div id="venue-info-section" class="scroller">
 
-	{{#if venue.nearUsers.length }}
+    <div class="scroller-container">
 
-		<div class="space by-one"></div>
+        {{#if venue.nearUsers.length }}
 
-		<div id="venue-people" class="box">
+            <div class="space by-one"></div>
 
-			<div id="vp-title" class="box-title box-title-top">
-				{{I18n venue_people_title}}
-			</div>
+            <div id="venue-people" class="box">
 
-			<div id="vp-list" class="box-content">
-				{{#each six_people}}
-					<div class="vp-list-element inline">
-						{{view Yn.SquareImageView class="is-normal" contentBinding="this" withPhoto=true }}
-					</div>
-				{{/each}}
-			</div>
+              <div id="vp-title" class="box-title box-title-top">
+                {{I18n venue_people_title}}
+              </div>
 
-		</div>
+              <div id="vp-list" class="box-content">
+                {{#each six_people}}
+                  <div class="vp-list-element inline">
+                    {{view Yn.SquareImageView class="is-normal" contentBinding="this" withPhoto=true }}
+                  </div>
+                {{/each}}
+              </div>
 
-	{{/if}}
+            </div>
 
-	
+        {{/if}}
 
-	<div class="space by-one"></div>
+        
 
-	<div id="venue-product-description" class="box">
+        <div class="space by-one"></div>
 
-				<div id="vpd-title" class="box-title box-title-top">
-					{{I18n description}}
-				</div>
+        <div id="venue-product-description" class="box">
 
-				<div id="vpd-info" class="box-content is-text">
-					{{selected.description}}
-				</div>
+              <div id="vpd-title" class="box-title box-title-top">
+                {{I18n description}}
+              </div>
 
-	</div>
+              <div id="vpd-info" class="box-content is-text">
+                {{selected.description}}
+              </div>
+
+        </div>
 
 
-	{{#if products.length }}
+        {{#if otherProducts.length }}
 
-			<div class="space by-one"></div>
+            <div class="space by-one"></div>
 
-			<div id="venue-products" class="box">
+            <div id="venue-products" class="box">
 
-				<div id="vpr-title" class="box-title box-title-top">
-					{{I18n venue_products_title}}
-				</div>
+              <div id="vpr-title" class="box-title box-title-top">
+                {{I18n venue_products_title}}
+              </div>
 
-				<div id="vpr-list" class="box-content">
+              <div id="vpr-list" class="box-content">
 
-					{{#each products}}
-						<div class="vpr-element two-column-table">
-							<div class="vpr-name left-column">
-								{{name}}
-							</div>
-							<div class="price-label right-column"> 
-								{{price}} {{I18n currency_symbol}}
-							</div>
-						</div>
-					{{/each}}
+                {{#each otherProducts}}
 
-				</div>
+                {{#view Yn.BtapView class="vpr-element two-column-table" 
+                  action="selectProduct"
+                  actionContentBinding="this" }}
 
-			</div>
+                      <div class="vpr-name left-column">
+                        {{name}}
+                      </div>
+                      <div class="price-label right-column"> 
+                        {{price}} {{I18n currency_symbol}}
+                      </div>
 
-	{{/if}}
+                  {{/view}}
+
+                {{/each}}
+
+              </div>
+
+            </div>
+
+        {{/if}}
+
+        <div class="space by-one"></div>
+
+    </div>
+
+  </div>
 
 </div>
 
