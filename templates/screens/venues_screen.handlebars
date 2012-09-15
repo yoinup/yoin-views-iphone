@@ -1,6 +1,6 @@
 {{#with view}}
 
-{{#view Yn.HeaderView}}
+{{#view Yn.HeaderView id="venues-header"}}
 
 	{{view Yn.LogoSwitchButtonView class="l-left" 
 		isOnBinding="isCheckinOn"
@@ -70,7 +70,7 @@
 			selectedBinding="selectedCategory"
 			viewName="category" }}
 
-			<div id="categories">
+			<div id="venues-categories">
 
 				{{#each categories}}
 
@@ -85,6 +85,7 @@
 
 			{{view Yvi.VenuesTabContentView
 				showLikes=false
+        isCategoryOption=true
 				isRefreshedBinding="categoryIsRefreshed"
 				contentBinding="categoryContent" }}
 
