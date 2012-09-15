@@ -1,3 +1,5 @@
+{{#with view}}
+
 {{#view Yn.HeaderView class="with-small-shadow"}}
 
 		{{view Yn.BackButtonView }}
@@ -121,29 +123,10 @@
 
 	</div>
 
-	<div class="space by-one"></div>
-
-	<div id="block-invite-surprise" class="box">
-
-		<div id="block-invite-surprise-content" class="box-content">
-
-			<div id="block-invite-surprise-element" class="two-column-table">
-
-				<div class="text left-column">
-					{{I18n surprise}}
-				</div>
-				<div class="control right-column">
-					{{view Yn.SwitchButtonView isOn=false }}
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-
 	<div class="space by-two"></div>
 
 	{{view Yn.MainButtonView id="invite-next-step" class="is-black" contentI18n="next" }}
 
 </div>
+
+{{/with}}
