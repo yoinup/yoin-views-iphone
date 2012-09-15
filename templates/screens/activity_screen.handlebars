@@ -1,38 +1,64 @@
-{{#view Yn.HeaderView class= "with-small-shadow"}}
+
+{{#with view}}
+
+{{#view Yn.HeaderView id="activity-header" class="with-small-shadow"}}
 
 	{{view Yn.AdaptativeButtonView class="header-button l-left is-black button-text is-small is-font-white" contentI18n="close" action="close"}}
 
 	<div class="header-title">{{I18n activity_title}}</div>
-	
-	{{view Yn.IconBtapView class="l-right header-button rectangle-button is-small is-orange icon is-icon-small" icon="e" }}
 
 {{/view }}
 
-<div class="screen-container">
 
-	{{#each activities}}
-
-		<div class="space by-one"></div>
-
-		 {{#if isInvitation}}
-
-			{{#if_eq "invitation.fromUser view.loggedUser"}}
-				{{view Yvi.UserInteractionSentBlockView contentBinding="invitation" }}
-			{{ else }}
-				{{view Yvi.UserInteractionReceivedBlockView contentBinding="invitation" }}
-			{{/if_eq}}
-			
-		{{/if}}
-
-		{{#if isLike}}
-			{{view Yvi.UserInteractionLikedBlockView contentBinding="like" }}
-		{{/if}}
-
-		{{#if isComment}}
-			{{view Yvi.UserInteractionCommentedBlockView contentBinding="comment" }}
-		{{/if}}
-
-	{{/each}}
+{{#if isContentLoaded }}
 
 
-</div>
+  {{#view Yn.RefreshScrollerView id="activity-screen-container" class="screen-container" 
+    isRefreshedBinding="isRefreshed"
+    lengthBinding="activities.length"
+    exclude="footer activity-header" }}
+
+    <div class="scroller-container">
+
+        {{#each activities}}
+
+          <div class="space by-one"></div>
+
+           {{#if isInvitation}}
+
+            {{#if_eq "invitation.fromUser view.loggedUser"}}
+              {{view Yvi.UserInteractionSentBlockView contentBinding="invitation" }}
+            {{ else }}
+              {{view Yvi.UserInteractionReceivedBlockView contentBinding="invitation" }}
+            {{/if_eq}}
+            
+          {{/if}}
+
+          {{#if isLike}}
+            {{view Yvi.UserInteractionLikedBlockView contentBinding="like" }}
+          {{/if}}
+
+          {{#if isComment}}
+            {{view Yvi.UserInteractionCommentedBlockView contentBinding="comment" }}
+          {{/if}}
+
+        {{/each}}
+
+    </div>
+
+    {{#if view.showBottomView }}
+
+      {{view Yn.MiniSpinnerView }}
+
+    {{/if }}
+
+
+  {{/view}}
+
+
+{{else }}
+  {{view Yn.SpinnerView}}
+{{/if }}
+
+
+{{/with}}
