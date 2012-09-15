@@ -83,7 +83,9 @@
 						{{/if}}
 					</div>
 					<div class="change-button right-column">
-						{{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black" contentI18n="change" action="" }}
+						{{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black" 
+              contentI18n="change"
+              action="changeUser" }}
 					</div>
 				</div>
 
@@ -94,7 +96,7 @@
 						{{I18n select_someone_to_invite}}
 					</div>
 					<div class="control right-column">
-						{{view Yn.PlusButtonView action="" }}
+						{{view Yn.PlusButtonView action="chooseUser" }}
 					</div>
 				</div>
 
@@ -117,7 +119,9 @@
 
 		<div id="block-invite-message-content" class="box-content">
 
-			{{view Yvi.InviteInputView }}
+      {{view Yn.InputView id="invite-input" class="single-input" 
+        placeholderI18n="write_something_message"
+        type="text"}}
 
 		</div>
 
