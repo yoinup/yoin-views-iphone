@@ -57,21 +57,21 @@
 
 			{{#view Yvi.MeTabOptionView tab="friends" currentTabViewBinding="currentTabView" }}
 
-        <div class="number">{{friends.length}}</div>
+        <div class="number">{{user.friendsCount}}</div>
 				<div class="desc">{{I18n user_friends}}</div>
 
 			{{/view}}
 
 			{{#view Yvi.MeTabOptionView tab="unexchanged" currentTabViewBinding="currentTabView" }}
 
-        <div class="number">{{unexchangedInvitations.length}}</div>
+        <div class="number">{{user.unexchangedInvitationsCount}}</div>
 				<div class="desc">{{I18n user_unexchanged}}</div>
 
 			{{/view}}
 
 			{{#view Yvi.MeTabOptionView class="last" tab="sent" currentTabViewBinding="currentTabView" }}
 
-        <div class="number">{{sentInvitations.length}}</div>
+        <div class="number">{{user.sentInvitationsCount}}</div>
 				<div class="desc">{{I18n user_sent}}</div>
 
 			{{/view}}
