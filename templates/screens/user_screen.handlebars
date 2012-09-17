@@ -1,4 +1,4 @@
-{{#with view}} <!-- Get view context -->
+{{#with view}}
 
 {{#view Yn.HeaderView class="with-big-shadow"}}
 
@@ -55,24 +55,21 @@
 
 			{{#view Yvi.UserTabOptionView tab="friends" currentTabViewBinding="currentTabView" }}
 
-				<div class="number">92</div>
-
+        <div class="number">{{user.friendsCount}}</div>
 				<div class="desc">{{I18n user_friends}}</div>
 
 			{{/view}}
 
 			{{#view Yvi.UserTabOptionView tab="sent" currentTabViewBinding="currentTabView" }}
 
-				<div class="number">20</div>
-
+        <div class="number">{{user.unexchangedInvitationsCount}}</div>
 				<div class="desc">{{I18n user_sent}}</div>
 
 			{{/view}}
 
 			{{#view Yvi.UserTabOptionView class="last" tab="received" currentTabViewBinding="currentTabView" }}
 
-				<div class="number">126</div>
-
+        <div class="number">{{user.sentInvitationsCount}}</div>
 				<div class="desc">{{I18n user_received}}</div>
 
 			{{/view}}
@@ -135,5 +132,3 @@
 </div>
 
 {{/with}}
-
-
