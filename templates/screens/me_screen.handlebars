@@ -55,7 +55,7 @@
 
 		<div id="me-tabs">
 
-			{{#view Yvi.MeTabOptionView tab="friends" currentTabViewBinding="currentTabView" }}
+			{{#view Yvi.MeTabOptionView tab="friend" currentTabViewBinding="currentTabView" }}
 
         <div class="number">{{user.friendsCount}}</div>
 				<div class="desc">{{I18n user_friends}}</div>
@@ -84,23 +84,36 @@
 
       {{#view Yn.ScrollerView class="me-tab-pane" 
         exclude="me-header footer me-screen-content me-tabs"
-        viewName="friends" }}
+        viewName="friend" }}
 
-            <div class="space by-one"></div>
+          {{#if friends.isLoaded }}
 
-              <div class="box">
-                <div class="box-content">
+              {{#if friends.length }}
 
-                  {{#each friends}}
-                  
-                    {{view Yvi.UserShortBlockView contentBinding="this" imagetype="is-normal" class="is-normal" }}
+                  <div class="space by-one"></div>
 
-                  {{/each}}
-                  
-                </div>
-              </div>
+                    <div class="box">
+                      <div class="box-content">
 
-            <div class="space by-one"></div>
+                        {{#each friends}}
+                        
+                          {{view Yvi.UserShortBlockView contentBinding="this" imagetype="is-normal" class="is-normal" }}
+
+                        {{/each}}
+                        
+                      </div>
+                    </div>
+
+                  <div class="space by-one"></div>
+
+              {{else }}
+                  No tengo amigos, :(
+              {{/if}}
+
+
+          {{else }}
+            {{view Yn.SpinnerView}}
+          {{/if }}
 
 				{{/view}}
 
@@ -108,69 +121,83 @@
         {{#view Yn.ScrollerView class="me-tab-pane unexchanged" 
           exclude="me-header footer me-screen-content me-tabs"
           viewName="unexchanged" }}
+
+
+          {{#if unexchangedInvitations.isLoaded }}
+
+            {{#if unexchangedInvitations.length }}
 				
-					<div class="space by-one"></div>
+              <div class="space by-one"></div>
 
-					{{#each unexchangedInvitations}}
+              {{#each unexchangedInvitations}}
 
-						<div class="block-unexchanged box">
+                <div class="block-unexchanged box">
 
-							<div class="block-unexchanged-title box-title box-title-top">
+                  <div class="block-unexchanged-title box-title box-title-top">
 
-								<div class="image">
+                    <div class="image">
 
-									{{view Yn.SquareImageView class="is-x-small" contentBinding="fromUser" withPhoto=true }}
+                      {{view Yn.SquareImageView class="is-x-small" contentBinding="fromUser" withPhoto=true }}
 
-								</div>
+                    </div>
 
-								<div class="name">
+                    <div class="name">
 
-									{{fromUser.name}} {{I18n invites_you}}
+                      {{fromUser.name}} {{I18n invites_you}}
 
-								</div>
+                    </div>
 
-							</div>
+                  </div>
 
-							<div class="block-unexchanged-content box-content">
+                  <div class="block-unexchanged-content box-content">
 
-								<div class="image">
+                    <div class="image">
 
-									{{view Yn.SquareImageView class="is-normal" contentBinding="product" withPhoto=true }}
+                      {{view Yn.SquareImageView class="is-normal" contentBinding="product" withPhoto=true }}
 
-								</div>
+                    </div>
 
-								<div class="product">
+                    <div class="product">
 
-									{{product.name}}
+                      {{product.name}}
 
-									{{#if product.city}}
+                      {{#if product.city}}
 
-										<div class="venue">
+                        <div class="venue">
 
-											<span class="icon with-text is-icon-small city" icon="i"></span>
+                          <span class="icon with-text is-icon-small city" icon="i"></span>
 
-											{{product.city}}
+                          {{product.city}}
 
-										</div>
+                        </div>
 
-									{{/if}}
+                      {{/if}}
 
-								</div>
+                    </div>
 
-								<div class="exchange-button">
+                    <div class="exchange-button">
 
-									{{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white" contentI18n="exchange" 
-									action="" }}
+                      {{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white" contentI18n="exchange" 
+                      action="" }}
 
-								</div>
+                    </div>
 
-							</div>
+                  </div>
 
-						</div>
-						
-						<div class="space by-one"></div>
+                </div>
+                
+                <div class="space by-one"></div>
 
-					{{/each}}
+              {{/each}}
+
+            {{else }}
+                No tengo invitaciones recibidas, :(
+            {{/if}}
+
+
+          {{else }}
+            {{view Yn.SpinnerView}}
+          {{/if }}
 
 				{{/view}}
 
@@ -178,16 +205,29 @@
         {{#view Yn.ScrollerView class="me-tab-pane" 
           exclude="me-header footer me-screen-content me-tabs"
           viewName="sent" }}
-				
-					<div class="space by-one"></div>
 
-					{{#each sentInvitations}}
-					
-						{{view Yvi.UserInteractionSentBlockView contentBinding="this" }}
-					
-						<div class="space by-one"></div>
-					
-					{{/each}}
+          {{#if sentInvitations.isLoaded }}
+				
+            {{#if sentInvitations.length }}
+
+              <div class="space by-one"></div>
+
+              {{#each sentInvitations}}
+              
+                {{view Yvi.UserInteractionSentBlockView contentBinding="this" }}
+              
+                <div class="space by-one"></div>
+              
+              {{/each}}
+
+            {{else }}
+                No he enviado invitaciones, :(
+            {{/if}}
+
+
+          {{else }}
+            {{view Yn.SpinnerView}}
+          {{/if }}
 
 				{{/view}}
 
