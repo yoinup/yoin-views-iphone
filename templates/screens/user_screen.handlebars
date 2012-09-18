@@ -3,8 +3,7 @@
 {{#view Yn.HeaderView class="with-big-shadow"}}
 
 	{{view Yn.BackButtonView }}
-
-	{{view Yn.HeaderTitleView itemI18n="user_title" }}
+	<div class="header-title">{{I18n user_title}}</div>
 
 {{/view }}
 
@@ -76,7 +75,8 @@
 
 		</div>
 
-		{{view Yn.MainButtonView id="user-invite" class="is-blue" contentI18n="invite" }}
+    {{view Yn.MainButtonView id="user-invite" class="is-blue" 
+      contentI18n="invite" action="invite" }}
 
 
 	</div>
