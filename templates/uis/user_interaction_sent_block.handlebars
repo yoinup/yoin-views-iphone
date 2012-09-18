@@ -1,23 +1,23 @@
 
 {{#with view}}
 
-<div id="user-interaction-box" class="box">
+<div class="user-interaction-box box">
 
-	<div id="user-interaction-box-content" class="box-content">
+	<div class="user-interaction-box-content box-content">
 
-		<div id="user-interaction-sent-block-content">
+		<div class="user-interaction-sent-block-content">
 			
-			<div id="user-interaction-sent-block-content-image">
+			<div class="user-interaction-sent-block-content-image">
 			
 				{{view Yn.SquareImageView class="is-normal" contentBinding="content.fromUser" withPhoto=true }}
 
 			</div>
 
-			<div id="user-interaction-sent-block-content-name">
+			<div class="user-interaction-sent-block-content-name">
 
 				<span class="text is-big is-black">{{content.fromUser.name}}</span> {{I18n interaction_sent}}
 
-				<div id="user-interaction-sent-block-content-product">
+				<div class="user-interaction-sent-block-content-product">
 
 					{{view Yn.IconView class="with-text is-icon-x-small" iconBinding="content.product.category.icon" }}
 					{{content.product.name}}
@@ -26,7 +26,7 @@
 
 			</div>
 			
-			<div id="user-interaction-sent-block-icon">
+			<div class="user-interaction-sent-block-icon">
 
 				{{view Yn.NotificationImageView class="sent" }}
 
@@ -36,7 +36,7 @@
 			
 		<div class="space by-one"></div>
 			
-		<div id="user-block-invited">
+		<div class="user-block-invited">
 			
 			{{view Yvi.UserShortBlockView contentBinding="content.toUser" imagetype="is-small" class="is-small" }}
 			
@@ -44,16 +44,16 @@
 
 	</div>
 
-	<div id="user-interaction-sent-details" class="box-title box-title-bottom">
+	<div class="user-interaction-sent-details box-title box-title-bottom">
 		
-		<div id="user-interaction-sent-details-city" class="inline">
+		<div class="user-interaction-sent-details-city inline">
 		
 			<span class="icon with-text is-icon-small" icon="i"></span>
 			{{content.venue_user.name}}, {{content.venue.city.name}}
 							
 		</div>
 							
-		<div id="user-interaction-sent-details-time" class="f-right">
+		<div class="user-interaction-sent-details-time f-right">
 		
 			<span class="icon with-text is-icon-small" icon="w"></span>
 			{{humanize dateBinding="like.createdAt" }}
