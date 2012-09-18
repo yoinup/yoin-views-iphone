@@ -1,4 +1,12 @@
-{{view Yn.PopupView content="Debe seleccionar algún valor antes de continuar con el proceso." }}
+{{#with view}}
+
+  {{#if isNotification}}
+
+    {{view Yn.NotificationView id="notification-test" content="Message" isInDomBinding="isNotification" }}
+
+  {{/if}}
+
+
 
 <!-- id = touch-test -->
 
@@ -19,3 +27,4 @@
 
   {{/view }}
 
+{{/with}}
