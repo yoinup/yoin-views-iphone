@@ -1,19 +1,22 @@
-{{#view Yn.HeaderView }}
+
+{{#with view}}
+
+{{#view Yn.HeaderView id="comments-header"}}
 
 	{{view Yn.BackButtonView}}
 
 	<div class="header-title is-subtitle">{{I18n comment_pl}}</div>
 	<div class="header-subtitle">{{product.name}}</div>
-	
-	{{view Yn.IconBtapView class="l-right header-button rectangle-button is-small is-orange icon is-icon-small" icon="e" }}
 
 {{/view }}
 
-<div class="header-action">
+<div id="comments-header-action" class="header-action">
 
 	<div class="left">
 	
-		{{view Yvi.CommentInputView }}
+    {{view Yn.InputView id="comments-input" class="single-input" 
+      placeholderI18n="write_something_message"
+      type="text"}}
 		
 	</div>
 	
@@ -21,7 +24,9 @@
 	
 	<div class="right">
 	
-		{{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white" contentI18n="send" action="" }}
+    {{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white" 
+      contentI18n="send" 
+      action="comment" }}
 		
 	</div>
 	
@@ -29,25 +34,35 @@
 
 <div class="screen-container is-header-action">
 
-
-	<div id="activities-comments-section">
+  {{#view Yn.ScrollerView id="activities-comments-section" 
+    exclude="footer comments-header comments-header-action"}}
 
 		<div class="space by-one"></div>
 
-		{{#each activities}}
 
-			{{#if isLike}}
-				{{view Yvi.UserInteractionLikedBlockView contentBinding="like" }}
-			{{/if}}
+      {{#if content.length}}
 
-			{{#if isComment}}
-				{{view Yvi.UserInteractionCommentedBlockView contentBinding="comment" }}
-			{{/if}}
+          {{#each content}}
 
-			<div class="space by-one"></div>
+            {{#if_type this type="Yn.Comment"}}
+              {{view Yvi.UserInteractionCommentedBlockView contentBinding="this" }}
+            {{/if_type}}
 
-		{{/each}}
+            {{#if_type this type="Yn.Like"}}
+              {{view Yvi.UserInteractionLikedBlockView contentBinding="this" }}
+            {{/if_type}}
 
-	</div>
+            <div class="space by-one"></div>
+
+          {{/each}}
+
+      {{else}}
+        No comments, no likes...        
+      {{/if}}
+
+
+  {{/view }}
 
 </div>
+
+{{/with }}

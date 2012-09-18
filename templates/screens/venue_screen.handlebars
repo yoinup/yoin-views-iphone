@@ -54,12 +54,15 @@
 				venueBinding="venue"
 				productBinding="selected"}}
 
-			<div id="venue-comments">
+
+      {{#view Yn.BtapView id="venue-comments" 
+        action="showComments"}}
 
 				<span class="icon with-text" icon="u"></span> {{selected.commentCount}} 
 				{{I18n comment pluralizeBinding="selected.commentCount" toLowerCase=true }}
 
-			</div>
+
+			{{/view}}
 
 	</div>
   

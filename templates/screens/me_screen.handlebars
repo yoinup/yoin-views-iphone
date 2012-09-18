@@ -1,11 +1,12 @@
-{{#with view}} <!-- Get view context -->
+{{#with view}}
 
+{{#view Yn.HeaderView id="me-header" class="with-big-shadow"}}
 
-{{#view Yn.HeaderView  class="with-big-shadow"}}
-
-	{{view Yn.HeaderTitleView itemI18n="me_title" }} <!-- EL helper de I18n está hackeado ;) y permite esto -->
+	{{view Yn.HeaderTitleView itemI18n="me_title" }}
 	
-	{{view Yn.IconBtapView class="l-right header-button rectangle-button is-small is-orange icon is-icon-small" icon="t" }}
+  {{view Yn.IconBtapView class="l-right header-button rectangle-button is-small is-orange icon" 
+    action="goToAccount"
+    icon="t" }}
 
 {{/view }}
 
@@ -54,26 +55,23 @@
 
 		<div id="me-tabs">
 
-			{{#view Yvi.MeTabOptionView tab="friends" currentTabViewBinding="currentTabView" }}
+			{{#view Yvi.MeTabOptionView tab="friend" currentTabViewBinding="currentTabView" }}
 
-				<div class="number">92</div>
-
+        <div class="number">{{user.friendsCount}}</div>
 				<div class="desc">{{I18n user_friends}}</div>
 
 			{{/view}}
 
 			{{#view Yvi.MeTabOptionView tab="unexchanged" currentTabViewBinding="currentTabView" }}
 
-				<div class="number">20</div>
-
+        <div class="number">{{user.unexchangedInvitationsCount}}</div>
 				<div class="desc">{{I18n user_unexchanged}}</div>
 
 			{{/view}}
 
 			{{#view Yvi.MeTabOptionView class="last" tab="sent" currentTabViewBinding="currentTabView" }}
 
-				<div class="number">126</div>
-
+        <div class="number">{{user.sentInvitationsCount}}</div>
 				<div class="desc">{{I18n user_sent}}</div>
 
 			{{/view}}
@@ -84,104 +82,152 @@
 
 		{{#view Yvi.TabMainView currentTabViewBinding="currentTabView" }}
 
-				{{#view class="me-tab-pane" viewName="friends" }}
-				
-					<div class="space by-one"></div>
+      {{#view Yn.ScrollerView class="me-tab-pane" 
+        exclude="me-header footer me-content-header me-tabs"
+        viewName="friend" }}
 
-						<div class="box">
-							<div class="box-content">
+          {{#if friends.isLoaded }}
 
-								{{#each friends}}
-								
-									{{view Yvi.UserShortBlockView contentBinding="this" imagetype="is-normal" class="is-normal" }}
+              {{#if friends.length }}
 
-								{{/each}}
-								
-							</div>
-						</div>
-					
-				{{/view}}
+                  <div class="space by-one"></div>
+
+                    <div class="box">
+                      <div class="box-content">
+
+                        {{#each friends}}
+                        
+                          {{view Yvi.UserShortBlockView contentBinding="this" imagetype="is-normal" class="is-normal" }}
+
+                        {{/each}}
+                        
+                      </div>
+                    </div>
+
+                  <div class="space by-one"></div>
+
+              {{else }}
+                  No tengo amigos, :(
+              {{/if}}
 
 
-				{{#view class="me-tab-pane unexchanged" viewName="unexchanged" }}
-				
-					<div class="space by-one"></div>
-
-					{{#each unexchangedinvitations}}
-
-						<div class="block-unexchanged box">
-
-							<div class="block-unexchanged-title box-title box-title-top">
-
-								<div class="image">
-
-									{{view Yn.SquareImageView class="is-x-small" contentBinding="fromUser" withPhoto=true }}
-
-								</div>
-
-								<div class="name">
-
-									{{fromUser.name}} {{I18n invites_you}}
-
-								</div>
-
-							</div>
-
-							<div class="block-unexchanged-content box-content">
-
-								<div class="image">
-
-									{{view Yn.SquareImageView class="is-normal" contentBinding="product" withPhoto=true }}
-
-								</div>
-
-								<div class="product">
-
-									{{product.name}}
-
-									{{#if product.city}}
-
-										<div class="venue">
-
-											<span class="icon with-text is-icon-small city" icon="i"></span>
-
-											{{product.city}}
-
-										</div>
-
-									{{/if}}
-
-								</div>
-
-								<div class="exchange-button">
-
-									{{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white" contentI18n="exchange" 
-									action="" }}
-
-								</div>
-
-							</div>
-
-						</div>
-						
-						<div class="space by-one"></div>
-
-					{{/each}}
+          {{else }}
+            {{view Yn.SpinnerView}}
+          {{/if }}
 
 				{{/view}}
 
 
-				{{#view class="me-tab-pane" viewName="sent" }}
-				
-					<div class="space by-one"></div>
+        {{#view Yn.ScrollerView class="me-tab-pane unexchanged" 
+          exclude="me-header footer me-content-header me-tabs"
+          viewName="unexchanged" }}
 
-					{{#each sentinvitations}}
-					
-						{{view Yvi.UserInteractionSentBlockView contentBinding="this" }}
-					
-						<div class="space by-one"></div>
-					
-					{{/each}}
+
+          {{#if unexchangedInvitations.isLoaded }}
+
+            {{#if unexchangedInvitations.length }}
+				
+              <div class="space by-one"></div>
+
+              {{#each unexchangedInvitations}}
+
+                <div class="block-unexchanged box">
+
+                  <div class="block-unexchanged-title box-title box-title-top">
+
+                    <div class="image">
+
+                      {{view Yn.SquareImageView class="is-x-small" contentBinding="fromUser" withPhoto=true }}
+
+                    </div>
+
+                    <div class="name">
+
+                      {{fromUser.name}} {{I18n invites_you}}
+
+                    </div>
+
+                  </div>
+
+                  <div class="block-unexchanged-content box-content">
+
+                    <div class="image">
+
+                      {{view Yn.SquareImageView class="is-normal" contentBinding="product" withPhoto=true }}
+
+                    </div>
+
+                    <div class="product">
+
+                      {{product.name}}
+
+                      {{#if product.city}}
+
+                        <div class="venue">
+
+                          <span class="icon with-text is-icon-small city" icon="i"></span>
+
+                          {{product.city}}
+
+                        </div>
+
+                      {{/if}}
+
+                    </div>
+
+                    <div class="exchange-button">
+
+                      {{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white" contentI18n="exchange" 
+                      action="" }}
+
+                    </div>
+
+                  </div>
+
+                </div>
+                
+                <div class="space by-one"></div>
+
+              {{/each}}
+
+            {{else }}
+                No tengo invitaciones recibidas, :(
+            {{/if}}
+
+
+          {{else }}
+            {{view Yn.SpinnerView}}
+          {{/if }}
+
+				{{/view}}
+
+
+        {{#view Yn.ScrollerView class="me-tab-pane" 
+          exclude="me-header footer me-content-header me-tabs"
+          viewName="sent" }}
+
+          {{#if sentInvitations.isLoaded }}
+				
+            {{#if sentInvitations.length }}
+
+              <div class="space by-one"></div>
+
+              {{#each sentInvitations}}
+              
+                {{view Yvi.UserInteractionSentBlockView contentBinding="this" }}
+              
+                <div class="space by-one"></div>
+              
+              {{/each}}
+
+            {{else }}
+                No he enviado invitaciones, :(
+            {{/if}}
+
+
+          {{else }}
+            {{view Yn.SpinnerView}}
+          {{/if }}
 
 				{{/view}}
 
