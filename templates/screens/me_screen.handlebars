@@ -83,7 +83,7 @@
 		{{#view Yvi.TabMainView currentTabViewBinding="currentTabView" }}
 
       {{#view Yn.ScrollerView class="me-tab-pane" 
-        exclude="me-header footer me-screen-content me-tabs"
+        exclude="me-header footer me-content-header me-tabs"
         viewName="friend" }}
 
           {{#if friends.isLoaded }}
@@ -119,7 +119,7 @@
 
 
         {{#view Yn.ScrollerView class="me-tab-pane unexchanged" 
-          exclude="me-header footer me-screen-content me-tabs"
+          exclude="me-header footer me-content-header me-tabs"
           viewName="unexchanged" }}
 
 
@@ -203,7 +203,7 @@
 
 
         {{#view Yn.ScrollerView class="me-tab-pane" 
-          exclude="me-header footer me-screen-content me-tabs"
+          exclude="me-header footer me-content-header me-tabs"
           viewName="sent" }}
 
           {{#if sentInvitations.isLoaded }}
