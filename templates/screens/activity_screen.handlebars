@@ -9,6 +9,13 @@
 
 {{/view }}
 
+{{#if isNotification}}
+
+      {{view Yn.NotificationView id="notification-test" class="info"
+        content="Message"
+        isInDomBinding="isNotification" }}
+
+    {{/if}}
 
 {{#if isContentLoaded }}
 
