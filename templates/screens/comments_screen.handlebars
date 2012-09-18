@@ -40,9 +40,9 @@
 		<div class="space by-one"></div>
 
 
-      {{#if activities.length}}
+      {{#if content.length}}
 
-          {{#each activities}}
+          {{#each content}}
 
             {{#if_type this type="Yn.Comment"}}
               {{view Yvi.UserInteractionCommentedBlockView contentBinding="this" }}
