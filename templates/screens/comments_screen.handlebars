@@ -44,13 +44,13 @@
 
           {{#each activities}}
 
-            {{#if isLike}}
-              {{view Yvi.UserInteractionLikedBlockView contentBinding="like" }}
-            {{/if}}
+            {{#if_type this type="Yn.Comment"}}
+              {{view Yvi.UserInteractionCommentedBlockView contentBinding="this" }}
+            {{/if_type}}
 
-            {{#if isComment}}
-              {{view Yvi.UserInteractionCommentedBlockView contentBinding="comment" }}
-            {{/if}}
+            {{#if_type this type="Yn.Like"}}
+              {{view Yvi.UserInteractionLikedBlockView contentBinding="this" }}
+            {{/if_type}}
 
             <div class="space by-one"></div>
 
