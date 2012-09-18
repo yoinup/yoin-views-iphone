@@ -5,7 +5,7 @@
 	{{view Yn.HeaderTitleView itemI18n="me_title" }}
 	
   {{view Yn.IconBtapView class="l-right header-button rectangle-button is-small is-orange icon" 
-    action="goToAccount"
+    action="goToSettings"
     icon="t" }}
 
 {{/view }}
@@ -86,7 +86,6 @@
         exclude="me-header footer me-content-header me-tabs"
         viewName="friend" }}
 
-          {{#if friends.isLoaded }}
 
               {{#if friends.length }}
 
@@ -97,7 +96,8 @@
 
                         {{#each friends}}
                         
-                          {{view Yvi.UserShortBlockView contentBinding="this" imagetype="is-normal" class="is-normal" }}
+                        {{view Yvi.UserShortBlockView class="is-normal" 
+                          contentBinding="this" imagetype="is-normal"  }}
 
                         {{/each}}
                         
@@ -110,8 +110,9 @@
                   No tengo amigos, :(
               {{/if}}
 
-
-          {{else }}
+          {{#if friends.isLoaded }}
+              TODO( pendiente de nuevo /user API
+            else 
             {{view Yn.SpinnerView}}
           {{/if }}
 
