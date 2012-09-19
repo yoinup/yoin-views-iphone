@@ -182,15 +182,10 @@
 
 	<div class="space by-one"></div>
 
-
-  {{#view Yn.BtapView id="block-logout" class="box"
-    action="closeSession"}}
-
-		<div id="block-logout-label" class="box-content">
-      {{I18n close_session}}
-		</div>
-
-  {{/view }}
+	{{view Yn.MainButtonView id="block-logout"
+		class="is-red"
+		contentI18n="close_session"
+		action="closeSession" }}
 
 	<div class="space by-one"></div>
 
