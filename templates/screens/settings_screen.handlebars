@@ -108,7 +108,8 @@
 
 		<div id="block-channels-list" class="box-content"> 
 
-			<div id="agenda-channel" class="block-channels-element three-column-table">
+      {{#view Yn.BtapView id="agenda-channel" class="block-channels-element three-column-table" 
+        action="goToUserPhone"}}
 
 				<div class="image left-column">
 
@@ -120,8 +121,6 @@
 
 					{{I18n agenda}}
 
-					<!--{{hasPhone}}-->
-
 				</div>
 
 				<div class="control right-column">
@@ -130,7 +129,7 @@
 
 				</div>
 
-			</div>
+      {{/view}}
 
 			<div id="facebook-channel" class="block-channels-element three-column-table">
 
@@ -148,7 +147,8 @@
 
 				<div class="control right-column">
 
-					{{view Yn.SwitchButtonView isOnBinding="hasFacebook" }}
+          {{view Yn.SwitchButtonView isOnBinding="hasFacebook" 
+            switchAction="changeFacebook" }}
 
 				</div>
 
