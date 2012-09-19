@@ -57,7 +57,9 @@
           {{/each}}
 
       {{else}}
-        No comments, no likes...        
+
+        {{view Yn.EmptyView contentI18n="empty_reviews" messageAction="write_something_message" textAction="write" }}
+
       {{/if}}
 
 
