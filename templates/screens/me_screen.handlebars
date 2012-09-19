@@ -109,7 +109,9 @@
 								</div>
 
 							{{else }}
-									No tengo amigos, :(
+
+								{{view Yn.EmptyView contentI18n="empty_friends" messageAction="invite" textAction="invite" }}
+
 							{{/if}}
 
 					{{#if friends.isLoaded }}
@@ -194,7 +196,9 @@
 							{{/each}}
 
 						{{else }}
-								No tengo invitaciones recibidas, :(
+
+								{{view Yn.EmptyView contentI18n="empty_unexchanged" messageAction="start" textAction="start" }}
+
 						{{/if}}
 
 
@@ -224,7 +228,9 @@
 							{{/each}}
 
 						{{else }}
-								No he enviado invitaciones, :(
+
+								{{view Yn.EmptyView contentI18n="empty_sent" messageAction="invite" textAction="invite" }}
+
 						{{/if}}
 
 

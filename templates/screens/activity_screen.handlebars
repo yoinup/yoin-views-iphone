@@ -19,48 +19,56 @@
 
 {{#if isContentLoaded }}
 
+  {{#if activities.length}}
 
-  {{#view Yn.RefreshScrollerView id="activity-screen-container" class="screen-container" 
-    isRefreshedBinding="isRefreshed"
-    lengthBinding="activities.length"
-    exclude="footer activity-header" }}
+    {{#view Yn.RefreshScrollerView id="activity-screen-container" class="screen-container" 
+      isRefreshedBinding="isRefreshed"
+      lengthBinding="activities.length"
+      exclude="footer activity-header" }}
 
-    <div class="scroller-container">
+      <div class="scroller-container">
 
-        {{#each activities}}
+          {{#each activities}}
 
-          <div class="space by-one"></div>
+            <div class="space by-one"></div>
 
-           {{#if isInvitation}}
+             {{#if isInvitation}}
 
-            {{#if_eq "invitation.fromUser view.loggedUser"}}
-              {{view Yvi.UserInteractionSentBlockView contentBinding="invitation" }}
-            {{ else }}
-              {{view Yvi.UserInteractionReceivedBlockView contentBinding="invitation" }}
-            {{/if_eq}}
-            
-          {{/if}}
+              {{#if_eq "invitation.fromUser view.loggedUser"}}
+                {{view Yvi.UserInteractionSentBlockView contentBinding="invitation" }}
+              {{ else }}
+                {{view Yvi.UserInteractionReceivedBlockView contentBinding="invitation" }}
+              {{/if_eq}}
+              
+            {{/if}}
 
-          {{#if isLike}}
-            {{view Yvi.UserInteractionLikedBlockView contentBinding="like" }}
-          {{/if}}
+            {{#if isLike}}
+              {{view Yvi.UserInteractionLikedBlockView contentBinding="like" }}
+            {{/if}}
 
-          {{#if isComment}}
-            {{view Yvi.UserInteractionCommentedBlockView contentBinding="comment" }}
-          {{/if}}
+            {{#if isComment}}
+              {{view Yvi.UserInteractionCommentedBlockView contentBinding="comment" }}
+            {{/if}}
 
-        {{/each}}
+          {{/each}}
 
-    </div>
+      </div>
 
-    {{#if view.showBottomView }}
+      {{#if view.showBottomView }}
 
-      {{view Yn.MiniSpinnerView }}
+        {{view Yn.MiniSpinnerView }}
 
-    {{/if }}
+      {{/if }}
 
 
-  {{/view}}
+    {{/view}}
+    
+
+  {{else}}
+
+    {{view Yn.EmptyView contentI18n="empty_activity" messageAction="invite" textAction="invite" }}
+
+  {{/if}}
 
 
 {{else }}
