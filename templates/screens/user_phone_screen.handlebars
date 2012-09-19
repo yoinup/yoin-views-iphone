@@ -1,3 +1,5 @@
+{{#with view}}
+
 {{#view Yn.HeaderView class= "with-small-shadow" }}
 
   {{view Yn.BackButtonView }}
@@ -49,7 +51,8 @@
 
 						{{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black"
 							contentI18n="delete"
-							action="" }}
+              action="deletePhone" 
+              actionContentBinding="this"}}
 
 					</div>				
 
@@ -61,11 +64,10 @@
 
 				<div class="text left-column">
 
-					{{view Yn.InputView class="input-phone" 
+					{{view Yn.InputView id="user-phone-input" class="input-phone" 
 						inputName="phone"
 						type="tel"
-          	placeholderI18n="add_another_phone_number"
-          	focusOutAction="" }}
+          	placeholderI18n="add_another_phone_number" }}
 
 				</div>
 
@@ -73,7 +75,7 @@
 
 					{{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white"
 						contentI18n="add"
-						action="" }}
+						action="addPhone" }}
 
 				</div>
 
@@ -84,3 +86,4 @@
 	</div>
 
 </div>
+{{/with}}
