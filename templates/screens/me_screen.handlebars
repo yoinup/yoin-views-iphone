@@ -87,6 +87,8 @@
 				viewName="friend" }}
 
 
+					{{#if friends.isLoaded }}
+
 							{{#if friends.length }}
 
 								<div class="space by-one"></div>
@@ -114,8 +116,6 @@
 
 							{{/if}}
 
-					{{#if friends.isLoaded }}
-							TODO( pendiente de nuevo /user API
 					{{else}} 
 						{{view Yn.SpinnerView}}
 					{{/if }}
