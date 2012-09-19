@@ -3,6 +3,7 @@
 @import 'textstyles';
 @import 'action_bar';
 @import 'paddings';
+@import 'borders';
 
 
 @tab-color: @grey06;
@@ -114,6 +115,31 @@
 			}
 			
 			> .tab-main {
+
+				> .me-tab-pane.friend {
+
+					> .friends-box {
+
+						> .friends-list {
+
+							> .friends-element {
+
+								.box-padding-style;
+          			.list-element-fill-border;
+
+							}
+
+							> .friends-element:nth-last-child(3) {
+
+          			.list-element-clear-border;
+
+							}							
+
+						}
+
+					}
+
+				}
 			
 				> .me-tab-pane.unexchanged {
 

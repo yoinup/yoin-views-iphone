@@ -1,24 +1,24 @@
 
 {{#with view}}
 
-	<div id="user-short-block-content">
-		
-		<div id="user-short-block-content-image">
+
+<div class="user-short-block-content">
+
+		<div class="user-short-block-content-image">
 
 			{{view Yn.SquareImageView class=imagetype contentBinding="content" withPhoto=true }}
 
-
 		</div>
 
-		<div id="user-short-block-content-name">
+		<div class="user-short-block-content-name">
 
-			<span id="user-short-block-content-username">{{content.name}}</span>
+			<span class="user-short-block-content-username">{{content.name}}</span>
 
 			{{#if showCity}}
 
 				{{#if content.city}}
 
-					<div id="user-short-block-content-city">
+					<div class="user-short-block-content-city">
 
 						<span class="icon with-text is-icon-x-small" icon="i">
 
@@ -35,6 +35,6 @@
 
 		</div>
 
-	</div>
+</div>
 
 {{/with}}

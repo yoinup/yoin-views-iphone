@@ -1,4 +1,6 @@
-{{#view Yn.HeaderView class= "with-small-shadow"}}
+{{#with view}}
+
+{{#view Yn.HeaderView id="settings-header" class="with-small-shadow"}}
 
 	{{view Yn.BackButtonView }}
 
@@ -6,7 +8,8 @@
 
 {{/view }}
 
-<div class="screen-container">
+{{#view Yn.ScrollerView class="screen-container"
+  exclude="settings-header footer"}}
 
 	<div class="space by-one"></div>
 
@@ -52,7 +55,9 @@
 
 				<div id="block-basic-info-button" class="right-column">
 
-					{{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black" contentI18n="edit" action="" }}
+          {{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black" 
+            contentI18n="edit" 
+            action="goToEditSettings" }}
 
 				</div>
 
@@ -64,7 +69,8 @@
 
 	<div class="space by-one"></div>
 
-	<div id="block-status" class="box">
+  {{#view Yn.BtapView id="block-status" class="box" 
+    action="goToUserStatus" }}
 
 		<div id="block-status-content" class="box-content">
 
@@ -88,7 +94,7 @@
 
 		</div>
 
-	</div>
+  {{/view}}
 
 	<div class="space by-one"></div>
 
@@ -176,18 +182,21 @@
 
 	<div class="space by-one"></div>
 
-	<div id="block-logout" class="box">
+
+  {{#view Yn.BtapView id="block-logout" class="box"
+    action="closeSession"}}
 
 		<div id="block-logout-label" class="box-content">
-
-			{{I18n close_session}}
-
+      {{I18n close_session}}
 		</div>
 
-	</div>
+  {{/view }}
 
-</div>
+	<div class="space by-one"></div>
 
+
+{{/view }}
+{{/with}}
 
 
 

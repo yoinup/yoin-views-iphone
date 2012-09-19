@@ -4,7 +4,6 @@
 	{{#view Yn.HeaderView class= "with-small-shadow" }}
 
 		<div class="header-title">{{I18n qr_title }}</div>
-		{{view Yn.IconBtapView class="l-right header-button rectangle-button is-small is-orange icon" icon="l" }}
 
 	{{/view }}
 
@@ -15,11 +14,14 @@
 		<div id="qr-screen-content" class="box">
 
 			<div id="qr-image" class="box-content">
+        
+        <div id="qr-code-container" class="center">
 
-				{{view Yvi.QrCodeView id="qr-code-container"
-					unexchangedInvitationsBinding="unexchangedInvitations"
-					isRegisteredBinding="isRegistered"
-					userBinding="user"}}
+          {{view Yvi.QrCodeView id="qr-code"
+            selectedUnexchangedInvitationBinding="selectedUnexchangedInvitation"
+            userBinding="user"}}
+
+        </div>
 
 				<div class="space by-one"></div>
 

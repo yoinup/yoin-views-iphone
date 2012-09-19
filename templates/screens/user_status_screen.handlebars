@@ -1,3 +1,5 @@
+{{#with view}}
+
 {{#view Yn.HeaderView }}
 
 	{{view Yn.BackButtonView }}
@@ -11,7 +13,8 @@
 
 	<div class="left">
 	
-		{{view Yvi.UserStatusInputView}}
+    {{view Yn.InputView id="user-status-input" class="single-input"
+      type="text" placeholderI18n="write_status_message" }}
 		
 	</div>
 	
@@ -19,7 +22,8 @@
 	
 	<div class="right">
 	
-		{{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white" contentI18n="save" action="" }}
+    {{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white" 
+      contentI18n="save" action="writeStatus" }}
 		
 	</div>
 	
@@ -67,3 +71,5 @@
 	</div>
 
 </div>
+
+{{/with }}
