@@ -35,13 +35,15 @@
 				</div>
 
 				{{#view id="choose-product-tab-main"
-					currentTabViewBinding="selectedCategory.name"}}
+					currentTabViewBinding="selectedCategory.name"
+					contentBinding="content" }}
 
 					{{#each categories}}
 
 						{{#view Yvi.IndependentTabPaneView class="choose-product-tab" 
               currentTabViewBinding="view.currentTabView"
-							viewNameBinding="name" }}
+							viewNameBinding="name"
+							contentBinding="view.content"}}
 
 							<div class="space by-one"></div>
 
@@ -54,10 +56,11 @@
 								<div class="product-list-content box-content">
 
 									{{#each view.content}}
-
 										<div class="product-list-element three-column-table">
 											<div class="product-list-element-image left-column"> 
-												{{view Yn.SquareImageView class="is-small" contentBinding="product" withPhoto=true }}
+												{{view Yn.SquareImageView class="is-small"
+													contentBinding="product"
+													withPhoto=true }}
 											</div>
 											<div class="product-list-element-name middle-column">
 												{{product.name}}
