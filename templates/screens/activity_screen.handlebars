@@ -9,10 +9,10 @@
 
 {{/view }}
 
-{{#if isNotification}}
+    {{#if isNotification}}
 
-      {{view Yn.NotificationView id="notification-test" class="info"
-        content="Message"
+      {{view Yn.NotificationView class="info"
+        content="Message can be displayed in one line"
         isInDomBinding="isNotification" }}
 
     {{/if}}
