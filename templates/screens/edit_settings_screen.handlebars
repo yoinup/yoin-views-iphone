@@ -29,21 +29,13 @@
 
 	<div id="block-username" class="box">
 		<div id="block-username-content" class="box-content">
-			{{#if user.name}}
 
 				{{view Yn.InputView id="input-username" 
 					inputName="username"
 					type="text"
-					value="user.name" }}
-
-			{{else}}
-
-				{{view Yn.InputView id="input-username" 
-					inputName="username"
-					type="text"
-					placeholderI18n="name" }}
-
-			{{/if}}
+          placeholderI18n="name"
+          focusOutAction="changeName"
+					valueBinding="user.name" }}
 			
 		</div>
 	</div>
