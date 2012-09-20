@@ -10,8 +10,8 @@
 
 <div class="screen-container">
 
-  {{view Yvi.ChooseProductMenuTabsView id="choose-product-menu-tabs" 
-    selectedBinding="option" }}
+	{{view Yvi.ChooseProductMenuTabsView id="choose-product-menu-tabs" 
+		selectedBinding="option" }}
 
 	{{#view Yvi.TabMainView id="choose-product-type-tab-main"
 			currentTabViewBinding="option"}}
@@ -33,46 +33,65 @@
 
 				</div>
 
-        {{#view Yn.ScrollerView id="choose-product-all-content" 
-          exclude="footer choose-product-header choose-product-menu-tabs choose-product-categories" }}
-        
+				{{#view Yn.ScrollerView id="choose-product-all-content" 
+					exclude="footer choose-product-header choose-product-menu-tabs choose-product-categories" }}
+				
 
-                <div class="space by-one"></div>
+						{{#if isAllContentLoaded }}
 
-                <div class="product-list-box box">
+							{{#if allContent.length}}
 
-                  <div class="product-list-title box-title box-title-top">
-                    {{selectedCategory.name}}
-                  </div>
+								<div class="space by-one"></div>
 
-                  <div class="product-list-content box-content">
+								<div class="product-list-box box">
 
-                    {{#each allContent}}
+									<div class="product-list-title box-title box-title-top">
+										{{selectedCategory.name}}
+									</div>
+
+									<div class="product-list-content box-content">
+
+										{{#each allContent}}
 
 
-                    {{#view Yn.BtapView class="product-list-element three-column-table" 
-                      action="selectProduct"
-                      actionContentBinding="this"}}
-                          <div class="product-list-element-image left-column"> 
-                            {{view Yn.SquareImageView class="is-small"
-                              contentBinding="this"
-                              withPhoto=true }}
-                          </div>
-                          <div class="product-list-element-name middle-column">
-                            {{name}}
-                          </div>
-                          <div class="price-label right-column"> 
-                            {{price}} {{I18n currency_symbol}}
-                          </div>
-                      {{/view}}
+										{{#view Yn.BtapView class="product-list-element three-column-table" 
+											action="selectProduct"
+											actionContentBinding="this"}}
+													<div class="product-list-element-image left-column"> 
+														{{view Yn.SquareImageView class="is-small"
+															contentBinding="this"
+															withPhoto=true }}
+													</div>
+													<div class="product-list-element-name middle-column">
+														{{name}}
+													</div>
+													<div class="price-label right-column"> 
+														{{price}} {{I18n currency_symbol}}
+													</div>
+											{{/view}}
 
-                    {{/each}}
+										{{/each}}
 
-                  </div>
+									</div>
 
-                </div>
+								</div>
 
-                <div class="space by-one"></div>
+								<div class="space by-one"></div>
+
+							{{else}}
+
+								{{view Yn.EmptyView class="is-small"
+									contentI18n="empty_products"
+									messageAction=null
+									textAction=null }}
+
+							{{/if}}
+
+						{{else }}
+
+							{{view Yn.SpinnerView}}
+
+						{{/if }}
 
 
 				{{/view}}
@@ -81,8 +100,8 @@
 
 
 
-      {{#view Yn.ScrollerView id="choose-product-type-nears" class="choose-product-type-tab" 
-        exclude="footer choose-product-header choose-product-menu-tabs" 
+			{{#view Yn.ScrollerView id="choose-product-type-nears" class="choose-product-type-tab" 
+				exclude="footer choose-product-header choose-product-menu-tabs" 
 				viewName="nears" 
 				selectedFriendsOptionBinding="selectedFriendsOption" }}
 
@@ -102,40 +121,60 @@
 
 				</div>
 
-				<div class="space by-one"></div>
+				{{#if isNearsContentLoaded }}
 
-				<div class="product-list-box box">
+					{{#if nearsContent.length}}
 
-					<div class="product-list-title box-title box-title-top">
-						{{I18n all_products}}
-					</div>
+						<div class="space by-one"></div>
 
-					<div class="product-list-content box-content">
+						<div class="product-list-box box">
 
-						{{#each nearsContent}}
+							<div class="product-list-title box-title box-title-top">
+								{{I18n all_products}}
+							</div>
 
-                {{#view Yn.BtapView class="product-list-element three-column-table" 
-                  action="selectProduct"
-                  actionContentBinding="this"}}
+							<div class="product-list-content box-content">
 
-                  <div class="product-list-element-image left-column"> 
-                    {{view Yn.SquareImageView class="is-small" contentBinding="this" withPhoto=true }}
-                  </div>
-                  <div class="product-list-element-name middle-column">
-                    {{name}}
-                  </div>
-                  <div class="price-label right-column"> 
-                    {{price}} {{I18n currency_symbol}}
-                  </div>
+								{{#each nearsContent}}
 
-                {{/view}}
-						{{/each}}
+										{{#view Yn.BtapView class="product-list-element three-column-table" 
+											action="selectProduct"
+											actionContentBinding="this"}}
 
-					</div>
+											<div class="product-list-element-image left-column"> 
+												{{view Yn.SquareImageView class="is-small" contentBinding="this" withPhoto=true }}
+											</div>
+											<div class="product-list-element-name middle-column">
+												{{name}}
+											</div>
+											<div class="price-label right-column"> 
+												{{price}} {{I18n currency_symbol}}
+											</div>
 
-				</div>
+										{{/view}}
+								{{/each}}
 
-				<div class="space by-one"></div>
+							</div>
+
+						</div>
+
+						<div class="space by-one"></div>
+
+					{{else}}
+
+						{{view Yn.EmptyView class="is-small"
+							contentI18n="empty_products"
+							messageAction=null
+							textAction=null }}
+
+					{{/if}}
+
+				{{else }}
+
+					{{view Yn.SpinnerView}}
+
+				{{/if }}
+				
 
 			{{/view}}
 
