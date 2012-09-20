@@ -7,27 +7,59 @@
 
 	> .screen-container {
 
-		> #block-avatar {
+		> .block-avatar {
 
-			> #block-avatar-content {
+			> .block-avatar-content {
 
 				//Hacking this to add normal image padding into small image content
 				.box-padding-with-normal-image;
 
-				> #block-avatar-content-element-name {
+				> .block-avatar-content-element-name {
 
 					.text-is-big-style;
 					.text-is-font-black-style;
 
 				}
 
-				> #block-avatar-content-element-icon {
+				> .block-avatar-content-element-icon {
 
 					.text-is-font-low-grey-style;
 
 				}				
 
 			}
+		}
+
+
+		> .block-avatar.is-disabled {
+
+			> .block-avatar-content {
+
+				> .block-avatar-content-element-image {
+
+					> #avatar-square-image {
+
+						.border-square-photo-disabled-style;
+
+					}
+
+					
+
+				}
+
+				> .block-avatar-content-element-name {
+
+					.text-is-font-disabled-style;
+				}
+
+				> .block-avatar-content-element-icon {
+
+					.text-is-font-disabled-style;
+
+				}				
+
+			}
+
 
 		}
 

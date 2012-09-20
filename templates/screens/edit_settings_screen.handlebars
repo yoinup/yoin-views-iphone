@@ -14,16 +14,16 @@
 
 	<div class="space by-one"></div>
 
-	<div id="block-avatar" class="box">
-		<div id="block-avatar-content" class="box-content three-column-table">
-				<div id="block-avatar-content-element-image" class="left-column"> 
-					{{view Yn.SquareImageView class="is-small" contentBinding="user" withPhoto=true }}
+	<div class="block-avatar is-disabled box">
+		<div class="block-avatar-content box-content three-column-table">
+				<div class="block-avatar-content-element-image left-column"> 
+					{{view Yn.SquareImageView id="avatar-square-image" class="is-small" contentBinding="user" withPhoto=true }}
 				</div>
-				<div id="block-avatar-content-element-name" class="middle-column">
+				<div class="block-avatar-content-element-name middle-column">
 					{{I18n change_profile_picture}}
 				</div>
-				<div id="block-avatar-content-element-icon" class="right-column">
-					<span class="icon is-icon-normal is-icon-grey" icon="d"></span>
+				<div class="block-avatar-content-element-icon right-column">
+					<span class="icon is-icon-normal is-icon-grey with-text" icon="d"></span>
 				</div>
 		</div>
 	</div>
