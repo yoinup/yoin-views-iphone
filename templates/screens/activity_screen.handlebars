@@ -11,11 +11,13 @@
 
     {{#if isNotification}}
 
-      {{view Yn.NotificationView class="info"
-        content="Message can be displayed in one line"
+      {{view Yn.NotificationView class=notificationType
+        contentBinding="notificationMessage"
         isInDomBinding="isNotification" }}
 
     {{/if}}
+
+    {{view Yn.ConfirmPopupView content="This is a message based on the estimations related with Yoin. Do you agree?" }}
 
 {{#if isContentLoaded }}
 

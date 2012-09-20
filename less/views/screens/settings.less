@@ -1,6 +1,8 @@
+@import 'sizes';
 @import 'paddings';
 @import 'textstyles';
 @import 'borders';
+@import 'gradients';
 
 
 #settings_screen {
@@ -104,6 +106,14 @@
 
 			}
 
+			> #block-status-content:active {
+
+				.box-press;
+				.border-top-box-radius-style;
+				.border-bottom-box-radius-style;
+
+			}
+
 		}
 
 		> #block-channels {
@@ -120,6 +130,7 @@
 				> .block-channels-element {
 
 					.box-padding-style;
+					.list-element-fill-border;
 
 					> .image {
 
@@ -145,15 +156,15 @@
 
 				}
 
-				> .block-channels-element {
-
-					.list-element-fill-border;
-
-				}
-
 				> .block-channels-element:last-child {
 
 					.list-element-clear-border;
+
+				}
+
+				> #agenda-channel:active {
+
+					.box-press;
 
 				}
 
@@ -164,13 +175,7 @@
 
 		> #block-logout {
 
-			> #block-logout-label {
-
-				.box-padding-style;
-				.text-is-big-style;
-				.text-is-font-black-style;
-
-			}
+			margin: (@size-one-space * 2) auto;
 
 		}
 
