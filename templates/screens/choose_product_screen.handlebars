@@ -48,19 +48,24 @@
                   <div class="product-list-content box-content">
 
                     {{#each allContent}}
-                      <div class="product-list-element three-column-table">
-                        <div class="product-list-element-image left-column"> 
-                          {{view Yn.SquareImageView class="is-small"
-                            contentBinding="this"
-                            withPhoto=true }}
-                        </div>
-                        <div class="product-list-element-name middle-column">
-                          {{name}}
-                        </div>
-                        <div class="price-label right-column"> 
-                          {{price}} {{I18n currency_symbol}}
-                        </div>
-                      </div>
+
+
+                    {{#view Yn.BtapView class="product-list-element three-column-table" 
+                      action="selectProduct"
+                      actionContentBinding="this"}}
+                          <div class="product-list-element-image left-column"> 
+                            {{view Yn.SquareImageView class="is-small"
+                              contentBinding="this"
+                              withPhoto=true }}
+                          </div>
+                          <div class="product-list-element-name middle-column">
+                            {{name}}
+                          </div>
+                          <div class="price-label right-column"> 
+                            {{price}} {{I18n currency_symbol}}
+                          </div>
+                      {{/view}}
+
                     {{/each}}
 
                   </div>
@@ -109,17 +114,21 @@
 
 						{{#each nearsContent}}
 
-							<div class="product-list-element three-column-table">
-								<div class="product-list-element-image left-column"> 
-									{{view Yn.SquareImageView class="is-small" contentBinding="this" withPhoto=true }}
-								</div>
-								<div class="product-list-element-name middle-column">
-									{{name}}
-								</div>
-								<div class="price-label right-column"> 
-									{{price}} {{I18n currency_symbol}}
-								</div>
-							</div>
+                {{#view Yn.BtapView class="product-list-element three-column-table" 
+                  action="selectProduct"
+                  actionContentBinding="this"}}
+
+                  <div class="product-list-element-image left-column"> 
+                    {{view Yn.SquareImageView class="is-small" contentBinding="this" withPhoto=true }}
+                  </div>
+                  <div class="product-list-element-name middle-column">
+                    {{name}}
+                  </div>
+                  <div class="price-label right-column"> 
+                    {{price}} {{I18n currency_symbol}}
+                  </div>
+
+                {{/view}}
 						{{/each}}
 
 					</div>
