@@ -51,14 +51,14 @@
                       <div class="product-list-element three-column-table">
                         <div class="product-list-element-image left-column"> 
                           {{view Yn.SquareImageView class="is-small"
-                            contentBinding="product"
+                            contentBinding="this"
                             withPhoto=true }}
                         </div>
                         <div class="product-list-element-name middle-column">
-                          {{product.name}}
+                          {{name}}
                         </div>
                         <div class="price-label right-column"> 
-                          {{product.price}} {{I18n currency_symbol}}
+                          {{price}} {{I18n currency_symbol}}
                         </div>
                       </div>
                     {{/each}}
@@ -111,13 +111,13 @@
 
 							<div class="product-list-element three-column-table">
 								<div class="product-list-element-image left-column"> 
-									{{view Yn.SquareImageView class="is-small" contentBinding="product" withPhoto=true }}
+									{{view Yn.SquareImageView class="is-small" contentBinding="this" withPhoto=true }}
 								</div>
 								<div class="product-list-element-name middle-column">
-									{{product.name}}
+									{{name}}
 								</div>
 								<div class="price-label right-column"> 
-									{{product.price}} {{I18n currency_symbol}}
+									{{price}} {{I18n currency_symbol}}
 								</div>
 							</div>
 						{{/each}}
