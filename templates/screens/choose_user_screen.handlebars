@@ -234,54 +234,70 @@
 
 			{{/view}}
 
-
-
 			{{#view id="choose-user-type-nears" class="choose-user-type-tab" 
 				viewName="nears" }}
 
-					<div class="space by-one"></div>
+        {{#if nearContent.isLoaded }} 
 
-					<div id="choose-user-venue" class="box">
+          {{#if nearContent.length }} 
 
-						<div id="choose-user-venue-title" class="box-title box-title-top">
+              <div class="space by-one"></div>
 
-							{{I18n people_near}}:
+              <div id="choose-user-venue" class="box">
 
-						</div>
+                <div id="choose-user-venue-title" class="box-title box-title-top">
 
-						<div id="choose-user-venue-content" class="box-content">
+                  {{I18n people_near}}:
 
-							{{view Yvi.VenueShortBlockView class="is-normal" imagetype="is-normal" contentBinding="venue" }}
+                </div>
 
-						</div>
+                <div id="choose-user-venue-content" class="box-content">
 
-					</div>
+                  {{view Yvi.VenueShortBlockView class="is-normal" imagetype="is-normal" contentBinding="venue" }}
 
-					<div class="space by-one"></div>
+                </div>
 
-					<div id="choose-user-near-people" class="box">
+              </div>
 
-						<div id="choose-user-near-people-title" class="box-title box-title-top">
+              <div class="space by-one"></div>
 
-							{{I18n all_people}}
+              <div id="choose-user-near-people" class="box">
 
-						</div>
+                <div id="choose-user-near-people-title" class="box-title box-title-top">
 
-						<div id="choose-user-near-people-content" class="box-content">
+                  {{I18n all_people}}
 
-							{{#each nearUsers}}
+                </div>
 
-								<div class="choose-user-near-people-content-element">
+                <div id="choose-user-near-people-content" class="box-content">
 
-									{{view Yvi.UserShortBlockView class="is-small" imagetype="is-small" contentBinding="this" showCity=false }}
+                  {{#each nearContent}}
 
-								</div>
+                    <div class="choose-user-near-people-content-element">
 
-							{{/each}}
+                      {{view Yvi.UserShortBlockView class="is-small" imagetype="is-small" contentBinding="this" showCity=false }}
 
-						</div>
+                    </div>
 
-					</div>
+                  {{/each}}
+
+                </div>
+
+              </div>
+
+              <div class="space by-one"></div>
+
+          {{else}} 
+
+             No hay usuarios cerca del Venue
+
+          {{/if}} 
+
+        {{else}} 
+
+          {{view Yn.SpinnerView}}
+
+        {{/if}} 
 
 			{{/view}}
 
