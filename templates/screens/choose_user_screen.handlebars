@@ -1,13 +1,11 @@
 
 {{#with view}}
 
-{{#view Yn.HeaderView }}
+{{#view Yn.HeaderView id="choose-user-header"}}
 
 	{{view Yn.BackButtonView}}
 
 	<div class="header-title">{{I18n consignee}}</div>
-
-	{{view Yn.IconBtapView class="l-right header-button rectangle-button is-small is-orange icon" icon="q" }}
 
 {{/view }}
 
@@ -24,14 +22,27 @@
 
 					<div id="channels">
 
-						{{#each allOptions}}
 
 							{{view Yvi.ChooseUserChannelButtonView 
-								class="channel-button"
-								content=this
+								content="agenda"
+                isDisabledBinding="isAgendaDisabled"
 								selectedBinding="view.selectedFriendsOption"}}
 
-						{{/each}}
+							{{view Yvi.ChooseUserChannelButtonView 
+								content="yoin"
+                isDisabledBinding="isYoinDisabled"
+								selectedBinding="view.selectedFriendsOption"}}
+
+							{{view Yvi.ChooseUserChannelButtonView 
+								content="facebook"
+                isDisabledBinding="isFacebookDisabled"
+								selectedBinding="view.selectedFriendsOption"}}
+
+							{{view Yvi.ChooseUserChannelButtonView 
+                isDisabledBinding="isTwitterDisabled"
+								content="twitter"
+								selectedBinding="view.selectedFriendsOption"}}
+
 
 					</div>
 
@@ -42,29 +53,54 @@
 						{{#view id="choose-user-agenda" class="choose-user-tab" 
 							viewName="agenda" }}
 
-							<div class="space by-one"></div>
 
-							<div class="choose-user-channel-people box">
+              {{#if isAgendaDisabled}} 
+                  Pablo mete un mensaje diciendo q hay q activar tu agenda
+              {{else}} 
 
-								<div class="choose-user-channel-people-title box-title box-title-top">
+                {{#if isAgendaContentLoaded }} 
 
-									{{title}}:
+                  {{#if agendaContent.length }} 
 
-								</div>
+                        <div class="space by-one"></div>
+                        <div class="choose-user-channel-people box">
 
-								<div class="choose-user-channel-people-content box-content">
+                          <div class="choose-user-channel-people-title box-title box-title-top">
 
-									{{#each agendaUsers}}
+                            {{title}}
 
-										<div class="choose-user-channel-people-content-element">
+                          </div>
 
-											{{name}}
+                          <div class="choose-user-channel-people-content box-content">
 
-										</div>
+                            {{#each agendaContent}}
 
-									{{/each}}
+                              <div class="choose-user-channel-people-content-element">
 
-								</div>
+                                {{name}}
+
+                              </div>
+
+                            {{/each}}
+
+                          </div>
+                          <div class="space by-one"></div>
+
+                  {{else}} 
+
+                     No hay contenido
+
+                  {{/if}} 
+
+                {{else}} 
+
+                  {{view Yn.SpinnerView}}
+
+                {{/if}} 
+
+              {{/if}} 
+
+
 
 							</div>
 
@@ -73,93 +109,124 @@
 						{{#view id="choose-user-yoin" class="choose-user-tab" 
 							viewName="yoin" }}
 
-							<div class="space by-one"></div>
 
-							<div class="choose-user-channel-people box">
+              {{#if isYoinDisabled}} 
 
-								<div class="choose-user-channel-people-title box-title box-title-top">
+                  Pablo mete un mensaje diciendo q no tienes amigos
 
-									{{title}}:
+              {{else}} 
 
-								</div>
+                {{#if isYoinContentLoaded }} 
 
-								<div class="choose-user-channel-people-content box-content">
+                  {{#if yoinContent.length }} 
 
-									{{#each friendUsers}}
+                    <div class="space by-one"></div>
+                    <div class="choose-user-channel-people box">
 
-										<div class="choose-user-channel-people-content-element">
+                      <div class="choose-user-channel-people-title box-title box-title-top">
 
-											{{view Yvi.UserShortBlockView class="is-small" imagetype="is-small" contentBinding="this" showCity=false }}
+                        {{title}}
 
-										</div>
+                      </div>
 
-									{{/each}}
+                      <div class="choose-user-channel-people-content box-content">
 
-								</div>
+                        {{#each yoinContent}}
 
-							</div>
+                          <div class="choose-user-channel-people-content-element">
+
+                            {{view Yvi.UserShortBlockView class="is-small" imagetype="is-small" contentBinding="this" showCity=false }}
+
+                          </div>
+
+                        {{/each}}
+
+                      </div>
+
+                    </div>
+                    <div class="space by-one"></div>
+
+                  {{else}} 
+
+                     No hay contenido
+
+                  {{/if}} 
+
+                {{else}} 
+
+                  {{view Yn.SpinnerView}}
+
+                {{/if}} 
+
+              {{/if}} 
+
 
 						{{/view}}
 
 						{{#view id="choose-user-facebook" class="choose-user-tab" 
 							viewName="facebook" }}
 
-							<div class="space by-one"></div>
+              {{#if isFacebookDisabled}} 
 
-							<div class="choose-user-channel-people box">
+                  Pablo mete un mensaje diciendo q hay q activar tu cuenta de FB
 
-								<div class="choose-user-channel-people-title box-title box-title-top">
+              {{else}} 
 
-									{{title}}:
+                {{#if isFacebookContentLoaded }} 
 
-								</div>
+                  {{#if facebookContent.length }} 
 
-								<div class="choose-user-channel-people-content box-content">
+                      <div class="space by-one"></div>
+                      <div class="choose-user-channel-people box">
 
-									{{#each fbUsers}}
+                        <div class="choose-user-channel-people-title box-title box-title-top">
 
-										<div class="choose-user-channel-people-content-element">
+                          {{title}}:
 
-											{{name}}
+                        </div>
 
-										</div>
+                        <div class="choose-user-channel-people-content box-content">
 
-									{{/each}}
+                          {{#each facebookContent}}
 
-								</div>
+                            <div class="choose-user-channel-people-content-element">
 
-							</div>
+                              {{name}}
+
+                            </div>
+
+                          {{/each}}
+
+                        </div>
+
+                      </div>
+                      <div class="space by-one"></div>
+
+                  {{else}} 
+
+                     No hay contenido
+
+                  {{/if}} 
+
+                {{else}} 
+
+                  {{view Yn.SpinnerView}}
+
+                {{/if}} 
+
+              {{/if}} 
+
 
 						{{/view}}
 
 						{{#view id="choose-user-twitter" class="choose-user-tab" 
 							viewName="twitter" }}
 
-							<div class="space by-one"></div>
 
-							<div class="choose-user-channel-people box">
+              {{#if isTwitterDisabled}} 
+                  Support to twitter currently not available
+              {{/if}}
 
-								<div class="choose-user-channel-people-title box-title box-title-top">
-
-									{{title}}:
-
-								</div>
-
-								<div class="choose-user-channel-people-content box-content">
-
-									{{#each nearUsers}}
-
-										<div class="choose-user-channel-people-content-element">
-
-											{{name}}
-
-										</div>
-
-									{{/each}}
-
-								</div>
-
-							</div>
 
 						{{/view}}
 
