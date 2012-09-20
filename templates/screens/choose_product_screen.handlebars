@@ -1,18 +1,17 @@
 {{#with view}}
 
-{{#view Yn.HeaderView }}
+{{#view Yn.HeaderView id="choose-product-header"}}
 
 	{{view Yn.BackButtonView }}
 
 	<div class="header-title">{{I18n product}}</div>
 
-	{{view Yn.IconBtapView class="l-right header-button rectangle-button is-small is-orange icon" icon="q" }}
-
 {{/view }}
 
 <div class="screen-container">
 
-	{{view Yvi.ChooseProductMenuTabsView id="choose-product-menu-tabs" selectedBinding="option" }}
+  {{view Yvi.ChooseProductMenuTabsView id="choose-product-menu-tabs" 
+    selectedBinding="option" }}
 
 	{{#view Yvi.TabMainView id="choose-product-type-tab-main"
 			currentTabViewBinding="option"}}
@@ -21,7 +20,7 @@
 				viewName="all" 
 				selectedCategoryBinding="selectedCategory" }}
 
-				<div id="categories">
+				<div id="choose-product-categories">
 
 					{{#each categories}}
 
@@ -34,50 +33,42 @@
 
 				</div>
 
-				{{#view id="choose-product-tab-main"
-					currentTabViewBinding="selectedCategory.name"
-					contentBinding="content" }}
+        {{#view Yn.ScrollerView id="choose-product-all-content" 
+          exclude="footer choose-product-header choose-product-menu-tabs choose-product-categories" }}
+        
 
-					{{#each categories}}
+                <div class="space by-one"></div>
 
-						{{#view Yvi.IndependentTabPaneView class="choose-product-tab" 
-              currentTabViewBinding="view.currentTabView"
-							viewNameBinding="name"
-							contentBinding="view.content"}}
+                <div class="product-list-box box">
 
-							<div class="space by-one"></div>
+                  <div class="product-list-title box-title box-title-top">
+                    {{selectedCategory.name}}
+                  </div>
 
-							<div class="product-list-box box">
+                  <div class="product-list-content box-content">
 
-								<div class="product-list-title box-title box-title-top">
-									{{name}}
-								</div>
+                    {{#each allContent}}
+                      <div class="product-list-element three-column-table">
+                        <div class="product-list-element-image left-column"> 
+                          {{view Yn.SquareImageView class="is-small"
+                            contentBinding="product"
+                            withPhoto=true }}
+                        </div>
+                        <div class="product-list-element-name middle-column">
+                          {{product.name}}
+                        </div>
+                        <div class="price-label right-column"> 
+                          {{product.price}} {{I18n currency_symbol}}
+                        </div>
+                      </div>
+                    {{/each}}
 
-								<div class="product-list-content box-content">
+                  </div>
 
-									{{#each view.content}}
-										<div class="product-list-element three-column-table">
-											<div class="product-list-element-image left-column"> 
-												{{view Yn.SquareImageView class="is-small"
-													contentBinding="product"
-													withPhoto=true }}
-											</div>
-											<div class="product-list-element-name middle-column">
-												{{product.name}}
-											</div>
-											<div class="price-label right-column"> 
-												{{product.price}} {{I18n currency_symbol}}
-											</div>
-										</div>
-									{{/each}}
+                </div>
 
-								</div>
+                <div class="space by-one"></div>
 
-							</div>
-
-						{{/view}}
-
-					{{/each}}
 
 				{{/view}}
 
@@ -85,7 +76,8 @@
 
 
 
-			{{#view id="choose-product-type-nears" class="choose-product-type-tab" 
+      {{#view Yn.ScrollerView id="choose-product-type-nears" class="choose-product-type-tab" 
+        exclude="footer choose-product-header choose-product-menu-tabs" 
 				viewName="nears" 
 				selectedFriendsOptionBinding="selectedFriendsOption" }}
 
@@ -115,7 +107,7 @@
 
 					<div class="product-list-content box-content">
 
-						{{#each content}}
+						{{#each nearsContent}}
 
 							<div class="product-list-element three-column-table">
 								<div class="product-list-element-image left-column"> 
@@ -133,6 +125,8 @@
 					</div>
 
 				</div>
+
+				<div class="space by-one"></div>
 
 			{{/view}}
 
