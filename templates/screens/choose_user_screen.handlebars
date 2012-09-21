@@ -47,143 +47,91 @@
 					{{#view Yvi.TabMainView id="choose-user-tab-main"
 						currentTabViewBinding="tabOption" }}
 
-            {{#view Yn.ScrollerView id="choose-user-agenda" class="choose-user-tab" 
-              exclude="choose-user-menu-tabs footer choose-user-header choose-user-type-friends"
-							viewName="agenda" }}
+                {{#view Yn.ScrollerView id="choose-user-agenda" class="choose-user-tab" 
+                  exclude="choose-user-menu-tabs footer choose-user-header channels"
+                  viewName="agenda" }}
 
 
-              {{#unless user.hasPhones}} 
-                  Pablo mete un mensaje diciendo q hay q activar tu agenda
-              {{else}} 
+                  {{#unless user.hasPhones}} 
+                      Pablo mete un mensaje diciendo q hay q activar tu agenda
+                  {{else}} 
 
-                {{#if agendaContent.isLoaded }} 
+                    {{#if agendaIsLoaded }} 
 
-                  {{#if agendaContent.length }} 
+                      {{#if agendaContent.length }} 
 
-                        <div class="space by-one"></div>
-                        <div class="choose-user-channel-people box">
+                            <div class="space by-one"></div>
+                            <div class="choose-user-channel-people box">
 
-                          <div class="choose-user-channel-people-title box-title box-title-top">
+                              <div class="choose-user-channel-people-title box-title box-title-top">
 
-                            {{title}}
-
-                          </div>
-
-                          <div class="choose-user-channel-people-content box-content">
-
-                            {{#each agendaContent}}
-
-                              <div class="choose-user-channel-people-content-element">
-
-                                {{name}}
+                                {{title}}
 
                               </div>
 
-                            {{/each}}
+                              <div class="choose-user-channel-people-content box-content">
 
-                          </div>
-                          <div class="space by-one"></div>
+                                {{#each agendaContent}}
 
-                  {{else}} 
+                                    {{#view Yn.BtapView class="choose-user-channel-people-content-element"
+                                      action="selectAgendaUser"
+                                      actionContentBinding="this"}}
 
-                     No hay contenido
+                                      {{name}}
 
-                  {{/if}} 
+                                    {{/view}}
 
-                {{else}} 
+                                {{/each}}
 
-                  {{view Yn.SpinnerView}}
+                              </div>
+                              <div class="space by-one"></div>
 
-                {{/if}} 
+                      {{else}} 
 
-              {{/unless}} 
+                         No hay contenido
 
+                      {{/if}} 
 
+                    {{else}} 
 
-							</div>
+                      {{view Yn.SpinnerView}}
 
-						{{/view}}
+                    {{/if}} 
 
-						{{#view Yn.ScrollerView id="choose-user-yoin" class="choose-user-tab" 
-              exclude="choose-user-menu-tabs footer choose-user-header choose-user-type-friends"
-							viewName="yoin" }}
-
-              {{#if yoinContent.isLoaded }} 
-
-                {{#if yoinContent.length }} 
-
-                  <div class="space by-one"></div>
-                  <div class="choose-user-channel-people box">
-
-                    <div class="choose-user-channel-people-title box-title box-title-top">
-
-                      {{title}}
-
-                    </div>
-
-                    <div class="choose-user-channel-people-content box-content">
-
-                      {{#each yoinContent}}
-
-                        <div class="choose-user-channel-people-content-element">
-
-                          {{view Yvi.UserShortBlockView class="is-small" imagetype="is-small" contentBinding="this" showCity=false }}
-
-                        </div>
-
-                      {{/each}}
-
-                    </div>
-
-                  </div>
-                  <div class="space by-one"></div>
-
-                {{else}} 
-
-                Pablo mete un mensaje diciendo q no tienes amigos
-
-                {{/if}} 
-
-              {{else}} 
-
-                {{view Yn.SpinnerView}}
-
-              {{/if}} 
+                  {{/unless}} 
 
 
+                {{/view}}
 
-						{{/view}}
+                {{#view Yn.ScrollerView id="choose-user-yoin" class="choose-user-tab" 
+                  exclude="choose-user-menu-tabs footer choose-user-header channels"
+                  viewName="yoin" }}
 
-						{{#view Yn.ScrollerView id="choose-user-facebook" class="choose-user-tab" 
-              exclude="choose-user-menu-tabs footer choose-user-header choose-user-type-friends"
-							viewName="facebook" }}
+                  {{#if yoinContent.isLoaded }} 
 
-              {{#unless user.hasFacebook}} 
-
-                  Pablo mete un mensaje diciendo q hay q activar tu cuenta de FB
-
-              {{else}} 
-
-                {{#if facebookContent.isLoaded }} 
-
-                  {{#if facebookContent.length }} 
+                    {{#if yoinContent.length }} 
 
                       <div class="space by-one"></div>
                       <div class="choose-user-channel-people box">
 
                         <div class="choose-user-channel-people-title box-title box-title-top">
 
-                          {{title}}:
+                          {{title}}
 
                         </div>
 
                         <div class="choose-user-channel-people-content box-content">
 
-                          {{#each facebookContent}}
+                          {{#each yoinContent}}
 
                             <div class="choose-user-channel-people-content-element">
 
-                              {{name}}
+                              {{view Yvi.UserShortBlockView class="is-small" 
+                              imagetype="is-small" 
+                              contentBinding="this" 
+                              showCity=false 
+                              action="selectUser"
+                              actionContentBinding="this"}}
 
                             </div>
 
@@ -194,37 +142,104 @@
                       </div>
                       <div class="space by-one"></div>
 
+                    {{else}} 
+
+                    Pablo mete un mensaje diciendo q no tienes amigos
+
+                    {{/if}} 
+
                   {{else}} 
 
-                     No hay contenido
+                    {{view Yn.SpinnerView}}
 
                   {{/if}} 
 
-                {{else}} 
-
-                  {{view Yn.SpinnerView}}
-
-                {{/if}} 
-
-              {{/unless}} 
 
 
-						{{/view}}
+                {{/view}}
 
-						{{#view id="choose-user-twitter" class="choose-user-tab" 
-							viewName="twitter" }}
+                {{#view Yn.ScrollerView id="choose-user-facebook" class="choose-user-tab" 
+                  exclude="choose-user-menu-tabs footer choose-user-header channels"
+                  viewName="facebook" }}
+
+                  {{#unless user.hasFacebook}} 
+
+                  Pablo mete un mensaje diciendo q hay q activar tu cuenta de FB
+                  OJO: FbUsers deben de ensenar su foto
+
+                  {{else}} 
+
+                    {{#if facebookIsLoaded }} 
+
+                      {{#if facebookContent.length }} 
+
+                          <div class="space by-one"></div>
+                          <div class="choose-user-channel-people box">
+
+                            <div class="choose-user-channel-people-title box-title box-title-top">
+
+                              {{title}}:
+
+                            </div>
+
+                            <div class="choose-user-channel-people-content box-content">
+
+                              {{#each facebookContent}}
+
+                                {{#view Yn.BtapView class="choose-user-channel-people-content-element"
+                                  action="selectFacebookUser"
+                                  actionContentBinding="this"}}
+
+                                  {{name}}
+
+                                {{/view}}
 
 
-              {{#unless user.hasTwitter}} 
-                  Support to twitter currently not available
-              {{/unless}}
+                              {{/each}}
+
+                            </div>
+
+                          </div>
+                          <div class="space by-one"></div>
+
+                      {{else}} 
+
+                         No hay contenido
+
+                      {{/if}} 
+
+                    {{else}} 
+
+                      {{view Yn.SpinnerView}}
+
+                    {{/if}} 
+
+                  {{/unless}} 
 
 
-						{{/view}}
+                {{/view}}
+
+                {{#view Yn.ScrollerView id="choose-user-twitter" class="choose-user-tab" 
+                  exclude="choose-user-menu-tabs footer choose-user-header channels"
+                  viewName="twitter" }}
+
+
+                  {{#unless user.hasTwitter}} 
+                      Support to twitter currently not available
+                  {{/unless}}
+
+
+                {{/view}}
+
 
 					{{/view}}
 
-			{{/view}}
+
+      {{/view}}
+
+
+
+
 
 			{{#view Yn.ScrollerView id="choose-user-type-nears" class="choose-user-type-tab" 
         exclude="choose-user-menu-tabs footer choose-user-header"
@@ -251,7 +266,7 @@
 
         <div class="space by-one"></div>
 
-        {{#if isNearsContentLoaded }} 
+        {{#if nearsIsLoaded }} 
 
           {{#if venue.nearsUsers.length }} 
 
@@ -300,6 +315,8 @@
         {{/if}} 
 
 			{{/view}}
+
+
 
 		{{/view}}
 
