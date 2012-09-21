@@ -267,53 +267,55 @@
 
         <div class="space by-one"></div>
 
-        {{#if nearsIsLoaded }} 
 
-          {{#if venue.nearsUsers.length }} 
+          {{#if nearIsLoaded }} 
+
+            {{#if nearContent.length }} 
 
 
-              <div id="choose-user-near-people" class="box">
+                <div id="choose-user-near-people" class="box">
 
-                <div id="choose-user-near-people-title" class="box-title box-title-top">
+                  <div id="choose-user-near-people-title" class="box-title box-title-top">
 
-                  {{I18n all_people}}
+                    {{I18n all_people}}
+
+                  </div>
+
+                  <div id="choose-user-near-people-content" class="box-content">
+
+                    {{#each nearContent }}
+
+                      <div class="choose-user-near-people-content-element">
+
+                        {{view Yvi.UserShortBlockView class="is-small" 
+                          imagetype="is-small" 
+                          contentBinding="this" 
+                          showCity=false 
+                          action="selectUser"
+                          actionContentBinding="this"}}
+
+                      </div>
+
+                    {{/each}}
+
+                  </div>
 
                 </div>
 
-                <div id="choose-user-near-people-content" class="box-content">
+                <div class="space by-one"></div>
 
-                  {{#each venue.nearsUsers }}
+            {{else}} 
 
-                    <div class="choose-user-near-people-content-element">
+               No hay usuarios cerca del Venue
 
-                      {{view Yvi.UserShortBlockView class="is-small" 
-                        imagetype="is-small" 
-                        contentBinding="this" 
-                        showCity=false 
-                        action="selectUser"
-                        actionContentBinding="this"}}
-
-                    </div>
-
-                  {{/each}}
-
-                </div>
-
-              </div>
-
-              <div class="space by-one"></div>
+            {{/if}} 
 
           {{else}} 
 
-             No hay usuarios cerca del Venue
+            {{view Yn.SpinnerView}}
 
           {{/if}} 
 
-        {{else}} 
-
-          {{view Yn.SpinnerView}}
-
-        {{/if}} 
 
 			{{/view}}
 
