@@ -109,56 +109,48 @@
 						{{#view id="choose-user-yoin" class="choose-user-tab" 
 							viewName="yoin" }}
 
+              {{#if yoinContent.isLoaded }} 
 
-              {{#if isYoinDisabled}} 
+                {{#if yoinContent.length }} 
 
-                  Pablo mete un mensaje diciendo q no tienes amigos
+                  <div class="space by-one"></div>
+                  <div class="choose-user-channel-people box">
 
-              {{else}} 
+                    <div class="choose-user-channel-people-title box-title box-title-top">
 
-                {{#if isYoinContentLoaded }} 
-
-                  {{#if yoinContent.length }} 
-
-                    <div class="space by-one"></div>
-                    <div class="choose-user-channel-people box">
-
-                      <div class="choose-user-channel-people-title box-title box-title-top">
-
-                        {{title}}
-
-                      </div>
-
-                      <div class="choose-user-channel-people-content box-content">
-
-                        {{#each yoinContent}}
-
-                          <div class="choose-user-channel-people-content-element">
-
-                            {{view Yvi.UserShortBlockView class="is-small" imagetype="is-small" contentBinding="this" showCity=false }}
-
-                          </div>
-
-                        {{/each}}
-
-                      </div>
+                      {{title}}
 
                     </div>
-                    <div class="space by-one"></div>
 
-                  {{else}} 
+                    <div class="choose-user-channel-people-content box-content">
 
-                     No hay contenido
+                      {{#each yoinContent}}
 
-                  {{/if}} 
+                        <div class="choose-user-channel-people-content-element">
+
+                          {{view Yvi.UserShortBlockView class="is-small" imagetype="is-small" contentBinding="this" showCity=false }}
+
+                        </div>
+
+                      {{/each}}
+
+                    </div>
+
+                  </div>
+                  <div class="space by-one"></div>
 
                 {{else}} 
 
-                  {{view Yn.SpinnerView}}
+                Pablo mete un mensaje diciendo q no tienes amigos
 
                 {{/if}} 
 
+              {{else}} 
+
+                {{view Yn.SpinnerView}}
+
               {{/if}} 
+
 
 
 						{{/view}}
@@ -237,29 +229,31 @@
 			{{#view id="choose-user-type-nears" class="choose-user-type-tab" 
 				viewName="nears" }}
 
-        {{#if nearContent.isLoaded }} 
 
-          {{#if nearContent.length }} 
+        <div class="space by-one"></div>
 
-              <div class="space by-one"></div>
+        <div id="choose-user-venue" class="box">
 
-              <div id="choose-user-venue" class="box">
+          <div id="choose-user-venue-title" class="box-title box-title-top">
 
-                <div id="choose-user-venue-title" class="box-title box-title-top">
+            {{I18n people_near}}:
 
-                  {{I18n people_near}}:
+          </div>
 
-                </div>
+          <div id="choose-user-venue-content" class="box-content">
 
-                <div id="choose-user-venue-content" class="box-content">
+            {{view Yvi.VenueShortBlockView class="is-normal" imagetype="is-normal" contentBinding="venue" }}
 
-                  {{view Yvi.VenueShortBlockView class="is-normal" imagetype="is-normal" contentBinding="venue" }}
+          </div>
 
-                </div>
+        </div>
 
-              </div>
+        <div class="space by-one"></div>
 
-              <div class="space by-one"></div>
+        {{#if isNearsContentLoaded }} 
+
+          {{#if venue.nearsUsers.length }} 
+
 
               <div id="choose-user-near-people" class="box">
 
@@ -271,7 +265,7 @@
 
                 <div id="choose-user-near-people-content" class="box-content">
 
-                  {{#each nearContent}}
+                  {{#each venue.nearsUsers }}
 
                     <div class="choose-user-near-people-content-element">
 
