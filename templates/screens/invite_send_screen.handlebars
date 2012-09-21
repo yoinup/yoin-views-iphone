@@ -1,3 +1,6 @@
+
+{{#with view}}
+
 {{#view Yn.HeaderView class= "with-small-shadow"}}
 
 		{{view Yn.BackButtonView }}
@@ -148,6 +151,10 @@
 
 	<div class="space by-two"></div>
 
-	{{view Yn.MainButtonView id="invite-send" class="is-blue" contentI18n="send" }}
+  {{view Yn.MainButtonView id="invite-send" class="is-blue" 
+    contentI18n="send" 
+    action="sendInvitation"}}
 
 </div>
+
+{{/with}}
