@@ -11,10 +11,11 @@
 
 <div class="screen-container">
 
-	{{view Yvi.ChooseUserMenuTabsView id="choose-user-menu-tabs" selectedBinding="option" }}
+    {{view Yvi.ChooseUserMenuTabsView id="choose-user-menu-tabs" selectedBinding="option" }}
 
 		{{#view Yvi.TabMainView id="choose-user-type-tab-main"
 			currentTabViewBinding="option"}}
+
 
 			{{#view id="choose-user-type-friends" class="choose-user-type-tab" 
 				viewName="friends" 
@@ -25,21 +26,17 @@
 
 							{{view Yvi.ChooseUserChannelButtonView 
 								content="agenda"
-                isDisabledBinding="isAgendaDisabled"
 								selectedBinding="view.selectedFriendsOption"}}
 
 							{{view Yvi.ChooseUserChannelButtonView 
 								content="yoin"
-                isDisabledBinding="isYoinDisabled"
 								selectedBinding="view.selectedFriendsOption"}}
 
 							{{view Yvi.ChooseUserChannelButtonView 
 								content="facebook"
-                isDisabledBinding="isFacebookDisabled"
 								selectedBinding="view.selectedFriendsOption"}}
 
 							{{view Yvi.ChooseUserChannelButtonView 
-                isDisabledBinding="isTwitterDisabled"
 								content="twitter"
 								selectedBinding="view.selectedFriendsOption"}}
 
@@ -50,15 +47,16 @@
 					{{#view Yvi.TabMainView id="choose-user-tab-main"
 						currentTabViewBinding="tabOption" }}
 
-						{{#view id="choose-user-agenda" class="choose-user-tab" 
+            {{#view Yn.ScrollerView id="choose-user-agenda" class="choose-user-tab" 
+              exclude="choose-user-menu-tabs footer choose-user-header choose-user-type-friends"
 							viewName="agenda" }}
 
 
-              {{#if isAgendaDisabled}} 
+              {{#unless user.hasPhones}} 
                   Pablo mete un mensaje diciendo q hay q activar tu agenda
               {{else}} 
 
-                {{#if isAgendaContentLoaded }} 
+                {{#if agendaContent.isLoaded }} 
 
                   {{#if agendaContent.length }} 
 
@@ -98,7 +96,7 @@
 
                 {{/if}} 
 
-              {{/if}} 
+              {{/unless}} 
 
 
 
@@ -106,7 +104,8 @@
 
 						{{/view}}
 
-						{{#view id="choose-user-yoin" class="choose-user-tab" 
+						{{#view Yn.ScrollerView id="choose-user-yoin" class="choose-user-tab" 
+              exclude="choose-user-menu-tabs footer choose-user-header choose-user-type-friends"
 							viewName="yoin" }}
 
               {{#if yoinContent.isLoaded }} 
@@ -155,16 +154,17 @@
 
 						{{/view}}
 
-						{{#view id="choose-user-facebook" class="choose-user-tab" 
+						{{#view Yn.ScrollerView id="choose-user-facebook" class="choose-user-tab" 
+              exclude="choose-user-menu-tabs footer choose-user-header choose-user-type-friends"
 							viewName="facebook" }}
 
-              {{#if isFacebookDisabled}} 
+              {{#unless user.hasFacebook}} 
 
                   Pablo mete un mensaje diciendo q hay q activar tu cuenta de FB
 
               {{else}} 
 
-                {{#if isFacebookContentLoaded }} 
+                {{#if facebookContent.isLoaded }} 
 
                   {{#if facebookContent.length }} 
 
@@ -206,7 +206,7 @@
 
                 {{/if}} 
 
-              {{/if}} 
+              {{/unless}} 
 
 
 						{{/view}}
@@ -215,9 +215,9 @@
 							viewName="twitter" }}
 
 
-              {{#if isTwitterDisabled}} 
+              {{#unless user.hasTwitter}} 
                   Support to twitter currently not available
-              {{/if}}
+              {{/unless}}
 
 
 						{{/view}}
@@ -226,7 +226,8 @@
 
 			{{/view}}
 
-			{{#view id="choose-user-type-nears" class="choose-user-type-tab" 
+			{{#view Yn.ScrollerView id="choose-user-type-nears" class="choose-user-type-tab" 
+        exclude="choose-user-menu-tabs footer choose-user-header"
 				viewName="nears" }}
 
 
@@ -269,7 +270,12 @@
 
                     <div class="choose-user-near-people-content-element">
 
-                      {{view Yvi.UserShortBlockView class="is-small" imagetype="is-small" contentBinding="this" showCity=false }}
+                      {{view Yvi.UserShortBlockView class="is-small" 
+                        imagetype="is-small" 
+                        contentBinding="this" 
+                        showCity=false 
+                        action="selectUser"
+                        actionContentBinding="this"}}
 
                     </div>
 
