@@ -8,7 +8,16 @@
 .navigation {
 
   -webkit-transform: translate3d(0,0,0);
-  -webkit-transition: -webkit-transform @modal-duration/2 @ease-animation-style;
+
+}
+
+.navigation.is-animated {
+
+  -webkit-transition-property: -webkit-transform;
+  -webkit-transition-duration: @modal-duration/2;
+  -webkit-transition-timing-function: @ease-animation-style; 
+  //-webkit-transition: -webkit-transform @modal-duration/2 @ease-animation-style;
+  //-webkit-transition: -webkit-transform 200ms ease-in-out;
 
 }
 
