@@ -200,7 +200,14 @@
                                   action="selectFacebookUser"
                                   actionContentBinding="this"}}
 
-                                  {{name}}
+                                  
+                                  {{view Yvi.UserShortBlockView class="is-small" 
+                                    imagetype="is-small" 
+                                    isFBUser=true 
+                                    fbNameBinding="name"
+                                    fbIdBinding="id"
+                                    action="selectUser"
+                                    actionContentBinding="this"}}
 
                                 {{/view}}
 

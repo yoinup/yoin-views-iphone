@@ -6,28 +6,49 @@
 
 		<div class="user-short-block-content-image">
 
-			{{view Yn.SquareImageView class=imagetype contentBinding="content" withPhoto=true }}
+			{{#if isFBUser }}
+
+				{{view Yn.SquareImageView class=imagetype
+					contentBinding="fbId"
+					isFBUser=true
+					withPhoto=true }}
+
+			{{else}}
+
+				{{view Yn.SquareImageView class=imagetype
+					contentBinding="content"
+					withPhoto=true }}
+
+			{{/if}}
 
 		</div>
 
 		<div class="user-short-block-content-name">
 
-			<span class="user-short-block-content-username">{{content.name}}</span>
+			{{#if isFBUser }}
 
-			{{#if showCity}}
+				<span class="user-short-block-content-username">{{fbName}}</span>				
 
-				{{#if content.city}}
+			{{else}}
 
-					<div class="user-short-block-content-city">
+				<span class="user-short-block-content-username">{{content.name}}</span>
 
-						<span class="icon with-text is-icon-x-small" icon="i">
+				{{#if showCity}}
 
-						</span>
+					{{#if content.city}}
 
-						{{content.city.name}}
+						<div class="user-short-block-content-city">
+
+							<span class="icon with-text is-icon-x-small" icon="i">
+
+							</span>
+
+							{{content.city.name}}
 
 
-					</div>
+						</div>
+
+					{{/if}}
 
 				{{/if}}
 
