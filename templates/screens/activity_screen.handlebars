@@ -9,14 +9,14 @@
 
 {{/view }}
 
-    {{#if isNotification}}
+{{#if notificationIsVisible}}
 
-      {{view Yn.NotificationView class=notificationType
-        contentBinding="notificationMessage"
-        isInDomBinding="isNotification" }}
+  {{view Yn.NotificationView
+    typeBinding="notificationType"
+    contentBinding="notificationContent"
+    isInDomBinding="notificationIsVisible" }}
 
-    {{/if}}
-    
+{{/if}}
 
 {{#if isContentLoaded }}
 
