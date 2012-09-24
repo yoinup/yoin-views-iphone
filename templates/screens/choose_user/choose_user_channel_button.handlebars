@@ -1,5 +1,8 @@
 {{#with view}}
 
-	<img src="{{image}}" />
+	{{view Yn.SquareImageView class="channel-button-element is-small"
+		contentBinding="image"
+		isChannel=true
+		withIcon=true }}
 
 {{/with}}

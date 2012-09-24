@@ -10,16 +10,16 @@
 
 {{#if notificationIsVisible}}
 
-  {{view Yn.NotificationView
-    typeBinding="notificationType"
-    contentBinding="notificationContent"
-    isInDomBinding="notificationIsVisible" }}
+	{{view Yn.NotificationView
+		typeBinding="notificationType"
+		contentBinding="notificationContent"
+		isInDomBinding="notificationIsVisible" }}
 
 {{/if}}
 
 <div class="screen-container">
 
-    {{view Yvi.ChooseUserMenuTabsView id="choose-user-menu-tabs" selectedBinding="option" }}
+		{{view Yvi.ChooseUserMenuTabsView id="choose-user-menu-tabs" selectedBinding="option" }}
 
 		{{#view Yvi.TabMainView id="choose-user-type-tab-main"
 			currentTabViewBinding="option"}}
@@ -34,22 +34,22 @@
 
 							{{view Yvi.ChooseUserChannelButtonView 
 								content="agenda"
-                image="assets/images/phonebook_button.png"
+								image="assets/images/phonebook_button.png"
 								selectedBinding="view.selectedFriendsOption"}}
 
 							{{view Yvi.ChooseUserChannelButtonView 
 								content="yoin"
-                image="assets/images/phonebook_button.png"
+								image="assets/images/"
 								selectedBinding="view.selectedFriendsOption"}}
 
 							{{view Yvi.ChooseUserChannelButtonView 
 								content="facebook"
-                image="assets/images/phonebook_button.png"
+								image="assets/images/facebook_logo.png"
 								selectedBinding="view.selectedFriendsOption"}}
 
 							{{view Yvi.ChooseUserChannelButtonView 
 								content="twitter"
-                image="assets/images/phonebook_button.png"
+								image="assets/images/twitter_logo.png"
 								selectedBinding="view.selectedFriendsOption"}}
 
 
@@ -59,281 +59,288 @@
 					{{#view Yvi.TabMainView id="choose-user-tab-main"
 						currentTabViewBinding="tabOption" }}
 
-                {{#view Yn.ScrollerView id="choose-user-agenda" class="choose-user-tab" 
-                  exclude="choose-user-menu-tabs footer choose-user-header channels"
-                  viewName="agenda" }}
+								{{#view Yn.ScrollerView id="choose-user-agenda" class="choose-user-tab" 
+									exclude="choose-user-menu-tabs footer choose-user-header channels"
+									viewName="agenda" }}
 
+									{{#unless user.hasPhones}}
+										<div class="space by-nine"></div>
+										<div class="choose-user-alert-text">
+											{{I18n activateAgenda}}
+										</div>
+									{{else}} 
 
-                  {{#unless user.hasPhones}} 
-                      Pablo mete un mensaje diciendo q hay q activar tu agenda
-                  {{else}} 
+										{{#if agendaIsLoaded }} 
 
-                    {{#if agendaIsLoaded }} 
+											{{#if agendaContent.length }} 
 
-                      {{#if agendaContent.length }} 
+														<div class="space by-one"></div>
+														<div class="choose-user-channel-people box">
 
-                            <div class="space by-one"></div>
-                            <div class="choose-user-channel-people box">
+															<div class="choose-user-channel-people-title box-title box-title-top">
 
-                              <div class="choose-user-channel-people-title box-title box-title-top">
+																{{title}}
 
-                                {{title}}
+															</div>
 
-                              </div>
+															<div class="choose-user-channel-people-content box-content">
 
-                              <div class="choose-user-channel-people-content box-content">
+																{{#each agendaContent}}
 
-                                {{#each agendaContent}}
+																		{{#view Yn.BtapView class="choose-user-channel-people-content-element"
+																			action="selectAgendaUser"
+																			actionContentBinding="this"}}
 
-                                    {{#view Yn.BtapView class="choose-user-channel-people-content-element"
-                                      action="selectAgendaUser"
-                                      actionContentBinding="this"}}
+																			{{name}}
 
-                                      {{name}}
+																		{{/view}}
 
-                                    {{/view}}
+																{{/each}}
 
-                                {{/each}}
+															</div>
+														</div>
+														<div class="space by-one"></div>
 
-                              </div>
-                            </div>
-                            <div class="space by-one"></div>
+											{{else}} 
 
-                      {{else}} 
+												 No hay contenido
 
-                         No hay contenido
+											{{/if}} 
 
-                      {{/if}} 
+										{{else}} 
 
-                    {{else}} 
+											{{view Yn.SpinnerView}}
 
-                      {{view Yn.SpinnerView}}
+										{{/if}} 
 
-                    {{/if}} 
+									{{/unless}} 
 
-                  {{/unless}} 
 
+								{{/view}}
 
-                {{/view}}
+								{{#view Yn.ScrollerView id="choose-user-yoin" class="choose-user-tab" 
+									exclude="choose-user-menu-tabs footer choose-user-header channels"
+									viewName="yoin" }}
 
-                {{#view Yn.ScrollerView id="choose-user-yoin" class="choose-user-tab" 
-                  exclude="choose-user-menu-tabs footer choose-user-header channels"
-                  viewName="yoin" }}
+									{{#if yoinContent.isLoaded }} 
 
-                  {{#if yoinContent.isLoaded }} 
+										{{#if yoinContent.length }} 
 
-                    {{#if yoinContent.length }} 
+											<div class="space by-one"></div>
+											<div class="choose-user-channel-people box">
 
-                      <div class="space by-one"></div>
-                      <div class="choose-user-channel-people box">
+												<div class="choose-user-channel-people-title box-title box-title-top">
 
-                        <div class="choose-user-channel-people-title box-title box-title-top">
+													{{title}}
 
-                          {{title}}
+												</div>
 
-                        </div>
+												<div class="choose-user-channel-people-content box-content">
 
-                        <div class="choose-user-channel-people-content box-content">
+													{{#each yoinContent}}
 
-                          {{#each yoinContent}}
+														<div class="choose-user-channel-people-content-element">
 
-                            <div class="choose-user-channel-people-content-element">
+															{{view Yvi.UserShortBlockView class="is-small" 
+															imagetype="is-small" 
+															contentBinding="this" 
+															showCity=false 
+															action="selectUser"
+															actionContentBinding="this"}}
 
-                              {{view Yvi.UserShortBlockView class="is-small" 
-                              imagetype="is-small" 
-                              contentBinding="this" 
-                              showCity=false 
-                              action="selectUser"
-                              actionContentBinding="this"}}
+														</div>
 
-                            </div>
+													{{/each}}
 
-                          {{/each}}
+												</div>
 
-                        </div>
+											</div>
+											<div class="space by-one"></div>
 
-                      </div>
-                      <div class="space by-one"></div>
+										{{else}} 
 
-                    {{else}} 
+										Pablo mete un mensaje diciendo q no tienes amigos
 
-                    Pablo mete un mensaje diciendo q no tienes amigos
+										{{/if}} 
 
-                    {{/if}} 
+									{{else}} 
 
-                  {{else}} 
+										{{view Yn.SpinnerView}}
 
-                    {{view Yn.SpinnerView}}
+									{{/if}} 
 
-                  {{/if}} 
 
 
+								{{/view}}
 
-                {{/view}}
+								{{#view Yn.ScrollerView id="choose-user-facebook" class="choose-user-tab" 
+									exclude="choose-user-menu-tabs footer choose-user-header channels"
+									viewName="facebook" }}
 
-                {{#view Yn.ScrollerView id="choose-user-facebook" class="choose-user-tab" 
-                  exclude="choose-user-menu-tabs footer choose-user-header channels"
-                  viewName="facebook" }}
+									{{#unless user.hasFacebook}} 
 
-                  {{#unless user.hasFacebook}} 
+									<div class="space by-nine"></div>
+									<div class="choose-user-alert-text">
+										{{I18n activateFacebook}}
+									</div>
 
-                  Pablo mete un mensaje diciendo q hay q activar tu cuenta de FB
-                  OJO: FbUsers deben de ensenar su foto
+									{{else}} 
 
-                  {{else}} 
+										{{#if facebookIsLoaded }} 
 
-                    {{#if facebookIsLoaded }} 
+											{{#if facebookContent.length }} 
 
-                      {{#if facebookContent.length }} 
+													<div class="space by-one"></div>
+													<div class="choose-user-channel-people box">
 
-                          <div class="space by-one"></div>
-                          <div class="choose-user-channel-people box">
+														<div class="choose-user-channel-people-title box-title box-title-top">
 
-                            <div class="choose-user-channel-people-title box-title box-title-top">
+															{{title}}:
 
-                              {{title}}:
+														</div>
 
-                            </div>
+														<div class="choose-user-channel-people-content box-content">
 
-                            <div class="choose-user-channel-people-content box-content">
+															{{#each facebookContent}}
 
-                              {{#each facebookContent}}
+																{{#view Yn.BtapView class="choose-user-channel-people-content-element"
+																	action="selectFacebookUser"
+																	actionContentBinding="this"}}
 
-                                {{#view Yn.BtapView class="choose-user-channel-people-content-element"
-                                  action="selectFacebookUser"
-                                  actionContentBinding="this"}}
+																	
+																	{{view Yvi.UserShortBlockView class="is-small" 
+																		imagetype="is-small" 
+																		isFBUser=true 
+																		fbNameBinding="name"
+																		fbIdBinding="id"
+																		action="selectUser"
+																		actionContentBinding="this"}}
 
-                                  
-                                  {{view Yvi.UserShortBlockView class="is-small" 
-                                    imagetype="is-small" 
-                                    isFBUser=true 
-                                    fbNameBinding="name"
-                                    fbIdBinding="id"
-                                    action="selectUser"
-                                    actionContentBinding="this"}}
+																{{/view}}
 
-                                {{/view}}
 
+															{{/each}}
 
-                              {{/each}}
+														</div>
 
-                            </div>
+													</div>
+													<div class="space by-one"></div>
 
-                          </div>
-                          <div class="space by-one"></div>
+											{{else}} 
 
-                      {{else}} 
+												 No hay contenido
 
-                         No hay contenido
+											{{/if}} 
 
-                      {{/if}} 
+										{{else}} 
 
-                    {{else}} 
+											{{view Yn.SpinnerView}}
 
-                      {{view Yn.SpinnerView}}
+										{{/if}} 
 
-                    {{/if}} 
+									{{/unless}} 
 
-                  {{/unless}} 
 
+								{{/view}}
 
-                {{/view}}
+								{{#view Yn.ScrollerView id="choose-user-twitter" class="choose-user-tab" 
+									exclude="choose-user-menu-tabs footer choose-user-header channels"
+									viewName="twitter" }}
 
-                {{#view Yn.ScrollerView id="choose-user-twitter" class="choose-user-tab" 
-                  exclude="choose-user-menu-tabs footer choose-user-header channels"
-                  viewName="twitter" }}
 
+									{{#unless user.hasTwitter}} 
+										<div class="space by-nine"></div>
+										<div class="choose-user-alert-text">
+											{{I18n unsupportedTwitter}}
+										</div>
+									{{/unless}}
 
-                  {{#unless user.hasTwitter}} 
-                      Support to twitter currently not available
-                  {{/unless}}
 
-
-                {{/view}}
+								{{/view}}
 
 
 					{{/view}}
 
 
-      {{/view}}
+			{{/view}}
 
 
 
 
 
 			{{#view Yn.ScrollerView id="choose-user-type-nears" class="choose-user-type-tab" 
-        exclude="choose-user-menu-tabs footer choose-user-header"
+				exclude="choose-user-menu-tabs footer choose-user-header"
 				viewName="nears" }}
 
 
-        <div class="space by-one"></div>
+				<div class="space by-one"></div>
 
-        <div id="choose-user-venue" class="box">
+				<div id="choose-user-venue" class="box">
 
-          <div id="choose-user-venue-title" class="box-title box-title-top">
+					<div id="choose-user-venue-title" class="box-title box-title-top">
 
-            {{I18n people_near}}:
+						{{I18n people_near}}:
 
-          </div>
+					</div>
 
-          <div id="choose-user-venue-content" class="box-content">
+					<div id="choose-user-venue-content" class="box-content">
 
-            {{view Yvi.VenueShortBlockView class="is-normal" imagetype="is-normal" contentBinding="venue" }}
+						{{view Yvi.VenueShortBlockView class="is-normal" imagetype="is-normal" contentBinding="venue" }}
 
-          </div>
+					</div>
 
-        </div>
+				</div>
 
-        <div class="space by-one"></div>
-
-
-          {{#if nearIsLoaded }} 
-
-            {{#if nearContent.length }} 
+				<div class="space by-one"></div>
 
 
-                <div id="choose-user-near-people" class="box">
+					{{#if nearIsLoaded }} 
 
-                  <div id="choose-user-near-people-title" class="box-title box-title-top">
+						{{#if nearContent.length }} 
 
-                    {{I18n all_people}}
 
-                  </div>
+								<div id="choose-user-near-people" class="box">
 
-                  <div id="choose-user-near-people-content" class="box-content">
+									<div id="choose-user-near-people-title" class="box-title box-title-top">
 
-                    {{#each nearContent }}
+										{{I18n all_people}}
 
-                      <div class="choose-user-near-people-content-element">
+									</div>
 
-                        {{view Yvi.UserShortBlockView class="is-small" 
-                          imagetype="is-small" 
-                          contentBinding="this" 
-                          showCity=false 
-                          action="selectUser"
-                          actionContentBinding="this"}}
+									<div id="choose-user-near-people-content" class="box-content">
 
-                      </div>
+										{{#each nearContent }}
 
-                    {{/each}}
+											<div class="choose-user-near-people-content-element">
 
-                  </div>
+												{{view Yvi.UserShortBlockView class="is-small" 
+													imagetype="is-small" 
+													contentBinding="this" 
+													showCity=false 
+													action="selectUser"
+													actionContentBinding="this"}}
 
-                </div>
+											</div>
 
-                <div class="space by-one"></div>
+										{{/each}}
 
-            {{else}} 
+									</div>
 
-               No hay usuarios cerca del Venue
+								</div>
 
-            {{/if}} 
+								<div class="space by-one"></div>
 
-          {{else}} 
+						{{else}} 
 
-            {{view Yn.SpinnerView}}
+							 No hay usuarios cerca del Venue
 
-          {{/if}} 
+						{{/if}} 
+
+					{{else}} 
+
+						{{view Yn.SpinnerView}}
+
+					{{/if}} 
 
 
 			{{/view}}
