@@ -9,14 +9,18 @@
 
 {{/view }}
 
+    {{#if isSlider}}
+      {{view Yn.SliderView}}
+    {{/if}}
 
+    {{#if isNotification}}
 
-  {{view Yn.NotificationView
-    typeBinding="notificationType"
-    content="This is a newbie text"
-    isInDomBinding="notificationIsVisible" }}
+      {{view Yn.NotificationView class=notificationType
+        contentBinding="notificationMessage"
+        isInDomBinding="isNotification" }}
 
-
+    {{/if}}
+    
 
 {{#if isContentLoaded }}
 
