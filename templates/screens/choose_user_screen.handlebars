@@ -203,20 +203,17 @@
 
 															{{#each facebookContent}}
 
-																{{#view Yn.BtapView class="choose-user-channel-people-content-element"
-																	action="selectFacebookUser"
-																	actionContentBinding="this"}}
-
+                                <div class="choose-user-channel-people-content-element">
 																	
 																	{{view Yvi.UserShortBlockView class="is-small" 
 																		imagetype="is-small" 
 																		isFBUser=true 
 																		fbNameBinding="name"
 																		fbIdBinding="id"
-																		action="selectUser"
+																		action="selectFacebookUser"
 																		actionContentBinding="this"}}
 
-																{{/view}}
+                                </div>
 
 
 															{{/each}}
