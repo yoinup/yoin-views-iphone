@@ -34,22 +34,23 @@
 
 							{{view Yvi.ChooseUserChannelButtonView 
 								content="agenda"
-								image="assets/images/phonebook_button.png"
+								image="phonebook_button"
 								selectedBinding="view.selectedFriendsOption"}}
 
 							{{view Yvi.ChooseUserChannelButtonView 
 								content="yoin"
-								image="assets/images/"
+								image="yoin_button"
 								selectedBinding="view.selectedFriendsOption"}}
 
 							{{view Yvi.ChooseUserChannelButtonView 
 								content="facebook"
-								image="assets/images/facebook_logo.png"
+								image="facebook_logo"
 								selectedBinding="view.selectedFriendsOption"}}
 
 							{{view Yvi.ChooseUserChannelButtonView 
 								content="twitter"
-								image="assets/images/twitter_logo.png"
+								disabled=true
+								image="twitter_logo"
 								selectedBinding="view.selectedFriendsOption"}}
 
 
@@ -203,20 +204,17 @@
 
 															{{#each facebookContent}}
 
-																{{#view Yn.BtapView class="choose-user-channel-people-content-element"
-																	action="selectFacebookUser"
-																	actionContentBinding="this"}}
-
+                                <div class="choose-user-channel-people-content-element">
 																	
 																	{{view Yvi.UserShortBlockView class="is-small" 
 																		imagetype="is-small" 
 																		isFBUser=true 
 																		fbNameBinding="name"
 																		fbIdBinding="id"
-																		action="selectUser"
+																		action="selectFacebookUser"
 																		actionContentBinding="this"}}
 
-																{{/view}}
+                                </div>
 
 
 															{{/each}}
