@@ -1,24 +1,21 @@
 
 {{#with view}}
 
-{{#view Yn.HeaderView class= "with-small-shadow"}}
-
+{{#view Yn.HeaderView id="invite-send-header" class="with-small-shadow"}}
 		{{view Yn.BackButtonView }}
-		
 		<div class="header-title">{{I18n invite}}</div>
-
 {{/view }}
 
-<div class="screen-container">
+
+{{#view Yn.ScrollerView class="screen-container"
+  exclude="footer invite-send-header" }}
 
 	<div class="space by-one"></div>
 
 	<div id="block-notifications" class="box">
 
 		<div id="block-notifications-title" class="box-title box-title-top">
-
 			{{I18n notification pluralize=true}}
-
 		</div>
 
 		<div id="block-notifications-list" class="box-content"> 
@@ -26,24 +23,27 @@
 			<div id="sms-notification" class="block-notifications-element two-column-table">
 
 				<div class="notification-label left-column">
-
 					{{I18n agenda}}
-
 				</div>
 
 				<div class="control right-column">
 
-					{{view Yn.SwitchButtonView isOn=smsNotification }}
+            {{view Yn.SwitchButtonView
+              isOnBinding="isOnSms"
+              switchAction="changeSms"
+              isDisabledBinding="isAgendaSms"}}
 
 				</div>
 
 			</div>
 
-			{{#if smsNotification}}
+			{{#if isAgendaEditable}}
 
 				<div id="sms-notification-message" class="block-notifications-element">
 
-					{{view Yvi.InviteSendInputView id="sms-notification-message-text" default_text="enter_the_phone_number" }}
+          {{view Yn.InputView id="sms-notification-message-text" class="single-input"
+            type="text"
+            placeholderI18n="write_something_message" }}
 
 				</div>				
 
@@ -52,24 +52,27 @@
 			<div id="mail-notification" class="block-notifications-element two-column-table">
 
 				<div class="notification-label left-column">
-
 					{{I18n email}}
-
 				</div>
 
 				<div class="control right-column">
 
-					{{view Yn.SwitchButtonView isOn=mailNotification }}
+            {{view Yn.SwitchButtonView
+              isOnBinding="isOnMail"
+              switchAction="changeMail"
+              isDisabledBinding="isMailDisabled"}}
 
 				</div>
 
 			</div>
 
-			{{#if mailNotification}}
+			{{#if isMailEditable}}
 
 				<div id="mail-notification-message" class="block-notifications-element">
 
-					{{view Yvi.InviteSendInputView id="mail-notification-message-text" default_text="write_something_message" }}
+          {{view Yn.InputView id="mail-notification-message-text" class="single-input"
+            type="text"
+            placeholderI18n="write_something_message" }}
 
 				</div>				
 
@@ -78,68 +81,57 @@
 			<div id="facebook-notification" class="block-notifications-element two-column-table">
 
 				<div class="notification-label left-column">
-
 					Facebook
-
 				</div>
 
 				<div class="control right-column">
 
-					{{view Yn.SwitchButtonView isOn=facebookNotification }}
+            {{view Yn.SwitchButtonView
+              isOnBinding="isOnFacebook"
+              switchAction="changeFacebook"
+              isDisabledBinding="isFacebookDisabled"}}
 
 				</div>
 
 			</div>
 
-			{{#if facebookNotification}}
+			{{#if isFacebookEditable}}
 
 				<div id="facebook-notification-message" class="block-notifications-element">
 
-					{{view Yvi.InviteSendInputView id="facebook-notification-message-text" default_text="write_something_message" }}
+          {{view Yn.InputView id="facebook-notification-message-text" class="single-input"
+            type="text"
+            placeholderI18n="write_something_message" }}
 
 				</div>				
 
 			{{/if}}
 
-			{{#if twitterNotification}}
 
 				<div id="twitter-notification" class="block-notifications-element two-column-table">
 
 					<div class="notification-label left-column">
-
 						Twitter
-
 					</div>
 
 					<div class="control right-column">
 
-						{{view Yn.SwitchButtonView isOn=twitterNotification }}
+            {{view Yn.SwitchButtonView
+              isOnBinding="isOnTwitter"
+              switchAction="changeTwitter"
+              isDisabledBinding="isTwitterDisabled"}}
 
 					</div>
 
 				</div>
+
+			{{#if isTwitterEditable}}
 
 				<div id="twitter-notification-message" class="block-notifications-element">
 
-					{{view Yvi.InviteSendInputView id="twitter-notification-message-text" default_text="write_something_message" }}
-
-				</div>
-
-			{{else}}
-
-				<div id="twitter-notification" class="block-notifications-element two-column-table">
-
-					<div class="notification-label left-column">
-
-						Twitter
-
-					</div>
-
-					<div class="control right-column">
-
-						{{view Yn.SwitchButtonView isOn=twitterNotification }}
-
-					</div>
+          {{view Yn.InputView id="twitter-notification-message-text" class="single-input"
+            type="text"
+            placeholderI18n="write_something_message" }}
 
 				</div>
 
@@ -155,6 +147,8 @@
     contentI18n="send" 
     action="sendInvitation"}}
 
-</div>
+	<div class="space by-two"></div>
+
+{{/view }}
 
 {{/with}}
