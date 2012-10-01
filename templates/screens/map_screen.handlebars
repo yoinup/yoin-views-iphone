@@ -1,31 +1,34 @@
-{{#view Yn.HeaderView }}
+{{#with view}}
 
-	{{view Yn.AdaptativeButtonView class="header-button l-left is-black button-text is-small is-font-white" contentI18n="close" action="close"}}
+  {{#view Yn.HeaderView }}
 
-  <div class="header-title">{{I18n map_title}}</div>
-  
-	{{view Yn.IconBtapView class="l-right header-button rectangle-button is-small is-orange icon" icon="j" }}
+    {{view Yn.AdaptativeButtonView class="header-button l-left is-black button-text is-small is-font-white" contentI18n="close" action="close"}}
 
-{{/view }}
+    <div class="header-title">{{I18n map_title}}</div>
 
-<div class="header-action">
+  {{/view }}
 
-	<div class="left">
-	
-		{{view Yvi.MapInputView placeholder="_" }}
-		
-	</div>
-	
-	<div class="middle"></div>
-	
-	<div class="right">
-	
-    {{view Yn.IconBtapView class="rectangle-button is-small is-grey icon is-font-black is-icon-small is-font-black" 
-      icon="o" 
-      action="switchGeopositionEnabler" }}
-		
-	</div>
-	
-</div>
+  <div class="header-action">
 
-{{view Em.ContainerView id="map-screen-container" class="screen-container is-header-action"}}
+    <div class="left">
+    
+      {{view Yvi.MapInputView placeholder="_" }}
+      
+    </div>
+    
+    <div class="middle"></div>
+    
+    <div class="right">
+    
+      {{view Yvi.SwitchGeopositionEnablerButton class="geo-button is-grey is-small icon is-font-black is-icon-small" 
+        isOnBinding="switchGeopositionEnablerButtonIsOn"
+        icon="o" 
+        action="switchGeopositionEnabler" }}
+      
+    </div>
+    
+  </div>
+
+  {{view Em.ContainerView id="map-screen-container" class="screen-container is-header-action"}}
+
+{{/with}}
