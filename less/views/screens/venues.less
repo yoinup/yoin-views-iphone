@@ -57,11 +57,24 @@
 
       }
 
+      > .venues-tab:active {
+
+         .action-bar-border-tab-selected-style (@tab-color);
+
+      }
+
       > .venues-tab.last {
 
          -webkit-box-shadow:none; 
 
       }
+
+       > .venues-tab.last:active {
+
+          .action-bar-border-last-tab-selected-style (@tab-color); 
+
+      }
+
 
       > .venues-tab:before {
 
@@ -95,6 +108,29 @@
       }
 
     }
+
+
+    
+ /*   
+ > .screen-container {
+
+    > #venues-option-tabs {
+
+          > .venues-tab:active {
+
+            .action-bar-border-tab-style (@tab-color);
+
+          }
+    }
+  
+  }
+
+  */
+
+
+
+
+
 
     > #venues-tab-main {
 
@@ -145,9 +181,23 @@
 
               }
 
-              > .category-button.last {
+              > .category-button:active {
+
+                .action-bar-border-tab-selected-style (@categories-color);
+
+              }
+
+
+              > .category-button:nth-last-child(3) {
 
                  -webkit-box-shadow:none; 
+
+              }
+
+              > .category-button:nth-last-child(3):active {
+
+                .action-bar-border-last-tab-selected-style (@categories-color); 
+                
 
               }
 
@@ -166,9 +216,19 @@
 
               }
 
+              > .category-button.last.is-selected {
+                
+                .action-bar-border-last-tab-selected-style (@categories-color); 
+              
+              }
+
               > .category-button.is-selected:before {
 
+                opacity: 0.9;
+
               }
+
+
 
           }
 
