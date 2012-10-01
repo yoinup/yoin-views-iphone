@@ -48,11 +48,28 @@
 
 					}
 
+					> .channel-button:active {
+
+						
+						.action-bar-border-tab-selected-style (@channels-color);
+
+					}
+
+
 					> .channel-button.last {
 
 						-webkit-box-shadow:none; 
 
 					}
+
+
+					> .channel-button.last:active {
+
+          				.action-bar-border-last-tab-selected-style (@channels-color); 
+
+
+					}
+
 
 					> .channel-button:before {
 
@@ -68,6 +85,12 @@
 						.action-bar-border-tab-selected-style (@channels-color);
 
 					}
+
+					> .channel-button.last.is-selected {
+
+          				.action-bar-border-last-tab-selected-style (@channels-color); 
+
+          			}
 
 					> .channel-button.is-selected:before {
 

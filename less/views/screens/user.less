@@ -95,19 +95,36 @@
 					}
 				}
 
+				> .user-tab:active {
+
+					.action-bar-border-tab-selected-style (@tab-color);
+
+
+				}
+
+
 				> .user-tab.last {
 
 					-webkit-box-shadow: none;
 
 				}
+				
+
+				> .user-tab.last:active {
+
+				.action-bar-border-last-tab-selected-style (@tab-color);
+
+				}
+
 
 				> .user-tab.is-selected {
-					.action-bar-border-tab-selected-style(@tab-color);
+					
+					.action-bar-border-tab-selected-style (@tab-color);
 				}
 
 				> .user-tab.last.is-selected {
 
-					.action-bar-border-last-tab-selected-style(@tab-color);
+					.action-bar-border-last-tab-selected-style (@tab-color);
 
 				}
 				
