@@ -38,28 +38,11 @@
 	
 	<div class="register-with-social-networks text is-font-orange">
 	
-		
-    <!--
-    {{I18n register_with_social_networks}}
-    -->
-		
-		<div class="social-networks">
-		
-      {{view Yn.SocialSmallButtonView class="facebook inline" 
-        contentI18n="facebook"
-        action="registerWithFb" }}
-
-      {{view Yn.SocialSmallButtonView class="twitter inline" 
-        isDisabled=true
-        contentI18n="twitter"
-        action="registerWithTwitter" }}
-		
-		</div>
-	
-	</div>
-	
   {{view Yn.AdaptativeButtonView class="login-button is-orange button-text is-small is-font-white" 
     contentI18n="login" 
     action="showLogin" }}
+
+
+  <div class="about-us text is-font-orange">{{I18n about_us}}</div>
 	
 </div>
