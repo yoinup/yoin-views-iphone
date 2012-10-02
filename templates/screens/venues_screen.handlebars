@@ -93,6 +93,15 @@
 
 	{{/view}}
 
+	{{#if isNotification}}
+
+    {{view Yn.NotificationView
+      contentBinding="notificationMessage"
+      typeBinding="notificationType"
+      isInDomBinding="isNotification" }}
+
+  {{/if}}
+
 </div>
 
 {{/with}}
