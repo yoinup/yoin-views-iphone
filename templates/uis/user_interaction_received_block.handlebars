@@ -8,14 +8,45 @@
 		<div class="user-interaction-received-block-content">
 			
 			<div class="user-interaction-received-block-content-image">
-			
-				{{view Yn.SquareImageView class="is-normal" contentBinding="content.toUser" withPhoto=true }}
+
+				{{#if content.toUser }}
+
+					{{view Yn.SquareImageView class="is-normal"
+						contentBinding="content.toUser"
+						withPhoto=true }}
+
+				{{else}}
+
+					{{#if content.creationFbId }}
+
+						{{view Yn.SquareImageView class="is-normal"
+							contentBinding="content.creationFbId"
+							isFBUser=true
+							withPhoto=true }}
+
+					{{else}}
+
+						{{view Yn.SquareImageView class="is-normal"
+						contentBinding=null
+						withPhoto=true }}
+
+					{{/if}}
+
+				{{/if}}
 
 			</div>
 
 			<div class="user-interaction-received-block-content-name">
 
-				<span class="text is-big is-black">{{content.toUser.name}}</span> {{I18n interaction_received}}
+				{{#if content.toUser }}
+
+					<span class="text is-big is-black">{{content.toUser.name}}</span> {{I18n interaction_received}}
+
+				{{else}}
+
+					<span class="text is-big is-black">{{content.creationUsername}}</span> {{I18n interaction_received}}
+
+				{{/if}}
 
 				<div class="user-interaction-received-block-content-product">
 

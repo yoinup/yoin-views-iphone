@@ -37,8 +37,34 @@
 		<div class="space by-one"></div>
 			
 		<div class="user-block-invited">
-			
-			{{view Yvi.UserShortBlockView contentBinding="content.toUser" imagetype="is-small" class="is-small" }}
+
+			{{#if content.toUser }}
+
+				{{view Yvi.UserShortBlockView class="is-small"
+					contentBinding="content.toUser"
+					imagetype="is-small" }}
+
+			{{else}}
+
+				{{#if content.creationFbId }}
+
+					{{view Yvi.UserShortBlockView class="is-small"
+						typeBinding="content.creationType"
+						fbIdBinding="content.creationFbId"
+						fbNameBinding="content.creationUsername"
+						imagetype="is-small" }}
+
+				{{else}}
+
+					{{view Yvi.UserShortBlockView class="is-small"
+						typeBinding="content.creationType"
+						phoneNumberBinding="content.creationPhone"
+						phoneNameBinding="content.creationUsername"
+						imagetype="is-small" }}
+
+				{{/if}}
+
+			{{/if}}
 			
 		</div>
 

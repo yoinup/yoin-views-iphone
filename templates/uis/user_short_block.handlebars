@@ -6,18 +6,28 @@
 
 		<div class="user-short-block-content-image">
 
-			{{#if isFBUser }}
-
-				{{view Yn.SquareImageView class=imagetype
-					contentBinding="fbId"
-					isFBUser=true
-					withPhoto=true }}
-
-			{{else}}
+			{{#if isYoinUser }}
 
 				{{view Yn.SquareImageView class=imagetype
 					contentBinding="content"
 					withPhoto=true }}
+
+			{{else}}
+
+				{{#if isFbUser }}
+
+					{{view Yn.SquareImageView class=imagetype
+						contentBinding="fbId"
+						isFBUser=true
+						withPhoto=true }}
+
+				{{else}}
+
+					{{view Yn.SquareImageView class=imagetype
+						contentBinding=null
+						withPhoto=true }}
+
+				{{/if}}
 
 			{{/if}}
 
@@ -25,11 +35,7 @@
 
 		<div class="user-short-block-content-name">
 
-			{{#if isFBUser }}
-
-				<span class="user-short-block-content-username">{{fbName}}</span>				
-
-			{{else}}
+			{{#if isYoinUser }}
 
 				<span class="user-short-block-content-username">{{content.name}}</span>
 
@@ -51,6 +57,18 @@
 					{{/if}}
 
 				{{/if}}
+
+			{{else}}
+
+				{{#if isFbUser }}
+
+					<span class="user-short-block-content-username">{{fbName}}</span>
+
+				{{else}}
+
+					<span class="user-short-block-content-username">{{phoneName}}</span>
+
+				{{/if}}	
 
 			{{/if}}
 
