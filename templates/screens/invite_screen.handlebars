@@ -28,7 +28,7 @@
 
 				<div class="block-invite-product-element three-column-table">
 				<div class="picture left-column">
-					{{view Yn.SquareImageView class="is-normal" contentBinding="product" withPhoto=true }}
+					{{view Yn.SquareImageView class="is-normal" contentBinding="product.brand" withPhoto=true }}
 				</div>
 				<div class="name middle-column">
 					{{product.name}}
@@ -166,6 +166,7 @@
 		<div id="block-invite-message-content" class="box-content">
 
       {{view Yn.InputView id="invite-input" class="single-input" 
+        scrollToOnFocusIn=false
         placeholderI18n="write_something_message"
         type="text"}}
 

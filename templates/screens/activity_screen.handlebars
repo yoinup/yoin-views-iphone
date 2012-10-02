@@ -15,8 +15,9 @@
 
     {{#if isNotification}}
 
-      {{view Yn.NotificationView class=notificationType
+      {{view Yn.NotificationView
         contentBinding="notificationMessage"
+        typeBinding="notificationType"
         isInDomBinding="isNotification" }}
 
     {{/if}}

@@ -88,13 +88,16 @@
 
 																{{#each agendaContent}}
 
-																		{{#view Yn.BtapView class="choose-user-channel-people-content-element"
+																	<div class="choose-user-channel-people-content-element">
+
+																		{{view Yvi.UserShortBlockView class="is-small"
+	                                		imagetype="is-small"
+																			typeBinding="Yvi.UserType.PhoneChannel"
+																			phoneNameBinding="name"
 																			action="selectAgendaUser"
 																			actionContentBinding="this"}}
 
-																			{{name}}
-
-																		{{/view}}
+																	</div>
 
 																{{/each}}
 
@@ -205,12 +208,12 @@
 															{{#each facebookContent}}
 
                                 <div class="choose-user-channel-people-content-element">
-																	
-																	{{view Yvi.UserShortBlockView class="is-small" 
-																		imagetype="is-small" 
-																		isFBUser=true 
-																		fbNameBinding="name"
+
+                                	{{view Yvi.UserShortBlockView class="is-small"
+                                		imagetype="is-small"
+																		typeBinding="Yvi.UserType.FbChannel"
 																		fbIdBinding="id"
+																		fbNameBinding="name"
 																		action="selectFacebookUser"
 																		actionContentBinding="this"}}
 
