@@ -90,12 +90,14 @@
 
 																	<div class="choose-user-channel-people-content-element">
 
-																		{{view Yvi.UserShortBlockView class="is-small"
-	                                		imagetype="is-small"
-																			typeBinding="Yvi.UserType.PhoneChannel"
-																			phoneNameBinding="name"
+																		{{#view Yn.BtapView id="venue-likes" 
+																			classNameBindings="isVoted"
 																			action="selectAgendaUser"
-																			actionContentBinding="this"}}
+																			actionContentBinding="this" }}
+
+																			{{name}}
+
+																		{{/view}}
 
 																	</div>
 
@@ -107,7 +109,10 @@
 
 											{{else}} 
 
-												 No hay contenido
+												<div class="choose-user-alert-text">
+													<div class="space by-nine"></div>
+													{{I18n no_friends}}
+												</div>
 
 											{{/if}} 
 
@@ -161,9 +166,12 @@
 											</div>
 											<div class="space by-one"></div>
 
-										{{else}} 
+										{{else}}
 
-										Pablo mete un mensaje diciendo q no tienes amigos
+											<div class="choose-user-alert-text">
+											<div class="space by-nine"></div>
+												{{I18n no_friends}}
+											</div>
 
 										{{/if}} 
 
@@ -207,17 +215,17 @@
 
 															{{#each facebookContent}}
 
-                                <div class="choose-user-channel-people-content-element">
+																<div class="choose-user-channel-people-content-element">
 
-                                	{{view Yvi.UserShortBlockView class="is-small"
-                                		imagetype="is-small"
+																	{{view Yvi.UserShortBlockView class="is-small"
+																		imagetype="is-small"
 																		typeBinding="Yvi.UserType.FbChannel"
 																		fbIdBinding="id"
 																		fbNameBinding="name"
 																		action="selectFacebookUser"
 																		actionContentBinding="this"}}
 
-                                </div>
+																</div>
 
 
 															{{/each}}
@@ -229,7 +237,10 @@
 
 											{{else}} 
 
-												 No hay contenido
+												<div class="choose-user-alert-text">
+												<div class="space by-nine"></div>
+													{{I18n no_friends}}
+												</div>
 
 											{{/if}} 
 
@@ -331,9 +342,12 @@
 
 								<div class="space by-one"></div>
 
-						{{else}} 
+						{{else}}
 
-							 No hay usuarios cerca del Venue
+							<div class="choose-user-alert-text">
+							<div class="space by-nine"></div>
+								{{I18n no_users_close_venue}}
+							</div>
 
 						{{/if}} 
 
