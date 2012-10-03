@@ -5,7 +5,7 @@
 	<div class="venue-box-content-element">
 
 		<div class="venue-left-l">
-			{{view Yn.SquareImageView class="is-big" contentBinding="venue.brand" withIcon=true}}
+                        {{view Yn.SquareImageView class="fix-scrolling-touch is-big" contentBinding="venue.brand" withIcon=true}}
 		</div>
 
 		<div class="venue-middle-l">
@@ -46,11 +46,11 @@
 				contentBinding="products"
 				selectedBinding="selected"}}
 
-			{{view Yn.CarouselCirclesView
+      {{view Yn.CarouselCirclesView class="fix-scrolling-touch"
 				contentBinding="products"
 				selectedBinding="selected"}}
 
-			{{view Yn.InviteButtonView class="is-small"
+                        {{view Yn.InviteButtonView class="fix-scrolling-touch is-small"
 				venueBinding="venue"
 				productBinding="selected"}}
 
