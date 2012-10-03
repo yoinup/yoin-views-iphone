@@ -22,36 +22,39 @@
 
 		</div>
 
-		<div id="block-invite-product-content" class="box-content">
-
 			{{#if product}}
 
-				<div class="block-invite-product-element three-column-table">
-				<div class="picture left-column">
-					{{view Yn.SquareImageView class="is-normal" contentBinding="product.brand" withPhoto=true }}
+				<div id="block-invite-product-content-sel" class="box-content">
+					<div class="block-invite-product-element three-column-table">
+						<div class="picture left-column">
+							{{view Yn.SquareImageView class="is-normal" contentBinding="product.brand" withPhoto=true }}
+						</div>
+						<div class="name middle-column">
+							{{product.name}}
+						</div>
+						<div class="right-column price-label-content">
+							<div class="price-label">{{product.price}} {{I18n currency_symbol}}</div>
+						</div>
+					</div>
 				</div>
-				<div class="name middle-column">
-					{{product.name}}
-				</div>
-				<div class="right-column price-label-content">
-					<div class="price-label">{{product.price}} {{I18n currency_symbol}}</div>
-				</div>
-			</div>
 
 			{{else}}
 
-				<div class="block-invite-product-element two-column-table">
-					<div class="text left-column">
-						{{I18n select_something_for_inviting}}
-					</div>
-					<div class="control right-column">
-						{{view Yn.PlusButtonView action="goToChooseProduct" }}
-					</div>
+				<div id="block-invite-product-content" class="box-content">
+					{{#view Yn.BtapView class="block-invite-product-element two-column-table"
+						action="goToChooseProduct" }}
+
+						<div class="text left-column">
+							{{I18n select_something_for_inviting}}
+						</div>
+						<div class="control right-column">
+							<span class="icon is-icon-normal is-icon-grey with-text" icon="d"></span>
+						</div>
+
+					{{/view}}
 				</div>
 
 			{{/if}}
-
-		</div>
 
 	</div>
 
@@ -65,9 +68,9 @@
 
 		</div>
 
-		<div id="block-invite-user-content" class="box-content">
+		{{#if hasUser }}
 
-			{{#if hasUser }}
+			<div id="block-invite-user-content-sel" class="box-content">
 
 				{{#if user }}
 					<div class="block-invite-user-element three-column-table">
@@ -135,21 +138,27 @@
 					</div>
 				{{/if}}
 
-			{{else}}
+			</div>
 
-				<div class="block-invite-user-element two-column-table">
+		{{else}}
+
+			<div id="block-invite-user-content" class="box-content">
+
+				{{#view Yn.BtapView class="block-invite-user-element two-column-table"
+					action="goToChooseUser" }}
+
 					<div class="text left-column">
 						{{I18n select_someone_to_invite}}
 					</div>
 					<div class="control right-column">
-						{{view Yn.PlusButtonView action="goToChooseUser" }}
+						<span class="icon is-icon-normal is-icon-grey with-text" icon="d"></span>
 					</div>
-				</div>
 
-			{{/if}}
+				{{/view}}
 
-			
-		</div>
+			</div>
+
+		{{/if}}
 
 	</div>
 

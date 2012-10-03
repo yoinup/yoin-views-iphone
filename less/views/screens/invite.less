@@ -1,6 +1,8 @@
 @import 'sizes';
 @import 'textstyles';
 @import 'paddings';
+@import 'borders';
+@import 'gradients';
 
 
 #invite_screen {
@@ -16,7 +18,7 @@
 
   		}
 
-  		> #block-invite-product-content {
+  		> #block-invite-product-content, #block-invite-product-content-sel {
 
   			.box-padding-with-normal-image;
 
@@ -59,6 +61,13 @@
 
   		}
 
+  		> #block-invite-product-content:active {
+
+  			.box-press;
+  			.border-bottom-box-radius-style;
+
+  		}
+
   	}
 
   	> #block-invite-user {
@@ -70,7 +79,7 @@
 
   		}
 
-  		> #block-invite-user-content {
+  		> #block-invite-user-content, #block-invite-user-content-sel {
 
 				> .block-invite-user-element {
 
@@ -123,6 +132,13 @@
 					}
 
   			}
+
+  		}
+
+  		> #block-invite-user-content:active {
+
+  			.box-press;
+  			.border-bottom-box-radius-style;
 
   		}
 
