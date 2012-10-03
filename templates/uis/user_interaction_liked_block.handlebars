@@ -39,9 +39,13 @@
 	<div class="user-interaction-liked-details box-title box-title-bottom">
 		
 		<div class="user-interaction-liked-details-city inline">
+
+			{{#if content.venue}}
 		
-			<span class="icon with-text is-icon-small" icon="i"></span>
-			{{content.venue.name}}, {{content.venue.city.name}}
+				<span class="icon with-text is-icon-small" icon="i"></span>
+				{{content.venue.name}}, {{content.venue.city.name}}
+
+			{{/if}}
 							
 		</div>
 							

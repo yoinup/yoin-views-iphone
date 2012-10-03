@@ -73,9 +73,13 @@
 	<div class="user-interaction-sent-details box-title box-title-bottom">
 		
 		<div class="user-interaction-sent-details-city inline">
+
+			{{#if content.venue}}
 		
-			<span class="icon with-text is-icon-small" icon="i"></span>
-			{{content.venue_user.name}}, {{content.venue.city.name}}
+				<span class="icon with-text is-icon-small" icon="i"></span>
+				{{content.venue_user.name}}, {{content.venue.city.name}}
+
+			{{/if}}
 							
 		</div>
 							
