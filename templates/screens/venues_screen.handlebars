@@ -17,6 +17,16 @@
 
 {{/view }}
 
+
+{{#if notificationIsVisible}}
+
+  {{view Yn.NotificationView
+    contentBinding="notificationContent"
+    typeBinding="notificationType"
+    isInDomBinding="notificationIsVisible" }}
+
+{{/if}}
+
 <div class="screen-container">
 
 	<div id="venues-option-tabs">

@@ -13,12 +13,12 @@
       {{view Yn.SliderView}}
     {{/if}}
 
-    {{#if isNotification}}
+    {{#if notificationIsVisible}}
 
       {{view Yn.NotificationView
-        contentBinding="notificationMessage"
+        contentBinding="notificationContent"
         typeBinding="notificationType"
-        isInDomBinding="isNotification" }}
+        isInDomBinding="notificationIsVisible" }}
 
     {{/if}}
     
