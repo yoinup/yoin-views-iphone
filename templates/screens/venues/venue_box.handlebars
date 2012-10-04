@@ -24,8 +24,10 @@
 		<div class="venue-right-l">
 
 			{{#if canShowGeoposition }}
-				<span class="icon with-text is-icon-small" icon="o"></span>
-				{{normalize_distance distanceBinding="venue.distance" }}
+				{{#if venue.distance}}
+					<span class="icon with-text is-icon-small" icon="o"></span>
+					{{normalize_distance distanceBinding="venue.distance" }}
+				{{/if}}
 			{{/if}}
 			
 				{{#if selected.hasLikes }}
