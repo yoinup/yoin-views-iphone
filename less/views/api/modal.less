@@ -1,10 +1,16 @@
 @import 'animations';
 @import 'appanimations';
 
+
 .modal {
 
-  -webkit-transition: -webkit-transform @modal-duration @ease-animation-style;
+  //-webkit-transition: -webkit-transform @modal-duration @ease-animation-style;
+  -webkit-transition: -webkit-transform 500ms linear;
   -webkit-transform: translate3d(0,0,0);
+
+}
+
+.modal.is-hidden {
 
 }
 
@@ -28,6 +34,6 @@
 
 .modal.from-down.is-hidden {
 
-  -webkit-transform: translate3d(0,460px,0);
+  -webkit-transform: translate3d(0,100%,0);
 
 }
