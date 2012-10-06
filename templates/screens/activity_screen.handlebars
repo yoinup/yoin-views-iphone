@@ -21,16 +21,17 @@
         isInDomBinding="notificationIsVisible" }}
 
     {{/if}}
+
+{{#view Yn.RefreshScrollerView id="activity-screen-container" class="screen-container" 
+  isRefreshedBinding="isRefreshed"
+  lengthBinding="activities.length"
+  exclude="footer activity-header" }}
     
 
 {{#if isContentLoaded }}
 
   {{#if activities.length}}
 
-    {{#view Yn.RefreshScrollerView id="activity-screen-container" class="screen-container" 
-      isRefreshedBinding="isRefreshed"
-      lengthBinding="activities.length"
-      exclude="footer activity-header" }}
 
       <div class="scroller-container">
 
@@ -67,7 +68,6 @@
       {{/if }}
 
 
-    {{/view}}
     
 
   {{else}}
@@ -82,6 +82,9 @@
   {{view Yn.SpinnerView}}
   
 {{/if }}
+
+
+{{/view}}
 
 
 {{/with}}
