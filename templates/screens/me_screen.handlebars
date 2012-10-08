@@ -79,6 +79,15 @@
 		</div>
 
 
+		{{#if notificationIsVisible}}
+
+		  {{view Yn.NotificationView
+		    contentBinding="notificationContent"
+		    typeBinding="notificationType"
+		    isInDomBinding="notificationIsVisible" }}
+
+		{{/if}}
+
 
 		{{#view Yvi.TabMainView currentTabViewBinding="currentTabView" }}
 
