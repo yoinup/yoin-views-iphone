@@ -22,134 +22,134 @@
 
 {{view Em.ContainerView id="venue-map"}}
 
-<div class="screen-container">
-
-	<div id= "venue-products-section">
-
-			{{view Yvi.VenueProductSwipeView 
-				contentBinding="products"
-				selectedBinding="selected"}}
-
-			{{view Yn.CarouselCirclesView
-				contentBinding="products"
-				selectedBinding="selected"}}
-
-			{{view Yn.MapButtonView}}
-
-	</div>
-
-	
-	<div id="venue-middle-section">
-
-			{{#view Yn.BtapView id="venue-likes" 
-					classNameBindings="isVoted"
-					action="fireLike"
-					isVotedBinding="selected.hasVoted" }}
-
-				<span class="icon with-text" icon="m"></span> {{I18n i_like}} 
-
-			{{/view}}
-
-			{{view Yn.InviteButtonView
-				venueBinding="venue"
-				productBinding="selected"}}
+<div class="venue-screen-container">
 
 
-      {{#view Yn.BtapView id="venue-comments" 
-        action="showComments"}}
+    <div id= "venue-products-section">
 
-				<span class="icon with-text" icon="u"></span> {{selected.commentCount}} 
-				{{I18n comment pluralizeBinding="selected.commentCount" toLowerCase=true }}
+        {{view Yvi.VenueProductSwipeView 
+          contentBinding="products"
+          selectedBinding="selected"}}
 
+        {{view Yn.CarouselCirclesView class="fix-scrolling-touch"
+          contentBinding="products"
+          selectedBinding="selected"}}
 
-			{{/view}}
-
-	</div>
-  
-  {{#view Yn.ScrollerView id="venue-info-section"
-    exclude="footer venue-middle-section venue-products-section venue-header"}}
-
-    <div class="scroller-container">
-
-        {{#if venue.nearUsers.length }}
-
-            <div class="space by-one"></div>
-
-            <div id="venue-people" class="box">
-
-              <div id="vp-title" class="box-title box-title-top">
-                {{I18n venue_people_title}}
-              </div>
-
-              <div id="vp-list" class="box-content">
-                {{#each sixPeople}}
-                  <div class="vp-list-element inline">
-                    {{view Yn.SquareImageView class="is-normal" contentBinding="this" withPhoto=true }}
-                  </div>
-                {{/each}}
-              </div>
-
-            </div>
-
-        {{/if}}
-
-        
-
-        <div class="space by-one"></div>
-
-        <div id="venue-product-description" class="box">
-
-              <div id="vpd-title" class="box-title box-title-top">
-                {{I18n description}}
-              </div>
-
-              <div id="vpd-info" class="box-content is-text">
-                {{selected.description}}
-              </div>
-
-        </div>
-
-
-        {{#if otherProducts.length }}
-
-            <div class="space by-one"></div>
-
-            <div id="venue-products" class="box">
-
-              <div id="vpr-title" class="box-title box-title-top">
-                {{I18n venue_products_title}}
-              </div>
-
-              <div id="vpr-list" class="box-content">
-
-                {{#each otherProducts}}
-
-                {{#view Yn.BtapView class="vpr-element two-column-table" 
-                  action="selectProduct"
-                  actionContentBinding="this" }}
-
-                      <div class="vpr-name left-column">
-                        {{name}}
-                      </div>
-                      <div class="price-label right-column"> 
-                        {{price}} {{I18n currency_symbol}}
-                      </div>
-
-                  {{/view}}
-
-                {{/each}}
-
-              </div>
-
-            </div>
-
-        {{/if}}
-
-        <div class="space by-one"></div>
+        {{view Yn.MapButtonView class="fix-scrolling-touch"}}
 
     </div>
 
-  {{/view}}
+    
+    <div id="venue-middle-section">
+
+        {{#view Yn.BtapView id="venue-likes" 
+            classNameBindings="isVoted"
+            action="fireLike"
+            isVotedBinding="selected.hasVoted" }}
+
+          <span class="icon with-text" icon="m"></span> {{I18n i_like}} 
+
+        {{/view}}
+
+        {{view Yn.InviteButtonView class="fix-scrolling-touch"
+          venueBinding="venue"
+          productBinding="selected"}}
+
+
+        {{#view Yn.BtapView id="venue-comments" 
+          action="showComments"}}
+
+          <span class="icon with-text" icon="u"></span> {{selected.commentCount}} 
+          {{I18n comment pluralizeBinding="selected.commentCount" toLowerCase=true }}
+
+
+        {{/view}}
+
+    </div>
+    
+    {{#view Yn.ScrollerView id="venue-info-section"
+      exclude="footer venue-middle-section venue-products-section venue-header"}}
+
+
+          {{#if venue.nearUsers.length }}
+
+              <div class="space by-one"></div>
+
+              <div id="venue-people" class="box">
+
+                <div id="vp-title" class="box-title box-title-top">
+                  {{I18n venue_people_title}}
+                </div>
+
+                <div id="vp-list" class="box-content">
+                  {{#each sixPeople}}
+                    <div class="vp-list-element inline">
+                      {{view Yn.SquareImageView class="is-normal" contentBinding="this" withPhoto=true }}
+                    </div>
+                  {{/each}}
+                </div>
+
+              </div>
+
+          {{/if}}
+
+          
+
+          <div class="space by-one"></div>
+
+          <div id="venue-product-description" class="box">
+
+                <div id="vpd-title" class="box-title box-title-top">
+                  {{I18n description}}
+                </div>
+
+                <div id="vpd-info" class="box-content is-text">
+                  {{selected.description}}
+                </div>
+
+          </div>
+
+
+          {{#if otherProducts.length }}
+
+              <div class="space by-one"></div>
+
+              <div id="venue-products" class="box">
+
+                <div id="vpr-title" class="box-title box-title-top">
+                  {{I18n venue_products_title}}
+                </div>
+
+                <div id="vpr-list" class="box-content">
+
+                  {{#each otherProducts}}
+
+                  {{#view Yn.BtapView class="vpr-element two-column-table" 
+                    action="selectProduct"
+                    actionContentBinding="this" }}
+
+                        <div class="vpr-name left-column">
+                          {{name}}
+                        </div>
+                        <div class="price-label right-column"> 
+                          {{price}} {{I18n currency_symbol}}
+                        </div>
+
+                    {{/view}}
+
+                  {{/each}}
+
+                </div>
+
+              </div>
+
+          {{/if}}
+
+          <div class="space by-one"></div>
+
+
+    {{/view}}
+
 
 </div>
 

@@ -23,7 +23,7 @@
 
 	}
 
-	> .screen-container {
+	> .venue-screen-container {
 		//top: @venue-map-height; does not work on iOS simulator
 		-webkit-transform: translate3d(0, @venue-map-height,0);
 
@@ -38,17 +38,25 @@
 		position: absolute;
 		width: 100%;
 		height: @venue-map-height;
+
+    background-color: gainsboro;
+
+    -webkit-overflow-scrolling: touch;
+
+    > .map{
+
+    }
 		
 	}
 
-	> .screen-container {
+	> .venue-screen-container {
 
 		position: relative;
 		top: 0px;
 		-webkit-transition: -webkit-transform @modal-duration/2 @ease-animation-style;
 		-webkit-transform: translate3d(0,0,0);
+    background-color: gainsboro;
 
-		.app-background;
 
 		> #venue-products-section {
 
@@ -184,6 +192,7 @@
 				margin-left: @invite-button-width*(-0.5);
 				//margin-top: (@middle-section-height - @invite-button-height)/2;
 				margin-top: -6px;
+        z-index: 10;
 
 			}
 
@@ -191,7 +200,8 @@
 
 		> #venue-info-section.scroller {
 
-			> .scroller-container {
+        .app-background;
+
 
 				> #venue-people {
 
@@ -280,7 +290,6 @@
 					}
 				}
 
-			}
 
 		}
 
