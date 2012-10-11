@@ -40,19 +40,19 @@
 
 			{{else}}
 
-				<div id="block-invite-product-content" class="box-content">
-					{{#view Yn.BtapView class="block-invite-product-element two-column-table"
-						action="goToChooseProduct" }}
+        {{#view Yn.BtapView id="block-invite-product-content" class="box-content"
+          action="goToChooseProduct"}}
 
-						<div class="text left-column">
-							{{I18n select_something_for_inviting}}
-						</div>
-						<div class="control right-column">
-							<span class="icon is-icon-normal is-icon-grey with-text" icon="d"></span>
-						</div>
+          <div class="block-invite-product-element two-column-table" >
+              <div class="text left-column">
+                {{I18n select_something_for_inviting}}
+              </div>
+              <div class="control right-column">
+                <span class="icon is-icon-normal is-icon-grey with-text" icon="d"></span>
+              </div>
+          </div>
 
-					{{/view}}
-				</div>
+        {{/view}}
 
 			{{/if}}
 
@@ -142,21 +142,19 @@
 
 		{{else}}
 
-			<div id="block-invite-user-content" class="box-content">
+      {{#view Yn.BtapView id="block-invite-user-content" class="box-content"
+          action="goToChooseUser" }}
 
-				{{#view Yn.BtapView class="block-invite-user-element two-column-table"
-					action="goToChooseUser" }}
+        <div class="block-invite-user-element two-column-table">
+            <div class="text left-column">
+              {{I18n select_someone_to_invite}}
+            </div>
+            <div class="control right-column">
+              <span class="icon is-icon-normal is-icon-grey with-text" icon="d"></span>
+            </div>
+        </div>
 
-					<div class="text left-column">
-						{{I18n select_someone_to_invite}}
-					</div>
-					<div class="control right-column">
-						<span class="icon is-icon-normal is-icon-grey with-text" icon="d"></span>
-					</div>
-
-				{{/view}}
-
-			</div>
+      {{/view}}
 
 		{{/if}}
 
