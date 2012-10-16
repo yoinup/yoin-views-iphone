@@ -6,8 +6,6 @@
 		
 		<div class="header-title">{{I18n invite}}</div>
 
-		{{view Yn.AdaptativeButtonView class="header-button l-right is-black button-text is-small is-font-white" contentI18n="next" action="next"}}
-
 {{/view }}
 
 <div class="screen-container">
@@ -180,6 +178,12 @@
 		</div>
 
 	</div>
+
+
+  {{view Yn.MainButtonView id="invite-send" class="is-blue" 
+    contentI18n="send" 
+    action="sendInvitation"}}
+
 
 </div>
 

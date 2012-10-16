@@ -8,7 +8,7 @@
 
 
 {{#view Yn.ScrollerView class="screen-container"
-  exclude="footer invite-send-header" }}
+	exclude="footer invite-send-header" }}
 
 	<div class="space by-one"></div>
 
@@ -28,10 +28,10 @@
 
 				<div class="control right-column">
 
-            {{view Yn.SwitchButtonView
-              isOnBinding="isOnSms"
-              switchAction="changeSms"
-              isDisabledBinding="isAgendaSms"}}
+						{{view Yn.SwitchButtonView
+							isOnBinding="isOnSms"
+							switchAction="changeSms"
+							isDisabledBinding="isAgendaSms"}}
 
 				</div>
 
@@ -41,9 +41,9 @@
 
 				<div id="sms-notification-message" class="block-notifications-element">
 
-          {{view Yn.InputView id="sms-notification-message-text" class="single-input"
-            type="text"
-            placeholderI18n="write_something_message" }}
+					{{view Yn.InputView id="sms-notification-message-text" class="single-input"
+						type="text"
+						placeholderI18n="write_something_message" }}
 
 				</div>				
 
@@ -57,10 +57,10 @@
 
 				<div class="control right-column">
 
-            {{view Yn.SwitchButtonView
-              isOnBinding="isOnMail"
-              switchAction="changeMail"
-              isDisabledBinding="isMailDisabled"}}
+						{{view Yn.SwitchButtonView
+							isOnBinding="isOnMail"
+							switchAction="changeMail"
+							isDisabledBinding="isMailDisabled"}}
 
 				</div>
 
@@ -70,9 +70,9 @@
 
 				<div id="mail-notification-message" class="block-notifications-element">
 
-          {{view Yn.InputView id="mail-notification-message-text" class="single-input"
-            type="text"
-            placeholderI18n="write_something_message" }}
+					{{view Yn.InputView id="mail-notification-message-text" class="single-input"
+						type="text"
+						placeholderI18n="write_something_message" }}
 
 				</div>				
 
@@ -86,10 +86,10 @@
 
 				<div class="control right-column">
 
-            {{view Yn.SwitchButtonView
-              isOnBinding="isOnFacebook"
-              switchAction="changeFacebook"
-              isDisabledBinding="isFacebookDisabled"}}
+						{{view Yn.SwitchButtonView
+							isOnBinding="isOnFacebook"
+							switchAction="changeFacebook"
+							isDisabledBinding="isFacebookDisabled"}}
 
 				</div>
 
@@ -99,9 +99,9 @@
 
 				<div id="facebook-notification-message" class="block-notifications-element">
 
-          {{view Yn.InputView id="facebook-notification-message-text" class="single-input"
-            type="text"
-            placeholderI18n="write_something_message" }}
+					{{view Yn.InputView id="facebook-notification-message-text" class="single-input"
+						type="text"
+						placeholderI18n="write_something_message" }}
 
 				</div>				
 
@@ -116,10 +116,10 @@
 
 					<div class="control right-column">
 
-            {{view Yn.SwitchButtonView
-              isOnBinding="isOnTwitter"
-              switchAction="changeTwitter"
-              isDisabledBinding="isTwitterDisabled"}}
+						{{view Yn.SwitchButtonView
+							isOnBinding="isOnTwitter"
+							switchAction="changeTwitter"
+							isDisabledBinding="isTwitterDisabled"}}
 
 					</div>
 
@@ -129,9 +129,9 @@
 
 				<div id="twitter-notification-message" class="block-notifications-element">
 
-          {{view Yn.InputView id="twitter-notification-message-text" class="single-input"
-            type="text"
-            placeholderI18n="write_something_message" }}
+					{{view Yn.InputView id="twitter-notification-message-text" class="single-input"
+						type="text"
+						placeholderI18n="write_something_message" }}
 
 				</div>
 
@@ -143,9 +143,9 @@
 
 	<div class="space by-two"></div>
 
-  {{view Yn.MainButtonView id="invite-send" class="is-blue" 
-    contentI18n="send" 
-    action="sendInvitation"}}
+	{{view Yn.MainButtonView id="invite-send" class="is-blue" 
+		contentI18n="send" 
+		action="sendInvitation"}}
 
 	<div class="space by-two"></div>
 
