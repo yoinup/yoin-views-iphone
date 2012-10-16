@@ -31,7 +31,6 @@
 
 					<div id="channels">
 
-
 							{{view Yvi.ChooseUserChannelButtonView 
 								content="agenda"
 								image="phonebook_button"
@@ -53,204 +52,229 @@
 								image="twitter_logo"
 								selectedBinding="view.selectedFriendsOption"}}
 
-
 					</div>
-
 
 					{{#view Yvi.TabMainView id="choose-user-tab-main"
 						currentTabViewBinding="tabOption" }}
 
-								{{#view Yn.ScrollerView id="choose-user-agenda" class="choose-user-tab" 
+								{{#view Yn.RefreshScrollerView id="choose-user-agenda" class="choose-user-tab" 
 									exclude="choose-user-menu-tabs footer choose-user-header channels"
+                  isRefreshedBinding="agendaIsRefreshed"
+                  lengthBinding="agendaContent.length"
 									viewName="agenda" }}
 
-									{{#unless user.hasPhones}}
-										<div class="space by-nine"></div>
-										<div class="choose-user-alert-text">
-											{{I18n activateAgenda}}
-										</div>
-									{{else}} 
+                    <div class="scroller-container fix-scrolling-touch">
 
-										{{#if agendaIsLoaded }} 
+                    {{#unless user.hasPhones}}
+                      <div class="space by-nine"></div>
+                      <div class="choose-user-alert-text">
+                        {{I18n activateAgenda}}
+                      </div>
+                    {{else}} 
 
-											{{#if agendaContent.length }} 
+                      {{#if agendaIsLoaded }} 
 
-														<div class="space by-one"></div>
-														<div class="choose-user-channel-people box">
+                        {{#if agendaContent.length }} 
 
-															<div class="choose-user-channel-people-title box-title box-title-top">
+                              <div class="space by-one"></div>
+                              <div class="choose-user-channel-people box">
 
-																{{title}}
+                                <div class="choose-user-channel-people-title box-title box-title-top">
 
-															</div>
+                                  {{title}}
 
-															<div class="choose-user-channel-people-content box-content">
+                                </div>
 
-																{{#each agendaContent}}
+                                <div class="choose-user-channel-people-content box-content">
 
-																	<div class="choose-user-channel-people-content-element">
+                                  {{#each agendaContent}}
 
-																		{{#view Yn.BtapView
-																			action="selectAgendaUser"
-																			actionContentBinding="this" }}
+                                    <div class="choose-user-channel-people-content-element">
 
-																			{{name}}
+                                      {{#view Yn.BtapView
+                                        action="selectAgendaUser"
+                                        actionContentBinding="this" }}
 
-																		{{/view}}
+                                        {{name}}
 
-																	</div>
+                                      {{/view}}
 
-																{{/each}}
+                                    </div>
 
-															</div>
-														</div>
-														<div class="space by-one"></div>
+                                  {{/each}}
 
-											{{else}} 
+                                </div>
 
-												<div class="choose-user-alert-text">
-													<div class="space by-nine"></div>
-													{{I18n no_friends}}
-												</div>
+                                {{#if view.showBottomView }}
+                                  {{view Yn.MiniSpinnerView }}
+                                {{/if }}
+                              </div>
+                              <div class="space by-one"></div>
 
-											{{/if}} 
+                        {{else}} 
 
-										{{else}} 
+                          <div class="choose-user-alert-text">
+                            <div class="space by-nine"></div>
+                            {{I18n no_friends}}
+                          </div>
 
-											{{view Yn.SpinnerView}}
+                        {{/if}} 
 
-										{{/if}} 
+                      {{else}} 
 
-									{{/unless}} 
+                        {{view Yn.SpinnerView}}
+
+                      {{/if}} 
+
+                    {{/unless}} 
+
+
+                  </div>
 
 
 								{{/view}}
 
-								{{#view Yn.ScrollerView id="choose-user-yoin" class="choose-user-tab" 
+								{{#view Yn.RefreshScrollerView id="choose-user-yoin" class="choose-user-tab" 
 									exclude="choose-user-menu-tabs footer choose-user-header channels"
+                  isRefreshedBinding="yoinIsRefreshed"
+                  lengthBinding="yoinContent.length"
 									viewName="yoin" }}
 
-									{{#if yoinIsLoaded }} 
+                    <div class="scroller-container fix-scrolling-touch">
 
-										{{#if yoinContent.length }} 
+                    {{#if yoinIsLoaded }} 
 
-											<div class="space by-one"></div>
-											<div class="choose-user-channel-people box">
+                      {{#if yoinContent.length }} 
 
-												<div class="choose-user-channel-people-title box-title box-title-top">
+                        <div class="space by-one"></div>
+                        <div class="choose-user-channel-people box">
 
-													{{title}}
+                          <div class="choose-user-channel-people-title box-title box-title-top">
 
-												</div>
+                            {{title}}
 
-												<div class="choose-user-channel-people-content box-content">
+                          </div>
 
-													{{#each yoinContent}}
+                          <div class="choose-user-channel-people-content box-content">
 
-														<div class="choose-user-channel-people-content-element">
+                            {{#each yoinContent}}
 
-															{{view Yvi.UserShortBlockView class="is-small" 
-															imagetype="is-small" 
-															contentBinding="this" 
-															showCity=false 
-															action="selectUser"
-															actionContentBinding="this"}}
+                              <div class="choose-user-channel-people-content-element">
 
-														</div>
+                                {{view Yvi.UserShortBlockView class="is-small" 
+                                imagetype="is-small" 
+                                contentBinding="this" 
+                                showCity=false 
+                                action="selectUser"
+                                actionContentBinding="this"}}
 
-													{{/each}}
+                              </div>
 
-												</div>
+                            {{/each}}
 
-											</div>
-											<div class="space by-one"></div>
+                          </div>
 
-										{{else}}
+                          {{#if view.showBottomView }}
+                            {{view Yn.MiniSpinnerView }}
+                          {{/if }}
 
-											<div class="choose-user-alert-text">
-											<div class="space by-nine"></div>
-												{{I18n no_friends}}
-											</div>
+                        </div>
+                        <div class="space by-one"></div>
 
-										{{/if}} 
+                      {{else}}
 
-									{{else}} 
+                        <div class="choose-user-alert-text">
+                        <div class="space by-nine"></div>
+                          {{I18n no_friends}}
+                        </div>
 
-										{{view Yn.SpinnerView}}
+                      {{/if}} 
 
-									{{/if}} 
+                    {{else}} 
 
+                      {{view Yn.SpinnerView}}
+
+                    {{/if}} 
+
+                  </div>
 
 
 								{{/view}}
 
-								{{#view Yn.ScrollerView id="choose-user-facebook" class="choose-user-tab" 
+								{{#view Yn.RefreshScrollerView id="choose-user-facebook" class="choose-user-tab" 
+                  isRefreshedBinding="facebookIsRefreshed"
+                  lengthBinding="facebookContent.length"
 									exclude="choose-user-menu-tabs footer choose-user-header channels"
 									viewName="facebook" }}
 
-									{{#unless user.hasFacebook}} 
+                    <div class="scroller-container fix-scrolling-touch">
 
-									<div class="space by-nine"></div>
-									<div class="choose-user-alert-text">
-										{{I18n activateFacebook}}
-									</div>
+                    {{#unless user.hasFacebook}} 
 
-									{{else}} 
+                      <div class="space by-nine"></div>
+                      <div class="choose-user-alert-text">
+                        {{I18n activateFacebook}}
+                      </div>
 
-										{{#if facebookIsLoaded }} 
+                    {{else}} 
 
-											{{#if facebookContent.length }} 
+                      {{#if facebookIsLoaded }} 
 
-													<div class="space by-one"></div>
-													<div class="choose-user-channel-people box">
+                        {{#if facebookContent.length }} 
 
-														<div class="choose-user-channel-people-title box-title box-title-top">
+                            <div class="space by-one"></div>
+                            <div class="choose-user-channel-people box">
 
-															{{title}}:
+                              <div class="choose-user-channel-people-title box-title box-title-top">
 
-														</div>
+                                {{title}}:
 
-														<div class="choose-user-channel-people-content box-content">
+                              </div>
 
-															{{#each facebookContent}}
+                              <div class="choose-user-channel-people-content box-content">
 
-																<div class="choose-user-channel-people-content-element">
+                                {{#each facebookContent}}
 
-																	{{view Yvi.UserShortBlockView class="is-small"
-																		imagetype="is-small"
-																		typeBinding="Yvi.UserType.FbChannel"
-																		fbIdBinding="id"
-																		fbNameBinding="name"
-																		action="selectFacebookUser"
-																		actionContentBinding="this"}}
+                                  <div class="choose-user-channel-people-content-element">
+                                    {{view Yvi.UserShortBlockView class="is-small"
+                                      imagetype="is-small"
+                                      typeBinding="Yvi.UserType.FbChannel"
+                                      fbIdBinding="id"
+                                      fbNameBinding="name"
+                                      action="selectFacebookUser"
+                                      actionContentBinding="this"}}
+                                  </div>
 
-																</div>
 
+                                {{/each}}
 
-															{{/each}}
+                              </div>
 
-														</div>
+                              {{#if view.showBottomView }}
+                                {{view Yn.MiniSpinnerView }}
+                              {{/if }}
 
-													</div>
-													<div class="space by-one"></div>
+                            </div>
+                            <div class="space by-one"></div>
 
-											{{else}} 
+                        {{else}} 
 
-												<div class="choose-user-alert-text">
-												<div class="space by-nine"></div>
-													{{I18n no_friends}}
-												</div>
+                          <div class="choose-user-alert-text">
+                          <div class="space by-nine"></div>
+                            {{I18n no_friends}}
+                          </div>
 
-											{{/if}} 
+                        {{/if}} 
 
-										{{else}} 
+                      {{else}} 
 
-											{{view Yn.SpinnerView}}
+                        {{view Yn.SpinnerView}}
 
-										{{/if}} 
+                      {{/if}} 
 
-									{{/unless}} 
+                    {{/unless}} 
 
+                  </div>
 
 								{{/view}}
 
