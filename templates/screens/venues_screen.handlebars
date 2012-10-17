@@ -59,7 +59,8 @@
 				{{view Yvi.VenuesTabContentView
 					showLikes=false
 					isRefreshedBinding="locationIsRefreshed"
-					contentBinding="locationContent" }}
+					contentBinding="locationContent"
+					loggedUserBinding="loggedUser" }}
 
 			{{/if}}
 
@@ -71,7 +72,8 @@
 			{{view Yvi.VenuesTabContentView
 				showLikes=true
 				isRefreshedBinding="likeIsRefreshed"
-				contentBinding="likeContent" }}
+				contentBinding="likeContent"
+				loggedUserBinding="loggedUser" }}
 
 		{{/view}}
 
@@ -87,7 +89,7 @@
 					{{view Yvi.VenuesCategoryButtonView 
 						class="category-button"
 						content=this 
-						selectedBinding="view.selected"}}
+						selectedBinding="view.selected" }}
 
 				{{/each}}
 
@@ -97,7 +99,8 @@
 				showLikes=false
         isCategoryOption=true
 				isRefreshedBinding="categoryIsRefreshed"
-				contentBinding="categoryContent" }}
+				contentBinding="categoryContent"
+				loggedUserBinding="loggedUser" }}
 
 		{{/view}}
 

@@ -83,9 +83,17 @@
 
                 <div id="vp-list" class="box-content">
                   {{#each sixPeople}}
-                    <div class="vp-list-element inline">
-                      {{view Yn.SquareImageView class="is-normal" contentBinding="this" withPhoto=true }}
-                    </div>
+
+                  {{#view Yn.BtapView class="vp-list-element inline"
+                    action="goToNearFriend"
+                    actionContentBinding="this" }}
+
+                      {{view Yn.SquareImageView class="is-normal"
+                        contentBinding="this"
+                        withPhoto=true }}
+
+                  {{/view}}
+                    
                   {{/each}}
                 </div>
 
