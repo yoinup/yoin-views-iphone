@@ -58,8 +58,10 @@
 						currentTabViewBinding="tabOption" }}
 
 								{{#view Yn.RefreshScrollerView id="choose-user-agenda" class="choose-user-tab" 
+                  holdPeriod=10
 									exclude="choose-user-menu-tabs footer choose-user-header channels"
                   isRefreshedBinding="agendaIsRefreshed"
+                  hasNextBinding="agendaHasNext"
                   lengthBinding="agendaContent.length"
 									viewName="agenda" }}
 
@@ -105,9 +107,6 @@
 
                                 </div>
 
-                                {{#if view.showBottomView }}
-                                  {{view Yn.MiniSpinnerView }}
-                                {{/if }}
                               </div>
                               <div class="space by-one"></div>
 
@@ -135,8 +134,10 @@
 								{{/view}}
 
 								{{#view Yn.RefreshScrollerView id="choose-user-yoin" class="choose-user-tab" 
+                  holdPeriod=10
 									exclude="choose-user-menu-tabs footer choose-user-header channels"
                   isRefreshedBinding="yoinIsRefreshed"
+                  hasNextBinding="yoinHasNext"
                   lengthBinding="yoinContent.length"
 									viewName="yoin" }}
 
@@ -174,10 +175,6 @@
 
                           </div>
 
-                          {{#if view.showBottomView }}
-                            {{view Yn.MiniSpinnerView }}
-                          {{/if }}
-
                         </div>
                         <div class="space by-one"></div>
 
@@ -202,8 +199,10 @@
 								{{/view}}
 
 								{{#view Yn.RefreshScrollerView id="choose-user-facebook" class="choose-user-tab" 
+                  holdPeriod=10
                   isRefreshedBinding="facebookIsRefreshed"
                   lengthBinding="facebookContent.length"
+                  hasNextBinding="facebookHasNext"
 									exclude="choose-user-menu-tabs footer choose-user-header channels"
 									viewName="facebook" }}
 
@@ -250,9 +249,6 @@
 
                               </div>
 
-                              {{#if view.showBottomView }}
-                                {{view Yn.MiniSpinnerView }}
-                              {{/if }}
 
                             </div>
                             <div class="space by-one"></div>
