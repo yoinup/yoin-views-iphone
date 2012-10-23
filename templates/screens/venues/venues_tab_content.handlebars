@@ -3,15 +3,13 @@
 
 	{{#if isContentLoaded }}
 
-		{{#view Yvi.VenuesRefreshScrollerView
-
-			isCategoryOptionBinding="isCategoryOption"
-			showLikesBinding="showLikes"
+		{{#view Yn.RefreshScrollerView
+      exclude="footer venues-header"
 			loggedUserBinding="loggedUser"
 			isRefreshedBinding="isRefreshed"
 			lengthBinding="content.length" }}
 
-                                <div class="scroller-container fix-scrolling-touch">
+        <div class="scroller-container fix-scrolling-touch">
 
 					<div class="space by-one"></div>
 
@@ -31,7 +29,6 @@
 
 				{{#if view.showBottomView }}
 
-					<!--<div class="scroller-bottom-spinner"></div>-->
 					{{view Yn.MiniSpinnerView }}
 
 				{{/if }}

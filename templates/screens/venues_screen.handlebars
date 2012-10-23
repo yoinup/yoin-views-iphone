@@ -2,15 +2,10 @@
 
 {{#view Yn.HeaderView id="venues-header"}}
 
-	{{view Yn.LogoSwitchButtonView class="l-left" 
-		isOnBinding="isCheckinOn"
-		enabledEvent="checkin"
-		disabledEvent="checkout" }}
+{{view Yn.AdaptativeButtonView class="header-button l-left is-orange button-text is-small is-font-white" 
+  contentI18n="categories_title" action="goToCategories"}}
 
 	<div id="brand-container"></div>
-	
-	{{view Yn.IconBtapView class="activity-button" 
-		action="goToActivity" }}
 
 	{{view Yn.IconBtapView class="l-right header-button rectangle-button is-small is-orange icon" icon="i" 
 		action="goToMap" }}
@@ -29,91 +24,10 @@
 
 <div class="screen-container">
 
-	<div id="venues-option-tabs">
-
-		{{view Yvi.IconTabOptionView class="venues-tab"
-			icon="o" 
-			tab="location" 
-			currentTabViewBinding="currentTabView" }}
-
-		{{view Yvi.IconTabOptionView class="venues-tab"
-			icon="m" 
-			tab="like" 
-			currentTabViewBinding="currentTabView" }}
-
-		{{view Yvi.IconTabOptionView class="venues-tab last"
-			icon="g" 
-			tab="category"
-			currentTabViewBinding="currentTabView" }}
-
-	</div>
-
-	{{#view Yvi.TabMainView id="venues-tab-main"
-		currentTabViewBinding="currentTabView" }}
-
-		{{#view id="vtp-location" class="venues-tab-pane" 
-			viewName="location" }}
-
-			{{#if geopositionIsOn }}
-
-				{{view Yvi.VenuesTabContentView
-					showLikes=false
-					isRefreshedBinding="locationIsRefreshed"
-					contentBinding="locationContent"
-					loggedUserBinding="loggedUser" }}
-
-			{{/if}}
-
-		{{/view}}
-
-		{{#view id="vtp-like" class="venues-tab-pane" 
-			viewName="like" }}
-
-			{{view Yvi.VenuesTabContentView
-				showLikes=true
-				isRefreshedBinding="likeIsRefreshed"
-				contentBinding="likeContent"
-				loggedUserBinding="loggedUser" }}
-
-		{{/view}}
-
-
-		{{#view id="vtp-category" class="venues-tab-pane" 
-			selectedBinding="selectedCategory"
-			viewName="category" }}
-
-			<div id="venues-categories">
-
-				{{#each categories}}
-
-					{{view Yvi.VenuesCategoryButtonView 
-						class="category-button"
-						content=this 
-						selectedBinding="view.selected" }}
-
-				{{/each}}
-
-			</div>
-
-			{{view Yvi.VenuesTabContentView
-				showLikes=false
-        isCategoryOption=true
-				isRefreshedBinding="categoryIsRefreshed"
-				contentBinding="categoryContent"
-				loggedUserBinding="loggedUser" }}
-
-		{{/view}}
-
-	{{/view}}
-
-	{{#if isNotification}}
-
-    {{view Yn.NotificationView
-      contentBinding="notificationMessage"
-      typeBinding="notificationType"
-      isInDomBinding="isNotification" }}
-
-  {{/if}}
+  {{view Yvi.VenuesTabContentView
+    isRefreshedBinding="isRefreshed"
+    contentBinding="content"
+    loggedUserBinding="loggedUser" }}
 
 </div>
 
