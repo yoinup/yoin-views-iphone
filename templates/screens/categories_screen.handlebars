@@ -1,0 +1,34 @@
+{{#with view}}
+
+{{#view Yn.HeaderView id="categories-header" class="with-small-shadow"}}
+	{{view Yn.AdaptativeButtonView class="header-button l-left is-black button-text is-small is-font-white" contentI18n="close" action="close"}}
+	<div class="header-title">{{I18n categories_title}}</div>
+{{/view }}
+
+{{#view Yn.ScrollerView id="categories-screen-container" class="screen-container" 
+  exclude="footer categories-header" }}
+
+  <div id="categories-list">
+
+    {{view Yvi.CategoryItemView class="is-grey" 
+      option=Yvi.CategoryItemOptions.all
+      icon="i"
+      nameI18n="categories_all"}}
+
+    {{view Yvi.CategoryItemView class="is-red" 
+      icon="m"
+      option=Yvi.CategoryItemOptions.top
+      nameI18n="categories_top_venues"}}
+
+    {{#each categories}}
+
+      {{view Yvi.CategoryItemView 
+        contentBinding="this" }}
+
+    {{/each}}
+
+  </div>
+
+{{/view}}
+
+{{/with}}
