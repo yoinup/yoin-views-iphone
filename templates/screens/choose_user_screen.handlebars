@@ -65,71 +65,71 @@
                   lengthBinding="agendaContent.length"
 									viewName="agenda" }}
 
-                    <div class="scroller-container fix-scrolling-touch">
-
                     {{#unless user.hasPhones}}
+
                       <div class="space by-nine"></div>
                       <div class="choose-user-alert-text">
                         {{I18n activateAgenda}}
                       </div>
+
                     {{else}} 
 
                       {{#if agendaIsLoaded }} 
 
-                        {{#if agendaContent.length }} 
+                          <div class="scroller-container fix-scrolling-touch">
 
-                              <div class="space by-one"></div>
-                              <div class="choose-user-channel-people box">
+                              {{#if agendaContent.length }} 
 
-                                <div class="choose-user-channel-people-title box-title box-title-top">
+                                    <div class="space by-one"></div>
+                                    <div class="choose-user-channel-people box">
 
-                                  {{title}}
+                                      <div class="choose-user-channel-people-title box-title box-title-top">
 
-                                </div>
+                                        {{title}}
 
-                                <div class="choose-user-channel-people-content box-content">
+                                      </div>
 
-                                  {{#each agendaContent}}
+                                      <div class="choose-user-channel-people-content box-content">
 
-                                    <div class="choose-user-channel-people-content-element">
+                                        {{#each agendaContent}}
 
-                                      {{#view Yn.BtapView
-                                        action="selectAgendaUser"
-                                        actionContentBinding="this" }}
+                                          <div class="choose-user-channel-people-content-element">
 
-                                        {{name}}
+                                            {{#view Yn.BtapView
+                                              action="selectAgendaUser"
+                                              actionContentBinding="this" }}
 
-                                      {{/view}}
+                                              {{name}}
+
+                                            {{/view}}
+
+                                          </div>
+
+                                        {{/each}}
+
+                                      </div>
 
                                     </div>
+                                    <div class="space by-one"></div>
 
-                                  {{/each}}
+                              {{else}} 
 
+                                <div class="choose-user-alert-text">
+                                  <div class="space by-nine"></div>
+                                  {{I18n no_friends}}
                                 </div>
 
-                              </div>
-                              <div class="space by-one"></div>
+                              {{/if}} 
+
+                            </div>
 
                         {{else}} 
 
-                          <div class="choose-user-alert-text">
-                            <div class="space by-nine"></div>
-                            {{I18n no_friends}}
-                          </div>
+                          {{view Yn.SpinnerView}}
 
                         {{/if}} 
 
-                      {{else}} 
-
-                        {{view Yn.SpinnerView}}
-
-                      {{/if}} 
-
                     {{/unless}} 
-
-
-                  </div>
-
 
 								{{/view}}
 
@@ -141,59 +141,59 @@
                   lengthBinding="yoinContent.length"
 									viewName="yoin" }}
 
-                    <div class="scroller-container fix-scrolling-touch">
-
                     {{#if yoinIsLoaded }} 
 
-                      {{#if yoinContent.length }} 
+                      <div class="scroller-container fix-scrolling-touch">
 
-                        <div class="space by-one"></div>
-                        <div class="choose-user-channel-people box">
+                        {{#if yoinContent.length }} 
 
-                          <div class="choose-user-channel-people-title box-title box-title-top">
+                          <div class="space by-one"></div>
+                          <div class="choose-user-channel-people box">
 
-                            {{title}}
+                            <div class="choose-user-channel-people-title box-title box-title-top">
+
+                              {{title}}
+
+                            </div>
+
+                            <div class="choose-user-channel-people-content box-content">
+
+                              {{#each yoinContent}}
+
+                                <div class="choose-user-channel-people-content-element">
+
+                                  {{view Yvi.UserShortBlockView class="is-small" 
+                                  imagetype="is-small" 
+                                  contentBinding="this" 
+                                  showCity=false 
+                                  action="selectUser"
+                                  actionContentBinding="this"}}
+
+                                </div>
+
+                              {{/each}}
+
+                            </div>
 
                           </div>
+                          <div class="space by-one"></div>
 
-                          <div class="choose-user-channel-people-content box-content">
+                        {{else}}
 
-                            {{#each yoinContent}}
-
-                              <div class="choose-user-channel-people-content-element">
-
-                                {{view Yvi.UserShortBlockView class="is-small" 
-                                imagetype="is-small" 
-                                contentBinding="this" 
-                                showCity=false 
-                                action="selectUser"
-                                actionContentBinding="this"}}
-
-                              </div>
-
-                            {{/each}}
-
+                          <div class="choose-user-alert-text">
+                          <div class="space by-nine"></div>
+                            {{I18n no_friends}}
                           </div>
 
-                        </div>
-                        <div class="space by-one"></div>
+                        {{/if}} 
 
-                      {{else}}
+                    </div>
 
-                        <div class="choose-user-alert-text">
-                        <div class="space by-nine"></div>
-                          {{I18n no_friends}}
-                        </div>
+                  {{else}} 
 
-                      {{/if}} 
+                    {{view Yn.SpinnerView}}
 
-                    {{else}} 
-
-                      {{view Yn.SpinnerView}}
-
-                    {{/if}} 
-
-                  </div>
+                  {{/if}} 
 
 
 								{{/view}}
@@ -206,8 +206,6 @@
 									exclude="choose-user-menu-tabs footer choose-user-header channels"
 									viewName="facebook" }}
 
-                    <div class="scroller-container fix-scrolling-touch">
-
                     {{#unless user.hasFacebook}} 
 
                       <div class="space by-nine"></div>
@@ -219,58 +217,61 @@
 
                       {{#if facebookIsLoaded }} 
 
-                        {{#if facebookContent.length }} 
+                        <div class="scroller-container fix-scrolling-touch">
 
-                            <div class="space by-one"></div>
-                            <div class="choose-user-channel-people box">
+                            {{#if facebookContent.length }} 
 
-                              <div class="choose-user-channel-people-title box-title box-title-top">
+                                <div class="space by-one"></div>
+                                <div class="choose-user-channel-people box">
 
-                                {{title}}:
+                                  <div class="choose-user-channel-people-title box-title box-title-top">
 
-                              </div>
+                                    {{title}}:
 
-                              <div class="choose-user-channel-people-content box-content">
+                                  </div>
 
-                                {{#each facebookContent}}
+                                  <div class="choose-user-channel-people-content box-content">
 
-                                  <div class="choose-user-channel-people-content-element">
-                                    {{view Yvi.UserShortBlockView class="is-small"
-                                      imagetype="is-small"
-                                      typeBinding="Yvi.UserType.FbChannel"
-                                      fbIdBinding="id"
-                                      fbNameBinding="name"
-                                      action="selectFacebookUser"
-                                      actionContentBinding="this"}}
+                                    {{#each facebookContent}}
+
+                                      <div class="choose-user-channel-people-content-element">
+                                        {{view Yvi.UserShortBlockView class="is-small"
+                                          imagetype="is-small"
+                                          typeBinding="Yvi.UserType.FbChannel"
+                                          fbIdBinding="id"
+                                          fbNameBinding="name"
+                                          action="selectFacebookUser"
+                                          actionContentBinding="this"}}
+                                      </div>
+
+
+                                    {{/each}}
+
                                   </div>
 
 
-                                {{/each}}
+                                </div>
+                                <div class="space by-one"></div>
 
+                            {{else}} 
+
+                              <div class="choose-user-alert-text">
+                              <div class="space by-nine"></div>
+                                {{I18n no_friends}}
                               </div>
 
+                            {{/if}} 
 
-                            </div>
-                            <div class="space by-one"></div>
 
-                        {{else}} 
+                      </div>
 
-                          <div class="choose-user-alert-text">
-                          <div class="space by-nine"></div>
-                            {{I18n no_friends}}
-                          </div>
+                    {{else}} 
 
-                        {{/if}} 
+                      {{view Yn.SpinnerView}}
 
-                      {{else}} 
+                    {{/if}} 
 
-                        {{view Yn.SpinnerView}}
-
-                      {{/if}} 
-
-                    {{/unless}} 
-
-                  </div>
+                  {{/unless}} 
 
 								{{/view}}
 
