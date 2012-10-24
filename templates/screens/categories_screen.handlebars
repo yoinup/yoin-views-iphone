@@ -11,13 +11,13 @@
   <div id="categories-list">
 
     {{view Yvi.CategoryItemView class="is-grey" 
-      option=Yvi.CategoryItemOptions.all
+      option="all"
       icon="i"
       nameI18n="categories_all"}}
 
     {{view Yvi.CategoryItemView class="is-red" 
       icon="m"
-      option=Yvi.CategoryItemOptions.top
+      option="top"
       nameI18n="categories_top_venues"}}
 
     {{#each categories}}
