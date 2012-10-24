@@ -1,28 +1,53 @@
+@import 'textstyles';
+@import 'colors';
+@import 'borders';
 
 #categories_screen {
 
   > .screen-container {
+  
+    background-color: @grey01;
+    background-image: none;
 
     > #categories-list {
 
       > .category-item {
         width: 100%;
-        height: 60px;
+        height: 44px;
+        display: table;
+        .list-element-fill-border;
+        
+        padding-left: 7px;
+        padding-right: 7px;
 
         > .category-left {
-          float: left;
-          width: 30%;
+          
+					display: table-cell;
+          width: 15%;
+          vertical-align: middle;
 
           > .square-image {
 
           }
+          
         }
 
         > .category-right {
-          float: right;
-          width: 70%;
+        
+          display: table-cell;
+          width: 85%;
+          vertical-align: middle;
+          .text-is-big-style;
+          .text-is-font-black-style;
+          
         }
 
+      }
+      
+      > .category-item:active, .category-item.touch, .category-item.is-pending {
+      
+        background-color: @grey04;
+      
       }
 
       > .category-item {
@@ -33,43 +58,43 @@
 
       > .category-item.is-grey {
         > .category-left > .square-image {
-          background: grey;
+          background: @grey05;
         }
       }
 
       > .category-item.is-red {
         > .category-left > .square-image {
-          background: red;
+          background: @pink01;
         }
       }
 
       > .category-item.is-blue {
         > .category-left > .square-image {
-          background: blue;
+          background: @blue00;
         }
       }
 
       > .category-item.is-green {
         > .category-left > .square-image {
-          background: green;
+          background: @green01;
         }
       }
 
       > .category-item.is-purple {
         > .category-left > .square-image {
-          background: purple;
+          background: @purple02;
         }
       }
 
       > .category-item.is-brown {
         > .category-left > .square-image {
-          background: brown;
+          background: @coffeebrown;
         }
       }
 
       > .category-item.is-sky-blue {
         > .category-left > .square-image {
-          background: #889922;
+          background: @skyblue;
         }
       }
 
