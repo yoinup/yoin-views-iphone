@@ -107,6 +107,30 @@
 
 	<div class="space by-one"></div>
 
+  <div id="block-privacy" class="box">
+
+		<div id="block-privacy-content" class="box-content">
+
+			<div id="block-privacy-content-table" class="two-column-table">
+
+				<div id="privacy-block" class="left-column">
+					<div id="privacy-block-text">{{I18n privacy}}</div>
+				</div>
+
+				<div class="control right-column">
+          {{view Yn.SwitchButtonView isOnBinding="isCheckinOn" 
+            switchAction="changePrivacy" }}
+				</div>
+
+			</div>
+
+		</div>
+
+  </div>
+
+
+	<div class="space by-one"></div>
+
 	<div id="block-channels" class="box">
 
 		<div id="block-channels-title" class="box-title box-title-top">
@@ -206,18 +230,4 @@
 
 {{/view }}
 {{/with}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
