@@ -7,34 +7,33 @@
     isRefreshedBinding="isRefreshed"
     lengthBinding="content.length" }}
 
-    {{#if isContentLoaded }}
+    <div class="scroller-container fix-scrolling-touch">
 
-        <div class="scroller-container fix-scrolling-touch">
+        {{#if isContentLoaded }}
 
-          <div class="space by-one"></div>
+              <div class="space by-one"></div>
 
-            {{#each content}}
+                {{#each content}}
 
-              {{view Yvi.VenueBoxView 
-                productsBinding="products"
-                venue=this
-                showLikesBinding="view.showLikes"
-                loggedUserBinding="view.loggedUser" }}
+                  {{view Yvi.VenueBoxView 
+                    productsBinding="products"
+                    venue=this
+                    loggedUserBinding="view.loggedUser" }}
 
-                <div class="space by-one"></div>
+                    <div class="space by-one"></div>
 
-            {{/each}}
+                {{/each}}
 
-        </div>
-
-        {{#if view.showBottomView }}
-
-          {{view Yn.MiniSpinnerView }}
-
+        {{else }}
+          {{view Yn.SpinnerView}}
         {{/if }}
 
-    {{else }}
-      {{view Yn.SpinnerView}}
+    </div>
+
+    {{#if view.showBottomView }}
+
+      {{view Yn.MiniSpinnerView }}
+
     {{/if }}
 
   {{/view}}
