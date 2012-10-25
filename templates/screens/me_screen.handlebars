@@ -3,6 +3,8 @@
 {{#view Yn.HeaderView id="me-header" class="with-big-shadow"}}
 
 	{{view Yn.HeaderTitleView itemI18n="me_title" }}
+	{{view Yn.IconBtapView class="activity-button"
+		action="goToActivity" }}
 	
 	{{view Yn.IconBtapView class="l-right header-button rectangle-button is-small is-orange icon" 
 		action="goToSettings"
@@ -81,10 +83,10 @@
 
 		{{#if notificationIsVisible}}
 
-		  {{view Yn.NotificationView
-		    contentBinding="notificationContent"
-		    typeBinding="notificationType"
-		    isInDomBinding="notificationIsVisible" }}
+			{{view Yn.NotificationView
+				contentBinding="notificationContent"
+				typeBinding="notificationType"
+				isInDomBinding="notificationIsVisible" }}
 
 		{{/if}}
 
@@ -194,10 +196,10 @@
 
 										<div class="exchange-button">
 
-                      {{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white" 
-                        contentI18n="exchange" 
-                        action="selectInvitation" 
-                        actionContentBinding="this"}}
+											{{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white" 
+												contentI18n="exchange" 
+												action="selectInvitation" 
+												actionContentBinding="this"}}
 
 										</div>
 
