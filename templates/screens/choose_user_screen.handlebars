@@ -65,6 +65,8 @@
                   lengthBinding="agendaContent.length"
 									viewName="agenda" }}
 
+                    <div class="scroller-container fix-scrolling-touch">
+
                     {{#unless user.hasPhones}}
 
                       <div class="space by-nine"></div>
@@ -76,7 +78,6 @@
 
                       {{#if agendaIsLoaded }} 
 
-                          <div class="scroller-container fix-scrolling-touch">
 
                               {{#if agendaContent.length }} 
 
@@ -121,7 +122,6 @@
 
                               {{/if}} 
 
-                            </div>
 
                         {{else}} 
 
@@ -130,6 +130,8 @@
                         {{/if}} 
 
                     {{/unless}} 
+
+                    </div>
 
 								{{/view}}
 
@@ -141,9 +143,10 @@
                   lengthBinding="yoinContent.length"
 									viewName="yoin" }}
 
+                    <div class="scroller-container fix-scrolling-touch">
+
                     {{#if yoinIsLoaded }} 
 
-                      <div class="scroller-container fix-scrolling-touch">
 
                         {{#if yoinContent.length }} 
 
@@ -187,13 +190,13 @@
 
                         {{/if}} 
 
-                    </div>
 
                   {{else}} 
 
                     {{view Yn.SpinnerView}}
 
                   {{/if}} 
+                  </div>
 
 
 								{{/view}}
@@ -206,6 +209,8 @@
 									exclude="choose-user-menu-tabs footer choose-user-header channels"
 									viewName="facebook" }}
 
+                    <div class="scroller-container fix-scrolling-touch">
+
                     {{#unless user.hasFacebook}} 
 
                       <div class="space by-nine"></div>
@@ -217,7 +222,6 @@
 
                       {{#if facebookIsLoaded }} 
 
-                        <div class="scroller-container fix-scrolling-touch">
 
                             {{#if facebookContent.length }} 
 
@@ -263,7 +267,6 @@
                             {{/if}} 
 
 
-                      </div>
 
                     {{else}} 
 
@@ -272,6 +275,8 @@
                     {{/if}} 
 
                   {{/unless}} 
+
+                  </div>
 
 								{{/view}}
 
