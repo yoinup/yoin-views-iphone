@@ -15,7 +15,7 @@
     <div class="space"></div> 
     <div class="big-input-content">
 
-      {{#if isUserInactive }}
+      {{#if isPendingPhoneValidation }}
 
         {{view Yn.InputView id="register-code" class="big-input up down" 
           inputName="code"
@@ -50,16 +50,18 @@
   <div class="row three">
 
 
-      {{#if isUserInactive }}
+      {{#if isPendingPhoneValidation }}
 
         {{view Yn.SingleBigButtonView class="enter-button is-grey button-text is-big is-font-black" 
+          mixins="Yn.FormActionContent"
           inputs="register-code"
           contentI18n="enter" 
-          action="insertCode" }}
+          action="insertPhoneValidationCode" }}
 
       {{else}}
 
         {{view Yn.SingleBigButtonView class="enter-button is-grey button-text is-big is-font-black" 
+          mixins="Yn.FormActionContent"
           inputs="register-email register-password register-phone register-name"
           contentI18n="register" 
           action="registerUser" }}
