@@ -1,57 +1,35 @@
 @import 'landing';
-@import: 'sizes';
 
 
 #register_screen {
 
-	background-size: 100%;
+	> .row.one {
 
-	.landing-style;
+    height: 20%;
 
+  }
 
-	> #brand-container {
+	> .row.two {
 
-		height: 10%;
-		width: 30%;
+    height: 55%;
 
-		background-image: url(assets/images/brand_small.png);
-		background-size: 100%;
-		background-repeat: no-repeat;
-		
-		margin-left: 35%;
-		margin-top: 17%;
+    > .space {
+      // custom design to format correctly
+      height: 33px;
 
-	}
+    }
+
+  }
+
+	> .row.three {
+
+    height: 25%;
 	
-	> #register-buttons {
+		> .enter-button, > .login-button {
 
-	
-		> .enter-button {
-			
-			margin: @size-one-space auto;
-			margin-bottom: 22px;
+			margin: 0 auto;
 		
 		}
-		
-		> .register-with-social-networks {
-		
-			margin: @size-one-space auto;
-			
-			> .login-button {
-			
-				margin: @size-one-space * 4 auto;
-				margin-bottom: 20px;
-				
-			}
-
-			> .about-us {
-			
-				margin: @size-one-space auto;
-				
-			}
-		
-		}
-		
 	
 	}
 

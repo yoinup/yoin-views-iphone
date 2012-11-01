@@ -1,46 +1,53 @@
-{{#if view.isBlocked }}
-  {{view Yn.SpinnerView}}
-{{/if}}
+{{#with view }}
 
-<div id="brand-container"></div>
+  {{#if isBlocked }}
+    {{view Yn.SpinnerView}}
+  {{/if}}
 
-<div class="space by-three"></div>
+  <div class="row one">
+    <div class="brand-landing-container"></div>
+  </div>
 
-<div class="big-input-content">
+  <div class="row two">
 
-  {{view Yn.InputView id="register-email" class="big-input up" 
-    inputName="email"
-    type="email"
-    placeholderI18n="email" }} 
+    <div class="space"></div> 
+    <div class="big-input-content">
 
-  {{view Yn.InputView id="register-password" class="big-input" 
-    inputName="password"
-    type="password"
-    placeholderI18n="password" }} 
+      {{view Yn.InputView id="register-email" class="big-input up" 
+        inputName="email"
+        type="email"
+        placeholderI18n="email" }} 
 
-  {{view Yn.PhoneInputView id="register-phone" class="big-input" 
-    placeholderI18n="phone_register_placeholder" }} 
+      {{view Yn.InputView id="register-password" class="big-input" 
+        inputName="password"
+        type="password"
+        placeholderI18n="password" }} 
 
-  {{view Yn.InputView id="register-name" class="big-input down" 
-    inputName="name"
-    type="text"
-    placeholderI18n="user_register_placeholder" }} 
+      {{view Yn.PhoneInputView id="register-phone" class="big-input" 
+        placeholderI18n="phone_register_placeholder" }} 
 
-</div>
+      {{view Yn.InputView id="register-name" class="big-input down" 
+        inputName="name"
+        type="text"
+        placeholderI18n="user_register_placeholder" }} 
 
-<div id="register-buttons" class="center">
+    </div>
+  </div>
 
-  {{view Yn.SingleBigButtonView class="enter-button is-grey button-text is-big is-font-black" 
-    inputs="register-email register-password register-phone register-name"
-    mixins="Yn.FormActionContent"
-    contentI18n="enter" 
-    action="registerUser" }}
-	
-	<div class="register-with-social-networks text is-font-orange">
-	
-  {{view Yn.AdaptativeButtonView class="login-button is-orange button-text is-small is-font-white" 
-    contentI18n="login" 
-    action="showLogin" }}
+  <div class="row three">
 
-	
-</div>
+      {{view Yn.SingleBigButtonView class="enter-button is-grey button-text is-big is-font-black" 
+        inputs="register-email register-password register-phone register-name"
+        mixins="Yn.FormActionContent"
+        contentI18n="enter" 
+        action="registerUser" }}
+
+      <div class="space by-two"></div>
+
+      {{view Yn.AdaptativeButtonView class="login-button is-orange button-text is-small is-font-white" 
+        contentI18n="login" 
+        action="showLogin" }}
+
+  </div>
+
+{{/with}}

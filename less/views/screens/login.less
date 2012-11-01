@@ -1,42 +1,34 @@
 @import 'landing';
 @import: 'sizes';
 
-
 #login_screen {
 
-	background-size: 100%;
+	> .row.one {
 
-	.landing-style;
-
-	> #brand-container {
-
-		height: 10%;
-		width: 30%;
-
-		background-image: url(assets/images/brand_small.png);
-		background-size: 100%;
-		background-repeat: no-repeat;
-		
-		margin-left: 35%;
-		margin-top: 17%;
+    height: 20%;
 
 	}
+
+	> .row.two {
+
+    height: 40%;
+
+    > .space {
+      // custom design to format correctly
+      height: 47px;
+
+    }
+
+
+  }
 	
-	> #login-buttons {
+	> .row.three {
+
+    height: 40%;
 	
-		> .facebook, .twitter, .enter-button, .about-us {
+		> .facebook, > .twitter, > .enter-button , > .register-button {
 			
-			margin: @size-one-space auto;
-		
-		}
-
-
-		
-		> .register-button {
-		
-			margin: @size-one-space*2 auto;
-			//margin-bottom: 20px;
-			margin-top: 44px;
+			margin: 0 auto;
 		
 		}
 	
