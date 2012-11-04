@@ -5,8 +5,6 @@
 
 
 .header-action {
-
-
 	z-index: 1;
 }
 
@@ -23,7 +21,8 @@
 	> .screen-container {
 	    
 	    // this should be done dinamically
-	    height: 460px - @header-height - @header-action-height - @footer-height;
+	    height: 460px - @header-height - @header-action-height;
+	    min-height: 460px - @header-height - @header-action-height;
 
 	}
 
