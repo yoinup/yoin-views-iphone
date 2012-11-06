@@ -11,8 +11,10 @@
   <div class="header-action">
 
     <div class="left">
-    
-      {{view Yvi.MapInputView placeholder="_" }}
+
+      {{#view Yvi.MapFormInputView}}
+        {{view Yvi.MapInputView valueBinding="inputValue"}}
+      {{/view}}
       
     </div>
     
