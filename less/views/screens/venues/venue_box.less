@@ -14,7 +14,13 @@
 
 	position:relative;
 
+  box-shadow: none;
+  -webkit-box-shadow: none;
+
 	> .venue-box-content {
+
+    box-shadow: none;
+    -webkit-box-shadow: none;
 
 		> .venue-box-content-element {
 
@@ -24,6 +30,9 @@
 
 			position: relative;
 			z-index: 1;	
+
+      box-shadow: none;
+      -webkit-box-shadow: none;
 
 			.box-padding-with-normal-image;
 			padding-bottom: 2px;
@@ -45,6 +54,9 @@
 					z-index: @z-index1;
 
 					margin: 2px 0 0 2px;
+
+          box-shadow: none;
+          -webkit-box-shadow: none;
 
 				}
 
@@ -103,6 +115,8 @@
    			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(61, 61, 61, 0.45)), color-stop(50%,rgba(140, 140, 140, 0.18)), color-stop(100%,rgba(255, 255, 255, 0)));
 		
 			border-top: 1px solid @grey09;
+
+      border-bottom: none;
 
 		}
 
@@ -198,6 +212,17 @@
 				> .venue-box-users-list {
 					
 					.box-padding-with-normal-image;
+
+          >.inline {
+
+                > .square-image {
+
+                  box-shadow: none;
+                  -webkit-box-shadow: none;
+                  
+
+                }
+          }
 
 
 				}
