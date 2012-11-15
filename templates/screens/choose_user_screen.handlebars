@@ -29,7 +29,9 @@
 				viewName="friends" 
 				selectedFriendsOptionBinding="selectedFriendsOption" }}
 
-					<div id="channels">
+        <div id="channels">
+
+              <div class="channel-button"></div>
 
 							{{view Yvi.ChooseUserChannelButtonView 
 								content="agenda"
@@ -46,11 +48,7 @@
 								image="facebook_logo"
 								selectedBinding="view.selectedFriendsOption"}}
 
-							{{view Yvi.ChooseUserChannelButtonView 
-								content="twitter"
-								disabled=true
-								image="twitter_logo"
-								selectedBinding="view.selectedFriendsOption"}}
+              <div class="channel-button"></div>
 
 					</div>
 
@@ -279,22 +277,6 @@
                   </div>
 
 								{{/view}}
-
-								{{#view Yn.ScrollerView id="choose-user-twitter" class="choose-user-tab" 
-									exclude="choose-user-menu-tabs footer choose-user-header channels"
-									viewName="twitter" }}
-
-
-									{{#unless user.hasTwitter}} 
-										<div class="space by-nine"></div>
-										<div class="choose-user-alert-text">
-											{{I18n unsupportedTwitter}}
-										</div>
-									{{/unless}}
-
-
-								{{/view}}
-
 
 					{{/view}}
 
