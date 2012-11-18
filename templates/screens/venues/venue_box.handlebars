@@ -67,19 +67,15 @@
 					{{I18n venue_people_title}}:
 				</div>
 				<div class="venue-box-users-list">
+
 					{{#each sixPeople}}
-
-						{{#view Yn.BtapView class="inline"
-							action="goToNearFriend"
-							actionContentBinding="this" }}
 										
-							{{view Yn.SquareImageView class="fix-scrolling-touch is-normal"
-								contentBinding="this"
-								withPhoto=true }}
-
-						{{/view}}
+            {{view Yvi.VenueNearUserSquareImageView class="inline fix-scrolling-touch is-normal"
+              contentBinding="this"
+              withPhoto=true }}
 						
 					{{/each}}
+
 				</div>
 
 			{{/if}}
