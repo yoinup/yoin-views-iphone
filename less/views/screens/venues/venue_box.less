@@ -3,6 +3,7 @@
 @import 'sizes';
 @import 'textstyles';
 @import 'paddings';
+@import 'images';
 
 
 @z-index1: 1000;
@@ -210,14 +211,20 @@
 					
 					.box-padding-with-normal-image;
 
-          >.inline {
+          > .square-image {
 
-            > .square-image {
+              // do not use standard css class values 
+              // to occupy as much as possible the available space
+              .square-skin (41px);
 
+              > .square-image-bg {
 
-            }
+                .square-skin (41px);
+
+              }
 
           }
+
 
 				}
 
