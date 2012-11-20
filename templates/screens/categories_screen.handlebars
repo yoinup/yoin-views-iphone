@@ -8,26 +8,41 @@
 {{#view Yn.ScrollerView id="categories-screen-container" class="screen-container" 
   exclude="categories-header" }}
 
-  <div id="categories-list">
+  {{#if isLoaded}}
 
-    {{view Yvi.CategoryItemView class="is-grey" 
-      option="all"
-      icon="j"
-      nameI18n="categories_all"}}
+      <div id="categories-list">
 
-    {{view Yvi.CategoryItemView class="is-red" 
-      icon="m"
-      option="top"
-      nameI18n="categories_top_venues"}}
+        {{#if freeCategory}}
 
-    {{#each categories}}
+          {{view Yvi.CategoryItemView 
+            contentBinding="freeCategory" }}
 
-      {{view Yvi.CategoryItemView 
-        contentBinding="this" }}
+        {{/if}}
 
-    {{/each}}
+        {{view Yvi.CategoryItemView class="is-red" 
+          icon="m"
+          option="top"
+          nameI18n="categories_top_venues"}}
 
-  </div>
+        {{#each orderCategories}}
+
+          {{view Yvi.CategoryItemView 
+            contentBinding="this" }}
+
+        {{/each}}
+
+        {{view Yvi.CategoryItemView class="is-grey" 
+          option="all"
+          icon="j"
+          nameI18n="categories_all"}}
+
+      </div>
+
+  {{else}}
+
+    {{view Yn.SpinnerView}}  
+
+  {{/if}}
 
 {{/view}}
 
