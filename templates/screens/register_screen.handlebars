@@ -6,23 +6,42 @@
 
   <div class="row one">
 
+
+    {{#if isPendingPhoneValidation }}
+
+      <div class="space by-eight"></div> 
+
+      <div class="validation-title"> Validación</div>
+      <div class="validation-text"> Para completar la activación introduzca el código de activación de tres dígitos </div>
+
+    {{ else }}
+
     <div class="space by-four"></div> 
     <div class="brand-landing-container"></div>
+  
+    {{/if}}
+
   </div>
 
   <div class="row two">
 
     <div class="space"></div> 
-    <div class="big-input-content">
+    
 
       {{#if isPendingPhoneValidation }}
+
+        <div class="big-input-content">
 
         {{view Yn.InputView id="register-code" class="big-input up down" 
           inputName="code"
           type="number"
-          placeholderI18n="code_phone_placeholder" }} 
+          placeholderI18n="code_phone_placeholder" }}
+
+        </div>
 
       {{ else }}
+
+        <div class="big-input-content">
 
         {{view Yn.InputView id="register-email" class="big-input up" 
           inputName="email"
@@ -40,11 +59,13 @@
         {{view Yn.InputView id="register-name" class="big-input down" 
           inputName="name"
           type="text"
-          placeholderI18n="user_register_placeholder" }} 
+          placeholderI18n="user_register_placeholder" }}
+
+        </div>
 
       {{/if}}
 
-    </div>
+    
   </div>
 
   <div class="row three">
@@ -52,11 +73,22 @@
 
       {{#if isPendingPhoneValidation }}
 
+
+        <div class="space by-two"></div> 
+
         {{view Yn.SingleBigButtonView class="enter-button is-grey button-text is-big is-font-black" 
           mixins="Yn.FormActionContent"
           inputs="register-code"
           contentI18n="enter" 
           action="insertPhoneValidationCode" }}
+
+        <div class="space by-nine"></div>
+
+        {{view Yn.AdaptativeButtonView class="login-button is-orange button-text is-small is-font-white" 
+          contentI18n="login" 
+          action="showLogin" }}
+
+      
 
       {{else}}
 
@@ -66,13 +98,16 @@
           contentI18n="register" 
           action="registerUser" }}
 
-      {{/if}}
 
-      <div class="space by-two"></div>
+          <div class="space by-two"></div>
 
       {{view Yn.AdaptativeButtonView class="login-button is-orange button-text is-small is-font-white" 
         contentI18n="login" 
         action="showLogin" }}
+
+      {{/if}}
+
+      
 
   </div>
 
