@@ -10,14 +10,13 @@
     {{#if isPendingPhoneValidation }}
 
       <div class="space by-eight"></div> 
-
-      <div class="validation-title"> Validación</div>
-      <div class="validation-text"> Para completar la activación introduzca el código de activación de tres dígitos </div>
+      <div class="validation-title">{{I18n register_validation_title}}</div>
+      <div class="validation-text">{{I18n register_validation_text}}</div>
 
     {{ else }}
 
-    <div class="space by-four"></div> 
-    <div class="brand-landing-container"></div>
+      <div class="space by-four"></div> 
+      <div class="brand-landing-container"></div>
   
     {{/if}}
 
