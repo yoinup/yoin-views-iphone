@@ -1,0 +1,46 @@
+{{#with view}}
+
+{{#view Yn.HeaderView id="friends-nearby-header"}}
+
+	{{view Yn.BackButtonView }}
+
+	<div class="header-title is-subtitle">
+		Gente cerca de...
+	</div>
+
+	<div class="header-subtitle">
+		{{venue.brand.name}}, {{venue.city.name}} 
+	</div>
+
+{{/view }}
+
+<div class="screen-container">
+
+	{{view Yvi.FriendsNearbyMenuTabsView id="friends-nearby-menu-tabs" 
+		selectedBinding="option" }}
+
+	{{#view Yn.TabMainView id="friends-nearby-type-tab-main"
+			currentTabViewBinding="option"}}
+
+			{{#view Yn.ScrollerView id="friends-nearby-type-list" class="friends-nearby-type-tab" 
+				exclude="friends-nearby-header friends-nearby-menu-tabs" 
+				viewName="list" }}
+
+				List!
+
+			{{/view}}
+
+
+			{{#view Yn.ScrollerView id="friends-nearby-type-people" class="choose-product-type-tab" 
+				exclude="friends-nearby-header friends-nearby-menu-tabs" 
+				viewName="people" }}
+
+				People!
+
+			{{/view}}
+
+	{{/view}}
+
+</div>
+
+{{/with}}

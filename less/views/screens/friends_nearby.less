@@ -1,0 +1,35 @@
+@import 'colors';
+@import 'aligns';
+@import 'action_bar';
+@import 'textstyles';
+@import 'paddings';
+@import 'borders';
+
+
+@tab-color:@brown01;
+@categories-color:@grey05;
+
+
+#friends_nearby_screen {
+
+	> .screen-container {
+
+		> #friends-nearby-type-tab-main {
+
+			> .friends-nearby-type-tab {
+
+			}
+
+		}
+
+		> #friends-nearby-menu-tabs {
+
+			position: absolute;
+			bottom: 0;
+			.action-bar-style (@categories-color);
+
+		}
+
+	}
+
+}
