@@ -1,0 +1,111 @@
+@import 'colors';
+@import 'aligns';
+@import 'action_bar';
+@import 'textstyles';
+@import 'paddings';
+@import 'borders';
+
+
+@tab-color:@brown01;
+@categories-color:@grey05;
+
+@grid-outer: 24px;
+@grid-inner: 16px; //Recalcular esto
+
+
+#friends_nearby_screen {
+
+	> .screen-container {
+	
+	  background-color: @grey01;
+    background-image: none;
+
+		> #friends-nearby-type-tab-main {
+
+			> .friends-nearby-type-tab {
+			
+			  > #friends-nearby-list {
+
+          > .friends-nearby-list-item {
+            width: 100%;
+            height: 44px;
+            display: table;
+            .list-element-fill-border;
+
+            padding-left: 7px;
+            padding-right: 7px;
+
+            > .friends-nearby-list-item-left {
+    					display: table-cell;
+              width: 15%;
+              vertical-align: middle;
+            }
+            
+            > .friends-nearby-list-item-middle {
+              display: table-cell;
+              width: 65%;
+              vertical-align: middle;
+              .text-is-big-style;
+              .text-is-font-black-style;
+            }
+
+            > .friends-nearby-list-item-right {
+              display: table-cell;
+              width: 25%;
+              vertical-align: middle;
+            }
+
+          }
+
+          > .friends-nearby-list-item:active, .friends-nearby-list-item.touch, .friends-nearby-list-item.is-pending {
+
+            background-color: @grey04;
+
+          }
+
+        }
+        
+        > #friends-nearby-pics {
+        
+          margin-left: @grid-outer;
+          margin-right: @grid-outer;
+          
+          > .friends-nearby-pics-item {
+            
+            float: left;
+            margin-right: @grid-inner;
+            margin-top: 10px;
+            
+            > .username {
+            
+              
+              font-size: 11px;
+              
+            
+            }
+            
+          }
+          
+          > .friends-nearby-pics-item:nth-child(4n+4) {
+            
+            margin-right: 0px;
+            
+          }
+        
+        }
+        
+			}
+
+		}
+
+		> #friends-nearby-menu-tabs {
+
+			position: absolute;
+			bottom: 0;
+			.action-bar-bottom-style (@categories-color);
+
+		}
+
+	}
+
+}
