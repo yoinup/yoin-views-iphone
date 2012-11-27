@@ -5,11 +5,11 @@
 	{{view Yn.BackButtonView }}
 
 	<div class="header-title is-subtitle">
-		Gente cerca de...
+		{{I18n people_close_to}}
 	</div>
 
 	<div class="header-subtitle">
-		{{venue.brand.name}}, {{venue.city.name}} 
+		{{venue.brand.name}}, {{venue.city.name}}
 	</div>
 
 {{/view }}
@@ -25,17 +25,66 @@
 			{{#view Yn.ScrollerView id="friends-nearby-type-list" class="friends-nearby-type-tab" 
 				exclude="friends-nearby-header friends-nearby-menu-tabs" 
 				viewName="list" }}
+				
+				<div id="friends-nearby-list">
 
-				List!
+				  {{#each content}}
+				  
+				    <div class="friends-nearby-list-item">
+				    
+				      <div class="friends-nearby-list-item-left">
+				      
+				        {{view Yn.SquareImageView class="is-small"
+				          contentBinding="this"
+				          withPhoto=true }}
+				          
+				      </div>
+				      <div class="friends-nearby-list-item-middle">
+				      
+				        {{name}}
+				        
+				      </div>
+				      <div class="friends-nearby-list-item-right">
+				      
+				        {{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black" 
+									contentI18n="invite" 
+									action="addUserToInvitation" 
+									actionContentBinding="this"}}
+				      
+				      </div>
+				    
+				    </div>
+				  
+				  {{/each}}
+				  
+				</div>
 
 			{{/view}}
 
 
-			{{#view Yn.ScrollerView id="friends-nearby-type-people" class="choose-product-type-tab" 
+			{{#view Yn.ScrollerView id="friends-nearby-type-people" class="friends-nearby-type-tab" 
 				exclude="friends-nearby-header friends-nearby-menu-tabs" 
 				viewName="people" }}
 
-				People!
+				<div id="friends-nearby-pics">
+				
+				  {{#each content}}
+				  
+				    <div class="friends-nearby-pics-item">
+				  
+			        {{view Yn.SquareImageView class="is-big"
+		            contentBinding="this"
+		            withPhoto=true }}
+		            
+		          <div class="username">
+		            {{name}}
+		          </div>
+		          
+		        </div>
+				  
+				  {{/each}}
+				
+				</div>
 
 			{{/view}}
 
