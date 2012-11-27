@@ -3,6 +3,8 @@
 {{#view Yn.HeaderView class="with-small-shadow"}}
 
 		{{view Yn.BackButtonView }}
+						<div class="right-column price-label-content">
+						</div>
 		
 		<div class="header-title">{{I18n invite}}</div>
 
@@ -28,10 +30,15 @@
 							{{view Yn.SquareImageView class="is-normal" contentBinding="product" withPhoto=true }}
 						</div>
 						<div class="name middle-column">
-							{{product.name}}
+							<div class="productname">{{product.name}}</div>
+
+							<div class="price-label is-small">{{product.price}} {{I18n currency_symbol}}</div>
 						</div>
-						<div class="right-column price-label-content">
-							<div class="price-label">{{product.price}} {{I18n currency_symbol}}</div>
+
+						<div class="change-button right-column">
+							{{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black" 
+	              contentI18n="change"
+	              action="changeProduct" }}
 						</div>
 					</div>
 				</div>
