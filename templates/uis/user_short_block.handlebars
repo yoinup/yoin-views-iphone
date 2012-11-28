@@ -36,8 +36,16 @@
 		<div class="user-short-block-content-name">
 
 			{{#if isYoinUser }}
+			
+			  <span class="user-short-block-content-username">
+			  
+			    {{#if content.suspended }}
+		        {{I18n someone}}
+		      {{else}}
+		        {{content.name}}
+		      {{/if}}
 
-				<span class="user-short-block-content-username">{{content.name}}</span>
+				</span>
 
 				{{#if showCity}}
 

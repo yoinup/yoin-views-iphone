@@ -14,8 +14,14 @@
 			</div>
 
 			<div class="user-interaction-commented-block-content-name">
-
-				<span class="text is-big is-black">{{content.user.name}}</span> {{I18n interaction_commented}}
+			
+			  <span class="text is-big is-black">
+				  {{#if content.user.suspended }}
+		        {{I18n someone}}
+		      {{else}}
+		        {{content.user.name}}
+		      {{/if}}
+				</span> {{I18n interaction_commented}}
 
 				<div class="user-interaction-commented-block-content-product">
 
