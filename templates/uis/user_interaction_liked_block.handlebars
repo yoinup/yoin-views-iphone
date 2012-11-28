@@ -15,7 +15,13 @@
 
 			<div class="user-interaction-liked-block-content-name">
 
-				<span class="text is-big is-black">{{content.user.name}}</span> {{I18n interaction_liked}}
+				<span class="text is-big is-black">
+				  {{#if content.user.suspended }}
+		        {{I18n someone}}
+		      {{else}}
+		        {{content.user.name}}
+		      {{/if}}
+				</span> {{I18n interaction_liked}}
 
 				<div class="user-interaction-liked-block-content-product">
 

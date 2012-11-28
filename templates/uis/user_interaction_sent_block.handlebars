@@ -39,8 +39,16 @@
 			<div class="user-interaction-sent-block-content-name">
 
 				{{#if content.toUser }}
+				
+				  <span class="text is-big is-black">
+				
+				    {{#if content.toUser.suspended }}
+				      {{I18n someone}}
+				    {{else}}
+				      {{content.toUser.name}}
+				    {{/if}}
 
-					<span class="text is-big is-black">{{content.toUser.name}}</span>
+					</span>
 
 				{{else}}
 

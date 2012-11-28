@@ -30,7 +30,7 @@
 						<div id="me-content-header-text-name">
 						
 							<div id="me-content-header-text-user-name" class="header-text">
-								{{user.name}} - {{user.suspended}}
+								{{user.name}}
 							</div>
 							
 							<div id="me-content-header-text-user-state" class="state-text">
@@ -162,7 +162,11 @@
 
 										<div class="name">
 
-											{{fromUser.name}} {{I18n invites_you}}
+                      {{#if fromUser.suspended }}
+                        {{I18n someone}} {{I18n invites_you}}
+                      {{else}}
+                        {{fromUser.name}} {{I18n invites_you}}
+                      {{/if}}
 
 										</div>
 
