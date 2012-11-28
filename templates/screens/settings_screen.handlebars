@@ -131,15 +131,9 @@
 
 	<div class="space by-one"></div>
 
-	<div id="block-channels" class="box">
+	<div id="block-agenda" class="box">
 
-		<div id="block-channels-title" class="box-title box-title-top">
-
-			{{I18n channel pluralize=true}}
-
-		</div>
-
-		<div id="block-channels-list" class="box-content"> 
+		<div class="box-content"> 
 
       {{#view Yn.BtapView id="agenda-channel" class="block-channels-element three-column-table" 
         action="goToUserPhone"}}
@@ -165,31 +159,6 @@
 				</div>
 
       {{/view}}
-
-			<div id="facebook-channel" class="block-channels-element three-column-table">
-
-				<div class="image left-column">
-
-					{{view Yn.SquareImageView class="is-small"
-						content="facebook_logo"
-						withChannel=true }}
-					
-				</div>
-
-				<div class="channel middle-column">
-
-					Facebook
-
-				</div>
-
-				<div class="control right-column">
-
-          {{view Yn.SwitchButtonView isOnBinding="hasFacebook" 
-            switchAction="changeFacebook" }}
-
-				</div>
-
-			</div>
 
 		</div>
 
