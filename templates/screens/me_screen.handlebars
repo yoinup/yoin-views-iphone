@@ -156,7 +156,7 @@
 
 										<div class="image">
 
-											{{view Yn.SquareImageView class="is-x-small" contentBinding="fromUser" withPhoto=true }}
+											{{view Yn.SquareImageView class="is-small" contentBinding="fromUser" withPhoto=true }}
 
 										</div>
 
@@ -169,6 +169,15 @@
                       {{/if}}
 
 										</div>
+
+                    <div class="resend">
+
+                      {{view Yn.IconBtapView class="rectangle-button is-small is-blue icon" 
+                        actionContentBinding="this"
+                        action="resendInvitation"
+                        icon="t" }}
+
+                    </div>
 
 									</div>
 
