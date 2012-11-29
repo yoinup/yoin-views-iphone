@@ -7,6 +7,15 @@
 
 {{/view }}
 
+{{#if notificationIsVisible}}
+
+  {{view Yn.NotificationView
+    contentBinding="notificationContent"
+    typeBinding="notificationType"
+    isInDomBinding="notificationIsVisible" }}
+
+{{/if}}
+
 <div class="screen-container">
 
 	{{#unless user.phoneChannels}}
@@ -27,8 +36,6 @@
 
 	<div class="space by-one"></div>
 
-
-
 	<div id="block-phone-number" class="box">
 
 		<div class="box-title box-title-top">
@@ -40,53 +47,53 @@
 
   {{#unless user.firstPhoneChannel.isValidated}}
 
-        {{#unless user.firstPhoneChannel}}
+      {{#unless user.firstPhoneChannel}}
 
-          <div class="box-content">
-            <div class="block-phone-number-element two-column-table">
-              <div class="text left-column">
-                {{view Yn.PhoneInputView id="user-input-phone" class="input-phone"
-                  placeholderI18n="add_another_phone_number"}}
-              </div>
-              <div class="control right-column">
-                {{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white"
-                  contentI18n="add"
-                  action="addPhone"}}
-              </div>
+        <div class="box-content">
+          <div class="block-phone-number-element two-column-table">
+            <div class="text left-column">
+              {{view Yn.PhoneInputView id="user-phone-input" class="input-phone"
+                placeholderI18n="add_another_phone_number"}}
+            </div>
+            <div class="control right-column">
+              {{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white"
+                contentI18n="add"
+                action="addPhone"}}
             </div>
           </div>
+        </div>
 
-        {{else}}
+      {{else}}
 
-          <div class="box-content has-fill-border">
-            <div class="block-phone-number-element two-column-table">
-              <div class="text left-column">
-                {{user.firstPhoneChannel.phone}}
-              </div>
-              <div class="control right-column">
-                {{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-white"
-                  contentI18n="delete"
-                  action="deletePhone"
-                  actionContentBinding="user.firstPhoneChannel"}}
-              </div>
+        <div class="box-content has-fill-border">
+          <div class="block-phone-number-element two-column-table">
+            <div class="text left-column">
+              {{user.firstPhoneChannel.phone}}
+            </div>
+            <div class="control right-column">
+              {{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-white"
+                contentI18n="delete"
+                action="deletePhone"
+                actionContentBinding="user.firstPhoneChannel"}}
             </div>
           </div>
+        </div>
 
-          <div class="box-content">
-            <div class="block-phone-number-element two-column-table">
-              <div class="left-column">
-                {{view Yn.InputView id="user-input-validation" class="single-input"
-                  placeholderI18n="confirmation_code_placeholder"}}
-              </div>
-              <div class="control right-column">
-                {{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white"
-                  contentI18n="ok"
-                  action="validatePhone"}}
-              </div>
+        <div class="box-content">
+          <div class="block-phone-number-element two-column-table">
+            <div class="left-column">
+              {{view Yn.InputView id="user-input-validation" class="single-input"
+                placeholderI18n="confirmation_code_placeholder"}}
+            </div>
+            <div class="control right-column">
+              {{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white"
+                contentI18n="ok"
+                action="validatePhone"}}
             </div>
           </div>
+        </div>
 
-        {{/unless}}
+      {{/unless}}
 
     {{else}}
 
