@@ -15,7 +15,7 @@
 
 		<div id="block-phone-description" class="box">
 
-			<div id="block-phone-description-content" class="box-content">
+			<div class="box-content">
 
 				{{I18n agenda_message}}
 
@@ -27,60 +27,84 @@
 
 	<div class="space by-one"></div>
 
+
+
 	<div id="block-phone-number" class="box">
 
-		<div id="block-phone-number-title" class="box-title box-title-top">
+		<div class="box-title box-title-top">
 
 			{{I18n phone_number}}
 
 		</div>
 
-		<div id="block-phone-number-content" class="box-content">
 
-			{{#each user.phoneChannels}}
+  {{#unless user.firstPhoneChannel.isValidated}}
 
-				<div class="block-phone-number-element two-column-table">
+        {{#unless user.firstPhoneChannel}}
 
-					<div class="text left-column">
+          <div class="box-content">
+            <div class="block-phone-number-element two-column-table">
+              <div class="text left-column">
+                {{view Yn.PhoneInputView id="user-input-phone" class="input-phone"
+                  placeholderI18n="add_another_phone_number"}}
+              </div>
+              <div class="control right-column">
+                {{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white"
+                  contentI18n="add"
+                  action="addPhone"}}
+              </div>
+            </div>
+          </div>
 
-						{{phone}}
+        {{else}}
 
-					</div>
+          <div class="box-content has-fill-border">
+            <div class="block-phone-number-element two-column-table">
+              <div class="text left-column">
+                {{user.firstPhoneChannel.phone}}
+              </div>
+              <div class="control right-column">
+                {{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-white"
+                  contentI18n="delete"
+                  action="deletePhone"
+                  actionContentBinding="user.firstPhoneChannel"}}
+              </div>
+            </div>
+          </div>
 
-					<div class="control right-column">
+          <div class="box-content">
+            <div class="block-phone-number-element two-column-table">
+              <div class="left-column">
+                {{view Yn.InputView id="user-input-validation" class="single-input"
+                  placeholderI18n="confirmation_code_placeholder"}}
+              </div>
+              <div class="control right-column">
+                {{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white"
+                  contentI18n="ok"
+                  action="validatePhone"}}
+              </div>
+            </div>
+          </div>
 
-						{{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black"
-							contentI18n="delete"
-              action="deletePhone" 
-              actionContentBinding="this"}}
+        {{/unless}}
 
-					</div>				
+    {{else}}
 
-				</div>
+        <div class="box-content">
+          <div class="block-phone-number-element two-column-table">
+            <div class="text left-column">
+              {{user.firstPhoneChannel.phone}}
+            </div>
+            <div class="control right-column">
+              {{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-white"
+                contentI18n="delete"
+                action="deletePhone"
+                actionContentBinding="user.firstPhoneChannel"}}
+            </div>
+          </div>
+        </div>
 
-			{{/each}}
-
-			<div class="block-phone-number-element two-column-table">
-
-				<div class="text left-column">
-
-          {{view Yn.PhoneInputView id="user-phone-input" class="input-phone"
-            placeholderI18n="add_another_phone_number"}}
-
-				</div>
-
-				<div class="control right-column">
-
-
-					{{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white"
-						contentI18n="add"
-						action="addPhone"}}
-
-				</div>
-
-			</div>
-
-		</div>
+    {{/unless}} 
 
 	</div>
 
