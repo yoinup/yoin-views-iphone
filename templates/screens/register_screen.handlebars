@@ -81,13 +81,14 @@
           contentI18n="enter" 
           action="insertPhoneValidationCode" }}
 
-        <div class="space by-nine"></div>
+        <div class="space by-three"></div>
 
-        {{view Yn.AdaptativeButtonView class="login-button is-orange button-text is-small is-font-white" 
-          contentI18n="login" 
-          action="showLogin" }}
 
-      
+        {{view Yn.AdaptativeButtonView class="login-button is-grey button-text is-small is-font-black" 
+          contentI18n="skip" 
+          action="skipPhoneValidation" }}
+
+        <div class="space by-three"></div>
 
       {{else}}
 
@@ -100,13 +101,13 @@
 
           <div class="space by-two"></div>
 
-      {{view Yn.AdaptativeButtonView class="login-button is-orange button-text is-small is-font-white" 
-        contentI18n="login" 
-        action="showLogin" }}
 
       {{/if}}
 
-      
+
+      {{view Yn.AdaptativeButtonView class="login-button is-orange button-text is-small is-font-white" 
+        contentI18n="login" 
+        action="showLogin" }}
 
   </div>
 
