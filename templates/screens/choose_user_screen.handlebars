@@ -64,9 +64,9 @@
 
                     <div class="scroller-container fix-scrolling-touch">
 
-                    {{#unless userPhone.isValidated}}
+                    {{#unless user.firstPhoneChannel.isValidated}}
 
-                        {{#unless userPhone}}
+                        {{#unless user.firstPhoneChannel}}
                           <div class="inactive-account">
                             <div class="title">
                               <div class="title-name">
@@ -78,7 +78,7 @@
                                 <div class="box-content">
                                   <div class="block-phone-number-element two-column-table">
                                     <div class="text left-column">
-                                      {{view Yn.PhoneInputView class="input-phone"
+                                      {{view Yn.PhoneInputView id="choose-user-input-phone" class="input-phone"
                                         placeholderI18n="add_another_phone_number"}}
                                     </div>
                                     <div class="control right-column">
@@ -100,34 +100,33 @@
                           <div class="inactive-account">
                             <div class="title">
                               <div class="title-name">
-                                {{I18n validate_phone_title}}
                               </div>
                             </div>
                             <div class="content">
                               <div class="box">
-
                                 <div class="box-content has-fill-border">
                                   <div class="block-phone-number-element two-column-table">
                                     <div class="text left-column">
-                                      {{userPhone.phone}}
+                                      {{user.firstPhoneChannel.phone}}
                                     </div>
                                     <div class="control right-column">
                                       {{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-white"
                                         contentI18n="delete"
-                                        action="deletePhone"}}
+                                        action="deletePhone"
+                                        actionContentBinding="user.firstPhoneChannel"}}
                                     </div>
                                   </div>
                                 </div>
                                 <div class="box-content">
                                   <div class="block-phone-number-element two-column-table">
                                     <div class="left-column">
-                                      {{view Yn.PhoneInputView class="single-input"
+                                      {{view Yn.InputView id="choose-user-input-validation" class="single-input"
                                         placeholderI18n="confirmation_code_placeholder"}}
                                     </div>
                                     <div class="control right-column">
                                       {{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white"
                                         contentI18n="ok"
-                                        action="confirmPhone"}}
+                                        action="validatePhone"}}
                                     </div>
                                   </div>
                                 </div>
