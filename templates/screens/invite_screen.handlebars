@@ -13,48 +13,70 @@
 
 	<div id="block-invite-product" class="box">
 
-		<div id="block-invite-product-title" class="box-title box-title-top">
 
-			{{I18n invite_to_product_title}}:
+			{{#if invitation}}
 
-		</div>
+        <div id="block-invite-product-title" class="box-title box-title-top">
+          {{I18n resend_invitation_title}}:
+        </div>
 
-			{{#if product}}
-
-				<div id="block-invite-product-content-sel" class="box-content">
-					<div class="block-invite-product-element three-column-table">
-						<div class="picture left-column">
-							{{view Yn.SquareImageView class="is-normal" contentBinding="product" withPhoto=true }}
-						</div>
-						<div class="name middle-column">
-							<div class="productname">{{product.name}}</div>
-
-							<div class="price-label is-small">{{product.price}} {{I18n currency_symbol}}</div>
-						</div>
-
-						<div class="change-button right-column">
-							{{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black" 
-	              contentI18n="change"
-	              action="changeProduct" }}
-						</div>
-					</div>
-				</div>
+        <div id="block-invite-product-content-sel" class="box-content">
+          <div class="block-invite-product-element three-column-table">
+            <div class="picture left-column">
+              {{view Yn.SquareImageView class="is-normal" contentBinding="invitation.product" withPhoto=true }}
+            </div>
+            <div class="name middle-column">
+              <div class="productname">{{invitation.product.name}}</div>
+            </div>
+          </div>
+        </div>
 
 			{{else}}
 
-        {{#view Yn.BtapView id="block-invite-product-content" class="box-content"
-          action="goToChooseProduct"}}
+        <div id="block-invite-product-title" class="box-title box-title-top">
+          {{I18n invite_to_product_title}}:
+        </div>
 
-          <div class="block-invite-product-element two-column-table" >
-              <div class="text left-column">
-                {{I18n select_something_for_inviting}}
+        {{#if product}}
+
+
+          <div id="block-invite-product-content-sel" class="box-content">
+            <div class="block-invite-product-element three-column-table">
+              <div class="picture left-column">
+                {{view Yn.SquareImageView class="is-normal" contentBinding="product" withPhoto=true }}
               </div>
-              <div class="control right-column">
-                <span class="icon is-icon-normal is-icon-grey with-text" icon="d"></span>
+              <div class="name middle-column">
+                <div class="productname">{{product.name}}</div>
+
+                <div class="price-label is-small">{{product.price}} {{I18n currency_symbol}}</div>
               </div>
+
+              <div class="change-button right-column">
+                {{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black" 
+                  contentI18n="change"
+                  action="changeProduct" }}
+              </div>
+            </div>
           </div>
 
-        {{/view}}
+
+        {{else}}
+
+          {{#view Yn.BtapView id="block-invite-product-content" class="box-content"
+            action="goToChooseProduct"}}
+
+            <div class="block-invite-product-element two-column-table" >
+                <div class="text left-column">
+                  {{I18n select_something_for_inviting}}
+                </div>
+                <div class="control right-column">
+                  <span class="icon is-icon-normal is-icon-grey with-text" icon="d"></span>
+                </div>
+            </div>
+
+          {{/view}}
+
+        {{/if}}
 
 			{{/if}}
 
