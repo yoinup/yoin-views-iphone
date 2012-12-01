@@ -82,6 +82,19 @@
 
 		</div>
 
+    {{#if hasInviteButton }}
+
+      <div class="user-short-block-content-button">
+      
+        {{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white" 
+          contentI18n="invite" 
+          action="invite" 
+          actionContentBinding="content"}}
+
+      </div>
+
+    {{/if}}	
+
 </div>
 
 {{/with}}
