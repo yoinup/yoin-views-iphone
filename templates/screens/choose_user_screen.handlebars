@@ -2,8 +2,8 @@
 
 {{#view Yn.HeaderView id="choose-user-header"}}
 
+  {{view Yn.HeaderCloseButtonView }}
 	<div class="header-title"></div>
-	{{view Yn.HeaderCloseButtonView }}
 
 {{/view }}
 
@@ -56,7 +56,7 @@
 
 								{{#view Yn.RefreshScrollerView id="choose-user-agenda" class="choose-user-tab" 
                   holdPeriod=10
-									exclude="choose-user-menu-tabs footer choose-user-header channels"
+									exclude="choose-user-menu-tabs choose-user-header channels"
                   isRefreshedBinding="agendaIsRefreshed"
                   hasNextBinding="agendaHasNext"
                   lengthBinding="agendaContent.length"
@@ -202,7 +202,7 @@
 
 								{{#view Yn.RefreshScrollerView id="choose-user-yoin" class="choose-user-tab" 
                   holdPeriod=10
-									exclude="choose-user-menu-tabs footer choose-user-header channels"
+									exclude="choose-user-menu-tabs choose-user-header channels"
                   isRefreshedBinding="yoinIsRefreshed"
                   hasNextBinding="yoinHasNext"
                   lengthBinding="yoinContent.length"
@@ -271,7 +271,7 @@
                   isRefreshedBinding="facebookIsRefreshed"
                   lengthBinding="facebookContent.length"
                   hasNextBinding="facebookHasNext"
-									exclude="choose-user-menu-tabs footer choose-user-header channels"
+									exclude="choose-user-menu-tabs choose-user-header channels"
 									viewName="facebook" }}
 
                     <div class="scroller-container fix-scrolling-touch">
@@ -365,7 +365,7 @@
 
 
 			{{#view Yn.ScrollerView id="choose-user-type-nears" class="choose-user-type-tab" 
-				exclude="choose-user-menu-tabs footer choose-user-header"
+				exclude="choose-user-menu-tabs choose-user-header"
 				viewName="nears" }}
 
 
