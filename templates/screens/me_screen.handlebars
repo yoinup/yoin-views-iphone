@@ -173,7 +173,7 @@
 
                     <div class="resend">
 
-                      {{view Yn.IconBtapView class="rectangle-button is-small is-high-grey icon is-font-grey" 
+                      {{view Yn.IconBtapView class="rectangle-button is-small is-high-grey icon is-icon-small is-font-grey" 
                         actionContentBinding="this"
                         action="resendInvitation"
                         icon="L" }}
@@ -210,10 +210,11 @@
 
 										<div class="exchange-button">
 
-											{{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white" 
-												contentI18n="go" 
+											{{#view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white" 
 												action="selectInvitation" 
-												actionContentBinding="this"}}
+                        actionContentBinding="this"}}
+                        {{I18n go}}
+                      {{/view}}
 
 										</div>
 
