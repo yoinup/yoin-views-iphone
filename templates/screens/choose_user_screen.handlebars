@@ -2,8 +2,8 @@
 
 {{#view Yn.HeaderView id="choose-user-header"}}
 
-  {{view Yn.HeaderCloseButtonView }}
-	<div class="header-title"></div>
+  {{view Yn.BackButtonView }}
+	<div class="header-title">{{I18n header_choose_user}}</div>
 
 {{/view }}
 
@@ -121,6 +121,7 @@
                                   <div class="block-phone-number-element two-column-table">
                                     <div class="left-column">
                                       {{view Yn.InputView id="choose-user-input-validation" class="single-input"
+                                        type="number"
                                         placeholderI18n="confirmation_code_placeholder"}}
                                     </div>
                                     <div class="control right-column">
