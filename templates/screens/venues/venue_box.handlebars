@@ -71,14 +71,16 @@
 					{{#each fivePeople}}
             {{view Yvi.VenueNearUserSquareImageView class="inline fix-scrolling-touch"
               contentBinding="this"
+              venueBinding="view.venue"
               withPhoto=true }}
 					{{/each}}
 
           {{#if higherThanFivePeople}}
 
-            {{view Yn.BtapView class="square-image with-photo is-plus inline fix-scrolling-touch"
-              action="goToNearUsers"
-              actionContentBinding="people"}}
+            {{view Yvi.VenueNearPlusButtonView class="square-image with-photo is-plus inline fix-scrolling-touch"
+              action="goToFriendsNearby"
+              peopleBinding="people"
+              venueBinding="venue" }}
 
 					{{/if}}
 
