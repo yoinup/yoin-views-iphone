@@ -62,26 +62,31 @@
 
 		<div class="venue-box-users">
 
-			{{#if hasUsers }}
+			{{#if hasPeople}}
 				<div class="venue-box-users-title">
 					{{I18n venue_people_title}}:
 				</div>
 				<div class="venue-box-users-list">
 
-					{{#each sixPeople}}
-										
+					{{#each fivePeople}}
             {{view Yvi.VenueNearUserSquareImageView class="inline fix-scrolling-touch"
               contentBinding="this"
               withPhoto=true }}
-						
 					{{/each}}
+
+          {{#if higherThanFivePeople}}
+
+            {{view Yn.BtapView class="square-image with-photo is-plus inline fix-scrolling-touch"
+              action="goToNearUsers"
+              actionContentBinding="people"}}
+
+					{{/if}}
 
 				</div>
 
 			{{/if}}
 
 		</div>
-
 
 </div>
 
