@@ -5,12 +5,14 @@
 #init-app {
 	width: @app-width;
 	height: @app-height;
-	
+  //height: 460px;
 }
+
 
 .screen {
 	width: @app-width;
 }
+
 
 
 body {
@@ -18,4 +20,11 @@ body {
 	font-size: @body-font-size;
 	//overflow: hidden;
 
+}
+
+@media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+//@media only screen and (min-device-width: 640px) and (max-device-width: 1136px) and (-webkit-min-device-pixel-ratio: 2) {
+  #init-app {
+    height: @app5-height;
+  }
 }

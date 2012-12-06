@@ -1,20 +1,72 @@
+@import 'sizes';
+@import 'appsizes';
+
 
 .screen {
 
-	> .screen-container {
-
-    //min-height: 416px;
-    // min-height is included footer-view
-    min-height: 369px;
-
-
-
+  > .screen-container {
+    min-height: @app-height - @header-height - @footer-height;
   }
 
 }
 
-.screen.is-complete-screen {
+.screen.with-header-action {
+
   > .screen-container {
-    min-height: 416px;
+    min-height: @app-height - @header-height - @header-action-height - @footer-height;
   }
+
+}
+
+.screen.with-header-action.without-footer {
+
+  > .screen-container {
+    min-height: @app-height - @header-height - @header-action-height;
+  }
+
+}
+
+.screen.without-footer {
+
+  > .screen-container {
+    min-height: @app-height - @header-height; 
+  }
+
+}
+
+@media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+//@media only screen and (min-device-width: 640px) and (max-device-width: 1136px) and (-webkit-min-device-pixel-ratio: 2) {
+
+  .screen {
+
+    > .screen-container {
+      min-height: @app5-height - @header-height - @footer-height;
+    }
+
+  }
+
+  .screen.with-header-action {
+
+    > .screen-container {
+      min-height: @app5-height - @header-height - @header-action-height - @footer-height;
+    }
+
+  }
+
+  .screen.with-header-action.without-footer {
+
+    > .screen-container {
+      min-height: @app5-height - @header-height - @header-action-height;
+    }
+
+  }
+
+  .screen.without-footer {
+
+    > .screen-container {
+      min-height: @app5-height - @header-height; 
+    }
+
+  }
+
 }

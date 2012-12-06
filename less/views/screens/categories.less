@@ -2,6 +2,7 @@
 @import 'colors';
 @import 'borders';
 
+
 #categories_screen {
 
   > .screen-container {
@@ -110,4 +111,18 @@
 
   }
 
+}
+
+
+@media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+//@media only screen and (min-device-width: 640px) and (max-device-width: 1136px) and (-webkit-min-device-pixel-ratio: 2) {
+  #categories_screen {
+    > .screen-container {
+      > #categories-list {
+        > .category-item {
+          height: 60px;
+        }
+      }
+    }
+  }
 }
