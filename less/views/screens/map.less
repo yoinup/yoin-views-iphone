@@ -1,4 +1,6 @@
 
+@import 'sizes';
+@import 'appsizes';
 
 
 
@@ -7,10 +9,31 @@
 }
 
 
-#map_screen {
+#map_screen.with-header-action.without-footer {
 
 	> .header {
 		z-index: 2;
 	}	
+
+  > .screen-container {
+
+    height: @app-height - @header-height - @header-action-height;
+
+  }
+
+}
+
+
+@media screen and (device-height: 568px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+
+  #map_screen.with-header-action.without-footer {
+
+    > .screen-container {
+
+      height: @app5-height - @header-height - @header-action-height;
+
+    }
+
+  }
 
 }
