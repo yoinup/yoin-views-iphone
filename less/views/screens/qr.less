@@ -8,9 +8,13 @@
 
 #qr_screen {
 
-	> #qr-screen-container {
+	> .screen-container {
 
-		> #qr-screen-content {
+    > .space.by-one {
+      height: 11px;
+    }
+
+		> .box {
 
 			background-color: @white00;
 			.text-is-smallest-style;
@@ -87,4 +91,15 @@
 
 	}
 
+}
+
+
+@media screen and (device-height: 568px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+  #qr_screen {
+    > .screen-container {
+      > .space.by-one {
+        height: 55px;
+      }
+    }
+  }
 }

@@ -68,11 +68,17 @@
 
                         {{#unless user.firstPhoneChannel}}
                           <div class="inactive-account">
+                            
+                           <div class="space by-three"></div>
+
                             <div class="title">
                               <div class="title-name">
                                 {{I18n activate_agenda_title}}
                               </div>
                             </div>
+
+                            <div class="space by-two"></div>
+
                             <div class="content">
                               <div class="box">
                                 <div class="box-content">
@@ -90,9 +96,13 @@
                                 </div>
                               </div>
                             </div>
+
+                            <div class="space by-one"></div>
+
                             <div class="subtitle">
                               {{I18n activate_agenda_subtitle}}
                             </div>
+                            
                           </div>
 
                         {{else}}
@@ -102,6 +112,10 @@
                               <div class="title-name">
                               </div>
                             </div>
+
+
+                            <div class="space by-three"></div>
+
                             <div class="content">
                               <div class="box">
                                 <div class="box-content has-fill-border">
@@ -133,6 +147,9 @@
                                 </div>
                               </div>
                             </div>
+
+                            <div class="space by-one"></div>
+
                             <div class="subtitle">
                                 {{I18n validate_phone_subtitle}}
                             </div>
@@ -249,10 +266,16 @@
 
                         {{else}}
 
-                          <div class="choose-user-alert-text">
-                          <div class="space by-nine"></div>
-                            {{I18n no_friends}}
-                          </div>
+                           <div class="space by-three"></div>
+
+
+                          {{view Yn.EmptyView class="is-small"
+                            contentI18n="empty_friends"
+                            messageAction=null
+                            textAction=null }}
+
+
+            
 
                         {{/if}} 
 
@@ -280,15 +303,25 @@
                     {{#unless user.hasFacebook}} 
 
                       <div class="inactive-account">
+
+                        <div class="space by-three"></div>
+
                         <div class="title">
                           <div class="title-name">
+                            Please connect your Facebook account
                           </div>
                         </div>
+
+                        <div class="space by-two"></div>
+
                         <div class="content">
                           {{view Yn.SocialBigButtonView class="facebook" 
                             contentI18n="connect_with_facebook" 
                             action="connectWithFacebook" }}
                         </div>
+
+                         <div class="space by-one"></div>
+
                         <div class="subtitle">
                           {{I18n activate_facebook_subtitle}}
                         </div>
