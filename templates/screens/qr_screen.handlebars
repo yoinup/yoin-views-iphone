@@ -1,10 +1,14 @@
-
 {{#with view }}
 
 	{{#view Yn.HeaderView class= "with-small-shadow" }}
 
     {{view Yn.HeaderCloseButtonView }}
-		<div class="header-title">{{I18n qr_title }}</div>
+		<div class="header-title">{{I18n qr_title}}</div>
+
+    {{#if selectedUnexchangedInvitation }}
+      {{view Yn.IconBtapView class="l-right header-button rectangle-button is-small is-orange icon" icon="i" 
+        action="goToMap" }}
+    {{/if}}
 
 	{{/view }}
 
