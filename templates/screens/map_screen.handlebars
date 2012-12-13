@@ -2,33 +2,35 @@
 
   {{#view Yn.HeaderView }}
 
-    {{view Yn.HeaderCloseButtonView }}
+    {{view Yvi.HeaderCloseButtonMapView }}
     <div class="header-title">{{I18n map_title}}</div>
 
   {{/view }}
 
-  <div class="header-action">
+  {{#if withHeaderAction }}
 
-    <div class="left">
+    <div class="header-action">
+      <div class="left">
 
-      {{#view Yvi.MapFormInputView}}
-        {{view Yvi.MapInputView valueBinding="inputValue"}}
-      {{/view}}
+        {{#view Yvi.MapFormInputView}}
+          {{view Yvi.MapInputView valueBinding="inputValue"}}
+        {{/view}}
+        
+      </div>
       
-    </div>
-    
-    <div class="middle"></div>
-    
-    <div class="right">
-    
-      {{view Yvi.SwitchGeopositionEnablerButton class="geo-button is-grey is-small icon is-icon-small" 
-        isOnBinding="isOnGeopositionEnabler"
-        icon="o" 
-        action="switchGeopositionEnabler" }}
+      <div class="middle"></div>
       
+      <div class="right">
+      
+        {{view Yvi.SwitchGeopositionEnablerButton class="geo-button is-grey is-small icon is-icon-small" 
+          isOnBinding="isOnGeopositionEnabler"
+          icon="o" 
+          action="switchGeopositionEnabler" }}
+        
+      </div>
     </div>
-    
-  </div>
+
+  {{/if}}
 
   {{view Em.ContainerView id="map-screen-container" class="screen-container"}}
 
