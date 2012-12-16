@@ -98,81 +98,89 @@
 			{{/view}}
 
 
-
 			{{#view Yn.ScrollerView id="choose-product-type-nears" class="choose-product-type-tab" 
 				exclude="choose-product-header choose-product-menu-tabs" 
 				viewName="nears" 
 				selectedFriendsOptionBinding="selectedFriendsOption" }}
 
-				<div class="space by-one"></div>
+        <div class="space by-one"></div>
 
-				<div id="selected-user" class="box">
+        {{#if user}}
 
-					<div id="selected-user-title" class="box-title box-title-top">
-						{{I18n products_closed_to}}:
-					</div>
+          <div id="selected-user" class="box">
 
-					<div id="selected-user-content" class="box-content">
+            <div id="selected-user-title" class="box-title box-title-top">
+              {{I18n products_closed_to}}:
+            </div>
 
-						{{view Yvi.UserShortBlockView contentBinding="user" imagetype="is-normal" class="is-normal" }}
+            <div id="selected-user-content" class="box-content">
+              {{view Yvi.UserShortBlockView contentBinding="user" imagetype="is-normal" class="is-normal" }}
+            </div>
 
-					</div>
+          </div>
 
-				</div>
+          {{#if isNearsContentLoaded }}
 
-				{{#if isNearsContentLoaded }}
+            {{#if nearsContent.length}}
 
-					{{#if nearsContent.length}}
+              <div class="space by-one"></div>
 
-						<div class="space by-one"></div>
+              <div class="product-list-box box">
 
-						<div class="product-list-box box">
+                <div class="product-list-title box-title box-title-top">
+                  {{I18n all_products}}
+                </div>
 
-							<div class="product-list-title box-title box-title-top">
-								{{I18n all_products}}
-							</div>
+                <div class="product-list-content box-content">
 
-							<div class="product-list-content box-content">
+                  {{#each nearsContent}}
 
-								{{#each nearsContent}}
+                      {{#view Yn.BtapView class="product-list-element three-column-table" 
+                        action="selectProduct"
+                        actionContentBinding="this"}}
 
-										{{#view Yn.BtapView class="product-list-element three-column-table" 
-											action="selectProduct"
-											actionContentBinding="this"}}
+                        <div class="product-list-element-image left-column"> 
+                          {{view Yn.SquareImageView class="is-small" contentBinding="this" withPhoto=true }}
+                        </div>
+                        <div class="product-list-element-name middle-column">
+                          {{name}}
+                        </div>
+                        <div class="price-label right-column"> 
+                          {{price}} {{I18n currency_symbol}}
+                        </div>
 
-											<div class="product-list-element-image left-column"> 
-												{{view Yn.SquareImageView class="is-small" contentBinding="this" withPhoto=true }}
-											</div>
-											<div class="product-list-element-name middle-column">
-												{{name}}
-											</div>
-											<div class="price-label right-column"> 
-												{{price}} {{I18n currency_symbol}}
-											</div>
+                      {{/view}}
+                  {{/each}}
 
-										{{/view}}
-								{{/each}}
+                </div>
 
-							</div>
+              </div>
 
-						</div>
+              <div class="space by-one"></div>
 
-						<div class="space by-one"></div>
+            {{else}}
 
-					{{else}}
+              {{view Yn.EmptyView class="is-small"
+                contentI18n="empty_products"
+                messageAction=null
+                textAction=null }}
 
-						{{view Yn.EmptyView class="is-small"
-							contentI18n="empty_products"
-							messageAction=null
-							textAction=null }}
+            {{/if}}
 
-					{{/if}}
+          {{else }}
 
-				{{else }}
+            {{view Yn.SpinnerView class="is-vertical-center"}}
 
-          {{view Yn.SpinnerView class="is-vertical-center"}}
+          {{/if }}
 
-				{{/if }}
+        {{else}}
+
+            {{view Yn.EmptyView class="is-small"
+              contentI18n="empty_near_products"
+              messageAction=null
+              textAction=null }}
+
+        {{/if}}
 				
 
 			{{/view}}
