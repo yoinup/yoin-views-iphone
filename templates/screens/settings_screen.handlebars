@@ -3,19 +3,9 @@
 {{#view Yn.HeaderView id="settings-header" class="with-small-shadow"}}
 
 	{{view Yn.BackButtonView }}
-
 	<div class="header-title">{{I18n settings}}</div>
 
 {{/view }}
-
-{{#if notificationIsVisible}}
-
-  {{view Yn.NotificationView
-    contentBinding="notificationContent"
-    typeBinding="notificationType"
-    isInDomBinding="notificationIsVisible" }}
-
-{{/if}}
 
 {{#view Yn.ScrollerView class="screen-container"
   exclude="settings-header footer"}}

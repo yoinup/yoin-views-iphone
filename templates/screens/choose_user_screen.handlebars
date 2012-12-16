@@ -7,15 +7,6 @@
 
 {{/view }}
 
-{{#if notificationIsVisible}}
-
-	{{view Yn.NotificationView
-		typeBinding="notificationType"
-		contentBinding="notificationContent"
-		isInDomBinding="notificationIsVisible" }}
-
-{{/if}}
-
 <div class="screen-container">
 
 		{{view Yvi.ChooseUserMenuTabsView id="choose-user-menu-tabs" selectedBinding="option" }}

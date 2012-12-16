@@ -2,8 +2,8 @@
 
 {{#view Yn.HeaderView id="venues-header"}}
 
-{{view Yn.AdaptativeButtonView class="header-button l-left is-orange button-text is-small is-font-white" 
-  contentI18n="categories_title" action="goToCategories"}}
+  {{view Yn.AdaptativeButtonView class="header-button l-left is-orange button-text is-small is-font-white" 
+    contentI18n="categories_title" action="goToCategories"}}
 
 	<div id="brand-container"></div>
 
@@ -11,16 +11,6 @@
 		action="goToMap" }}
 
 {{/view }}
-
-
-{{#if notificationIsVisible}}
-
-  {{view Yn.NotificationView
-    contentBinding="notificationContent"
-    typeBinding="notificationType"
-    isInDomBinding="notificationIsVisible" }}
-
-{{/if}}
 
 <div class="screen-container">
 
