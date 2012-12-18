@@ -9,50 +9,77 @@
 
   > .screen-container {
 
-  	> #block-invite-product {
+    > .box {
 
-  		> #block-invite-product-title {
+  		> .box-title.box-title-top {
 
   			.text-is-font-bold-style;
 				.box-padding-style;
 
   		}
 
-  		> #block-invite-product-content, > #block-invite-product-content-sel {
+      > .box-content {
 
-  			.box-padding-with-normal-image;
+        .box-padding-with-normal-image;
 
-  			> .block-invite-product-element {
+  			> .box-content-element {
 
   				> .text {
-
   					.text-is-big-style;
 						.text-is-font-black-style;
-
   				}
 
   				> .control {
-
   					float: right;
-
   				}
 
-  				> .picture {
-
+					> .picture {
 						width: 20%;
-
 					}
+
+          > .name { 
+
+						> .high {
+							.text-is-big-style;
+							.text-is-font-black-style;
+						}
+
+						> .low {
+							.text-is-small-style;
+							.text-is-font-grey-style;
+						}
+          }
+
+					> .control {
+						.text-is-font-low-grey-style;
+					}
+
+					> .action-button {
+						width: 15%;
+					}
+
+        }
+
+      }
+
+    }
+
+    > .box-content.hasnot-item:active, > .box-content.hasnot-item.is-pending, > .box-content.hasnot-item.touch {
+
+        .box-press;
+        .border-bottom-box-radius-style;
+
+    }
+
+  	> #block-invite-product.box {
+
+  		> .box-content {
+
+  			> .box-content-element {
 
 					> .name {
 
 						width: 60%;
-
-						> .productname {
-						
-							.text-is-big-style;
-							.text-is-font-black-style;
-
-						}
 
 						> .price-label {
 
@@ -64,112 +91,41 @@
 
 					}
 
-					> .change-button {
-
-						width: 15%;
-
-					}
-
   			}
-
-  		}
-
-		> #block-invite-product-content:active, > #block-invite-product-content.is-pending, > #block-invite-product-content.touch {
-
-  			.box-press;
-  			.border-bottom-box-radius-style;
 
   		}
 
   	}
 
-  	> #block-invite-user {
+  	> #block-invite-user.box {
 
-  		> #block-invite-user-title {
+  		> .box-content {
 
-  			.text-is-font-bold-style;
-				.box-padding-style;
-
-  		}
-
-  		> #block-invite-user-content, > #block-invite-user-content-sel {
-
-				> .block-invite-user-element {
-
-					//.box-padding-style;
-          .box-padding-with-normal-image;
-
-					> .text {
-
-						.text-is-big-style;
-						.text-is-font-black-style;
-
-					}
-
-					> .control {
-
-						float: right;
-						.text-is-font-low-grey-style;
-
-					}
-
-					> .picture {
-
-						width: 20%;
-
-					}
+				> .box-content-element {
 
 					> .name {
 
 						width: 65%;
 
-						> .username {
-						
-							.text-is-big-style;
-							.text-is-font-black-style;
-
-						}
-
-						> .cityname {
-
-							.text-is-small-style;
-							.text-is-font-grey-style;
-
-						}
-
-					}
-
-					> .change-button {
-
-						width: 15%;
-
 					}
 
   			}
 
   		}
 
-		> #block-invite-user-content:active, > #block-invite-user-content.is-pending , > #block-invite-user-content.touch{
-
-  			.box-press;
-  			.border-bottom-box-radius-style;
-
-  		}
-
   	}
 
-  	> #block-invite-message {
+  	> #block-invite-venues.box {
 
-  		> #block-invite-message-title {
+  		> .box-content {
 
-  			.text-is-font-bold-style;
-				.box-padding-style;
+				> .box-content-element {
 
-  		}
+					> .name {
+						width: 65%;
+					}
 
-  		> #block-invite-message-content {
-
-  			.box-padding-style;
+  			}
 
   		}
 

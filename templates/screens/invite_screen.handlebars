@@ -9,49 +9,151 @@
 
 <div class="screen-container">
 
-	<div class="space by-three"></div>
+	<div class="space by-two"></div>
+
+
+	<div id="block-invite-user" class="box">
+
+		<div class="box-title box-title-top">
+
+			{{I18n invite_to_person_title}}:
+
+		</div>
+
+		{{#if hasUser }}
+
+			<div class="box-content has-item">
+
+				{{#if user }}
+					<div class="box-content-element three-column-table">
+						<div class="picture left-column">
+							{{view Yn.SquareImageView class="is-normal" contentBinding="user" withPhoto=true }}
+						</div>
+						<div class="name middle-column">
+							<div class="high">{{user.name}}</div>
+							{{#if user.city}}
+								<div class="low">
+									<span class="icon with-text is-icon-x-small" icon="i"></span>
+									{{user.city.name}}
+								</div>
+							{{/if}}
+						</div>
+						<div class="action-button right-column">
+							{{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black" 
+	              contentI18n="change"
+	              action="changeUser" }}
+						</div>
+					</div>
+				{{/if}}
+
+				{{#if agendaUser }}
+					<div class="box-content-element three-column-table">
+						<div class="picture left-column">
+							
+						</div>
+						<div class="name middle-column">
+							<div class="high">{{agendaUser.name}}</div>
+							{{#if agendaUser.city}}
+								<div class="low">
+									<span class="icon with-text is-icon-x-small" icon="i"></span>
+									{{agendaUser.city.name}}
+								</div>
+							{{/if}}
+						</div>
+						<div class="action-button right-column">
+							{{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black" 
+	              contentI18n="change"
+	              action="changeUser" }}
+						</div>
+					</div>
+				{{/if}}
+
+				{{#if facebookUser }}
+					<div class="box-content-element three-column-table">
+						<div class="picture left-column">
+							{{view Yn.SquareImageView class="is-normal" contentBinding="facebookUser.id" withPhoto=true isFBUser=true }}
+						</div>
+						<div class="name middle-column">
+							<div class="high">{{facebookUser.name}}</div>
+							{{#if facebookUser.city}}
+								<div class="low">
+									<span class="icon with-text is-icon-x-small" icon="i"></span>
+									{{facebookUser.city.name}}
+								</div>
+							{{/if}}
+						</div>
+						<div class="action-button right-column">
+							{{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black" 
+	              contentI18n="change"
+	              action="changeUser" }}
+						</div>
+					</div>
+				{{/if}}
+
+			</div>
+
+		{{else}}
+
+      {{#view Yn.BtapView class="box-content hasnot-item"
+          action="goToChooseUser" }}
+
+        <div class="box-content-element two-column-table">
+            <div class="text left-column">
+              {{I18n select_someone_to_invite}}
+            </div>
+            <div class="control right-column">
+              <span class="icon is-icon-normal with-text" icon="d"></span>
+            </div>
+        </div>
+
+      {{/view}}
+
+		{{/if}}
+
+	</div>
+
+	<div class="space by-two"></div>
 
 	<div id="block-invite-product" class="box">
 
 
 			{{#if invitation}}
 
-        <div id="block-invite-product-title" class="box-title box-title-top">
+        <div class="box-title box-title-top">
           {{I18n resend_invitation_title}}:
         </div>
 
-        <div id="block-invite-product-content-sel" class="box-content">
-          <div class="block-invite-product-element three-column-table">
+        <div class="box-content has-item">
+          <div class="box-content-element three-column-table">
             <div class="picture left-column">
               {{view Yn.SquareImageView class="is-normal" contentBinding="invitation.product" withPhoto=true }}
             </div>
             <div class="name middle-column">
-              <div class="productname">{{invitation.product.name}}</div>
+              <div class="high">{{invitation.product.name}}</div>
             </div>
           </div>
         </div>
 
 			{{else}}
 
-        <div id="block-invite-product-title" class="box-title box-title-top">
+        <div class="box-title box-title-top">
           {{I18n invite_to_product_title}}:
         </div>
 
         {{#if product}}
 
 
-          <div id="block-invite-product-content-sel" class="box-content">
-            <div class="block-invite-product-element three-column-table">
+          <div  class="box-content has-item">
+            <div class="box-content-element three-column-table">
               <div class="picture left-column">
                 {{view Yn.SquareImageView class="is-normal" contentBinding="product" withPhoto=true }}
               </div>
               <div class="name middle-column">
-                <div class="productname">{{product.name}}</div>
-
+                <div class="high">{{product.name}}</div>
                 <div class="price-label is-small">{{product.price}} {{I18n currency_symbol}}</div>
               </div>
 
-              <div class="change-button right-column">
+              <div class="action-button right-column">
                 {{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black" 
                   contentI18n="change"
                   action="changeProduct" }}
@@ -62,10 +164,10 @@
 
         {{else}}
 
-          {{#view Yn.BtapView id="block-invite-product-content" class="box-content"
+          {{#view Yn.BtapView class="box-content hasnot-item"
             action="goToChooseProduct"}}
 
-            <div class="block-invite-product-element two-column-table" >
+            <div class="box-content-element two-column-table" >
                 <div class="text left-column">
                   {{I18n select_something_for_inviting}}
                 </div>
@@ -84,113 +186,72 @@
 
 	<div class="space by-two"></div>
 
-	<div id="block-invite-user" class="box">
+  {{#if venue}}
 
-		<div id="block-invite-user-title" class="box-title box-title-top">
-
-			{{I18n invite_to_person_title}}:
-
-		</div>
-
-		{{#if hasUser }}
-
-			<div id="block-invite-user-content-sel" class="box-content">
-
-				{{#if user }}
-					<div class="block-invite-user-element three-column-table">
-						<div class="picture left-column">
-							{{view Yn.SquareImageView class="is-normal" contentBinding="user" withPhoto=true }}
-						</div>
-						<div class="name middle-column">
-							<div class="username">{{user.name}}</div>
-							{{#if user.city}}
-								<div class="cityname">
-									<span class="icon with-text is-icon-x-small" icon="i"></span>
-									{{user.city.name}}
-								</div>
-							{{/if}}
-						</div>
-						<div class="change-button right-column">
-							{{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black" 
-	              contentI18n="change"
-	              action="changeUser" }}
-						</div>
-					</div>
-				{{/if}}
-
-				{{#if agendaUser }}
-					<div class="block-invite-user-element three-column-table">
-						<div class="picture left-column">
-							
-						</div>
-						<div class="name middle-column">
-							<div class="username">{{agendaUser.name}}</div>
-							{{#if agendaUser.city}}
-								<div class="cityname">
-									<span class="icon with-text is-icon-x-small" icon="i"></span>
-									{{agendaUser.city.name}}
-								</div>
-							{{/if}}
-						</div>
-						<div class="change-button right-column">
-							{{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black" 
-	              contentI18n="change"
-	              action="changeUser" }}
-						</div>
-					</div>
-				{{/if}}
-
-				{{#if facebookUser }}
-					<div class="block-invite-user-element three-column-table">
-						<div class="picture left-column">
-							{{view Yn.SquareImageView class="is-normal" contentBinding="facebookUser.id" withPhoto=true isFBUser=true }}
-						</div>
-						<div class="name middle-column">
-							<div class="username">{{facebookUser.name}}</div>
-							{{#if facebookUser.city}}
-								<div class="cityname">
-									<span class="icon with-text is-icon-x-small" icon="i"></span>
-									{{facebookUser.city.name}}
-								</div>
-							{{/if}}
-						</div>
-						<div class="change-button right-column">
-							{{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black" 
-	              contentI18n="change"
-	              action="changeUser" }}
-						</div>
-					</div>
-				{{/if}}
-
-			</div>
-
-		{{else}}
-
-      {{#view Yn.BtapView id="block-invite-user-content" class="box-content"
-          action="goToChooseUser" }}
-
-        <div class="block-invite-user-element two-column-table">
-            <div class="text left-column">
-              {{I18n select_someone_to_invite}}
+    <div id="block-invite-venue" class="box">
+      <div class="box-title box-title-top">
+        {{I18n invite_to_venue_title}}:
+      </div>
+      <div class="box-content">
+        <div class="box-content-element two-column-table">
+          <div class="picture left-column">
+            {{view Yn.SquareImageView class="is-normal" contentBinding="venue.brand" withPhoto=true }}
+          </div>
+          <div class="name middle-column">
+            <div class="high">{{venue.name}}</div>
+            <div class="low">
+              {{venue.address}}
+              {{#if venue.zip}}, {{venue.zip}} {{/if}}
             </div>
-            <div class="control right-column">
-              <span class="icon is-icon-normal with-text" icon="d"></span>
-            </div>
+          </div>
         </div>
+      </div>
+    </div>
+  {{/if}}
 
-      {{/view}}
 
-		{{/if}}
+  {{#if venues}}
 
-	</div>
+    <div id="block-invite-venues" class="box">
+
+      <div class="box-title box-title-top">
+        {{I18n invite_to_venue_title}}:
+      </div>
+
+      <div class="box-content">
+        {{#each venues}}
+          <div class="box-content-element three-column-table">
+            <div class="picture left-column">
+              {{view Yn.SquareImageView class="is-normal" contentBinding="brand" withPhoto=true }}
+            </div>
+            <div class="name middle-column">
+              <div class="high">{{name}}</div>
+              <div class="low">
+                {{address}}
+                {{#if zip}}, {{zip}} {{/if}}
+              </div>
+            </div>
+            <div class="action-button right-column">
+              {{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white" 
+                contentI18n="ok"
+                actionContentBinding="this"
+                action="selectVenue" }}
+            </div>
+          </div>
+        {{/each}}
+
+
+      </div>
+
+    </div>
+
+  {{/if}}
 
 	<div class="space by-one"></div>
-
 
   {{view Yn.MainButtonView id="invite-send" class="is-blue" 
     contentI18n="invite" 
     action="sendInvitation"}}
-
 
 </div>
 

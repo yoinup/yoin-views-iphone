@@ -18,34 +18,34 @@
 
   {{#unless isNavigatingForward }}
 
-  {{#view Yn.ScrollerView
-      exclude="friends-nearby-header footer" 
-      viewName="list" }}
+    {{#view Yn.ScrollerView
+        exclude="friends-nearby-header footer" 
+        viewName="list" }}
 
-    {{#if isLoaded }}
+      {{#if isLoaded }}
 
-        <div class="space by-one"></div>
-          <div class="box">
-            <div class="box-content">
+          <div class="space by-one"></div>
+            <div class="box">
+              <div class="box-content">
 
-              {{#each content}}
-                <div class="friends-element">
-                  {{view Yvi.UserShortBlockView class="is-normal" 
-                    hasInviteButton=true
-                    showCity=false
-                    contentBinding="this" imagetype="is-normal"  }}
-                </div>
-              {{/each}}
+                {{#each content}}
+                  <div class="friends-element">
+                    {{view Yvi.UserShortBlockView class="is-normal" 
+                      hasInviteButton=true
+                      showCity=false
+                      contentBinding="this" imagetype="is-normal"  }}
+                  </div>
+                {{/each}}
 
+              </div>
             </div>
-          </div>
-        <div class="space by-one"></div>
+          <div class="space by-one"></div>
 
-    {{else}} 
-      {{view Yn.SpinnerView}}
-    {{/if}}
+      {{else}} 
+        {{view Yn.SpinnerView}}
+      {{/if}}
 
-  {{/view}}
+    {{/view}}
 
   {{else}}
 
