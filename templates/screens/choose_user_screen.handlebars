@@ -9,7 +9,6 @@
 
 <div class="screen-container">
 
-  {{#unless isNavigatingForward }}
 
 		{{view Yvi.ChooseUserMenuTabsView id="choose-user-menu-tabs" selectedBinding="option" }}
 
@@ -44,8 +43,12 @@
 
 					</div>
 
+          {{#unless isNavigatingForward }}
+
+
 					{{#view Yn.TabMainView id="choose-user-tab-main"
 						currentTabViewBinding="tabOption" }}
+
 
 								{{#view Yn.RefreshScrollerView id="choose-user-agenda" class="choose-user-tab" 
                   holdPeriod=10
@@ -283,6 +286,7 @@
 
 								{{/view}}
 
+
 								{{#view Yn.RefreshScrollerView id="choose-user-facebook" class="choose-user-tab" 
                   holdPeriod=10
                   isRefreshedBinding="facebookIsRefreshed"
@@ -384,8 +388,17 @@
 
 					{{/view}}
 
+        {{else}}
+
+          {{view Yn.NavigationSpinnerView class="is-vertical-center"}}
+
+        {{/unless}}
 
 			{{/view}}
+
+
+      {{#unless isNavigatingForward }}
+
 
 			{{#view Yn.ScrollerView id="choose-user-type-nears" class="choose-user-type-tab" 
 				exclude="choose-user-menu-tabs choose-user-header"
@@ -477,13 +490,13 @@
 
 			{{/view}}
 
+      {{else}}
+
+        {{view Yn.NavigationSpinnerView}}
+
+      {{/unless}}
+
 		{{/view}}
-
-  {{else}}
-
-    {{view Yn.NavigationSpinnerView}}
-
-  {{/unless}}
 
 </div>
 
