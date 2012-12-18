@@ -9,6 +9,8 @@
 
 <div class="screen-container">
 
+  {{#unless isNavigatingForward }}
+
 	{{view Yvi.ChooseProductMenuTabsView id="choose-product-menu-tabs" 
 		selectedBinding="option" }}
 
@@ -186,6 +188,13 @@
 			{{/view}}
 
 	{{/view}}
+
+
+  {{else}}
+
+    {{view Yn.NavigationSpinnerView}}
+
+  {{/unless}}
 
 </div>
 

@@ -16,6 +16,8 @@
 
 <div class="screen-container">
 
+  {{#unless isNavigatingForward }}
+
   {{#view Yn.ScrollerView
       exclude="friends-nearby-header footer" 
       viewName="list" }}
@@ -44,6 +46,12 @@
     {{/if}}
 
   {{/view}}
+
+  {{else}}
+
+    {{view Yn.NavigationSpinnerView}}
+
+  {{/unless}}
 
 </div>
 
