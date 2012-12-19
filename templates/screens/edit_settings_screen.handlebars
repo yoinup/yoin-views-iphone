@@ -45,34 +45,28 @@
 
 	<div class="space by-one"></div>
 
-	<div id="block-cities" class="box">
-		<div id="block-cities-title" class="box-title box-title-top">
+	<div class="box">
+		<div class="box-title box-text-title box-title-top">
 			{{I18n choose_a_city}}
 		</div>
 
+    <div class="box-content">
 
-
-    {{#if cities.isLoaded }}
-
-      <div id="block-cities-content" class="box-content">
-
-        {{#each cities}}
-          <div class="block-cities-element two-column-table">
-            <div class="cityname left-column">
-              {{name}}
-            </div>
-            <div class="control right-column">
-              {{view Yn.ToggleCircleButtonView 
-                action="selectCity" 
-                selectedBinding="view.user.city"
-                contentBinding="this"}}
-            </div>
+      {{#each cities}}
+        <div class="block-cities-element two-column-table">
+          <div class="cityname left-column">
+            {{name}}
           </div>
-        {{/each}}
-        
-      </div>
+          <div class="control right-column">
+            {{view Yn.ToggleCircleButtonView 
+              action="selectCity" 
+              selectedBinding="view.user.city"
+              contentBinding="this"}}
+          </div>
+        </div>
+      {{/each}}
 
-    {{/if}}
+    </div>
 
 	</div>
 
@@ -81,4 +75,3 @@
 {{/view }}
 
 {{/with}}
-

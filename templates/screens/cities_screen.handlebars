@@ -1,0 +1,40 @@
+{{#with view}}
+
+{{#view Yn.HeaderView id="cities-header" class="with-small-shadow"}}
+  {{view Yn.HeaderCloseButtonView }}
+	<div class="header-title">{{I18n cities_title}}</div>
+{{/view }}
+
+{{#view Yn.ScrollerView class="screen-container" 
+   selectedBinding="selected"
+   exclude="cities-header" }}
+
+	<div class="space by-two"></div>
+	<div class="box">
+		<div class="box-title box-text-title box-title-top">
+			{{I18n choose_a_city}}
+		</div>
+
+    <div class="box-content">
+
+      {{#each cities}}
+        <div class="block-cities-element two-column-table">
+          <div class="cityname left-column">
+            {{name}}
+          </div>
+          <div class="control right-column">
+            {{view Yn.ToggleCircleButtonView 
+              action="selectCity" 
+              selectedBinding="view.selected"
+              contentBinding="this"}}
+          </div>
+        </div>
+      {{/each}}
+      
+    </div>
+  </div>
+  <div class="space by-one"></div>
+
+{{/view}}
+
+{{/with}}
