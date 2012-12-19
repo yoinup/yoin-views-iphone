@@ -4,8 +4,11 @@
 
     {{view Yvi.HeaderCloseButtonMapView }}
     <div class="header-title">{{I18n map_title}}</div>
-    {{view Yn.AdaptativeButtonView class="header-button l-right is-orange button-text is-small is-font-white" 
-      contentBinding="selectedCity.name" action="goToCities"}}
+
+    {{#if withHeaderAction }}
+      {{view Yn.AdaptativeButtonView class="header-button l-right is-orange button-text is-small is-font-white" 
+        contentBinding="selectedCity.name" action="goToCities"}}
+    {{/if}}
 
   {{/view }}
 
