@@ -6,8 +6,9 @@
 @import 'appanimations';
 
 @import 'textstyles';
-@import 'borders';
 @import 'paddings';
+@import 'borders';
+@import 'gradients';
 
 
 
@@ -38,6 +39,14 @@
 
 
     > .cities {
+
+
+      > .city:active, > .city.touch {
+
+          .box-press;
+          .border-bottom-box-radius-style;
+
+      }
 
 
       > .city {
