@@ -1,13 +1,14 @@
 {{#with view}}
 
-  <div class="map-section aside front">
+  {{#view Yvi.MapSectionView class="map-section aside front"}}
+
     {{#view Yn.HeaderView }}
 
     {{view Yvi.HeaderCloseButtonMapView }}
     <div class="header-title">{{I18n map_title}}</div>
 
     {{#if withHeaderAction }}
-      {{#view Yn.AdaptativeButtonView class="header-button l-right is-orange button-text is-small is-font-white" 
+      {{#view Yvi.CityAdaptativeButtonView class="header-button l-right is-orange button-text is-small is-font-white" 
         action="goToCities"}}
         {{selectedCity.name}}
       {{/view}}
@@ -41,14 +42,14 @@
     {{/if}}
 
     {{view Em.ContainerView id="map-screen-container" class="screen-container"}}
-  </div>
+  {{/view }}
 
 
   {{#view Yn.ScrollerView class="cities-section aside back" 
     selectedCityBinding="selectedCity"}}
     <div class="cities">
       {{#each cities}}
-        {{#view Yn.IsSelectedBtapView 
+        {{#view Yvi.MapCityView 
           class="city"
           action="selectCity"
           actionContentBinding="this"
