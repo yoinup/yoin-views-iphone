@@ -66,9 +66,10 @@
                             <div class="product-list-element-name middle-column">
                               {{name}}
                             </div>
-                            <div class="price-label right-column"> 
-                              {{price}} {{I18n currency_symbol}}
-                            </div>
+
+                            {{view Yn.PriceLabelView class="right-column"
+                              productBinding="this"}}
+
                         {{/view}}
 
                       {{/each}}
@@ -156,9 +157,9 @@
                           <div class="product-list-element-name middle-column">
                             {{name}}
                           </div>
-                          <div class="price-label right-column"> 
-                            {{price}} {{I18n currency_symbol}}
-                          </div>
+
+                          {{view Yn.PriceLabelView class="right-column"
+                            productBinding="this"}}
 
                         {{/view}}
                     {{/each}}

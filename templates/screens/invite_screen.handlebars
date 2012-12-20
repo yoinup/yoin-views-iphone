@@ -152,7 +152,8 @@
               </div>
               <div class="name middle-column">
                 <div class="high">{{product.name}}</div>
-                <div class="price-label is-small">{{product.price}} {{I18n currency_symbol}}</div>
+                {{view Yn.PriceLabelView class="is-small"
+                  productBinding="product"}}
               </div>
 
               <div class="action-button right-column">
