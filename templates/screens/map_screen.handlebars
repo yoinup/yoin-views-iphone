@@ -42,6 +42,19 @@
   </div>
 
   <div class="cities-section aside back">
+    <div class="header-aside-back">{{I18n cities_title}}</div>
+    <div class="cities">
+      {{#each cities}}
+        {{#view Yn.IsSelectedBtapView 
+          class="city"
+          action="selectCity"
+          actionContentBinding="this"
+          contentBinding="this"
+          selectedBinding="view.selectedCity"}}
+            {{name}}
+        {{/view}}
+      {{/each}}
+    </div>
   </div>
 
 {{/with}}

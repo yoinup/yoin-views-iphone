@@ -6,6 +6,11 @@
 .aside.front {
 
   position: absolute;
+  //left: 0%;
+  //-webkit-transform: translateX(0px);
+  //-webkit-transition: -webkit-transform @modal-duration @ease-animation-style;
+
+  //right: 0%;
   left: 0%;
   -webkit-transition: left @modal-duration @ease-animation-style;
 }
@@ -14,12 +19,11 @@
 
   position: absolute;
   left: 50%;
+  width: 50%;
   top: 0;
   bottom: 0;
   height: 100%;
-  width: 50%;
   overflow: hidden;
-  background-color: red;
   z-index: 1;
 
 }
@@ -29,6 +33,8 @@
   > .aside.front {
     left: -50%;
     -webkit-transition: left @modal-duration @ease-animation-style;
+    //-webkit-transform: translateX(-60px);
+    //-webkit-transition: -webkit-transform @modal-duration @ease-animation-style;
   }
 
 }
