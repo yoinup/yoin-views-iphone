@@ -1,13 +1,15 @@
 {{#with view}}
 
-{{#view Yn.HeaderView class="with-small-shadow"}}
+{{#view Yn.HeaderView id="invite-header" class="with-small-shadow"}}
 
   {{view Yn.HeaderCloseButtonView }}
   <div class="header-title">{{I18n header_invite}}</div>
 
 {{/view }}
 
-<div class="screen-container">
+
+{{#view Yn.ScrollerView class="screen-container" 
+  exclude="invite-header" }}
 
 	<div class="space by-two"></div>
 
@@ -253,6 +255,8 @@
     contentI18n="invite" 
     action="sendInvitation"}}
 
-</div>
+	<div class="space by-one"></div>
+
+{{/view }}
 
 {{/with}}
