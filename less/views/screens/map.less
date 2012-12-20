@@ -1,8 +1,13 @@
 @import 'sizes';
 @import 'appsizes';
+@import 'colors';
 
 @import 'animations';
 @import 'appanimations';
+
+@import 'textstyles';
+@import 'borders';
+@import 'paddings';
 
 
 
@@ -29,21 +34,34 @@
   > .cities-section {
 
     z-index: 1;
-    background-color: red;
+    background-color: @grey01;
 
-    > .header-aside-back {
-
-    }
 
     > .cities {
 
+
       > .city {
+
+        .box-padding-style;
+        .list-element-fill-border;
+
+        .text-is-big-style;
+        .text-is-font-black-style;
 
       }
 
       > .city.is-selected {
 
-        background-color: blue;
+      }
+
+      > .city.is-selected::after {
+
+        font-family: 'Yoin Icons';
+        content: 'F';
+        -webkit-font-smoothing: antialiased;
+        text-decoration: none;
+        float: right;
+        margin-top: 2px;
 
       }
 
