@@ -7,8 +7,10 @@
     <div class="header-title">{{I18n map_title}}</div>
 
     {{#if withHeaderAction }}
-      {{view Yn.AdaptativeButtonView class="header-button l-right is-orange button-text is-small is-font-white" 
-        contentBinding="selectedCity.name" action="goToCities"}}
+      {{#view Yn.AdaptativeButtonView class="header-button l-right is-orange button-text is-small is-font-white" 
+        action="goToCities"}}
+        {{selectedCity.name}}
+      {{/view}}
     {{/if}}
 
     {{/view }}
