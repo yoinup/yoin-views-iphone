@@ -3,10 +3,13 @@
   <div class="map-section aside front">
     {{#view Yn.HeaderView }}
 
-      {{view Yvi.HeaderCloseButtonMapView }}
-      <div class="header-title">{{I18n map_title}}</div>
+    {{view Yvi.HeaderCloseButtonMapView }}
+    <div class="header-title">{{I18n map_title}}</div>
+
+    {{#if withHeaderAction }}
       {{view Yn.AdaptativeButtonView class="header-button l-right is-orange button-text is-small is-font-white" 
         contentBinding="selectedCity.name" action="goToCities"}}
+    {{/if}}
 
     {{/view }}
 
