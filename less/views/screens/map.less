@@ -1,23 +1,41 @@
 @import 'sizes';
 @import 'appsizes';
 
+@import 'animations';
+@import 'appanimations';
+
+
 
 #map_screen {
 
-	> .header {
-		z-index: 2;
-	}	
+  //border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 
-  > .header-action {
-    z-index: 1;
+  > .map-section {
+
+    .header {
+      border-top-right-radius: 0px;
+      z-index: 3;
+    }	
+    .header-action {
+      z-index: 2;
+    }
+    .screen-container {
+      z-index: 1000;
+    }
+  }
+
+  > .cities-section {
+
   }
 
 }
 
+
 // set heights
 #map_screen.without-footer {
 
-  > .screen-container {
+  .screen-container {
 
     height: @app-height - @header-height;
 
@@ -27,7 +45,7 @@
 
 #map_screen.with-header-action.without-footer {
 
-  > .screen-container {
+  .screen-container {
 
     height: @app-height - @header-height - @header-action-height;
 
@@ -40,7 +58,7 @@
 
   #map_screen.without-footer {
 
-    > .screen-container {
+    .screen-container {
 
       height: @app5-height - @header-height;
 
@@ -50,7 +68,7 @@
 
   #map_screen.with-header-action.without-footer {
 
-    > .screen-container {
+    .screen-container {
 
       height: @app5-height - @header-height - @header-action-height;
 
