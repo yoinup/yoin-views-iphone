@@ -14,6 +14,10 @@
 {{#view Yn.ScrollerView class="screen-container" 
   exclude="invite-header" }}
 
+  {{#if isExecutingAction}} 
+    {{view Yn.SpinnerView }}
+  {{/if}}
+
 	<div class="space by-two"></div>
 
 
