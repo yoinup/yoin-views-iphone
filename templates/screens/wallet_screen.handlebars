@@ -1,0 +1,90 @@
+{{#with view }}
+
+	{{#view Yn.HeaderView id="wallet-header" class="with-small-shadow" }}
+    {{view Yn.HeaderCloseButtonView }}
+		<div class="header-title">{{I18n wallet_title}}</div>
+	{{/view }}
+
+  {{#view Yn.ScrollerView class="screen-container" 
+    exclude="wallet-header footer"
+    viewName="unexchanged" }}
+
+    {{#if invitations.isLoaded }}
+
+      {{#if invitations.length }}
+  
+        <div class="space by-one"></div>
+
+        {{#each invitations}}
+
+          <div class="block-unexchanged box">
+
+            <div class="block-unexchanged-title box-title box-title-top">
+
+              <div class="image">
+
+                {{view Yn.SquareImageView class="is-small" contentBinding="fromUser" withPhoto=true }}
+
+              </div>
+
+              <div class="name">
+
+                {{#if fromUser.suspended }}
+                  {{I18n someone}} {{I18n invites_you}}
+                {{else}}
+                  {{fromUser.name}} {{I18n invites_you}}
+                {{/if}}
+
+              </div>
+
+            </div>
+
+            <div class="block-unexchanged-content box-content">
+
+              <div class="image">
+
+                {{view Yn.SquareImageView class="is-normal" contentBinding="product" withPhoto=true }}
+
+              </div>
+
+              <div class="product">
+
+                {{product.name}}
+
+                <div class="venue">
+
+                  <span class="icon with-text is-icon-small city" icon="i"></span>
+
+                  {{venue.address}}
+
+                </div>
+
+              </div>
+
+              <div class="navigate-button">
+                <span class="icon is-icon-normal is-icon-grey with-text" icon="d"></span>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="space by-one"></div>
+
+        {{/each}}
+
+      {{else }}
+
+        {{view Yn.EmptyView class="is-small"
+          contentI18n="empty_wallet"}}
+
+      {{/if}}
+
+
+    {{else }}
+      {{view Yn.SpinnerView}}
+    {{/if }}
+
+  {{/view}}
+
+{{/with}}
