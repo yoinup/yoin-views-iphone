@@ -1,11 +1,12 @@
 {{#with view }}
 
-	{{#view Yn.HeaderView class="with-small-shadow" }}
-    {{view Yn.HeaderCloseButtonView }}
+	{{#view Yn.HeaderView id="scan-invitation-header" class="with-small-shadow" }}
+    {{view Yn.BackButtonView }}
 		<div class="header-title">{{I18n qr_title}}</div>
 	{{/view }}
 
-	<div class="screen-container">
+  {{#view Yn.ScrollerView class="screen-container" 
+    exclude="scan-invitation-header footer" }}
 
 		<div class="space by-one"></div>
 
@@ -27,10 +28,21 @@
 
 			<div class="box-content">
 
-        <div class="qr-container">
-          {{view Yvi.Qr2CodeView class="qr2-code"
-            invitationBinding="invitation" }}
-        </div>
+        {{#if invitation }}
+
+          <div class="qr-container">
+            {{view Yvi.ScanQrCodeView class="qr-code"
+              invitationBinding="invitation" }}
+          </div> 
+
+        {{else }}
+
+          <div class="bar-container">
+            {{view Yvi.ScanBarCodeView class="bar-code"
+              invitationBinding="invitation" }}
+          </div> 
+
+        {{/if}}
 			
 			</div>
 			
@@ -62,6 +74,14 @@
       </div>
     </div>
 
-	</div>
+    <div class="space by-one"></div>
+
+    {{view Yn.MainButtonView class="is-green" 
+      contentI18n="button_terms_and_conditions" 
+      action="showTerms" }}
+
+    <div class="space by-one"></div>
+
+	{{/view }}
 
 {{/with}}

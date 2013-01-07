@@ -7,13 +7,16 @@
 @qr-width: 140px;
 @qr-height: 140px;
 
-#qr2_screen {
+@bar-width: 250px;
+
+#scan_invitation_screen {
 
 	> .screen-container {
-
+    /*
     > .space.by-one {
       height: 11px;
     }
+    */
 
     > .action-buttons {
 
@@ -54,12 +57,30 @@
 					border-radius: @button_rounded_header-margin;
 					box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.3);
 
-					> .qr2-code {
+					> .qr-code {
 						width: @qr-width;
 						height: @qr-height;
 					}
 
 				}
+
+				> .bar-container {
+
+					margin-left: 15px; 
+					width: @bar-width;
+
+					padding: 10px;
+					background-color: @pure-white;
+					border-radius: @button_rounded_header-margin;
+					box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.3);
+
+          > .bar-code {
+
+            margin-left: -5px; 
+
+          }
+
+        }
 
 			}
 
@@ -80,6 +101,12 @@
       }
 
     }
+
+  	> .main-button {
+
+			margin: 0 auto;
+
+		}
 
 
 	}
