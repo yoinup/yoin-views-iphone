@@ -1,0 +1,67 @@
+{{#with view }}
+
+	{{#view Yn.HeaderView class="with-small-shadow" }}
+    {{view Yn.HeaderCloseButtonView }}
+		<div class="header-title">{{I18n qr_title}}</div>
+	{{/view }}
+
+	<div class="screen-container">
+
+		<div class="space by-one"></div>
+
+    <div class="action-buttons">
+
+      {{view Yn.AdaptativeButtonView class="fl qr-action-button is-blue button-text is-small is-font-white" 
+        contentI18n="button_resend" 
+        action="resend" }}
+
+      {{view Yn.AdaptativeButtonView class="fr qr-action-button is-blue button-text is-small is-font-white" 
+        contentI18n="button_mark_as_consumed" 
+        action="markAsConsumed" }}
+
+    </div>
+		
+		<div class="space by-one"></div>
+
+		<div class="invitation-localizer box">
+
+			<div class="box-content">
+
+        <div class="qr-container">
+          {{view Yvi.Qr2CodeView class="qr2-code"
+            invitationBinding="invitation" }}
+        </div>
+			
+			</div>
+			
+      <div class="box-title box-title-bottom center">
+        12809234091234
+			</div>
+		
+		</div>
+
+    <div class="space by-one"></div>
+
+    <div class="invitation-info box">
+      <div class="box-content">
+        {{view Yvi.VenueShortBlockView class="is-normal"
+          imagetype="is-normal"
+          contentBinding="invitation.venue" }}
+      </div>
+      <div class="box-content">
+        {{view Yvi.ProductShortBlockView class="is-normal"
+          imagetype="is-normal"
+          contentBinding="invitation.product"
+          venueBinding=null}}
+      </div>
+
+      <div class="box-content">
+        {{view Yvi.UserShortBlockView class="is-normal"
+          contentBinding="invitation.fromUser" 
+          imagetype="is-normal"}}
+      </div>
+    </div>
+
+	</div>
+
+{{/with}}
