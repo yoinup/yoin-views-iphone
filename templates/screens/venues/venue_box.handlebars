@@ -68,10 +68,10 @@
 				</div>
 				<div class="venue-box-users-list">
 
-					{{#each fivePeople}}
+					{{#each person in fivePeople}}
             {{view Yvi.VenueNearUserSquareImageView class="touchable inline fix-scrolling-touch"
-              contentBinding="this"
-              venueBinding="view.venue"
+              contentBinding="person"
+              venueBinding="venue"
               withPhoto=true }}
 					{{/each}}
 
