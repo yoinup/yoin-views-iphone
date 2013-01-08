@@ -31,12 +31,18 @@
                   {{#each item in content}}
 
                     <div class="space by-one"></div>
+
+                    {{#if item.products.isLoaded }}
+
                       {{view Yvi.VenueBoxView 
                         productsBinding="item.products"
                         venueBinding="item"
                         isGeopositionOnBinding="isGeopositionOn"
                         loggedUserBinding="loggedUser" }}
                       <div class="space by-one"></div>
+
+                    {{/if}}
+
                   {{/each}}
 
               {{else}}
