@@ -17,8 +17,6 @@
   {{#view Yn.RefreshScrollerView
     holdPeriod=100
     exclude="footer venues-header"
-    loggedUserBinding="loggedUser"
-    isGeopositionOnBinding="isGeopositionOn"
     isRefreshedBinding="isRefreshed"
     hasNextBinding="hasNext"
     lengthBinding="content.length" }}
@@ -30,13 +28,21 @@
               {{#if content.length }}
 
                   <div class="space by-one"></div>
-                  {{#each content}}
-                    {{view Yvi.VenueBoxView 
-                      productsBinding="products"
-                      venue=this
-                      isGeopositionOnBinding="view.isGeopositionOn"
-                      loggedUserBinding="view.loggedUser" }}
+                  {{#each item in content}}
+
+                    <div class="space by-one"></div>
+
+                    {{#if item.products.isLoaded }}
+
+                      {{view Yvi.VenueBoxView 
+                        productsBinding="item.products"
+                        venueBinding="item"
+                        isGeopositionOnBinding="isGeopositionOn"
+                        loggedUserBinding="loggedUser" }}
                       <div class="space by-one"></div>
+
+                    {{/if}}
+
                   {{/each}}
 
               {{else}}
@@ -46,7 +52,10 @@
               {{/if}}
 
         {{else }}
+
+         <div class="spinner-prueba"></div>
           {{view Yn.SpinnerView}}
+
         {{/if }}
 
     </div>

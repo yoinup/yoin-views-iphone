@@ -76,7 +76,6 @@
         <div class="space by-two"></div> 
 
         {{view Yn.SingleBigButtonView class="enter-button is-grey button-text is-big is-font-black" 
-          mixins="Yn.FormActionContent"
           inputs="register-code"
           contentI18n="enter" 
           action="insertPhoneValidationCode" }}
@@ -93,7 +92,6 @@
       {{else}}
 
         {{view Yn.SingleBigButtonView class="enter-button is-grey button-text is-big is-font-black" 
-          mixins="Yn.FormActionContent"
           inputs="register-email register-password register-phone register-name"
           contentI18n="register" 
           action="registerUser" }}
