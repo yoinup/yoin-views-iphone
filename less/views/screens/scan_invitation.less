@@ -1,0 +1,126 @@
+@import 'colors';
+@import 'sizes';
+@import 'textstyles';
+@import 'paddings';
+
+// 180 -> 50px
+@qr-width: 140px;
+@qr-height: 140px;
+
+@bar-width: 250px;
+
+#scan_invitation_screen {
+
+	> .screen-container {
+    /*
+    > .space.by-one {
+      height: 11px;
+    }
+    */
+
+    > .action-buttons {
+
+      height: 30px;
+
+      > .qr-action-button {
+        width: 115px;
+      }
+
+      > .qr-action-button.fl {
+        float: left;
+        margin-left: 11px;
+      }
+
+      > .qr-action-button.fr {
+        float: right;
+        margin-right: 11px;
+      }
+
+    }
+
+		> .invitation-localizer.box {
+
+			background-color: @white00;
+
+			> .box-content {
+				padding-top: 5%;
+				padding-bottom: 5%;
+
+				> .qr-container {
+          // TODO : CAMBIAR ESTO - NO CONSEGUIA CENTRARLO
+					margin-left: 67px; 
+					padding: 10px;
+					width: @qr-width;
+					height: @qr-height;
+
+					background-color: @pure-white;
+					border-radius: @button_rounded_header-margin;
+					box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.3);
+
+					> .qr-code {
+						width: @qr-width;
+						height: @qr-height;
+					}
+
+				}
+
+				> .bar-container {
+
+					margin-left: 15px; 
+					width: @bar-width;
+
+					padding: 10px;
+					background-color: @pure-white;
+					border-radius: @button_rounded_header-margin;
+					box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.3);
+
+          > .bar-code {
+
+            margin-left: -5px; 
+
+          }
+
+        }
+
+			}
+
+			> .box-title.box-title-bottom {
+
+				.text-is-small-style;
+				.text-plain-is-font-black-style;
+				.box-padding-style;
+				
+			}
+
+		}
+
+		> .invitation-info.box {
+
+      > .box-content {
+        padding: 10px;
+      }
+
+    }
+
+  	> .main-button {
+
+			margin: 0 auto;
+
+		}
+
+
+	}
+
+}
+
+
+@media screen and (device-height: 568px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+  /*
+  #qr2_screen {
+    > .screen-container {
+      > .space.by-one {
+        height: 55px;
+      }
+    }
+  }*/
+}
