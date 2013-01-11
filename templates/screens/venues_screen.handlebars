@@ -12,62 +12,57 @@
 
 {{/view }}
 
-<div class="screen-container">
+{{#view Yn.RefreshScrollerView class="screen-container"
+  holdPeriod=100
+  exclude="footer venues-header"
+  isRefreshedBinding="isRefreshed"
+  hasNextBinding="hasNext"
+  lengthBinding="content.length" }}
 
-  {{#view Yn.RefreshScrollerView
-    holdPeriod=100
-    exclude="footer venues-header"
-    isRefreshedBinding="isRefreshed"
-    hasNextBinding="hasNext"
-    lengthBinding="content.length" }}
+  {{#if isContentLoaded }}
 
     <div class="scroller-container fix-scrolling-touch">
 
-        {{#if isContentLoaded }}
+        {{#if content.length }}
 
-              {{#if content.length }}
+            <div class="space by-one"></div>
+            {{#each item in content}}
 
-                  <div class="space by-one"></div>
-                  {{#each item in content}}
+              <div class="space by-one"></div>
 
-                    <div class="space by-one"></div>
+              {{#if item.products.isLoaded }}
 
-                    {{#if item.products.isLoaded }}
-
-                      {{view Yvi.VenueBoxView 
-                        productsBinding="item.products"
-                        venueBinding="item"
-                        isGeopositionOnBinding="isGeopositionOn"
-                        loggedUserBinding="loggedUser" }}
-                      <div class="space by-one"></div>
-
-                    {{/if}}
-
-                  {{/each}}
-
-              {{else}}
-
-                {{view Yn.EmptyView contentI18n="empty_venues" }}
+                {{view Yvi.VenueBoxView 
+                  productsBinding="item.products"
+                  venueBinding="item"
+                  isGeopositionOnBinding="isGeopositionOn"
+                  loggedUserBinding="loggedUser" }}
+                <div class="space by-one"></div>
 
               {{/if}}
 
-        {{else }}
+            {{/each}}
 
-         <div class="spinner-prueba"></div>
-          {{view Yn.SpinnerView}}
+            {{#if view.showBottomView }}
 
-        {{/if }}
+              {{view Yn.MiniSpinnerView }}
+
+            {{/if }}
+
+        {{else}}
+
+          {{view Yn.EmptyView contentI18n="empty_venues" }}
+
+        {{/if}}
 
     </div>
 
-    {{#if view.showBottomView }}
+  {{else }}
 
-      {{view Yn.MiniSpinnerView }}
+    {{view Yn.SpinnerView}}
 
-    {{/if }}
+  {{/if }}
 
-  {{/view}}
-
-</div>
+{{/view}}
 
 {{/with}}
