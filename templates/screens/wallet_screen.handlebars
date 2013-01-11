@@ -1,7 +1,6 @@
 {{#with view }}
 
 	{{#view Yn.HeaderView id="wallet-header" class="with-small-shadow" }}
-    {{view Yn.HeaderCloseButtonView }}
 		<div class="header-title">{{I18n wallet_title}}</div>
 	{{/view }}
 
@@ -39,7 +38,9 @@
 
             </div>
 
-            <div class="block-unexchanged-content box-content">
+            {{#view Yn.BtapView class="block-unexchanged-content box-content" 
+              action="goToScanInvitation"
+              actionContent=this}} 
 
               <div class="image">
 
@@ -65,7 +66,7 @@
                 <span class="icon is-icon-normal is-icon-grey with-text" icon="d"></span>
               </div>
 
-            </div>
+            {{/view}}
 
           </div>
 

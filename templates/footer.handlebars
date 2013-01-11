@@ -3,7 +3,6 @@
   {{view Yvi.FooterOptionView id="left-tab" class="is-icon-big" 
     tab="venues" 
     icon="J" 
-    isQrSelectedBinding="isQrSelected"
     currentTabViewBinding="currentTabView" 
     manager=manager }}
 
@@ -11,14 +10,15 @@
   {{view Yvi.FooterOptionView id="right-tab" class="is-icon-big" 
     tab="me" 
     icon="p" 
-    isQrSelectedBinding="isQrSelected"
     currentTabViewBinding="currentTabView" 
     manager=manager }}
 
   <div id="footer-middle">
 
-    {{view Yvi.FooterQrOptionView id="inner-footer-middle" class="is-icon-x-big" 
-      isQrSelectedBinding="isQrSelected"
+    {{view Yvi.FooterOptionView id="inner-footer-middle" class="is-icon-x-big" 
+      tab="wallet" 
+      icon="D"
+      currentTabViewBinding="currentTabView" 
       manager=manager }}
 
   </div>

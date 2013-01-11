@@ -14,11 +14,13 @@
 
       {{view Yn.AdaptativeButtonView class="fl qr-action-button is-blue button-text is-small is-font-white" 
         contentI18n="button_resend" 
-        action="resend" }}
+        action="resend" 
+        actionContentBinding="invitation" }}
 
       {{view Yn.AdaptativeButtonView class="fr qr-action-button is-blue button-text is-small is-font-white" 
         contentI18n="button_mark_as_consumed" 
-        action="markAsConsumed" }}
+        action="markAsConsumed"
+        actionContentBinding="invitation" }}
 
     </div>
 		
@@ -64,7 +66,7 @@
         {{view Yvi.ProductShortBlockView class="is-normal"
           imagetype="is-normal"
           contentBinding="invitation.product"
-          venueBinding=null}}
+          venue=null}}
       </div>
 
       <div class="box-content">
