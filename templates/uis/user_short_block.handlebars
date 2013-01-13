@@ -2,9 +2,9 @@
 {{#with view}}
 
 
-<div class="user-short-block-content">
+	<div class="short-block-content">
 
-		<div class="user-short-block-content-image">
+		<div class="short-block-content-image">
 
 			{{#if isYoinUser }}
 
@@ -33,11 +33,11 @@
 
 		</div>
 
-		<div class="user-short-block-content-name">
+		<div class="short-block-content-name">
 
 			{{#if isYoinUser }}
 			
-			  <span class="user-short-block-content-username">
+			  <span class="short-block-name-high">
 			  
 			    {{#if content.suspended }}
 		        {{I18n someone}}
@@ -51,7 +51,7 @@
 
 					{{#if content.city}}
 
-						<div class="user-short-block-content-city">
+						<div class="short-block-name-low">
 
 							<span class="icon with-text is-icon-x-small" icon="i">
 							</span>
@@ -65,7 +65,7 @@
 
 				{{else}}
 
-						<div class="user-short-block-content-status">
+						<div class="short-block-name-low without-icon">
 							{{content.status}}
 						</div>
 
@@ -75,11 +75,11 @@
 
 				{{#if isFbUser }}
 
-					<span class="user-short-block-content-username">{{fbName}}</span>
+					<span class="short-block-name-high">{{fbName}}</span>
 
 				{{else}}
 
-					<span class="user-short-block-content-username">{{phoneName}}</span>
+					<span class="short-block-name-high">{{phoneName}}</span>
 
 				{{/if}}	
 
@@ -89,7 +89,7 @@
 
     {{#if hasInviteButton }}
 
-      <div class="user-short-block-content-button">
+      <div class="short-block-button">
       
         {{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white" 
           contentI18n="invite" 

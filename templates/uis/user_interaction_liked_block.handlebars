@@ -1,19 +1,17 @@
 
 {{#with view}}
 
-<div class="user-interaction-box box">
+	<div class="box-content without-padding">
 
-	<div class="user-interaction-box-content box-content">
-
-		<div class="user-interaction-liked-block-content">
+		<div class="block-content">
 			
-			<div class="user-interaction-liked-block-content-image">
+			<div class="block-content-image">
 			
 				{{view Yn.SquareImageView class="is-normal" contentBinding="content.user" withPhoto=true }}
 
 			</div>
 
-			<div class="user-interaction-liked-block-content-name">
+			<div class="block-content-name">
 
 				<span class="text is-big is-black">
 				  {{#if content.user.suspended }}
@@ -23,7 +21,7 @@
 		      {{/if}}
 				</span> {{I18n interaction_liked}}
 
-				<div class="user-interaction-liked-block-content-product">
+        <div class="block-icon">
 
 					{{view Yn.IconView class="with-text is-icon-x-small" iconBinding="content.product.category.icon" }}
 					{{content.product.name}}
@@ -42,9 +40,9 @@
 
 	</div>
 
-	<div class="user-interaction-liked-details box-title box-title-bottom">
+	<div class="details box-title box-title-bottom">
 		
-		<div class="user-interaction-liked-details-city inline">
+		<div class="details-city inline">
 
 			{{#if content.venue}}
 		
@@ -55,7 +53,7 @@
 							
 		</div>
 							
-		<div class="user-interaction-liked-details-time f-right">
+		<div class="details-time f-right">
 		
 			<span class="icon with-text is-icon-small" icon="w"></span>
 			{{humanize dateBinding="content.created" }}
@@ -63,7 +61,5 @@
 		</div>
 
 	</div>
-
-</div>
 
 {{/with}}

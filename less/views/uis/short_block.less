@@ -1,0 +1,145 @@
+@import 'colors';
+@import 'textstyles';
+
+.short-block {
+
+	> .short-block-content {
+	
+		display: table;
+		width: 100%;
+
+		> .short-block-image {
+
+			display: table-cell;
+			vertical-align: middle;
+
+		}
+
+		> .short-block-name {
+
+			display: table-cell;
+			vertical-align: middle;
+
+			> .short-block-name-high {
+				.text-is-big-style;
+				.text-is-font-black-style;
+			}
+			
+
+			> .short-block-name-low {
+        .text-is-small-style;
+        .text-is-font-grey-style;
+			}
+
+			> .short-block-name-low.without-icon {
+        line-height: 1.5;
+      }
+
+		}
+
+    > .short-block-button {
+
+			display: table-cell;
+			vertical-align: middle;
+
+    }
+
+	}
+
+	> .short-block-content.has-padding {
+
+		padding: 0.2em;
+
+  }
+
+}
+
+.short-block.is-x-small, .short-block.is-small {
+
+	> .short-block-content {
+			
+			> .short-block-image {
+
+				width: 15%;
+
+			}
+
+			> .short-block-name {
+
+				width: 85%;
+
+			}
+
+		}
+
+}
+
+.short-block.is-normal {
+
+	> .short-block-content {
+			
+			> .short-block-image {
+
+				width: 20%;
+
+			}
+
+			> .short-block-name {
+
+				width: 80%;
+
+			}
+
+		}
+
+}
+
+.short-block.is-big {
+
+	> .short-block-content {
+			
+			> .short-block-image {
+
+				width: 25%;
+
+			}
+
+			> .short-block-name {
+
+				width: 75%;
+
+			}
+
+		}
+
+}
+
+.short-block.has-invite-button.is-normal {
+
+	> .short-block-content {
+			
+			> .short-block-image {
+
+				width: 20%;
+
+			}
+
+			> .short-block-name {
+
+				width: 60%;
+
+			}
+
+			> .short-block-button {
+
+				width: 20%;
+
+        > .button-text {
+
+        }
+
+			}
+
+		}
+
+}

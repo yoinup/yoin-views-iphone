@@ -1,13 +1,12 @@
 
 {{#with view}}
 
-<div class="user-interaction-box box">
 
-	<div class="user-interaction-box-content box-content">
+	<div class="box-content without-padding">
 
-		<div class="user-interaction-received-block-content">
+		<div class="block-content has-border">
 			
-			<div class="user-interaction-received-block-content-image">
+			<div class="block-content-image">
 
 				{{#if content.toUser }}
 
@@ -36,7 +35,7 @@
 
 			</div>
 
-			<div class="user-interaction-received-block-content-name">
+			<div class="block-content-name">
 
 				{{#if content.toUser }}
 				
@@ -56,7 +55,7 @@
 
 				{{/if}}
 
-				<div class="user-interaction-received-block-content-product">
+				<div class="block-content-product">
 
 					{{view Yn.IconView class="with-text is-icon-x-small" iconBinding="content.product.category.icon" }}
 					{{content.product.name}}
@@ -65,7 +64,7 @@
 
 			</div>
 			
-			<div class="user-interaction-received-block-icon">
+			<div class="block-icon">
 
 				{{view Yn.NotificationImageView class="received" }}
 
@@ -75,7 +74,7 @@
 		
 		<div class="space by-one"></div>
 			
-		<div class="user-block-inviting">
+		<div class="block-user-short">
 			
 			{{view Yvi.UserShortBlockView contentBinding="content.fromUser" imagetype="is-small" class="is-small" }}
 			
@@ -83,20 +82,20 @@
 
 	</div>
 
-	<div class="user-interaction-received-details box-title box-title-bottom">
+	<div class="details box-title box-title-bottom">
 		
-		<div class="user-interaction-received-details-city inline">
+		<div class="details-city inline">
 
 			{{#if content.venue}}
 		
 				<span class="icon with-text is-icon-small" icon="i"></span>
-				{{content.venue_user.name}}, {{content.venue.city.name}}
+				{{content.venue.name}}, {{content.venue.city.name}}
 
 			{{/if}}
 							
 		</div>
 							
-		<div class="user-interaction-received-details-time f-right">
+		<div class="details-time f-right">
 		
 			<span class="icon with-text is-icon-small" icon="w"></span>
 			{{humanize dateBinding="content.created" }}
@@ -104,7 +103,5 @@
 		</div>
 
 	</div>
-
-</div>
 
 {{/with}}

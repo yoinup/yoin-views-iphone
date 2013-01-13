@@ -1,13 +1,11 @@
 
 {{#with view}}
 
-<div class="user-interaction-box box">
+	<div class="box-content without-padding">
 
-	<div class="user-interaction-box-content box-content">
-
-		<div class="user-interaction-sent-block-content">
+		<div class="block-content">
 			
-			<div class="user-interaction-sent-block-content-image">
+			<div class="block-content-image">
 
 				{{#if content.toUser }}
 
@@ -36,7 +34,7 @@
 
 			</div>
 
-			<div class="user-interaction-sent-block-content-name">
+			<div class="block-content-name">
 
 				{{#if content.toUser }}
 				
@@ -64,7 +62,7 @@
 
 				{{/if}}
 
-				<div class="user-interaction-sent-block-content-product">
+				<div class="block-content-product">
 
 					{{view Yn.IconView class="with-text is-icon-x-small" iconBinding="content.product.category.icon" }}
 					{{content.product.name}}
@@ -73,7 +71,7 @@
 
 			</div>
 			
-			<div class="user-interaction-sent-block-icon">
+			<div class="block-icon">
 
 				{{view Yn.NotificationImageView class="sent" }}
 
@@ -83,20 +81,20 @@
 
 	</div>
 
-	<div class="user-interaction-sent-details box-title box-title-bottom">
+	<div class="details box-title box-title-bottom">
 		
-		<div class="user-interaction-sent-details-city inline">
+		<div class="details-city inline">
 
 			{{#if content.venue}}
 		
 				<span class="icon with-text is-icon-small" icon="i"></span>
-				{{content.venue_user.name}}, {{content.venue.city.name}}
+				{{content.venue.name}}, {{content.venue.city.name}}
 
 			{{/if}}
 							
 		</div>
 							
-		<div class="user-interaction-sent-details-time f-right">
+		<div class="details-time f-right">
 		
 			<span class="icon with-text is-icon-small" icon="w"></span>
 			{{humanize dateBinding="content.created" }}
@@ -105,6 +103,5 @@
 
 	</div>
 
-</div>
 
 {{/with}}

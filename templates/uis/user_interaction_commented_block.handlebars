@@ -1,19 +1,17 @@
 
 {{#with view}}
 
-<div class="user-interaction-box box">
+	<div class="box-content without-padding">
 
-	<div class="user-interaction-box-content box-content">
-	
-		<div class="user-interaction-commented-block-content">
+		<div class="block-content has-border">
 		
-			<div class="user-interaction-commented-block-content-image">
+			<div class="block-content-image">
 			
 				{{view Yn.SquareImageView class="is-normal" contentBinding="content.user" withPhoto=true }}
 
 			</div>
 
-			<div class="user-interaction-commented-block-content-name">
+			<div class="block-content-name">
 			
 			  <span class="text is-big is-black">
 				  {{#if content.user.suspended }}
@@ -23,7 +21,7 @@
 		      {{/if}}
 				</span> {{I18n interaction_commented}}
 
-				<div class="user-interaction-commented-block-content-product">
+				<div class="block-content-product">
 
 					{{view Yn.IconView class="with-text is-icon-x-small" iconBinding="content.product.category.icon" }}
 					{{content.product.name}}
@@ -32,7 +30,7 @@
 
 			</div>
 			
-			<div class="user-interaction-commented-block-icon">
+      <div class="block-icon">
 
 				{{view Yn.NotificationImageView class="commented" }}
 
@@ -42,7 +40,7 @@
 
 		<div class="space by-one"></div>
 			
-		<div class="user-block-comment">
+		<div class="block-description">
 			
 			{{content.comment}}
 			
@@ -50,9 +48,9 @@
 
 	</div>
 	
-	<div class="user-interaction-commented-details box-title box-title-bottom">
+	<div class="details box-title box-title-bottom">
 		
-		<div class="user-interaction-commented-details-city inline">
+		<div class="details-city inline">
 
 			{{#if content.venue}}
 		
@@ -63,7 +61,7 @@
 							
 		</div>
 							
-		<div class="user-interaction-commented-details-time f-right">
+		<div class="details-time f-right">
 		
 			<span class="icon with-text is-icon-small" icon="w"></span>
 			{{humanize dateBinding="content.created" }}
@@ -71,7 +69,5 @@
 		</div>
 
 	</div>
-
-</div>
 
 {{/with}}

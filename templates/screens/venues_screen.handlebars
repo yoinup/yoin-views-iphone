@@ -26,6 +26,28 @@
         {{#if content.length }}
 
             <div class="space by-one"></div>
+
+            <div class="box">
+              {{#if friends.length }}
+                ppcanodehuelva
+              {{else}}
+
+                {{#view Yn.BtapView class="box-content has-padding hasnot-item"
+                  action="addFriend" }}
+                  <div class="box-content-element two-column-table">
+                      <div class="text left-column">
+                        {{I18n select_someone_to_invite}}
+                      </div>
+                      <div class="control right-column">
+                        <span class="icon is-icon-normal with-text" icon="d"></span>
+                      </div>
+                  </div>
+                {{/view}}
+
+              {{/if}}
+            </div>
+
+            <div class="space by-one"></div>
             {{#each item in content}}
 
               <div class="space by-one"></div>

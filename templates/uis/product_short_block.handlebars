@@ -1,21 +1,20 @@
-
 {{#with view}}
 
-	<div class="product-short-block-content">
+	<div class="short-block-content">
 		
-		<div class="product-short-block-content-image">
+		<div class="short-block-image">
 
 			{{view Yn.SquareImageView class=imagetype contentBinding="content" withPhoto=true }}
 
 		</div>
 
-		<div class="product-short-block-content-name">
+		<div class="short-block-name">
 
-			<span class="product-short-block-content-productname">{{content.name}}</span>
+			<span class="short-block-name-high">{{content.name}}</span>
 
 			{{#if venue}}
 
-				<div class="product-short-block-content-city">
+				<div class="short-block-name-low">
 
 					<span class="icon with-text is-icon-x-small" icon="i">
 
