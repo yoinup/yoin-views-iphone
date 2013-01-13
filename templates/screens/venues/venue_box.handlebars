@@ -16,8 +16,7 @@
 			</div>
 
 			<div class="venue-location-name">
-				<span class="icon with-text is-icon-small" icon="i"></span>
-				{{venue.brand.name}}, {{venue.city.name}}
+				{{venue.brand.name}}
 			</div>
 
 		</div>
@@ -63,13 +62,13 @@
 		<div class="venue-box-users">
 
 			{{#if hasPeople}}
-				<div class="venue-box-users-title">
+				<div class="box-title-inline not-inherit-padding">
 					{{I18n venue_people_title}}:
 				</div>
-				<div class="venue-box-users-list">
+				<div class="box-content-element with-normal-image-padding">
 
 					{{#each person in fivePeople}}
-            {{view Yvi.VenueNearUserSquareImageView class="touchable inline fix-scrolling-touch"
+            {{view Yvi.VenueNearUserSquareImageView class="is-special1 touchable inline fix-scrolling-touch"
               contentBinding="person"
               venueBinding="venue"
               withPhoto=true }}

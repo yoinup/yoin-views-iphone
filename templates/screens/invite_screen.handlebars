@@ -38,19 +38,9 @@
 
 		{{else}}
 
-      {{#view Yn.BtapView class="box-content hasnot-item"
-          action="goToChooseUser" }}
-
-        <div class="box-content-element two-column-table">
-            <div class="text left-column">
-              {{I18n select_someone_to_invite}}
-            </div>
-            <div class="control right-column">
-              <span class="icon is-icon-normal with-text" icon="d"></span>
-            </div>
-        </div>
-
-      {{/view}}
+      {{view Yvi.SelectItemBoxContentView
+        contentI18n="select_someone_to_invite"
+        action="goToChooseUser"}}
 
 		{{/if}}
 
@@ -109,19 +99,9 @@
 
         {{else}}
 
-          {{#view Yn.BtapView class="box-content hasnot-item"
+          {{view Yvi.SelectItemBoxContentView
+            contentI18n="select_something_for_inviting"
             action="goToChooseProduct"}}
-
-            <div class="box-content-element two-column-table" >
-                <div class="text left-column">
-                  {{I18n select_something_for_inviting}}
-                </div>
-                <div class="control right-column">
-                  <span class="icon is-icon-normal is-icon-grey with-text" icon="d"></span>
-                </div>
-            </div>
-
-          {{/view}}
 
         {{/if}}
 
