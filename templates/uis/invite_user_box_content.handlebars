@@ -1,0 +1,70 @@
+{{#with view}}
+
+  {{#if user }}
+    <div class="box-content-element three-column-table">
+      <div class="picture left-column">
+        {{view Yn.SquareImageView class="is-normal" contentBinding="user" withPhoto=true }}
+      </div>
+      <div class="name middle-column">
+        <div class="high">{{user.name}}</div>
+        {{#if user.city}}
+          <div class="low">
+            <span class="icon with-text is-icon-x-small" icon="i"></span>
+            {{user.city.name}}
+          </div>
+        {{/if}}
+      </div>
+      <div class="action-button right-column">
+        {{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black" 
+          contentI18n="change"
+          action="changeUser" }}
+      </div>
+    </div>
+  {{/if}}
+
+  {{#if agendaUser }}
+    <div class="box-content-element three-column-table">
+      <div class="picture left-column">
+        
+      </div>
+      <div class="name middle-column">
+        <div class="high">{{agendaUser.name}}</div>
+        {{#if agendaUser.city}}
+          <div class="low">
+            <span class="icon with-text is-icon-x-small" icon="i"></span>
+            {{agendaUser.city.name}}
+          </div>
+        {{/if}}
+      </div>
+      <div class="action-button right-column">
+        {{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black" 
+          contentI18n="change"
+          action="changeUser" }}
+      </div>
+    </div>
+  {{/if}}
+
+  {{#if facebookUser }}
+    <div class="box-content-element three-column-table">
+      <div class="picture left-column">
+        {{view Yn.SquareImageView class="is-normal" contentBinding="facebookUser.id" withPhoto=true isFBUser=true }}
+      </div>
+      <div class="name middle-column">
+        <div class="high">{{facebookUser.name}}</div>
+        {{#if facebookUser.city}}
+          <div class="low">
+            <span class="icon with-text is-icon-x-small" icon="i"></span>
+            {{facebookUser.city.name}}
+          </div>
+        {{/if}}
+      </div>
+      <div class="action-button right-column">
+        {{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black" 
+          contentI18n="change"
+          action="changeUser" }}
+      </div>
+    </div>
+  {{/if}}
+
+
+{{/with}}
