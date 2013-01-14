@@ -20,12 +20,12 @@
 				viewName="all" 
 				selectedCategoryBinding="selectedCategory" }}
 
-				<div id="choose-product-categories">
+				<div class="submenu-tabs">
 
 					{{#each categories}}
 
 						{{view Yvi.ChooseProductCategoryButtonView 
-							class="category-button"
+							class="submenu-tab"
 							content=this 
 							selectedBinding="view.selectedCategory"}}
 

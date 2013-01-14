@@ -6,7 +6,6 @@
 @import 'borders';
 
 
-@tab-color:@brown01;
 @channels-color:@grey05;
 
 
@@ -25,76 +24,6 @@
 
 			> .choose-user-type-tab {
 
-				> #channels {
-
-					position: relative; 
-					height: 50px;
-					width: 100%;
-					.action-bar-with-shadow-style (@channels-color);
-
-					> .channel-button {
-
-						float: left;
-						height: 100%;
-						width: 20%;
-						.action-bar-border-tab-style (@channels-color);
-
-						> .channel-button-element {
-
-							margin-left: 25%;
-							margin-top: 10px;
-
-						}
-
-					}
-
-					> .channel-button:active {
-						
-						.action-bar-border-tab-selected-style (@channels-color);
-
-					}
-
-
-					> .channel-button.last {
-
-						-webkit-box-shadow:none; 
-
-					}
-
-
-					> .channel-button.last:active {
-
-            .action-bar-border-last-tab-selected-style (@channels-color); 
-
-					}
-
-
-					> .channel-button:before {
-
-						margin-left: 30%;
-						line-height: 54px;
-						color: @grey10;
-						text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
-
-					}
-
-					> .channel-button.is-selected {
-							
-						.action-bar-border-tab-selected-style (@channels-color);
-
-					}
-
-					> .channel-button.last.is-selected {
-
-            .action-bar-border-last-tab-selected-style (@channels-color); 
-
-          }
-
-					> .channel-button.is-selected:before {
-
-					}
-
-				}
 
 
 				> #choose-user-tab-main {
