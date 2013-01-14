@@ -40,7 +40,7 @@
 
       {{#unless user.firstPhoneChannel}}
 
-        <div class="box-content">
+        <div class="box-content has-li">
           <div class="box-content-li two-column-table">
 
             <div class="main-text left-column">
@@ -58,7 +58,7 @@
 
       {{else}}
 
-        <div class="box-content has-fill-border">
+        <div class="box-content has-fill-border has-li">
           <div class="box-content-li two-column-table">
             <div class="main-text left-column">
               {{user.firstPhoneChannel.phone}}
@@ -72,7 +72,7 @@
           </div>
         </div>
 
-        <div class="box-content">
+        <div class="box-content has-li">
           <div class="box-content-li two-column-table">
             <div class="left-column">
               {{view Yn.InputView id="user-input-validation" class="single-input"
@@ -91,7 +91,7 @@
 
     {{else}}
 
-        <div class="box-content">
+        <div class="box-content has-li">
           <div class="box-content-li two-column-table">
             <div class="main-text left-column">
               {{user.firstPhoneChannel.phone}}

@@ -29,6 +29,17 @@
 
 		</div>
 
+  {{#if hasPrice }}
+
+		<div class="short-block-ext">
+
+      {{view Yn.PriceLabelView
+        productBinding="content"}}   
+
+    </div>
+
+  {{/if}}	
+
 	</div>
 
 {{/with}}

@@ -44,33 +44,22 @@
 
                   <div class="space by-one"></div>
 
-                  <div class="product-list-box box">
+                  <div class="box">
 
-                    <div class="product-list-title box-title box-title-top">
+                    <div class="box-title box-title-top">
                       {{selectedCategory.name}}
                     </div>
 
-                    <div class="product-list-content box-content">
+                    <div class="box-content has-li">
 
                       {{#each allContent}}
 
-
-                      {{#view Yn.BtapView class="product-list-element three-column-table" 
-                        action="selectProduct"
-                        actionContentBinding="this"}}
-                            <div class="product-list-element-image left-column"> 
-                              {{view Yn.SquareImageView class="is-small"
-                                contentBinding="this"
-                                withPhoto=true }}
-                            </div>
-                            <div class="product-list-element-name middle-column">
-                              {{name}}
-                            </div>
-
-                            {{view Yn.PriceLabelView class="right-column"
-                              productBinding="this"}}
-
-                        {{/view}}
+                        <div class="box-content-li">
+                          {{view Yvi.ProductShortBlockView class="is-normal" 
+                            hasPrice=true
+                            contentBinding="this" 
+                            imagetype="is-normal"}}
+                        </div>
 
                       {{/each}}
 
@@ -119,7 +108,7 @@
 
           {{#if user}}
 
-            <div id="selected-user" class="box">
+            <div class="box">
 
               <div class="box-title box-title-top">
                 {{I18n products_closed_to}}:
@@ -137,38 +126,29 @@
 
                 <div class="space by-one"></div>
 
-                <div class="product-list-box box">
+                <div class="box">
 
-                  <div class="product-list-title box-title box-title-top">
+                  <div class="box-title box-title-top">
                     {{I18n all_products}}
                   </div>
 
-                  <div class="product-list-content box-content">
+                  <div class="box-content has-li">
 
                     {{#each nearsContent}}
 
-                        {{#view Yn.BtapView class="product-list-element three-column-table" 
-                          action="selectProduct"
-                          actionContentBinding="this"}}
+                      <div class="box-content-li">
+                        {{view Yvi.ProductShortBlockView class="is-normal" 
+                          hasPrice=true
+                          contentBinding="this" 
+                          imagetype="is-normal"}}
+                      </div>
 
-                          <div class="product-list-element-image left-column"> 
-                            {{view Yn.SquareImageView class="is-small" contentBinding="this" withPhoto=true }}
-                          </div>
-                          <div class="product-list-element-name middle-column">
-                            {{name}}
-                          </div>
-
-                          {{view Yn.PriceLabelView class="right-column"
-                            productBinding="this"}}
-
-                        {{/view}}
                     {{/each}}
 
                   </div>
 
                 </div>
 
-                <div class="space by-one"></div>
 
               {{else}}
 
