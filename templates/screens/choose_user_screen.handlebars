@@ -161,27 +161,25 @@
                               {{#if agendaContent.length }} 
 
                                     <div class="space by-one"></div>
-                                    <div class="choose-user-channel-people box">
+                                    <div class="box">
 
                                       <div class="box-title box-title-top">
-
                                         {{title}}
-
                                       </div>
 
-                                      <div class="choose-user-channel-people-content box-content">
+                                      <div class="box-content">
 
                                         {{#each agendaContent}}
 
-                                          <div class="choose-user-channel-people-content-element">
+                                          <div class="box-content-li">
 
-                                            {{#view Yn.BtapView
+                                            {{view Yvi.TapUserShortBlockView class="is-small" 
+                                              imagetype="is-small" 
+                                              typeBinding="Yvi.UserType.PhoneChannel"
+                                              contentBinding="this" 
+                                              phoneNameBinding="name"
                                               action="selectAgendaUser"
-                                              actionContentBinding="this" }}
-
-                                              {{name}}
-
-                                            {{/view}}
+                                              actionContentBinding="this"}}
 
                                           </div>
 
@@ -230,22 +228,21 @@
                         {{#if yoinContent.length }} 
 
                           <div class="space by-one"></div>
-                          <div class="choose-user-channel-people box">
+                          <div class="box">
 
                             <div class="box-title box-title-top">
-
                               {{title}}
-
                             </div>
 
-                            <div class="choose-user-channel-people-content box-content">
+                            <div class="box-content">
 
                               {{#each yoinContent}}
 
-                                <div class="choose-user-channel-people-content-element">
+                                <div class="box-content-li">
 
                                   {{view Yvi.TapUserShortBlockView class="is-small" 
                                   imagetype="is-small" 
+                                  typeBinding="Yvi.UserType.appuser"
                                   contentBinding="this" 
                                   showCity=false 
                                   action="selectUser"
@@ -332,19 +329,17 @@
                             {{#if facebookContent.length }} 
 
                                 <div class="space by-one"></div>
-                                <div class="choose-user-channel-people box">
+                                <div class="box">
 
                                   <div class="box-title box-title-top">
-
                                     {{title}}:
-
                                   </div>
 
-                                  <div class="choose-user-channel-people-content box-content">
+                                  <div class="box-content">
 
                                     {{#each facebookContent}}
 
-                                      <div class="choose-user-channel-people-content-element">
+                                      <div class="box-content-li">
                                         {{view Yvi.TapUserShortBlockView class="is-small"
                                           imagetype="is-small"
                                           typeBinding="Yvi.UserType.FbChannel"
@@ -410,7 +405,9 @@
 
               <div class="box-content">
 
-                {{view Yvi.VenueShortBlockView class="is-normal" imagetype="is-normal" contentBinding="venue" }}
+                {{view Yvi.VenueShortBlockView class="is-normal" 
+                  imagetype="is-normal" 
+                  contentBinding="venue" }}
 
               </div>
 
@@ -424,7 +421,7 @@
                 {{#if nearContent.length }} 
 
 
-                    <div id="choose-user-near-people" class="box">
+                    <div class="box">
 
                       <div class="box-title box-title-top">
 
@@ -432,11 +429,11 @@
 
                       </div>
 
-                      <div id="choose-user-near-people-content" class="box-content">
+                      <div class="box-content">
 
                         {{#each nearContent }}
 
-                          <div class="choose-user-near-people-content-element">
+                          <div class="box-content-li">
 
                             {{view Yvi.TapUserShortBlockView class="is-small" 
                               imagetype="is-small" 

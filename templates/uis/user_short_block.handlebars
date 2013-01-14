@@ -4,34 +4,29 @@
 
 	<div class="short-block-content">
 
-		<div class="short-block-image">
+    {{#if hasImage }}
+      <div class="short-block-image">
+        {{#if isYoinUser }}
 
-			{{#if isYoinUser }}
+          {{view Yn.SquareImageView class=imagetype
+            contentBinding="content"
+            withPhoto=true }}
 
-				{{view Yn.SquareImageView class=imagetype
-					contentBinding="content"
-					withPhoto=true }}
+        {{else}}
 
-			{{else}}
+          {{#if isFbUser }}
 
-				{{#if isFbUser }}
+            {{view Yn.SquareImageView class=imagetype
+              contentBinding="fbId"
+              isFBUser=true
+              withPhoto=true }}
 
-					{{view Yn.SquareImageView class=imagetype
-						contentBinding="fbId"
-						isFBUser=true
-						withPhoto=true }}
+          {{/if}}
 
-				{{else}}
+        {{/if}}
 
-					{{view Yn.SquareImageView class=imagetype
-						contentBinding=null
-						withPhoto=true }}
-
-				{{/if}}
-
-			{{/if}}
-
-		</div>
+      </div>
+    {{/if}}
 
 		<div class="short-block-name">
 
@@ -73,15 +68,13 @@
 
 			{{else}}
 
-				{{#if isFbUser }}
-
-					<span class="main-text">{{fbName}}</span>
-
-				{{else}}
-
-					<span class="main-text">{{phoneName}}</span>
-
-				{{/if}}	
+        <span class="main-text">
+          {{#if isFbUser }}
+            {{fbName}}
+          {{else}}
+            {{phoneName}}
+          {{/if}}	
+        </span>
 
 			{{/if}}
 
