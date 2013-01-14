@@ -36,31 +36,25 @@
 
 			<div class="block-content-name">
 
-				{{#if content.toUser }}
-				
-				  <span class="text is-big is-black">
-				
-				    {{#if content.toUser.suspended }}
-				      {{I18n someone}}
-				    {{else}}
-				      {{content.toUser.name}}
-				    {{/if}}
+        <span class="main-text">
+          {{#if content.toUser }}
+          
+            {{#if content.toUser.suspended }}
+              {{I18n someone}}
+            {{else}}
+              {{content.toUser.name}}
+            {{/if}}
 
-					</span>
+          {{else}}
 
-				{{else}}
+            {{#if content.creationUsername }}
+              {{content.creationUsername}}
+            {{else}}
+              {{content.creationUsername}}
+            {{/if}}
 
-					{{#if content.creationUsername }}
-
-						<span class="text is-big is-black">{{content.creationUsername}}</span>
-
-					{{else}}
-
-						<span class="text is-big is-black">{{content.creationUsername}}</span>
-
-					{{/if}}
-
-				{{/if}}
+          {{/if}}
+        </span>
 
 				<div class="block-content-product">
 

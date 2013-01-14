@@ -29,11 +29,12 @@
               <div class="box-content">
 
                 {{#each content}}
-                  <div class="friends-element">
+                  <div class="box-content-li">
                     {{view Yvi.UserShortBlockView class="is-normal" 
                       hasInviteButton=true
                       showCity=false
-                      contentBinding="this" imagetype="is-normal"  }}
+                      contentBinding="this" 
+                      imagetype="is-normal"  }}
                   </div>
                 {{/each}}
 

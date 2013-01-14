@@ -13,18 +13,6 @@
 
 #me_screen {
 
-	> #me-header {
-
-		> .activity-button {
-
-			position: absolute;
-			top: 10px;
-			right: 28%;
-
-		}
-
-	}
-
 	> #me-screen-container {
 
 		> #me-screen-content {
@@ -75,37 +63,23 @@
 
 			> #me-tabs {
 				position: relative;
-				
 				width: 100%;
 				height: @action-bar-height - 1;
-				
-				line-height: 16px;
-				
 				.action-bar-style (@tab-color);
 
 				> .me-tab {
+
 					float: left;
-        			height: 100%;
-        			width: 100%/3;
-					text-align: center;
+          height: 100%;
+          width: 100%/2;
 					.action-bar-border-tab-style(@tab-color);
 
-					> .number {
+					text-align: center;
+          line-height: @action-bar-height - 1;
+          .text-style;
+          .button-text-style;
+          .button-text-is-font-grey-style;
 
-						margin-top: 6px;
-					
-						.text-is-big-style;
-						.text-is-font-black-style;
-
-					}
-
-					> .desc {
-
-						.text-style;
-						.button-text-style;
-						.button-text-is-font-grey-style;
-						
-					}
 				}
 
 				> .me-tab:active {
@@ -144,18 +118,18 @@
 
 				> .me-tab-pane.friend {
 
-					> .friends-box {
+					> .box {
 
-						> .friends-list {
+						> .box-content-ul {
 
-							> .friends-element {
+							> .box-content-li {
 
 								.box-padding-style;
           			.list-element-fill-border;
 
 							}
 
-							> .friends-element:nth-last-child(3) {
+							> .box-content-li:nth-last-child(3) {
 
           			.list-element-clear-border;
 
@@ -163,111 +137,6 @@
 
 						}
 
-					}
-
-				}
-			
-				> .me-tab-pane.unexchanged {
-
-					> .block-unexchanged {
-					
-						> .box-title {
-						
-							display: table;
-							position: relative;
-							width: 100%;
-						
-							> .image {
-								
-								display: table-cell;
-								vertical-align: middle;
-								width: 10%;
-							
-							}
-							
-							> .name {
-							
-								display: table-cell;
-								vertical-align: middle;
-								width: 80%;
-								padding-left: 5px;
-								.text-is-font-grey-style;
-								.text-is-font-bold-style;
-							
-							}
-
-							> .resend {
-
-								display: table-cell;
-								vertical-align: middle;
-								width: 10%;
-
-                > .rectangle-button {
-                  position: relative;
-                }
-
-              }
-						
-						}
-						
-						> .box-content {
-						
-							display: table;
-							position: relative;
-							width: 100%;
-						
-							> .image {
-								
-								display: table-cell;
-								vertical-align: middle;
-								width: 20%;
-							
-							}
-							
-							> .product {
-							
-								display: table-cell;
-								vertical-align: middle;
-								width: 60%;
-								padding-left: 5px;
-								padding-right: 5px;
-								.text-is-big-style;
-								.text-is-font-black-style;
-								
-								.venue {
-								
-									.text-is-small-style;
-									.text-is-font-grey-style;
-									font-weight: normal;
-								
-								}
-							
-							}
-							
-							> .exchange-button {
-								
-								display: table-cell;
-								vertical-align: middle;
-								width: 20%;
-
-								.rectangle-button-adaptative {
-
-                  //@ale: this cannot be done
-									//padding: 0 2px 0;
-
-								}
-							
-							}
-						
-						}
-
-						> .block-unexchanged-content:active {
-
-							.box-press;
-							.border-bottom-box-radius-style;
-
-						}
-					
 					}
 
 				}

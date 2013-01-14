@@ -4,7 +4,7 @@
 
 	<div class="short-block-content">
 
-		<div class="short-block-content-image">
+		<div class="short-block-image">
 
 			{{#if isYoinUser }}
 
@@ -33,11 +33,11 @@
 
 		</div>
 
-		<div class="short-block-content-name">
+		<div class="short-block-name">
 
 			{{#if isYoinUser }}
 			
-			  <span class="short-block-name-high">
+			  <span class="main-text">
 			  
 			    {{#if content.suspended }}
 		        {{I18n someone}}
@@ -51,7 +51,7 @@
 
 					{{#if content.city}}
 
-						<div class="short-block-name-low">
+						<div class="detail-text">
 
 							<span class="icon with-text is-icon-x-small" icon="i">
 							</span>
@@ -65,7 +65,7 @@
 
 				{{else}}
 
-						<div class="short-block-name-low without-icon">
+						<div class="detail-text without-icon">
 							{{content.status}}
 						</div>
 
@@ -75,11 +75,11 @@
 
 				{{#if isFbUser }}
 
-					<span class="short-block-name-high">{{fbName}}</span>
+					<span class="main-text">{{fbName}}</span>
 
 				{{else}}
 
-					<span class="short-block-name-high">{{phoneName}}</span>
+					<span class="main-text">{{phoneName}}</span>
 
 				{{/if}}	
 

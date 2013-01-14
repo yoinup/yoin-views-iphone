@@ -63,7 +63,7 @@
               {{view Yn.SquareImageView class="is-normal" contentBinding="invitation.product" withPhoto=true }}
             </div>
             <div class="name middle-column">
-              <div class="high">{{invitation.product.name}}</div>
+              <div class="main-text">{{invitation.product.name}}</div>
             </div>
           </div>
         </div>
@@ -83,7 +83,7 @@
                 {{view Yn.SquareImageView class="is-normal" contentBinding="product" withPhoto=true }}
               </div>
               <div class="name middle-column">
-                <div class="high">{{product.name}}</div>
+                <div class="main-text">{{product.name}}</div>
                 {{view Yn.PriceLabelView class="is-small"
                   productBinding="product"}}
               </div>
@@ -123,8 +123,8 @@
             {{view Yn.SquareImageView class="is-normal" contentBinding="venue.brand" withPhoto=true }}
           </div>
           <div class="name middle-column">
-            <div class="high">{{venue.name}}</div>
-            <div class="low">
+            <div class="main-text">{{venue.name}}</div>
+            <div class="detail-text">
               {{venue.address}}
               {{#if venue.zip}}, {{venue.zip}} {{/if}}
             </div>
@@ -150,8 +150,8 @@
               {{view Yn.SquareImageView class="is-normal" contentBinding="brand" withPhoto=true }}
             </div>
             <div class="name middle-column">
-              <div class="high">{{name}}</div>
-              <div class="low">
+              <div class="main-text">{{name}}</div>
+              <div class="detail-text">
                 {{address}}
                 {{#if zip}}, {{zip}} {{/if}}
               </div>

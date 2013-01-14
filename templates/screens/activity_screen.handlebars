@@ -8,19 +8,6 @@
 
 {{/view }}
 
-    {{#if isSlider}}
-      {{view Yn.SliderView}}
-    {{/if}}
-
-    {{#if notificationIsVisible}}
-
-      {{view Yn.NotificationView
-        contentBinding="notificationContent"
-        typeBinding="notificationType"
-        isInDomBinding="notificationIsVisible" }}
-
-    {{/if}}
-
 {{#view Yn.RefreshScrollerView id="activity-screen-container" class="screen-container" 
   isRefreshedBinding="isRefreshed"
   lengthBinding="activities.length"
