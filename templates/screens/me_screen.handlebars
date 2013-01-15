@@ -124,21 +124,12 @@
                   {{#if isInvitation}}
 
                     {{#if_eq "invitation.fromUser view.loggedUser"}}
-                        {{view Yvi.UserInteractionSentBlockView contentBinding="invitation" }}
+                        {{view Yvi.SendInvitationActivityView contentBinding="invitation" }}
                     {{ else }}
-                        {{view Yvi.UserInteractionReceivedBlockView contentBinding="invitation" }}
+                        {{view Yvi.GetInvitationActivityView contentBinding="invitation" }}
                     {{/if_eq}}
 
                   {{/if}}
-
-                  {{#if isLike}}
-                    {{view Yvi.UserInteractionLikedBlockView contentBinding="like" }}
-                  {{/if}}
-
-                  {{#if isComment}}
-                    {{view Yvi.UserInteractionCommentedBlockView contentBinding="comment" }}
-                  {{/if}}
-
 								
 								<div class="space by-one"></div>
 
@@ -147,9 +138,7 @@
 						{{else }}
 
 								{{view Yn.EmptyView class="is-small"
-									contentI18n="empty_unexchanged"
-									messageAction="start"
-									textAction="start" }}
+                  contentI18n="empty_activity"}}
 
 						{{/if}}
 
