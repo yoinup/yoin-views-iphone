@@ -53,14 +53,20 @@
 
 		</div>
 
-		<div id="me-tabs">
+		<div class="submenu-tabs is-two-items">
 
-			{{#view Yvi.MeTabOptionView tab="friend" currentTabViewBinding="currentTabView" }}
-				{{I18n friends}}
+      {{#view Yvi.MeTabOptionView class="submenu-tab"
+        tab="friend" currentTabViewBinding="currentTabView" }}
+        <div class="submenu-tab-title">
+          {{I18n friends}}
+        </div>
 			{{/view}}
 
-			{{#view Yvi.MeTabOptionView tab="activity" currentTabViewBinding="currentTabView" }}
-				{{I18n activity}}
+      {{#view Yvi.MeTabOptionView class="submenu-tab"
+        tab="activity" currentTabViewBinding="currentTabView" }}
+        <div class="submenu-tab-title">
+          {{I18n activity}}
+        </div>
 			{{/view}}
 
 		</div>

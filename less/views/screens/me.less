@@ -7,7 +7,7 @@
 @import 'gradients';
 
 
-@tab-color: @grey06;
+@tab-color: @grey05;
 @venue-products-height: 80px;	
 
 
@@ -19,17 +19,15 @@
 
 			> #me-content-header {
 				
-				height: @venue-products-height;	
-
 				background-size: 100%;
 				background-image: url(./assets/images/user-container.jpg);
+
+				height: 80px;	
 				width: 100%;
 				display: table;
+
 				color: white;
 				padding-left: 1em;
-
-				//border-top: 1px solid @grey05;
-				//border-bottom: 1px solid @grey08;
 
 				> #me-content-header-image {
 
@@ -45,102 +43,8 @@
 					vertical-align: middle;
 					width: 80%;
 
-					> #me-content-header-text-name {
-						
-					}
-					
-					> #me-content-header-text-name.is-user-city {
-						
-					}
-
-					> #me-content-header-text-city {
-						
-					}
-
 				}
 
-			}
-
-			> #me-tabs {
-				position: relative;
-				width: 100%;
-				height: @action-bar-height - 1;
-				.action-bar-style (@tab-color);
-
-				> .me-tab {
-
-					float: left;
-          height: 100%;
-          width: 100%/2;
-					.action-bar-border-tab-style(@tab-color);
-
-					text-align: center;
-          line-height: @action-bar-height - 1;
-          .text-style;
-          .button-text-style;
-          .button-text-is-font-grey-style;
-
-				}
-
-				> .me-tab:active {
-
-					.action-bar-border-tab-selected-style (@tab-color);
-
-				}
-
-				> .me-tab.last {
-
-					-webkit-box-shadow: none;
-
-				}
-
-				> .me-tab.last:active { 
-
-					.action-bar-border-last-tab-selected-style (@tab-color);
-
-				}
-
-				> .me-tab.is-selected {
-					
-					.action-bar-border-tab-selected-style (@tab-color);
-				}
-
-				> .me-tab.last.is-selected {
-
-					.action-bar-border-last-tab-selected-style (@tab-color);
-
-				}
-
-
-			}
-			
-			> .tab-main {
-
-				> .me-tab-pane.friend {
-
-					> .box {
-
-						> .box-content-ul {
-
-							> .box-content-li {
-
-								.box-padding-style;
-          			.list-element-fill-border;
-
-							}
-
-							> .box-content-li:nth-last-child(3) {
-
-          			.list-element-clear-border;
-
-							}							
-
-						}
-
-					}
-
-				}
-			
 			}
 
 		}
