@@ -1,10 +1,8 @@
 {{#with view}}
 
 {{#view Yn.HeaderView id="settings-header" class="with-small-shadow"}}
-
 	{{view Yn.BackButtonView }}
 	<div class="header-title">{{I18n settings}}</div>
-
 {{/view }}
 
 {{#view Yn.ScrollerView class="screen-container"
@@ -12,52 +10,38 @@
 
 	<div class="space by-one"></div>
 
-	<div id="block-basic-info" class="box">
+	<div class="box">
 
-		<div class="box-title box-title-top">
-
+		<div class="box-title-top">
 			{{I18n basic_settings}}
-
 		</div>
 
 		<div class="box-content">
 
-			<div id="block-basic-info-data" class="three-column-table">
+			<div class="box-content-element three-column-table">
 
-				<div id="block-basic-info-image" class="left-column"> 
-
+				<div class="picture left-column"> 
 					{{view Yn.SquareImageView class="is-normal" contentBinding="user" withPhoto=true }}
-
 				</div>
 
-				<div id="block-basic-info-user" class="middle-column">
-
-					<div id="block-basic-info-username">
-
+				<div class="name middle-column">
+					<div class="main-text">
 						{{user.name}}
-
 					</div>
 
 					{{#if user.city}}
-
-						<div id="block-basic-info-cityname">
-
+						<div class="detail-text">
 							<span class="icon with-text is-icon-small" icon="i"></span>
-
 							{{user.city.name}}
-
 						</div>
-
 					{{/if}}
 
 				</div>
 
-				<div id="block-basic-info-button" class="right-column">
-
+				<div class="control right-column">
           {{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black" 
             contentI18n="edit" 
             action="goToEditSettings" }}
-
 				</div>
 
 			</div>
@@ -68,26 +52,20 @@
 
 	<div class="space by-one"></div>
 
-  {{#view Yn.BtapView id="block-status" class="box" 
+  {{#view Yn.BtapView class="box has-tap has-message" 
     action="goToUserStatus" }}
 
-		<div id="block-status-content" class="box-content">
+		<div class="box-content">
 
-			<div id="block-status-content-table" class="two-column-table">
+      <div class="box-content-element two-column-table">
 
-				<div id="status-block" class="left-column">
-
-					<div id="label">{{I18n status}}</div>
-
-					<div id="status">"{{user.status}}"</div>
-
+        <div class="left-column">
+					<div class="main-text">{{I18n status}}</div>
+					<div class="detail-text">"{{user.status}}"</div>
 				</div>
-
-				<div id="icon-block" class="right-column">
-
-					<span class="icon is-icon-normal is-icon-grey with-text" icon="d"></span>
-
-				</div>
+        <div class="control right-column">
+          <span class="icon is-icon-normal is-icon-grey with-text arrow"></span>
+        </div>
 
 			</div>
 
@@ -97,17 +75,17 @@
 
 	<div class="space by-one"></div>
 
-  <div id="block-privacy" class="box">
+  <div class="box has-message">
 
-		<div id="block-privacy-content" class="box-content">
+		<div class="box-content">
 
-			<div id="block-privacy-content-table" class="two-column-table">
+			<div class="box-content-element two-column-table">
 
-				<div id="privacy-block" class="left-column">
-					<div id="privacy-block-text">{{I18n privacy}}</div>
+				<div class="main-text left-column">
+					{{I18n privacy}}
 				</div>
 
-				<div class="control right-column">
+				<div class="control right-column fr">
           {{view Yn.SwitchButtonView isOnBinding="isCheckinOn" 
             switchAction="changePrivacy" }}
 				</div>
@@ -121,47 +99,39 @@
 
 	<div class="space by-one"></div>
 
-	<div id="block-agenda" class="box">
+	<div class="box">
 
-		<div class="box-content"> 
+    {{#view Yn.BtapView class="box-content has-tap" 
+      action="goToUserPhone"}}
 
-      {{#view Yn.BtapView id="agenda-channel" class="block-channels-element three-column-table" 
-        action="goToUserPhone"}}
+      <div class="box-content-element three-column-table"> 
 
-				<div class="image left-column">
-
-					{{view Yn.SquareImageView class="is-small"
+				<div class="picture left-column">
+					{{view Yn.SquareImageView class="is-normal"
 						content="phonebook_button"
 						withChannel=true }}
-					
 				</div>
 
-				<div class="channel middle-column">
-
+				<div class="name middle-column main-text">
 					{{I18n agenda}}
-
 				</div>
 
 				<div class="control right-column">
-
-					<span class="icon is-icon-normal is-icon-grey" icon="d"></span>
-
+          <span class="icon is-icon-normal is-icon-grey with-text arrow"></span>
 				</div>
 
-      {{/view}}
+      </div>
 
-		</div>
+    {{/view}}
 
 	</div>
 
-	<div class="space by-one"></div>
-
-	{{view Yn.MainButtonView id="block-logout"
+	{{view Yn.MainButtonView
 		class="is-red"
 		contentI18n="close_session"
 		action="closeSession" }}
 
-  {{view Yn.MainButtonView id="block-delete-account"
+  {{view Yn.MainButtonView
   	class="is-black"
   	contentI18n="delete_account"
   	action="deleteAccount" }}
