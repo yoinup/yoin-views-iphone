@@ -13,42 +13,39 @@
 
 #me_screen {
 
-	> #me-screen-container {
+	> .screen-container {
 
-		> #me-screen-content {
+    > #me-content-header {
+      
+      background-size: 100%;
+      background-image: url(./assets/images/user-container.jpg);
 
-			> #me-content-header {
-				
-				background-size: 100%;
-				background-image: url(./assets/images/user-container.jpg);
+      height: 80px;	
+      width: 100%;
+      display: table;
 
-				height: 80px;	
-				width: 100%;
-				display: table;
+      color: white;
+      padding-left: 1em;
 
-				color: white;
-				padding-left: 1em;
+      > #me-content-header-image {
 
-				> #me-content-header-image {
+        display: table-cell;
+        vertical-align: middle;
+        width: 20%;
 
-					display: table-cell;
-					vertical-align: middle;
-					width: 20%;
+      }
 
-				}
+      > #me-content-header-text {
+      
+        display: table-cell;
+        vertical-align: middle;
+        width: 80%;
 
-				> #me-content-header-text {
-				
-					display: table-cell;
-					vertical-align: middle;
-					width: 80%;
+      }
 
-				}
+    }
 
-			}
-
-		}
+  }
 		
-	}
 
 }

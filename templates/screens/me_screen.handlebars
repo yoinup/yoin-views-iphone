@@ -10,9 +10,7 @@
 
 {{/view }}
 
-<div id="me-screen-container" class="screen-container">
-
-	<div id="me-screen-content">
+<div class="screen-container">
 
 		<div id="me-content-header">
 
@@ -24,30 +22,24 @@
 
 				<div id="me-content-header-text">
 
+            <div class="header-text">
+              {{user.name}}
+            </div>
 
-						<div id="me-content-header-text-name">
-						
-							<div id="me-content-header-text-user-name" class="header-text">
-								{{user.name}}
-							</div>
-							
-							<div id="me-content-header-text-user-state" class="state-text">
-								{{user.status}}
-							</div>
+            <div class="state-text">
+              {{user.status}}
+            </div>
 
-							{{#if user.city}}
+            {{#if user.city}}
 
-								<div id="me-content-header-text-city" class="text is-small is-white">
+              <div class="text is-small is-white">
 
-									<span class="icon with-text is-icon-small" icon="i"></span>
+                <span class="icon with-text is-icon-small" icon="i"></span>
+                {{user.city.name}}
 
-									{{user.city.name}}
+              </div>
 
-								</div>
-
-							{{/if}}
-
-						</div>
+            {{/if}}
 
 				</div>
 
@@ -170,7 +162,6 @@
 
 		{{/view}}
 
-	</div>
 
 </div>
 
