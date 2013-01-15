@@ -23,7 +23,7 @@
 
 	<div class="box">
 
-    <div class="box-title box-text-title box-title-top">
+    <div class="box-title box-title-top">
 
 			{{I18n invite_to_person_title}}:
 
@@ -53,11 +53,11 @@
 
 			{{#if invitation}}
 
-        <div class="box-title box-text-title box-title-top">
+        <div class="box-title box-title-top">
           {{I18n resend_invitation_title}}:
         </div>
 
-        <div class="box-content has-item">
+        <div class="box-content">
           <div class="box-content-element three-column-table">
             <div class="picture left-column">
               {{view Yn.SquareImageView class="is-normal" contentBinding="invitation.product" withPhoto=true }}
@@ -70,14 +70,14 @@
 
 			{{else}}
 
-        <div class="box-title box-text-title box-title-top">
+        <div class="box-title box-title-top">
           {{I18n invite_to_product_title}}:
         </div>
 
         {{#if product}}
 
 
-          <div  class="box-content has-item">
+          <div  class="box-content">
             <div class="box-content-element three-column-table">
               <div class="picture left-column">
                 {{view Yn.SquareImageView class="is-normal" contentBinding="product" withPhoto=true }}
@@ -114,7 +114,7 @@
   {{#if venue}}
 
     <div class="box">
-      <div class="box-title box-text-title box-title-top">
+      <div class="box-title box-title-top">
         {{I18n invite_to_venue_title}}:
       </div>
       <div class="box-content">
@@ -139,7 +139,7 @@
 
     <div class="box">
 
-      <div class="box-title box-text-title box-title-top">
+      <div class="box-title box-title-top">
         {{I18n invite_to_venue_title}}:
       </div>
 

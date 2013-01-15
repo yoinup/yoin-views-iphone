@@ -34,36 +34,32 @@
 
 	<div class="space by-one"></div>
 
-	<div id="block-status" class="box">
+	<div class="box">
 
-		<div id="block-status-title" class="box-title box-title-top">
-
+		<div class="box-title box-title-top">
 			{{I18n choose_one_by_default_message }}
-
 		</div>
 
-		<div id="block-status-list" class="box-content">
+		<div class="box-content has-li">
 
 			{{#each options}}
 
-				<div class="block-status-element two-column-table">
+          <div class="box-content-li box-content-element two-column-table">
 
-					<div class="value left-column">
+            <div class="main-text left-column">
+              {{I18n key=name}}
+            </div>
+            
+            <div class="control right-column fr"> 
 
-						{{I18n key=name}}
+              {{view Yn.ToggleCircleButtonView 
+                action="selectStatus" 
+                selectedBinding="view.user.status"
+                contentI18n=name}}            
 
-					</div>
-					
-					<div class="control right-column"> 
+            </div>
 
-						{{view Yn.ToggleCircleButtonView 
-							action="selectStatus" 
-							selectedBinding="view.user.status"
-							contentI18n=name}}            
-
-					</div>
-
-				</div>
+          </div>
 
 			{{/each}}
 
