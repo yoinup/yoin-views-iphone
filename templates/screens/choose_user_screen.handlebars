@@ -53,6 +53,8 @@
 								{{#view Yn.ScrollerView id="choose-user-agenda" class="choose-user-tab" 
                   holdPeriod=10
 									exclude="choose-user-menu-tabs choose-user-header submenu-tabs-channels"
+                  addExcludeExtra1Binding="withFooter"
+                  excludeExtra1="footer"
                   isRefreshedBinding="agendaIsRefreshed"
                   hasNextBinding="agendaHasNext"
                   lengthBinding="agendaContent.length"
@@ -215,6 +217,8 @@
 								{{#view Yn.ScrollerView id="choose-user-yoin" class="choose-user-tab" 
                   holdPeriod=10
 									exclude="choose-user-menu-tabs choose-user-header submenu-tabs-channels"
+                  addExcludeExtra1Binding="withFooter"
+                  excludeExtra1="footer"
                   isRefreshedBinding="yoinIsRefreshed"
                   hasNextBinding="yoinHasNext"
                   lengthBinding="yoinContent.length"
@@ -290,6 +294,8 @@
                   lengthBinding="facebookContent.length"
                   hasNextBinding="facebookHasNext"
 									exclude="choose-user-menu-tabs choose-user-header submenu-tabs-channels"
+                  addExcludeExtra1Binding="withFooter"
+                  excludeExtra1="footer"
 									viewName="facebook" }}
 
                     <div class="scroller-container fix-scrolling-touch">
@@ -389,6 +395,8 @@
 
 			{{#view Yn.ScrollerView id="choose-user-type-nears" class="choose-user-type-tab" 
 				exclude="choose-user-menu-tabs choose-user-header"
+        addExcludeExtra1Binding="withFooter"
+        excludeExtra1="footer"
 				viewName="nears" }}
 
 				<div class="space by-one"></div>
