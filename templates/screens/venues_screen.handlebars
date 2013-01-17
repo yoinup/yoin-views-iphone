@@ -19,9 +19,10 @@
   hasNextBinding="hasNext"
   lengthBinding="content.length" }}
 
-  {{#if isContentLoaded }}
 
     <div class="scroller-container fix-scrolling-touch">
+
+      {{#if isContentLoaded }}
 
         {{#if content.length }}
 
@@ -103,13 +104,13 @@
 
         {{/if}}
 
-    </div>
+    {{else }}
 
-  {{else }}
+      {{view Yn.SpinnerView}}
 
-    {{view Yn.SpinnerView}}
+    {{/if }}
 
-  {{/if }}
+  </div>
 
 {{/view}}
 
