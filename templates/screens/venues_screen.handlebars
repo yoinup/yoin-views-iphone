@@ -22,100 +22,101 @@
 
     <div class="scroller-container fix-scrolling-touch">
 
-      {{#if isContentLoaded }}
+          <div class="space by-one"></div>
 
-        {{#if content.length }}
+          <div class="box">
 
-            <div class="space by-one"></div>
+            {{#if hasUser }}
+              {{view Yvi.InviteUserBoxContentView 
+                userBinding="user"
+                agendaUserBinding="agendaUser"
+                facebookUserBinding="facebookUser" }}
+            {{else}}
 
-            <div class="box">
+              {{#if nextThreeFriends.length }}
 
-              {{#if hasUser }}
-                {{view Yvi.InviteUserBoxContentView 
-                  userBinding="user"
-                  agendaUserBinding="agendaUser"
-                  facebookUserBinding="facebookUser" }}
+              {{#view Yn.BtapView class="box-content with-image-without-title has-tap" 
+                action="addFriend"}}
+                  <div class="box-content-element two-column-table">
+
+                    <div class="left-column">
+                      {{#each person in nextThreeFriends}}
+                        {{view Yn.NonSimultaneouslyTapSquareImageView class="is-special1 touchable inline fix-scrolling-touch"
+                          contentBinding="person"
+                          actionContentBinding="person"
+                          action="chooseUser"
+                          withPhoto=true }}
+                      {{/each}}
+                    </div>
+
+                    <div class="control right-column">
+                      <span class="main-text is-grey">
+                        {{I18n friends}}
+                      </span>
+                      <span class="icon-after is-icon-normal with-text arrow">
+                      </span>
+                    </div>
+
+                  </div>
+                {{/view}}
               {{else}}
 
-                {{#if nextThreeFriends.length }}
-
-                {{#view Yn.BtapView class="box-content with-image-without-title has-tap" 
+                {{view Yvi.SelectItemBoxContentView
+                  contentI18n="select_someone_to_invite"
                   action="addFriend"}}
-                    <div class="box-content-element two-column-table">
-
-                      <div class="left-column">
-                        {{#each person in nextThreeFriends}}
-                          {{view Yn.NonSimultaneouslyTapSquareImageView class="is-special1 touchable inline fix-scrolling-touch"
-                            contentBinding="person"
-                            actionContentBinding="person"
-                            action="chooseUser"
-                            withPhoto=true }}
-                        {{/each}}
-                      </div>
-
-                      <div class="control right-column">
-                        <span class="main-text is-grey">
-                          {{I18n friends}}
-                        </span>
-                        <span class="icon-after is-icon-normal with-text arrow">
-                        </span>
-                      </div>
-
-                    </div>
-                  {{/view}}
-                {{else}}
-
-                  {{view Yvi.SelectItemBoxContentView
-                    contentI18n="select_someone_to_invite"
-                    action="addFriend"}}
-
-                {{/if}}
 
               {{/if}}
 
+            {{/if}}
 
+
+          </div>
+
+          {{#unless isContentLoaded }}
+
+            <div class="space by-one"></div>
+            <div class="text is-font-black is-not-box l-right is-small">
+                {{I18n searching_in}} {{selectedCity.name}}
             </div>
-            
-            <div class="venues-selected-city main-text">
-              {{selectedCity.name}}
-            </div>
 
-            {{#each item in content}}
 
-              <div class="space by-one"></div>
+          {{else}}
 
-              {{#if item.products.isLoaded }}
 
-                {{view Yvi.VenueBoxView 
-                  productsBinding="item.products"
-                  venueBinding="item"
-                  isGeopositionOnBinding="isGeopositionOn"
-                  loggedUserBinding="loggedUser" }}
-                <div class="space by-one"></div>
+              {{#if content.length }}
 
+                {{#each item in content}}
+
+                  <div class="space by-one"></div>
+
+                  {{#if item.products.isLoaded }}
+
+                    {{view Yvi.VenueBoxView 
+                      productsBinding="item.products"
+                      venueBinding="item"
+                      isGeopositionOnBinding="isGeopositionOn"
+                      loggedUserBinding="loggedUser" }}
+                    <div class="space by-one"></div>
+
+                  {{/if}}
+
+                {{/each}}
+
+                {{#if view.showBottomView }}
+                  {{view Yn.MiniSpinnerView }}
+                {{/if }}
+
+              {{else}}
+                {{view Yn.EmptyView contentI18n="empty_venues" }}
               {{/if}}
 
-            {{/each}}
+          {{/unless}}
 
-            {{#if view.showBottomView }}
+      </div>
 
-              {{view Yn.MiniSpinnerView }}
-
-            {{/if }}
-
-        {{else}}
-
-          {{view Yn.EmptyView contentI18n="empty_venues" }}
-
-        {{/if}}
-
-    {{else }}
-
+    {{#unless isContentLoaded}}
       {{view Yn.SpinnerView}}
-
-    {{/if }}
-
-  </div>
+    {{/unless}}
 
 {{/view}}
 
