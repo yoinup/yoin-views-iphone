@@ -39,29 +39,30 @@
 
                 {{#if nextThreeFriends.length }}
 
-                  <div class="box-content with-image-without-title">
+                {{#view Yn.BtapView class="box-content with-image-without-title has-tap" 
+                  action="addFriend"}}
                     <div class="box-content-element two-column-table">
 
                       <div class="left-column">
                         {{#each person in nextThreeFriends}}
-                          {{view Yn.TapSquareImageView class="is-special1 touchable inline fix-scrolling-touch"
+                          {{view Yn.NonSimultaneouslyTapSquareImageView class="is-special1 touchable inline fix-scrolling-touch"
                             contentBinding="person"
+                            actionContentBinding="person"
                             action="chooseUser"
-                            actionContentBinding="content"
                             withPhoto=true }}
                         {{/each}}
                       </div>
 
                       <div class="control right-column">
-
                         <span class="main-text is-grey">
                           {{I18n friends}}
                         </span>
                         <span class="icon-after is-icon-normal with-text arrow">
                         </span>
                       </div>
+
                     </div>
-                  </div>
+                  {{/view}}
                 {{else}}
 
                   {{view Yvi.SelectItemBoxContentView
