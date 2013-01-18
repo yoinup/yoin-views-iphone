@@ -3,6 +3,11 @@
 {{#view Yn.HeaderView id="settings-header" class="with-small-shadow"}}
 	{{view Yn.BackButtonView }}
 	<div class="header-title">{{I18n settings}}</div>
+
+  {{#view Yn.AdaptativeButtonView class="header-button l-right is-orange button-text is-small is-font-white" 
+    action="goToAbout"}}
+    {{I18n about}}
+  {{/view}}
 {{/view }}
 
 {{#view Yn.ScrollerView class="screen-container"

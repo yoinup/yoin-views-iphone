@@ -1,0 +1,50 @@
+{{#with view}}
+
+{{#view Yn.HeaderView id="about-header"}}
+  {{view Yn.BackButtonView }}
+  <div class="header-title">
+    {{I18n about}}
+  </div>
+{{/view }}
+
+
+<div class="screen-container">
+  
+  <div class="space by-four"></div>
+  <div class="box">
+
+    <div class="box-title-top">
+      {{I18n legal}}
+    </div>
+    <div class="box-content has-li">
+
+        {{#view Yn.BtapView class="box-content-li has-tap"
+          action="goToTerms" }}
+          <div class="box-content-element two-column-table">
+            <div class="main-text left-column">
+              {{I18n terms_and_conditions}}
+            </div>
+            <div class="control right-column">
+              <span class="icon is-icon-normal is-icon-grey with-text arrow"></span>
+            </div>
+          </div>
+        {{/view}}
+
+        {{#view Yn.BtapView class="box-content-li has-tap"
+          action="goToPrivacy" }}
+          <div class="box-content-element two-column-table">
+            <div class="main-text left-column">
+              {{I18n privacy_policy}}
+            </div>
+            <div class="control right-column">
+              <span class="icon is-icon-normal is-icon-grey with-text arrow"></span>
+            </div>
+          </div>
+        {{/view}}
+    </div>
+  </div>
+  <div class="space by-one"></div>
+
+</div>
+
+{{/with}}
