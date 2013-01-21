@@ -44,8 +44,8 @@
                           <div class="left-column">
                             {{#each person in nextThreeFriends}}
                               {{view Yn.NonSimultaneouslyTapSquareImageView class="is-special1 touchable inline fix-scrolling-touch"
-                                contentBinding="person"
-                                actionContentBinding="person"
+                                contentBinding="person.user"
+                                actionContentBinding="person.user"
                                 action="chooseUser"
                                 withPhoto=true }}
                             {{/each}}
