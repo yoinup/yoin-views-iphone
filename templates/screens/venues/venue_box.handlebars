@@ -61,33 +61,37 @@
 
 		<div class="venue-box-users">
 
-			{{#if hasPeople}}
-				<div class="box-title-inline not-inherit-padding">
-					{{I18n venue_people_title}}:
-				</div>
-				<div class="box-content-element with-normal-image-padding">
+        {{#if hasPeople}}
 
-					{{#each person in fivePeople}}
-            {{view Yvi.VenueNearUserSquareImageView class="is-special1 touchable inline fix-scrolling-touch"
-              contentBinding="person"
-              venueBinding="venue"
-              withPhoto=true }}
-					{{/each}}
+          <div class="box-title-inline not-inherit-padding">
+            {{I18n venue_people_title}}:
+          </div>
+          <div class="box-content-element with-normal-image-padding">
 
-          {{#if higherThanFivePeople}}
+            {{#each person in fivePeople}}
+              {{view Yvi.VenueNearUserSquareImageView class="is-special1 touchable inline fix-scrolling-touch"
+                contentBinding="person"
+                venueBinding="venue"
+                withPhoto=true }}
+            {{/each}}
 
-            {{view Yvi.VenueNearPlusButtonView class="touchable square-image with-photo is-plus inline fix-scrolling-touch"
-              action="goToFriendsNearby"
-              peopleBinding="people"
-              venueBinding="venue" }}
+            {{#if higherThanFivePeople}}
 
-					{{/if}}
+              {{view Yvi.VenueNearPlusButtonView class="is-special1 touchable square-image with-photo is-plus inline fix-scrolling-touch"
+                action="goToFriendsNearby"
+                peopleBinding="people"
+                venueBinding="venue" }}
 
-				</div>
+            {{/if}}
 
-			{{/if}}
+          </div>
+
+
+        {{/if}}
+
 
 		</div>
+
 
 </div>
 
