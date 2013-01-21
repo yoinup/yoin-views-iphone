@@ -75,15 +75,7 @@
             </div>
           {{/if}}
 
-          {{#unless isContentLoaded }}
-
-            <div class="space by-one"></div>
-            <div class="text is-font-black is-not-box l-right is-small">
-                {{I18n searching_in}} {{selectedCity.name}}
-            </div>
-
-
-          {{else}}
+          {{#if isContentLoaded}}
 
 
               {{#if content.length }}
@@ -116,12 +108,13 @@
                 {{view Yn.EmptyView contentI18n="empty_venues" }}
               {{/if}}
 
-          {{/unless}}
+          {{/if}}
 
       </div>
 
     {{#unless isContentLoaded}}
-      {{view Yn.SpinnerView}}
+      {{view Yvi.VenuesSpinnerView 
+        selectedCityBinding="selectedCity" }}
     {{/unless}}
 
 {{/view}}
