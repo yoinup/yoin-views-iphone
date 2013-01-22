@@ -1,0 +1,25 @@
+{{#with view }}
+
+	{{#view Yn.HeaderView id="invitation-header" class="with-small-shadow" }}
+    {{view Yn.BackButtonView }}
+		<div class="header-title">{{I18n your_invitation}}</div>
+	{{/view }}
+
+  {{#view Yn.ScrollerView class="screen-container" 
+    exclude="invitation-header footer" }}
+
+    <div class="space by-one"></div>
+
+    {{view Yvi.VenueBoxView 
+      productBinding="invitation.product"
+      disableTap=true
+      venueBinding="invitation.venue"
+      isGeopositionOnBinding="isGeopositionOn" }}
+
+    {{view Yn.MainButtonView class="is-blue" 
+      contentI18n="use_in_store" 
+      action="goToScanInvitation" }}
+
+	{{/view }}
+
+{{/with}}

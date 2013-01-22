@@ -43,21 +43,35 @@
 
 		<div class="venue-box-products">
 
-			{{view Yvi.VenueBoxProductSwipeView 
-				venueBinding="venue"
-				contentBinding="products"
-				selectedBinding="selected"}}
+      {{#if disableTap }}
+
+        {{view Yvi.UnTapVenueBoxProductSwipeView 
+          venueBinding="venue"
+          contentBinding="products"
+          selectedBinding="selected"}}
+
+
+      {{else}}
+
+        {{view Yvi.VenueBoxProductSwipeView 
+          venueBinding="venue"
+          contentBinding="products"
+          selectedBinding="selected"}}
+
+
+      {{/if}}
 
 			{{view Yn.CarouselCirclesView class="fix-scrolling-touch"
 				contentBinding="products"
 				selectedBinding="selected"}}
 
-			{{view Yn.InviteButtonView class="fix-scrolling-touch is-small"
-				venueBinding="venue"
-				productBinding="selected"}}
+      {{#unless disableTap }}
+        {{view Yn.InviteButtonView class="fix-scrolling-touch is-small"
+          venueBinding="venue"
+          productBinding="selected"}}
+      {{/unless}}
 
 		</div>
-
 
 		<div class="venue-box-users">
 
