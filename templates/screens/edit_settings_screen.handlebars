@@ -54,11 +54,11 @@
     <div class="box-content has-li">
 
       {{#each cities}}
-        <div class="box-content-li two-column-table">
+        <div class="box-content-li box-content-element two-column-table">
           <div class="main-text left-column">
             {{name}}
           </div>
-          <div class="control right-column">
+          <div class="control right-column fr">
             {{view Yn.ToggleCircleButtonView 
               action="selectCity" 
               selectedBinding="view.user.city"
