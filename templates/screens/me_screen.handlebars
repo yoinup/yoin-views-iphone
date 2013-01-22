@@ -109,7 +109,8 @@
 
 
 				{{#view Yn.ScrollerView class="me-tab-pane activity" 
-					exclude="me-header footer me-content-header me-tabs"
+          exclude="me-header footer me-content-header me-tabs"
+          userBinding="user"
 					viewName="activity" }}
 
 
@@ -123,11 +124,15 @@
 
                   {{#if isInvitation}}
 
-                    {{#if_eq "invitation.fromUser view.loggedUser"}}
-                        {{view Yvi.SendInvitationActivityView contentBinding="invitation" }}
-                    {{ else }}
-                        {{view Yvi.GetInvitationActivityView contentBinding="invitation" }}
-                    {{/if_eq}}
+                    {{#if invitation.fromUser.isLoaded }}
+
+                      {{#if_eq "invitation.fromUser view.user"}}
+                          {{view Yvi.SendInvitationActivityView contentBinding="invitation" }}
+                      {{ else }}
+                          {{view Yvi.GetInvitationActivityView contentBinding="invitation" }}
+                      {{/if_eq}}
+
+                    {{/if}}
 
                   {{/if}}
 								
