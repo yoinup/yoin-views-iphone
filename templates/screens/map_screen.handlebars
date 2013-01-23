@@ -4,15 +4,21 @@
 
     {{#view Yn.HeaderView }}
 
-    {{view Yvi.HeaderCloseButtonMapView }}
-    <div class="header-title">{{I18n map_title}}</div>
+      {{view Yvi.HeaderCloseButtonMapView }}
+      <div class="header-title">
+        {{#if showVenue}}
+          {{venue.brand.name}}
+        {{else}}
+          {{I18n map_title}}
+        {{/if}}
+      </div>
 
-    {{#if withHeaderAction }}
-      {{#view Yvi.CityAdaptativeButtonView class="header-button l-right is-orange button-text is-small is-font-white" 
-        action="goToCities"}}
-        {{selectedCity.name}}
-      {{/view}}
-    {{/if}}
+      {{#if withHeaderAction }}
+        {{#view Yvi.CityAdaptativeButtonView class="header-button l-right is-orange button-text is-small is-font-white" 
+          action="goToCities"}}
+          {{selectedCity.name}}
+        {{/view}}
+      {{/if}}
 
     {{/view }}
 
