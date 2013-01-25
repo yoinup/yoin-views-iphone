@@ -1,0 +1,78 @@
+{{#with view}}
+
+{{#view Yn.HeaderView }}
+
+	<div class="header-title">{{I18n notification_title}}</div>
+
+  {{#view Yn.AdaptativeButtonView class="header-button l-right is-black button-text is-small is-font-white" 
+    action="end"}}
+    {{I18n end}}
+  {{/view}}
+
+{{/view }}
+
+<div class="screen-container">
+
+	<div class="space by-two"></div>
+
+	<div class="box">
+
+    {{#view Yn.BtapView class="box-content has-tap" 
+      action="notifyPhone"}}
+
+      <div class="box-content-element three-column-table"> 
+
+				<div class="picture left-column">
+					{{view Yn.SquareImageView class="is-normal"
+						content="phonebook_button"
+						withChannel=true }}
+				</div>
+
+				<div class="name middle-column main-text">
+					{{I18n notify_agenda}}
+				</div>
+
+				<div class="control right-column">
+          <span class="icon is-icon-normal is-icon-grey with-text arrow"></span>
+				</div>
+
+      </div>
+
+    {{/view}}
+
+	</div>
+
+  {{#if canFb }}
+    <div class="space by-one"></div>
+
+    <div class="box">
+
+      {{#view Yn.BtapView class="box-content has-tap" 
+        action="notifyFacebook"}}
+
+        <div class="box-content-element three-column-table"> 
+
+          <div class="picture left-column">
+            {{view Yn.SquareImageView class="is-normal"
+              content="facebook_logo"
+              withChannel=true }}
+          </div>
+
+          <div class="name middle-column main-text">
+            {{I18n notify_fb}}
+          </div>
+
+          <div class="control right-column">
+            <span class="icon is-icon-normal is-icon-grey with-text arrow"></span>
+          </div>
+
+        </div>
+
+      {{/view}}
+  {{/if }}
+
+
+
+</div>
+
+{{/with }}
