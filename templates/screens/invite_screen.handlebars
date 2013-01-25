@@ -18,7 +18,7 @@
     {{view Yn.SpinnerView }}
   {{/if}}
 
-	<div class="space by-two"></div>
+	<div class="space by-one"></div>
 
 
 	<div class="box">
@@ -46,7 +46,7 @@
 
 	</div>
 
-	<div class="space by-two"></div>
+	<div class="space by-one"></div>
 
 	<div class="block-invite-product box">
 
@@ -109,7 +109,7 @@
 
 	</div>
 
-	<div class="space by-two"></div>
+	<div class="space by-one"></div>
 
   {{#if venue}}
 
@@ -132,6 +132,7 @@
         </div>
       </div>
     </div>
+
   {{/if}}
 
 
@@ -171,6 +172,26 @@
     </div>
 
   {{/if}}
+
+
+  {{#if hasUser }}
+    {{#if venue }}
+
+      <div class="space by-one"></div>
+
+      <div class="box">
+        <div class="box-content">
+          <div class="box-content-element">
+            {{view Yn.InputView id="invite-comment" class="single-input" 
+              scrollToOnFocusIn=false
+              placeholderI18n="insert_a_message"}}
+          </div>
+        </div>
+      </div>
+
+    {{/if}}
+  {{/if}}
+
 
   {{view Yn.MainButtonView class="is-blue" 
     contentI18n="invite" 
