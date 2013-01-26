@@ -77,6 +77,7 @@
           <div class="main-text left-column">
             {{view Yvi.InvitationCommentInputView id="invitation-comment-input" class="single-input"
               scrollToOnFocusIn=false
+              valueBinding="inputValue"
               userBinding="invitation.fromUser"}}
           </div>
 
@@ -90,6 +91,8 @@
       </div>
 
     </div>
+
+    <div class="space by-one"></div>
 
 	{{/view }}
 
