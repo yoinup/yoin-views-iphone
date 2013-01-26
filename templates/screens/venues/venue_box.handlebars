@@ -23,17 +23,27 @@
 
 		<div class="venue-right-l">
 
-			{{#if isGeopositionOn }}
-				{{#if venue.distance}}
-					<span class="icon with-text is-icon-small" icon="o"></span>
-					{{normalize_distance distanceBinding="venue.distance" }}
-				{{/if}}
-			{{/if}}
+      {{#unless disableTap }}
+
+        {{#if isGeopositionOn }}
+          {{#if venue.distance}}
+            <span class="icon with-text is-icon-small" icon="o"></span>
+            {{normalize_distance distanceBinding="venue.distance" }}
+          {{/if}}
+        {{/if}}
 			
 				{{#if selected.hasLikes }}
 					<span class="icon with-text is-icon-small" icon="m"></span>
 					{{selected.likeCount}}		
 				{{/if}}
+
+      {{else}}
+
+        {{view Yn.IconBtapView class="f-right is-blue rectangle-button is-small is-font-white"
+          icon="L"
+          action="resend"}}
+
+      {{/unless}}
 			
 
 		</div>

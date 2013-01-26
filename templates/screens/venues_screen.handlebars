@@ -86,8 +86,32 @@
           {{#if isContentLoaded}}
 
               <div class="space by-one"></div>
-              <div class="text is-font-black is-not-box l-right is-small">
+              <div class="main-text text is-not-box l-right">
+
+                {{#if hasUser }}
+
+                  {{I18n products_around}}
+                  {{#if user }}
+                    {{#if content.suspended }}
+                      {{I18n someone}}
+                    {{else}}
+                      {{user.name}}
+                    {{/if}}
+                  {{/if}}
+
+                  {{#if agendaUser }}
+                    {{agendaUser.phoneName}}
+                  {{/if}}
+
+                  {{#if facebookUser }}
+                    {{facebookUser.fbName}}
+                  {{/if}}
+                  ({{selectedCity.name}})
+
+                {{else}}
                   {{I18n products_around}} {{selectedCity.name}}
+                {{/if}}
+
               </div>
 
               {{#if content.length }}

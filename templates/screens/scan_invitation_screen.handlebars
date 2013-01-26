@@ -10,22 +10,6 @@
 
 		<div class="space by-one"></div>
 
-    <div class="action-buttons">
-
-      {{view Yn.AdaptativeButtonView class="fl qr-action-button is-blue button-text is-small is-font-white" 
-        contentI18n="button_resend" 
-        action="resend" 
-        actionContentBinding="invitation" }}
-
-      {{view Yn.AdaptativeButtonView class="fr qr-action-button is-blue button-text is-small is-font-white" 
-        contentI18n="button_mark_as_consumed" 
-        action="markAsConsumed"
-        actionContentBinding="invitation" }}
-
-    </div>
-		
-		<div class="space by-one"></div>
-
 		<div class="invitation-localizer box">
 
 			<div class="box-content">
@@ -70,9 +54,6 @@
       </div>
     </div>
 
-    {{view Yn.MainButtonView class="is-green" 
-      contentI18n="button_terms_and_conditions" 
-      action="showTerms" }}
 
 	{{/view }}
 
