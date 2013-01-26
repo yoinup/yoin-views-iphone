@@ -85,7 +85,7 @@
 
           {{#if isContentLoaded}}
 
-              <div class="space by-one"></div>
+              <div class="space by-half"></div>
               <div class="main-text text is-not-box l-right">
 
                 {{#if hasUser }}
@@ -113,6 +113,7 @@
                 {{/if}}
 
               </div>
+              <div class="space by-half"></div>
 
               {{#if content.length }}
 
@@ -121,7 +122,6 @@
 
                   {{#if item.products.isLoaded }}
 
-                  <div class="space by-one"></div>
                     {{view Yvi.VenueBoxView 
                       productsBinding="item.products"
                       hasSelectedUserBinding="hasUser"
@@ -129,11 +129,11 @@
                       isGeopositionOnBinding="isGeopositionOn"
                       loggedUserBinding="loggedUser" }}
 
+                    <div class="space by-one"></div>
                   {{/if}}
 
                 {{/each}}
 
-                <div class="space by-one"></div>
 
                 {{#if view.showBottomView }}
                   {{view Yn.MiniSpinnerView }}
