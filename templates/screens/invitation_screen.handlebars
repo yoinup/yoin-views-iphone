@@ -3,7 +3,9 @@
 	{{#view Yn.HeaderView id="invitation-header" class="with-small-shadow" }}
     {{view Yn.BackButtonView }}
 		<div class="header-title">{{I18n your_invitation}}</div>
-    {{view Yn.MapButtonView class="l-right" action="goToMap" }}
+    {{view Yn.MapButtonView class="l-right" 
+      actionContentBinding="invitation"
+      action="goToMap" }}
 	{{/view }}
 
   {{#view Yn.ScrollerView class="screen-container" 
@@ -14,13 +16,15 @@
 
     {{view Yvi.VenueBoxView 
       productBinding="invitation.product"
+      invitationBinding="invitation"
       disableTap=true
       venueBinding="invitation.venue"
       isGeopositionOnBinding="isGeopositionOn" }}
 
     {{view Yn.MainButtonView class="is-blue" 
       contentI18n="use_in_store" 
-      action="goToScanInvitation" }}
+      actionContentBinding="invitation"
+      action="useIt" }}
 
 
     {{#if invitation.comments.length }}
@@ -94,6 +98,7 @@
 
     {{view Yn.MainButtonView class="is-green" 
       contentI18n="button_terms_and_conditions" 
+      actionContentBinding="invitation"
       action="showTerms" }}
 
 	{{/view }}
