@@ -1,0 +1,52 @@
+{{#with view}}
+
+{{#view Yn.HeaderView id="terms-header"}}
+  {{view Yn.BackButtonView }}
+  <div class="header-title">
+      {{I18n terms_and_conditions}}
+  </div>
+{{/view }}
+
+{{#view Yn.ScrollerView class="screen-container" 
+  exclude="terms-header footer" }}
+  
+  <div class="space by-one"></div>
+  <div class="box">
+  <div class="box-content">
+
+    <div class="legal-content">
+      These universal restrictions apply to every Yoin gift card unless specifically stated otherwise:
+    </div>
+    <div class="legal-content">
+    <br/> 
+    <ul class="legal-list">
+      <li class="legal-item">
+      Gift cards may only be sent or received by users using a legitimate personal Yoin account.
+      </li>
+      <li class="legal-item">
+      Limit of one Sponsored Gift Card per person per transaction.
+      </li>
+      <li class="legal-item">
+      Sponsored Gift Cards may not be printed, screen-captured, swapped, exchanged, or traded.
+      </li>
+      <li class="legal-item">
+      Sponsored Gift Cards are not valid for cash back except where required by applicable law.
+      </li>
+      <li class="legal-item">
+      If the entire value of the Sponsored Gift Card is not used in one transaction, the unused balance will be forfeited.
+      </li>
+      <li class="legal-item">Gift cards cannot be replaced if lost or stolen.</li>
+      <li class="legal-item">YoinUp and Merchant reserve all rights to modify these terms & conditions at any time with or without notice.</li>
+      <li class="legal-item">Where misuse or fraud is suspected, YoinUp and Merchant reserve all rights to: revoke gift cards suspected of being misused or being used fraudulently; cancel transactions where misuse or fraud is suspected; and any other measures to preserve the integrity of YoinUp's system.</li>
+    </ul>
+    </div>
+
+
+  </div>
+  </div>
+
+  <div class="space by-one"></div>
+
+{{/view }}
+
+{{/with}}

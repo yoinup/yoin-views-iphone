@@ -96,10 +96,14 @@
 
     </div>
 
-    {{view Yn.MainButtonView class="is-green" 
-      contentI18n="button_terms_and_conditions" 
-      actionContentBinding="invitation"
-      action="showTerms" }}
+    <div class="space by-two"></div>
+    <div class="box">
+      {{view Yvi.SelectItemBoxContentView
+        contentI18n="button_terms_and_conditions" 
+        actionContentBinding="invitation"
+        action="showTerms" }}
+    </div>
+    <div class="space by-one"></div>
 
 	{{/view }}
 
