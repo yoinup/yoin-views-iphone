@@ -54,9 +54,10 @@
 
                       {{#each allContent}}
 
-                        <div class="box-content-li">
+                        <div class="box-content-li has-tap">
                           {{view Yvi.ProductShortBlockView class="is-normal" 
                             hasPrice=true
+                            action="selectProduct"
                             contentBinding="this" 
                             imagetype="is-normal"}}
                         </div>
