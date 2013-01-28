@@ -173,7 +173,7 @@
 
                                         {{#each agendaContent}}
 
-                                          <div class="box-content-li">
+                                          <div class="box-content-li has-tap">
 
                                             {{view Yvi.TapUserShortBlockView class="is-small" 
                                               imagetype="is-small" 
@@ -242,7 +242,7 @@
 
                               {{#each yoinContent}}
 
-                                <div class="box-content-li">
+                                <div class="box-content-li has-tap">
 
                                   {{view Yvi.TapUserShortBlockView class="is-small" 
                                   imagetype="is-small" 
@@ -345,7 +345,7 @@
 
                                     {{#each facebookContent}}
 
-                                      <div class="box-content-li">
+                                      <div class="box-content-li has-tap">
                                         {{view Yvi.TapUserShortBlockView class="is-small"
                                           imagetype="is-small"
                                           typeBinding="Yvi.UserType.FbChannel"
@@ -401,88 +401,62 @@
 
 				<div class="space by-one"></div>
 
-        {{#if venue}}
+        {{#if privacyIsActive }}
 
-            <div class="box">
+          {{#if nearContent.isLoaded }} 
 
-              <div class="box-title-top">
+            {{#if nearContent.length }} 
 
-                {{I18n people_near}}:
+                <div class="box">
 
-              </div>
+                  <div class="box-content has-li">
 
-              <div class="box-content">
+                    {{#each nearContent }}
 
-                {{view Yvi.VenueShortBlockView class="is-normal" 
-                  imagetype="is-normal" 
-                  contentBinding="venue" }}
+                      <div class="box-content-li has-tap">
 
-              </div>
-
-            </div>
-
-            <div class="space by-one"></div>
-
-
-              {{#if nearContent.isLoaded }} 
-
-                {{#if nearContent.length }} 
-
-
-                    <div class="box">
-
-                      <div class="box-title-top">
-
-                        {{I18n all_people}}
+                        {{view Yvi.TapUserShortBlockView class="is-small" 
+                          imagetype="is-small" 
+                          contentBinding="this" 
+                          showCity=false 
+                          action="selectUser"
+                          actionContentBinding="this"}}
 
                       </div>
 
-                      <div class="box-content has-li">
+                    {{/each}}
 
-                        {{#each nearContent }}
-
-                          <div class="box-content-li">
-
-                            {{view Yvi.TapUserShortBlockView class="is-small" 
-                              imagetype="is-small" 
-                              contentBinding="this" 
-                              showCity=false 
-                              action="selectUser"
-                              actionContentBinding="this"}}
-
-                          </div>
-
-                        {{/each}}
-
-                      </div>
-
-                    </div>
-
-                    <div class="space by-one"></div>
-
-                {{else}}
-
-                  <div class="choose-user-alert-text">
-                  <div class="space by-nine"></div>
-                    {{I18n no_users_close_venue}}
                   </div>
 
-                {{/if}} 
+                </div>
 
-              {{else}} 
+                <div class="space by-one"></div>
 
-                {{view Yn.SpinnerView}}
+            {{else}}
 
-              {{/if}} 
+              {{view Yn.EmptyView class="is-small"
+                contentI18n="no_users_close_to_you"
+                messageAction=null
+                textAction=null }}
 
-          {{else}}
+            {{/if}} 
 
-            {{view Yn.EmptyView class="is-small"
-              contentI18n="empty_near_users"
-              messageAction=null
-              textAction=null }}
 
-					{{/if}} 
+          {{else}} 
+
+            {{view Yn.SpinnerView}}
+
+          {{/if}} 
+
+        {{else}}
+
+          {{view Yn.EmptyView class="is-small"
+            contentI18n="no_users_privacy_inactive"
+            messageAction=null
+            textAction=null }}
+
+        {{/if}} 
+
 
 
 			{{/view}}

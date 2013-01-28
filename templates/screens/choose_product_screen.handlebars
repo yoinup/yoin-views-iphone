@@ -58,6 +58,7 @@
                           {{view Yvi.ProductShortBlockView class="is-normal" 
                             hasPrice=true
                             action="selectProduct"
+                            actionContentBinding="this"
                             contentBinding="this" 
                             imagetype="is-normal"}}
                         </div>
@@ -138,10 +139,12 @@
 
                     {{#each nearsContent}}
 
-                      <div class="box-content-li">
+                      <div class="box-content-li has-tap">
                         {{view Yvi.ProductShortBlockView class="is-normal" 
                           hasPrice=true
                           contentBinding="this" 
+                          action="selectProduct"
+                          actionContentBinding="this" 
                           imagetype="is-normal"}}
                       </div>
 
