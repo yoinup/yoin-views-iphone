@@ -18,8 +18,7 @@
 
 
 			{{#view id="choose-user-type-friends" class="choose-user-type-tab" 
-				viewName="friends" 
-				selectedFriendsOptionBinding="selectedFriendsOption" }}
+				viewName="friends" }}
 
 				<div id="submenu-tabs-channels" class="submenu-tabs is-five-items">
 
@@ -28,17 +27,17 @@
 							{{view Yvi.ChooseUserChannelButtonView 
 								content="agenda"
 								image="phonebook_button"
-								selectedBinding="view.selectedFriendsOption"}}
+								selectedBinding="selectedFriendsOption"}}
 
 							{{view Yvi.ChooseUserChannelButtonView 
 								content="yoin"
 								image="yoin_button"
-								selectedBinding="view.selectedFriendsOption"}}
+								selectedBinding="selectedFriendsOption"}}
 
 							{{view Yvi.ChooseUserChannelButtonView 
 								content="facebook"
 								image="facebook_logo"
-								selectedBinding="view.selectedFriendsOption"}}
+								selectedBinding="selectedFriendsOption"}}
 
               <div class="submenu-tab"></div>
 
