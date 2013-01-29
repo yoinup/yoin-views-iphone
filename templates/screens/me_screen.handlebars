@@ -122,21 +122,19 @@
 
 							{{#each activities}}
 
-                  {{#if isInvitation}}
+                  {{#if invitation.isLoaded }}
 
                     {{#if invitation.fromUser.isLoaded }}
-
                       {{#if_eq "invitation.fromUser view.user"}}
                           {{view Yvi.SendInvitationActivityView contentBinding="invitation" }}
                       {{ else }}
                           {{view Yvi.GetInvitationActivityView contentBinding="invitation" }}
                       {{/if_eq}}
-
                     {{/if}}
 
+                    <div class="space by-one"></div>
+
                   {{/if}}
-								
-								<div class="space by-one"></div>
 
 							{{/each}}
 
