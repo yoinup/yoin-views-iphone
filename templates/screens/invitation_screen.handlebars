@@ -14,12 +14,13 @@
 
     <div class="space by-one"></div>
 
-    {{view Yvi.VenueBoxView 
+    {{view Yn.VenueBoxView 
       productBinding="invitation.product"
       invitationBinding="invitation"
-      disableTap=true
-      venueBinding="invitation.venue"
-      isGeopositionOnBinding="isGeopositionOn" }}
+      hasResend=true
+      hasBrandName=true
+      brandBinding="invitation.venue.brand"
+      venueBinding="invitation.venue" }}
 
     {{view Yn.MainButtonView class="is-blue" 
       contentI18n="use_in_store" 
