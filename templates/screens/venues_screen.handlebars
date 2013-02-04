@@ -123,10 +123,13 @@
 
                   {{#if item.products.isLoaded }}
 
-                    {{view Yvi.VenueBoxView 
+                    {{view Yn.VenueBoxView 
                       productsBinding="item.products"
                       hasSelectedUserBinding="view.hasUser"
                       venueBinding="item"
+                      brandBinding="item.brand"
+                      hasSelect=true
+                      hasBrandName=true
                       isGeopositionOnBinding="isGeopositionOn"
                       loggedUserBinding="loggedUser" }}
 
