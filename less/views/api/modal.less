@@ -1,60 +1,12 @@
 @import 'animations';
 @import 'appanimations';
 @import 'sizes';
-@import 'appsizes';
 
 
 .modal {
 
-  //-webkit-transition: -webkit-transform 2000ms @ease-animation-style;
   -webkit-transition: -webkit-transform @modal-duration @ease-animation-style;
-  -webkit-transform: translate3d(0,0,0);
-
-  -webkit-backface-visibility: hidden;
-
-}
-
-.modal.without-footer {
-
   z-index: 2000;
-
 }
 
-.modal.is-hidden {
 
-}
-
-.modal.from-left.is-hidden {
-
-  -webkit-transform: translate3d(-320px,0,0);
-
-}
-
-.modal.from-right.is-hidden {
-
-  -webkit-transform: translate3d(320px,0,0);
-
-}
-
-.modal.from-up.is-hidden {
-
-  -webkit-transform: translate3d(0,-1*@app-height,0);
-
-}
-
-.modal.from-down.is-hidden {
-
-  -webkit-transform: translate3d(0,@app-height,0);
-
-}
-
-@media screen and (device-height: 568px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
-
-  .modal.from-up.is-hidden {
-    -webkit-transform: translate3d(0,-1*@app5-height,0);
-  }
-
-  .modal.from-down.is-hidden {
-    -webkit-transform: translate3d(0,@app5-height,0);
-  }
-}
