@@ -1,6 +1,6 @@
 {{#with view}}
 
-{{#view Yn.HeaderView id="settings-header" class="with-small-shadow"}}
+{{#view Yn.HeaderView class="with-small-shadow"}}
 	{{view Yn.BackButtonView }}
 	<div class="header-title">{{I18n settings}}</div>
 
@@ -11,7 +11,8 @@
 {{/view }}
 
 {{#view Yn.ScrollerView class="screen-container"
-  exclude="settings-header footer"}}
+  exclude=".header"
+  excludeGlobal="footer"}}
 
 	<div class="space by-one"></div>
 

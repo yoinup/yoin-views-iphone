@@ -1,6 +1,6 @@
 {{#with view}}
 
-{{#view Yn.HeaderView id="me-header" class="with-big-shadow"}}
+{{#view Yn.HeaderView class="with-big-shadow"}}
 
 	<div class="header-title">{{I18n me_title}}</div>
 	
@@ -45,7 +45,7 @@
 
 		</div>
 
-		<div id="me-tabs" class="submenu-tabs is-two-items">
+		<div class="submenu-tabs is-two-items">
 
       {{#view Yvi.MeTabOptionView class="submenu-tab"
         tab="friend" currentTabViewBinding="currentTabView" }}
@@ -66,7 +66,8 @@
 		{{#view Yn.TabMainView currentTabViewBinding="currentTabView" }}
 
 			{{#view Yn.ScrollerView class="me-tab-pane friend" 
-				exclude="me-header footer me-content-header me-tabs"
+				exclude=".header, #me-content-header, .submenu-tabs"
+				excludeGlobal="footer"
 				viewName="friend" }}
 
 
@@ -109,7 +110,8 @@
 
 
 				{{#view Yn.ScrollerView class="me-tab-pane activity" 
-          exclude="me-header footer me-content-header me-tabs"
+          exclude=".header, #me-content-header, .submenu-tabs"
+          excludeGlobal="footer"
           userBinding="user"
 					viewName="activity" }}
 

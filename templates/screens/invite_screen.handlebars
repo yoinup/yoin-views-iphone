@@ -1,6 +1,6 @@
 {{#with view}}
 
-{{#view Yn.HeaderView id="invite-header" class="with-small-shadow"}}
+{{#view Yn.HeaderView class="with-small-shadow"}}
 
   {{view Yn.HeaderCloseButtonView }}
   <div class="header-title">{{I18n header_invite}}</div>
@@ -12,7 +12,7 @@
 
 
 {{#view Yn.ScrollerView class="screen-container" 
-  exclude="invite-header" }}
+  exclude=".header" }}
 
   {{#if isExecutingAction}} 
     {{view Yn.SpinnerView }}

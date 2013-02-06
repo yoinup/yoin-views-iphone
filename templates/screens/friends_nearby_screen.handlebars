@@ -1,6 +1,6 @@
 {{#with view}}
 
-{{#view Yn.HeaderView id="friends-nearby-header"}}
+{{#view Yn.HeaderView}}
 
 	{{view Yn.BackButtonView }}
 
@@ -19,7 +19,8 @@
   {{#unless isNavigatingForward }}
 
     {{#view Yn.ScrollerView
-        exclude="friends-nearby-header footer" 
+        exclude=".header" 
+        excludeGlobal="footer" 
         viewName="list" }}
 
       {{#if isLoaded }}

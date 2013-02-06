@@ -1,6 +1,6 @@
 {{#with view}}
 
-{{#view Yn.HeaderView id="choose-user-header"}}
+{{#view Yn.HeaderView }}
 
   {{view Yn.BackButtonView }}
 	<div class="header-title">{{I18n header_choose_user}}</div>
@@ -49,11 +49,11 @@
 						currentTabViewBinding="tabOption" }}
 
 
-								{{#view Yn.ScrollerView id="choose-user-agenda" class="choose-user-tab" 
+								{{#view Yn.ScrollerView class="choose-user-tab" 
                   holdPeriod=10
-									exclude="choose-user-menu-tabs choose-user-header submenu-tabs-channels"
+									exclude=".header, #choose-user-menu-tabs, #submenu-tabs-channels"
                   addExcludeExtra1Binding="withFooter"
-                  excludeExtra1="footer"
+                  excludeExtra1Global="footer"
                   isRefreshedBinding="agendaIsRefreshed"
                   hasNextBinding="agendaHasNext"
                   lengthBinding="agendaContent.length"
@@ -213,11 +213,11 @@
 
 								{{/view}}
 
-								{{#view Yn.ScrollerView id="choose-user-yoin" class="choose-user-tab" 
+								{{#view Yn.ScrollerView class="choose-user-tab" 
                   holdPeriod=10
-									exclude="choose-user-menu-tabs choose-user-header submenu-tabs-channels"
+									exclude=".header, #choose-user-menu-tabs, #submenu-tabs-channels"
                   addExcludeExtra1Binding="withFooter"
-                  excludeExtra1="footer"
+                  excludeExtra1Global="footer"
                   isRefreshedBinding="yoinIsRefreshed"
                   hasNextBinding="yoinHasNext"
                   lengthBinding="yoinContent.length"
@@ -287,14 +287,14 @@
 								{{/view}}
 
 
-								{{#view Yn.ScrollerView id="choose-user-facebook" class="choose-user-tab" 
+								{{#view Yn.ScrollerView class="choose-user-tab" 
                   holdPeriod=10
                   isRefreshedBinding="facebookIsRefreshed"
                   lengthBinding="facebookContent.length"
                   hasNextBinding="facebookHasNext"
-									exclude="choose-user-menu-tabs choose-user-header submenu-tabs-channels"
+									exclude=".header, #choose-user-menu-tabs, #submenu-tabs-channels"
                   addExcludeExtra1Binding="withFooter"
-                  excludeExtra1="footer"
+                  excludeExtra1Global="footer"
 									viewName="facebook" }}
 
                     <div class="scroller-container fix-scrolling-touch">
@@ -391,11 +391,10 @@
 
 			{{/view}}
 
-
-			{{#view Yn.ScrollerView id="choose-user-type-nears" class="choose-user-type-tab" 
-				exclude="choose-user-menu-tabs choose-user-header"
+			{{#view Yn.ScrollerView class="choose-user-type-tab" 
+				exclude=".header, #choose-user-menu-tabs"
         addExcludeExtra1Binding="withFooter"
-        excludeExtra1="footer"
+        excludeExtra1Global="footer"
 				viewName="nears" }}
 
 				<div class="space by-one"></div>

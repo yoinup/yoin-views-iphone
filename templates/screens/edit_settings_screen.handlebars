@@ -1,6 +1,6 @@
 {{#with view}}
 
-{{#view Yn.HeaderView id="edit-settings-header" class="with-small-shadow"}}
+{{#view Yn.HeaderView class="with-small-shadow"}}
 
 	{{view Yn.BackButtonView }}
 	<div class="header-title">{{I18n settings}}</div>
@@ -10,14 +10,15 @@
 
 {{#view Yn.ScrollerView class="screen-container"
    userBinding="user"
-   exclude="footer edit-settings-header"}}
+   excludeGlobal="footer"
+   exclude=".header"}}
 
 	<div class="space by-one"></div>
 
 	<div class="block-avatar is-disabled box">
 		<div class="box-content three-column-table">
 				<div class="block-avatar-content-element-image left-column"> 
-					{{view Yn.SquareImageView id="avatar-square-image" class="is-small" contentBinding="user" withPhoto=true }}
+					{{view Yn.SquareImageView class="is-small" contentBinding="user" withPhoto=true }}
 				</div>
 				<div class="main-text middle-column">
 					{{I18n change_profile_picture}}

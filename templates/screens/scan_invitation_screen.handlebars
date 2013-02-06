@@ -1,12 +1,13 @@
 {{#with view }}
 
-	{{#view Yn.HeaderView id="scan-invitation-header" class="with-small-shadow" }}
+	{{#view Yn.HeaderView class="with-small-shadow" }}
     {{view Yvi.HeaderCloseButtonMapView }}
 		<div class="header-title">{{I18n qr_title}}</div>
 	{{/view }}
 
   {{#view Yn.ScrollerView class="screen-container" 
-    exclude="scan-invitation-header footer" }}
+    exclude=".header"
+    excludeGlobal="footer" }}
 
 		<div class="space by-one"></div>
 

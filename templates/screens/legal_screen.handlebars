@@ -1,6 +1,6 @@
 {{#with view}}
 
-{{#view Yn.HeaderView id="legal-header"}}
+{{#view Yn.HeaderView}}
   {{view Yn.BackButtonView }}
   <div class="header-title">
     {{#if isPrivacy }}
@@ -11,8 +11,9 @@
   </div>
 {{/view }}
 
-{{#view Yn.ScrollerView class="screen-container" 
-  exclude="legal-header footer" }}
+{{#view Yn.ScrollerView class="screen-container"
+  exclude=".header"
+  excludeGlobal="footer" }}
   
   <div class="space by-one"></div>
   <div class="box">

@@ -1,17 +1,18 @@
 {{#with view}}
 
-{{#view Yn.HeaderView id="venues-header"}}
+{{#view Yn.HeaderView }}
 
   {{view Yn.AdaptativeButtonView class="header-button l-left is-orange button-text is-small is-font-white" 
     contentI18n="categories_title" action="goToCategories"}}
-	<div id="brand-container"></div>
+	<div class="header-brand-container"></div>
 	{{view Yn.MapButtonView class="l-right" action="goToMap" }}
 
 {{/view }}
 
 {{#view Yn.RefreshScrollerView class="screen-container"
   holdPeriod=100
-  exclude="footer venues-header"
+  exclude=".header"
+  excludeGlobal="footer"
   isRefreshedBinding="isRefreshed"
   hasNextBinding="hasNext"
   hasUserBinding="hasUser"

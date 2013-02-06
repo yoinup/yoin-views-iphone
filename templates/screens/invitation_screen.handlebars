@@ -1,6 +1,6 @@
 {{#with view }}
 
-	{{#view Yn.HeaderView id="invitation-header" class="with-small-shadow" }}
+	{{#view Yn.HeaderView class="with-small-shadow" }}
     {{view Yn.BackButtonView }}
 		<div class="header-title">{{I18n your_invitation}}</div>
     {{view Yn.MapButtonView class="l-right" 
@@ -10,7 +10,8 @@
 
   {{#view Yn.ScrollerView class="screen-container" 
     loggedUserBinding="loggedUser"
-    exclude="invitation-header footer" }}
+    exclude=".header"
+    excludeGlobal="footer" }}
 
     <div class="space by-one"></div>
 
