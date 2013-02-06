@@ -2,7 +2,7 @@
 
   {{#view Yvi.MapSectionView class="map-section"}}
 
-    {{#view Yn.HeaderView }}
+    {{#view Yn.HeaderView id="map-header"}}
 
       {{view Yvi.HeaderCloseButtonMapView }}
       <div class="header-title">
@@ -24,7 +24,7 @@
 
     {{#if withHeaderAction }}
 
-      <div class="header-action">
+      <div id="map-header-action" class="header-action">
         <div class="left">
 
           {{#view Yvi.MapFormInputView}}
