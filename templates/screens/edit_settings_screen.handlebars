@@ -17,13 +17,13 @@
 
 	<div class="block-avatar is-disabled box">
 		<div class="box-content three-column-table">
-				<div class="block-avatar-content-element-image left-column"> 
+				<div class="picture left-column"> 
 					{{view Yn.SquareImageView class="is-small" contentBinding="user" withPhoto=true }}
 				</div>
 				<div class="main-text middle-column">
 					{{I18n change_profile_picture}}
 				</div>
-				<div class="block-avatar-content-element-icon right-column">
+				<div class="control right-column">
 					<span class="icon is-icon-normal is-icon-grey with-text" icon="d"></span>
 				</div>
 		</div>
@@ -56,7 +56,7 @@
 
       {{#each cities}}
         <div class="box-content-li box-content-element two-column-table">
-          <div class="main-text left-column">
+          <div class="main-text left-column main">
             {{name}}
           </div>
           <div class="control right-column">
