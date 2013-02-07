@@ -180,15 +180,14 @@
       <div class="space by-one"></div>
 
       <div class="box">
-        <div class="box-content">
-          <div class="box-content-element">
+        <div class="box-content has-padding">
 
-            {{view Yn.InputView id="invite-comment" class="single-input" 
-              scrollToOnFocusIn=false
-              valueBinding="inputValue"
-              placeholderI18n="insert_a_message"}}
+          {{view Yvi.InviteWriteInputView id="invite-comment" class="single-input" 
+            userBinding="user"
+            agendaUserBinding="agendaUser"
+            facebookUserBinding="facebookUser"
+            valueBinding="inputValue" }}
 
-          </div>
         </div>
       </div>
 
