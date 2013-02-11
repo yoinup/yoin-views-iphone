@@ -41,11 +41,11 @@
 
                 {{#if_eq "view.loggedUser user"}}
 
-                  <div class="detail-text comment-text is-mine">
+                  <div class="main detail-text left-column is-right">
                     {{comment}}
                   </div>
 
-                  <div class="comment-image is-mine">
+                  <div class="right-column">
                     {{view Yn.SquareImageView class="is-small"
                       contentBinding="user"
                       withPhoto=true }}
@@ -53,13 +53,13 @@
 
                 {{else}}
 
-                  <div class="comment-image">
+                  <div class="left-column">
                     {{view Yn.SquareImageView class="is-small"
                       contentBinding="user"
                       withPhoto=true }}
                   </div>
 
-                  <div class="detail-text comment-text">
+                  <div class="detail-text right-column main">
                     {{comment}}
                   </div>
 
