@@ -65,47 +65,48 @@
         }
       }
 
-      > .category-item.is-grey {
-        > .category-left > .square-image {
-          background: @grey05;
-        }
-      }
-
-      > .category-item.is-red {
+      > .category-item:first-child {
         > .category-left > .square-image {
           background: @pink01;
         }
       }
 
-      > .category-item.is-blue {
+      > .category-item:nth-of-type(2) {
         > .category-left > .square-image {
           background: @blue00;
         }
       }
 
-      > .category-item.is-green {
+      > .category-item:nth-of-type(3) {
         > .category-left > .square-image {
           background: @green01;
         }
       }
 
-      > .category-item.is-purple {
+      > .category-item:nth-of-type(4) {
         > .category-left > .square-image {
           background: @purple02;
         }
       }
 
-      > .category-item.is-brown {
+      > .category-item:nth-of-type(5) {
         > .category-left > .square-image {
           background: @coffeebrown;
         }
       }
 
-      > .category-item.is-sky-blue {
+      > .category-item:nth-of-type(6) {
         > .category-left > .square-image {
           background: @skyblue;
         }
       }
+
+      > .category-item:last-child {
+        > .category-left > .square-image {
+          background: @grey05;
+        }
+      }
+
 
     }
 

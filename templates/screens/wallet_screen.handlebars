@@ -2,7 +2,10 @@
 
 	{{#view Yn.HeaderView class="with-small-shadow" }}
 		<div class="header-title">{{I18n wallet_title}}</div>
-    {{view Yn.MapButtonView class="l-right" action="goToMap" }}
+
+    {{#if invitations.length }}
+      {{view Yn.MapButtonView class="l-right" action="goToMap" }}
+    {{/if}}
 	{{/view }}
 
   {{#view Yn.ScrollerView class="screen-container" 
