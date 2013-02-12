@@ -24,7 +24,7 @@
 
 				<div class="picture left-column">
 					{{view Yn.SquareImageView class="is-normal"
-						content="phonebook_button"
+						content="phonebook_button.png"
 						withChannel=true }}
 				</div>
 
@@ -42,6 +42,36 @@
 
 	</div>
 
+  <div class="space by-one"></div>
+
+	<div class="box">
+
+    {{#view Yn.BtapView class="box-content has-tap" 
+      action="notifyEmail"}}
+
+      <div class="box-content-element three-column-table"> 
+
+				<div class="picture left-column">
+					{{view Yn.SquareImageView class="is-normal"
+						content="phonebook_button.png"
+						withChannel=true }}
+				</div>
+
+				<div class="name middle-column main-text">
+					{{I18n notify_email}}
+				</div>
+
+				<div class="control right-column">
+          <span class="icon is-icon-normal is-icon-grey with-text arrow"></span>
+				</div>
+
+      </div>
+
+    {{/view}}
+
+	</div>
+
+
   {{#if canFb }}
     <div class="space by-one"></div>
 
@@ -54,7 +84,7 @@
 
           <div class="picture left-column">
             {{view Yn.SquareImageView class="is-normal"
-              content="facebook_logo"
+              content="facebook_logo.png"
               withChannel=true }}
           </div>
 
