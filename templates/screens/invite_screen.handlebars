@@ -5,7 +5,7 @@
   {{view Yn.HeaderCloseButtonView }}
   <div class="header-title">{{I18n header_invite}}</div>
   {{view Yn.AdaptativeButtonView class="header-button l-right is-blue button-text is-small is-font-white" 
-    contentI18n="invite" 
+    contentI18n="send" 
     action="sendInvitation"}}
 
 {{/view }}
@@ -32,6 +32,7 @@
 		{{#if hasUser }}
 
       {{view Yvi.InviteUserBoxContentView 
+        usernameBinding="username"
         userBinding="user"
         agendaUserBinding="agendaUser"
         facebookUserBinding="facebookUser" }}
@@ -183,9 +184,7 @@
         <div class="box-content has-padding">
 
           {{view Yvi.InviteWriteInputView id="invite-comment" class="single-input" 
-            userBinding="user"
-            agendaUserBinding="agendaUser"
-            facebookUserBinding="facebookUser"
+            usernameBinding="username"
             valueBinding="inputValue" }}
 
         </div>
@@ -194,9 +193,8 @@
     {{/if}}
   {{/if}}
 
-
-  {{view Yn.MainButtonView class="is-blue" 
-    contentI18n="invite" 
+  {{view Yvi.InviteMainButtonView class="is-blue" 
+    usernameBinding="username"
     action="sendInvitation"}}
 
 {{/view }}

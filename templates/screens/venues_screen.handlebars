@@ -29,6 +29,7 @@
 
               {{#if hasUser }}
                 {{view Yvi.InviteUserBoxContentView 
+                  usernameBinding="username"
                   userBinding="user"
                   agendaUserBinding="agendaUser"
                   facebookUserBinding="facebookUser" }}
@@ -94,21 +95,7 @@
                 {{#if hasUser }}
 
                   {{I18n products_around}}
-                  {{#if user }}
-                    {{#if content.suspended }}
-                      {{I18n someone}}
-                    {{else}}
-                      {{user.name}}
-                    {{/if}}
-                  {{/if}}
-
-                  {{#if agendaUser }}
-                    {{agendaUser.phoneName}}
-                  {{/if}}
-
-                  {{#if facebookUser }}
-                    {{facebookUser.fbName}}
-                  {{/if}}
+                  {{username}}
                   ({{selectedCity.name}})
 
                 {{else}}

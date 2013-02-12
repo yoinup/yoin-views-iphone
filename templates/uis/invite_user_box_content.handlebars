@@ -6,7 +6,7 @@
         {{view Yn.SquareImageView class="is-normal" contentBinding="user" withPhoto=true }}
       </div>
       <div class="name middle-column">
-        <div class="main-text">{{user.name}}</div>
+        <div class="main-text">{{username}}</div>
         {{#if user.city}}
           <div class="detail-text">
             <span class="icon with-text is-icon-x-small" icon="i"></span>
@@ -25,13 +25,7 @@
   {{#if agendaUser }}
     <div class="box-content-element three-column-table">
       <div class="name left-column main">
-        <div class="main-text">{{agendaUser.name}}</div>
-        {{#if agendaUser.city}}
-          <div class="detail-text">
-            <span class="icon with-text is-icon-x-small" icon="i"></span>
-            {{agendaUser.city.name}}
-          </div>
-        {{/if}}
+        <div class="main-text">{{username}}</div>
       </div>
       <div class="action-button right-column">
         {{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black" 
@@ -47,13 +41,7 @@
         {{view Yn.SquareImageView class="is-normal" contentBinding="facebookUser.id" withPhoto=true isFBUser=true }}
       </div>
       <div class="name middle-column">
-        <div class="main-text">{{facebookUser.name}}</div>
-        {{#if facebookUser.city}}
-          <div class="detail-text">
-            <span class="icon with-text is-icon-x-small" icon="i"></span>
-            {{facebookUser.city.name}}
-          </div>
-        {{/if}}
+        <div class="main-text">{{username}}</div>
       </div>
       <div class="action-button right-column">
         {{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black" 
