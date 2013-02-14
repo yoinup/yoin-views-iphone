@@ -17,14 +17,13 @@
 		{{#view Yn.TabMainView
 			currentTabViewBinding="option"}}
 
-        {{#view Yn.ScrollerView class="choose-user-tab" 
+        {{#view Yn.ScrollerView
           holdPeriod=10
           exclude=".header"
           addExcludeExtra1Binding="hasYoinFriends"
           excludeExtra1="#choose-user-menu-tabs"
           viewName="facebook" }}
 
-            <div class="scroller-container fix-scrolling-touch">
 
             {{#unless user.hasFacebook}} 
 
@@ -95,18 +94,16 @@
 
           {{/unless}} 
 
-          </div>
 
         {{/view}}
 
-        {{#view Yn.ScrollerView class="choose-user-tab" 
+        {{#view Yn.ScrollerView
           holdPeriod=10
           exclude=".header"
           addExcludeExtra1Binding="hasYoinFriends"
           excludeExtra1="#choose-user-menu-tabs"
           viewName="yoin" }}
 
-            <div class="scroller-container fix-scrolling-touch">
 
             {{#if yoinContent.isLoaded }} 
 
@@ -156,7 +153,6 @@
               contentI18n="importing_yoin"}}
 
           {{/if}} 
-          </div>
 
 
         {{/view}}
