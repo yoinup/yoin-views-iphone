@@ -37,12 +37,12 @@
 
                     {{#if nextThreeFriends.length }}
 
-                      {{#view Yn.BtapView class="box-content with-image-without-title has-tap" 
+                      {{#view Yn.BtapView class="box-content has-tap" 
                         action="addFriend"}}
 
                         <div id="select-friend-content" class="box-content-element three-column-table">
 
-                          <div class="left-column has-many-images">
+                          <div class="left-column">
                             {{#each person in nextThreeFriends}}
                               {{view Yn.NonSimultaneouslyTapSquareImageView class="is-special1 touchable inline fix-scrolling-touch"
                                 contentBinding="person.user"
