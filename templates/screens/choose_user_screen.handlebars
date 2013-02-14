@@ -2,474 +2,166 @@
 
 {{#view Yn.HeaderView }}
 
-  {{view Yn.BackButtonView }}
+  {{view Yn.HeaderCloseButtonView }}
 	<div class="header-title">{{I18n header_choose_user}}</div>
 
 {{/view }}
 
 <div class="screen-container">
 
-    {{#unless isNavigatingForward }}
+    {{#if hasYoinFriends}} 
+      {{view Yvi.ChooseUserMenuTabsView id="choose-user-menu-tabs" 
+        selectedBinding="option" }}
+    {{/if}}
 
-		{{view Yvi.ChooseUserMenuTabsView id="choose-user-menu-tabs" selectedBinding="option" }}
-
-		{{#view Yn.TabMainView id="choose-user-type-tab-main"
+		{{#view Yn.TabMainView
 			currentTabViewBinding="option"}}
 
+        {{#view Yn.ScrollerView class="choose-user-tab" 
+          holdPeriod=10
+          exclude=".header"
+          addExcludeExtra1Binding="hasYoinFriends"
+          excludeExtra1="#choose-user-menu-tabs"
+          viewName="facebook" }}
 
-			{{#view id="choose-user-type-friends" class="choose-user-type-tab" 
-				viewName="friends" }}
+            <div class="scroller-container fix-scrolling-touch">
 
-				<div id="submenu-tabs-channels" class="submenu-tabs is-five-items">
-
-              <div class="submenu-tab"></div>
-
-							{{view Yvi.ChooseUserChannelButtonView 
-								content="agenda"
-								image="phonebook_button.png"
-								selectedBinding="selectedFriendsOption"}}
-
-							{{view Yvi.ChooseUserChannelButtonView 
-								content="yoin"
-								image="yoin_button.png"
-								selectedBinding="selectedFriendsOption"}}
-
-							{{view Yvi.ChooseUserChannelButtonView 
-								content="facebook"
-								image="facebook_logo.png"
-								selectedBinding="selectedFriendsOption"}}
-
-              <div class="submenu-tab"></div>
-
-					</div>
+            {{#unless user.hasFacebook}} 
 
 
+              <div class="login-with-fb">
 
-					{{#view Yn.TabMainView id="choose-user-tab-main"
-						currentTabViewBinding="tabOption" }}
+                {{view Yn.SocialBigButtonView class="facebook is-middle" 
+                  contentI18n="connect_with_facebook" 
+                  action="connectWithFacebook" }}
+
+                 <div class="space by-two"></div>
+
+                <div class="detail-text is-center">
+                  {{I18n activate_facebook_subtitle}}
+                </div>
+
+              </div>
 
 
-								{{#view Yn.ScrollerView class="choose-user-tab" 
-                  holdPeriod=10
-									exclude=".header, #choose-user-menu-tabs, #submenu-tabs-channels"
-                  addExcludeExtra1Binding="withFooter"
-                  excludeExtra1Global="footer"
-                  isRefreshedBinding="agendaIsRefreshed"
-                  hasNextBinding="agendaHasNext"
-                  lengthBinding="agendaContent.length"
-									viewName="agenda" }}
+            {{else}} 
 
-                    <div class="scroller-container fix-scrolling-touch">
+              {{#if facebookContent.isLoaded }} 
 
-                    {{#unless user.firstPhoneChannel.isValidated}}
 
-                        {{#unless user.firstPhoneChannel}}
-                          <div class="inactive-account">
-                            
-                           <div class="space by-three"></div>
+                    {{#if facebookContent.length }} 
 
-                            <div class="title">
-                              <div class="title-name">
-                                {{I18n activate_agenda_title}}
+                        <div class="space by-one"></div>
+                        <div class="box">
+
+                          <div class="box-content has-li">
+
+                            {{#each facebookContent}}
+
+                              <div class="box-content-li has-tap">
+                                {{view Yn.TapUserShortBlockView
+                                  imagetype="is-small"
+                                  typeBinding="Yn.UserType.FbChannel"
+                                  fbIdBinding="id"
+                                  fbNameBinding="name"
+                                  action="selectFacebookUser"
+                                  actionContentBinding="this"}}
                               </div>
-                            </div>
 
-                            <div class="space by-two"></div>
 
-                            <div class="content">
-                              <div class="box">
-                                <div class="box-content">
-                                  <div class="block-phone-number-element two-column-table">
-                                    <div class="main-text left-column">
-                                      {{view Yn.PhoneInputView id="choose-user-input-phone" class="main-text input-phone is-transparent"
-                                        placeholderI18n="add_another_phone_number"}}
-                                    </div>
-                                    <div class="control right-column">
-                                      {{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white"
-                                        contentI18n="add"
-                                        action="addPhone"}}
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
+                            {{/each}}
 
-                            <div class="space by-one"></div>
-
-                            <div class="subtitle">
-                              {{I18n activate_agenda_subtitle}}
-                            </div>
-                            
                           </div>
 
-                        {{else}}
 
-                          <div class="inactive-account">
-                            <div class="title">
-                              <div class="title-name">
-                              </div>
-                            </div>
-
-
-                            <div class="space by-three"></div>
-
-                            <div class="content">
-                              <div class="box">
-                                <div class="box-content has-fill-border">
-                                  <div class="block-phone-number-element two-column-table">
-                                    <div class="main-text left-column">
-                                      {{user.firstPhoneChannel.phone}}
-                                    </div>
-                                    <div class="control right-column">
-                                      {{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-white"
-                                        contentI18n="delete"
-                                        action="deletePhone"
-                                        actionContentBinding="user.firstPhoneChannel"}}
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="box-content">
-                                  <div class="block-phone-number-element two-column-table">
-                                    <div class="left-column">
-                                      {{view Yn.InputView id="choose-user-input-validation" class="single-input"
-                                        type="number"
-                                        placeholderI18n="confirmation_code_placeholder"}}
-                                    </div>
-                                    <div class="control right-column">
-                                      {{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white"
-                                        contentI18n="ok"
-                                        action="validatePhone"}}
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="space by-one"></div>
-
-                            <div class="subtitle">
-                                {{I18n validate_phone_subtitle}}
-                            </div>
-                          </div>
-
-                        {{/unless}} 
+                        </div>
+                        <div class="space by-one"></div>
 
                     {{else}} 
 
-                      {{#if agendaContent.isLoaded }} 
-
-
-                              {{#if agendaContent.length }} 
-
-                                    <div class="space by-one"></div>
-                                    <div class="box">
-
-                                      <div class="box-title-top">
-                                        {{title}}
-                                      </div>
-
-                                      <div class="box-content has-li">
-
-                                        {{#each agendaContent}}
-
-                                          <div class="box-content-li has-tap">
-
-                                            {{view Yn.TapUserShortBlockView class="is-small" 
-                                              imagetype="is-small" 
-                                              typeBinding="Yn.UserType.PhoneChannel"
-                                              contentBinding="this" 
-                                              phoneNameBinding="name"
-                                              action="selectAgendaUser"
-                                              actionContentBinding="this"}}
-
-                                          </div>
-
-                                        {{/each}}
-
-                                      </div>
-
-                                    </div>
-                                    <div class="space by-one"></div>
-
-                              {{else}} 
-
-                                <div class="choose-user-alert-text">
-                                  <div class="space by-nine"></div>
-                                  {{I18n no_friends}}
-                                </div>
-
-                              {{/if}} 
-
-
-                        {{else}} 
-
-                          {{view Yn.SpinnerView
-                            contentI18n="importing_agenda"}}
-
-                        {{/if}} 
-
-                    {{/unless}} 
-
-                    </div>
-
-								{{/view}}
-
-								{{#view Yn.ScrollerView class="choose-user-tab" 
-                  holdPeriod=10
-									exclude=".header, #choose-user-menu-tabs, #submenu-tabs-channels"
-                  addExcludeExtra1Binding="withFooter"
-                  excludeExtra1Global="footer"
-                  isRefreshedBinding="yoinIsRefreshed"
-                  hasNextBinding="yoinHasNext"
-                  lengthBinding="yoinContent.length"
-									viewName="yoin" }}
-
-                    <div class="scroller-container fix-scrolling-touch">
-
-                    {{#if yoinContent.isLoaded }} 
-
-
-                        {{#if yoinContent.length }} 
-
-                          <div class="space by-one"></div>
-                          <div class="box">
-
-                            <div class="box-title-top">
-                              {{title}}
-                            </div>
-
-                            <div class="box-content has-li">
-
-                              {{#each yoinContent}}
-
-                                <div class="box-content-li has-tap">
-
-                                  {{view Yn.TapUserShortBlockView class="is-small" 
-                                  imagetype="is-small" 
-                                  typeBinding="Yn.UserType.appuser"
-                                  contentBinding="user" 
-                                  showCity=false 
-                                  action="selectUser"
-                                  actionContentBinding="user"}}
-
-                                </div>
-
-                              {{/each}}
-
-                            </div>
-
-                          </div>
-                          <div class="space by-one"></div>
-
-                        {{else}}
-
-                           <div class="space by-three"></div>
-
-
-                          {{view Yn.EmptyView class="is-small"
-                            contentI18n="empty_friends"
-                            messageAction=null
-                            textAction=null }}
-
-
-            
-
-                        {{/if}} 
-
-
-                  {{else}} 
-
-                    {{view Yn.SpinnerView
-                      contentI18n="importing_yoin"}}
-
-                  {{/if}} 
-                  </div>
-
-
-								{{/view}}
-
-
-								{{#view Yn.ScrollerView class="choose-user-tab" 
-                  holdPeriod=10
-                  isRefreshedBinding="facebookIsRefreshed"
-                  lengthBinding="facebookContent.length"
-                  hasNextBinding="facebookHasNext"
-									exclude=".header, #choose-user-menu-tabs, #submenu-tabs-channels"
-                  addExcludeExtra1Binding="withFooter"
-                  excludeExtra1Global="footer"
-									viewName="facebook" }}
-
-                    <div class="scroller-container fix-scrolling-touch">
-
-                    {{#unless user.hasFacebook}} 
-
-                      <div class="inactive-account">
-
-                        <div class="space by-three"></div>
-
-                        <div class="title">
-                          <div class="title-name">
-                            Please connect your Facebook account
-                          </div>
-                        </div>
-
-                        <div class="space by-two"></div>
-
-                        <div class="content">
-                          {{view Yn.SocialBigButtonView class="facebook" 
-                            contentI18n="connect_with_facebook" 
-                            action="connectWithFacebook" }}
-                        </div>
-
-                         <div class="space by-one"></div>
-
-                        <div class="subtitle">
-                          {{I18n activate_facebook_subtitle}}
-                        </div>
-                      </div>
-
-                    {{else}} 
-
-                      {{#if facebookContent.isLoaded }} 
-
-
-                            {{#if facebookContent.length }} 
-
-                                <div class="space by-one"></div>
-                                <div class="box">
-
-                                  <div class="box-title-top">
-                                    {{title}}:
-                                  </div>
-
-                                  <div class="box-content has-li">
-
-                                    {{#each facebookContent}}
-
-                                      <div class="box-content-li has-tap">
-                                        {{view Yn.TapUserShortBlockView class="is-small"
-                                          imagetype="is-small"
-                                          typeBinding="Yn.UserType.FbChannel"
-                                          fbIdBinding="id"
-                                          fbNameBinding="name"
-                                          action="selectFacebookUser"
-                                          actionContentBinding="this"}}
-                                      </div>
-
-
-                                    {{/each}}
-
-                                  </div>
-
-
-                                </div>
-                                <div class="space by-one"></div>
-
-                            {{else}} 
-
-                              <div class="choose-user-alert-text">
-                              <div class="space by-nine"></div>
-                                {{I18n no_friends}}
-                              </div>
-
-                            {{/if}} 
-
-
-
-                    {{else}} 
-
-                    {{view Yn.SpinnerView
-                      contentI18n="importing_facebook"}}
+                     {{view Yn.EmptyView class="is-small"
+                       contentI18n="no_friends" }}
 
                     {{/if}} 
 
-                  {{/unless}} 
-
-                  </div>
-
-								{{/view}}
-
-					{{/view}}
 
 
-			{{/view}}
+            {{else}} 
 
-			{{#view Yn.ScrollerView class="choose-user-type-tab" 
-				exclude=".header, #choose-user-menu-tabs"
-        addExcludeExtra1Binding="withFooter"
-        excludeExtra1Global="footer"
-				viewName="nears" }}
-
-				<div class="space by-one"></div>
-
-        {{#if privacyIsActive }}
-
-          {{#if nearContent.isLoaded }} 
-
-            {{#if nearContent.length }} 
-
-                <div class="box">
-
-                  <div class="box-content has-li">
-
-                    {{#each nearContent }}
-
-                      <div class="box-content-li has-tap">
-
-                        {{view Yn.TapUserShortBlockView class="is-small" 
-                          imagetype="is-small" 
-                          contentBinding="this" 
-                          showCity=false 
-                          action="selectUser"
-                          actionContentBinding="this"}}
-
-                      </div>
-
-                    {{/each}}
-
-                  </div>
-
-                </div>
-
-                <div class="space by-one"></div>
-
-            {{else}}
-
-              {{view Yn.EmptyView class="is-small"
-                contentI18n="no_users_close_to_you"
-                messageAction=null
-                textAction=null }}
+            {{view Yn.SpinnerView
+              contentI18n="importing_facebook"}}
 
             {{/if}} 
+
+          {{/unless}} 
+
+          </div>
+
+        {{/view}}
+
+        {{#view Yn.ScrollerView class="choose-user-tab" 
+          holdPeriod=10
+          exclude=".header"
+          addExcludeExtra1Binding="hasYoinFriends"
+          excludeExtra1="#choose-user-menu-tabs"
+          viewName="yoin" }}
+
+            <div class="scroller-container fix-scrolling-touch">
+
+            {{#if yoinContent.isLoaded }} 
+
+
+                {{#if yoinContent.length }} 
+
+                  <div class="space by-one"></div>
+                  <div class="box">
+
+                    <div class="box-content has-li">
+
+                      {{#each yoinContent}}
+
+                        <div class="box-content-li has-tap">
+
+                          {{view Yn.TapUserShortBlockView  
+                            imagetype="is-small"
+                            typeBinding="Yn.UserType.appuser"
+                            contentBinding="user" 
+                            showCity=false 
+                            showStatus=false
+                            action="selectUser"
+                            actionContentBinding="user"}}
+
+                        </div>
+
+                      {{/each}}
+
+                    </div>
+
+                  </div>
+                  <div class="space by-one"></div>
+
+                {{else}}
+
+
+                   {{view Yn.EmptyView class="is-small"
+                     contentI18n="empty_friends" }}
+    
+
+                {{/if}} 
 
 
           {{else}} 
 
-            {{view Yn.SpinnerView}}
+            {{view Yn.SpinnerView
+              contentI18n="importing_yoin"}}
 
           {{/if}} 
-
-        {{else}}
-
-          {{view Yn.EmptyView class="is-small"
-            contentI18n="no_users_privacy_inactive"
-            messageAction=null
-            textAction=null }}
-
-        {{/if}} 
+          </div>
 
 
-
-			{{/view}}
-
+        {{/view}}
 
 		{{/view}}
-
-    {{else}}
-
-      {{view Yn.NavigationSpinnerView}}
-
-    {{/unless}}
 
 </div>
 
