@@ -102,36 +102,6 @@
 
   </div>
 
-
-	<div class="space by-one"></div>
-
-	<div class="box">
-
-    {{#view Yn.BtapView class="box-content has-tap" 
-      action="goToUserPhone"}}
-
-      <div class="box-content-element three-column-table"> 
-
-				<div class="picture left-column">
-					{{view Yn.SquareImageView class="is-normal"
-						content="phonebook_button.png"
-						withChannel=true }}
-				</div>
-
-				<div class="name middle-column main-text">
-					{{I18n agenda}}
-				</div>
-
-				<div class="control right-column">
-          <span class="icon is-icon-normal is-icon-grey with-text arrow"></span>
-				</div>
-
-      </div>
-
-    {{/view}}
-
-	</div>
-
 	{{view Yn.MainButtonView
 		class="is-red"
 		contentI18n="close_session"
