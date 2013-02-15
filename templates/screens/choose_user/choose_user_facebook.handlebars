@@ -1,0 +1,69 @@
+
+            {{#unless user.hasFacebook}} 
+
+
+              <div class="login-with-fb">
+
+                {{view Yn.SocialBigButtonView class="facebook is-middle" 
+                  contentI18n="connect_with_facebook" 
+                  action="connectWithFacebook" }}
+
+                 <div class="space by-two"></div>
+
+                <div class="detail-text is-center">
+                  {{I18n activate_facebook_subtitle}}
+                </div>
+
+              </div>
+
+
+            {{else}} 
+
+              {{#if facebookContent.isLoaded }} 
+
+
+                    {{#if facebookContent.length }} 
+
+                        <div class="space by-one"></div>
+                        <div class="box">
+
+                          <div class="box-content has-li">
+
+                            {{#each facebookContent}}
+
+                              <div class="box-content-li has-tap">
+                                {{view Yn.TapUserShortBlockView
+                                  imagetype="is-small"
+                                  typeBinding="Yn.UserType.FbChannel"
+                                  fbIdBinding="id"
+                                  fbNameBinding="name"
+                                  action="selectFacebookUser"
+                                  actionContentBinding="this"}}
+                              </div>
+
+
+                            {{/each}}
+
+                          </div>
+
+
+                        </div>
+                        <div class="space by-one"></div>
+
+                    {{else}} 
+
+                     {{view Yn.EmptyView class="is-small"
+                       contentI18n="no_friends" }}
+
+                    {{/if}} 
+
+
+
+            {{else}} 
+
+            {{view Yn.SpinnerView
+              contentI18n="importing_facebook"}}
+
+            {{/if}} 
+
+          {{/unless}} 

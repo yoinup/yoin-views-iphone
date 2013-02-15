@@ -10,154 +10,59 @@
 <div class="screen-container">
 
     {{#if hasYoinFriends}} 
-      {{view Yvi.ChooseUserMenuTabsView id="choose-user-menu-tabs" 
-        selectedBinding="option" }}
+
+        {{view Yvi.ChooseUserMenuTabsView id="choose-user-menu-tabs" 
+          selectedBinding="option" }}
+
+        {{#view Yn.TabMainView
+          currentTabViewBinding="option"}}
+
+            {{#view Yn.ScrollerView
+              exclude=".header, #choose-user-menu-tabs"
+              viewName="facebook" }}
+
+              {{template "choose_user_facebook"}}
+
+            {{/view}}
+
+            {{#view Yn.ScrollerView
+              exclude=".header, #choose-user-menu-tabs"
+              viewName="yoin" }}
+
+              {{template "choose_user_yoin"}}
+
+
+            {{/view}}
+
+        {{/view}}
+
+    {{else}}
+
+        {{#view Yn.TabMainView
+          currentTabViewBinding="option"}}
+
+            {{#view Yn.ScrollerView
+              exclude=".header"
+              viewName="facebook" }}
+
+              {{template "choose_user_facebook"}}
+
+            {{/view}}
+
+            {{#view Yn.ScrollerView
+              exclude=".header"
+              viewName="yoin" }}
+
+              {{template "choose_user_yoin"}}
+
+
+            {{/view}}
+
+        {{/view}}
+
+
     {{/if}}
 
-		{{#view Yn.TabMainView
-			currentTabViewBinding="option"}}
-
-        {{#view Yn.ScrollerView
-          holdPeriod=10
-          exclude=".header"
-          addExcludeExtra1Binding="hasYoinFriends"
-          excludeExtra1="#choose-user-menu-tabs"
-          viewName="facebook" }}
-
-
-            {{#unless user.hasFacebook}} 
-
-
-              <div class="login-with-fb">
-
-                {{view Yn.SocialBigButtonView class="facebook is-middle" 
-                  contentI18n="connect_with_facebook" 
-                  action="connectWithFacebook" }}
-
-                 <div class="space by-two"></div>
-
-                <div class="detail-text is-center">
-                  {{I18n activate_facebook_subtitle}}
-                </div>
-
-              </div>
-
-
-            {{else}} 
-
-              {{#if facebookContent.isLoaded }} 
-
-
-                    {{#if facebookContent.length }} 
-
-                        <div class="space by-one"></div>
-                        <div class="box">
-
-                          <div class="box-content has-li">
-
-                            {{#each facebookContent}}
-
-                              <div class="box-content-li has-tap">
-                                {{view Yn.TapUserShortBlockView
-                                  imagetype="is-small"
-                                  typeBinding="Yn.UserType.FbChannel"
-                                  fbIdBinding="id"
-                                  fbNameBinding="name"
-                                  action="selectFacebookUser"
-                                  actionContentBinding="this"}}
-                              </div>
-
-
-                            {{/each}}
-
-                          </div>
-
-
-                        </div>
-                        <div class="space by-one"></div>
-
-                    {{else}} 
-
-                     {{view Yn.EmptyView class="is-small"
-                       contentI18n="no_friends" }}
-
-                    {{/if}} 
-
-
-
-            {{else}} 
-
-            {{view Yn.SpinnerView
-              contentI18n="importing_facebook"}}
-
-            {{/if}} 
-
-          {{/unless}} 
-
-
-        {{/view}}
-
-        {{#view Yn.ScrollerView
-          holdPeriod=10
-          exclude=".header"
-          addExcludeExtra1Binding="hasYoinFriends"
-          excludeExtra1="#choose-user-menu-tabs"
-          viewName="yoin" }}
-
-
-            {{#if yoinContent.isLoaded }} 
-
-
-                {{#if yoinContent.length }} 
-
-                  <div class="space by-one"></div>
-                  <div class="box">
-
-                    <div class="box-content has-li">
-
-                      {{#each yoinContent}}
-
-                        <div class="box-content-li has-tap">
-
-                          {{view Yn.TapUserShortBlockView  
-                            imagetype="is-small"
-                            typeBinding="Yn.UserType.appuser"
-                            contentBinding="user" 
-                            showCity=false 
-                            showStatus=false
-                            action="selectUser"
-                            actionContentBinding="user"}}
-
-                        </div>
-
-                      {{/each}}
-
-                    </div>
-
-                  </div>
-                  <div class="space by-one"></div>
-
-                {{else}}
-
-
-                   {{view Yn.EmptyView class="is-small"
-                     contentI18n="empty_friends" }}
-    
-
-                {{/if}} 
-
-
-          {{else}} 
-
-            {{view Yn.SpinnerView
-              contentI18n="importing_yoin"}}
-
-          {{/if}} 
-
-
-        {{/view}}
-
-		{{/view}}
 
 </div>
 

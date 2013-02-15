@@ -1,0 +1,50 @@
+
+            {{#if yoinContent.isLoaded }} 
+
+
+                {{#if yoinContent.length }} 
+
+                  <div class="space by-one"></div>
+                  <div class="box">
+
+                    <div class="box-content has-li">
+
+                      {{#each yoinContent}}
+
+                        <div class="box-content-li has-tap">
+
+                          {{view Yn.TapUserShortBlockView  
+                            imagetype="is-small"
+                            typeBinding="Yn.UserType.appuser"
+                            contentBinding="user" 
+                            showCity=false 
+                            showStatus=false
+                            action="selectUser"
+                            actionContentBinding="user"}}
+
+                        </div>
+
+                      {{/each}}
+
+                    </div>
+
+                  </div>
+                  <div class="space by-one"></div>
+
+                {{else}}
+
+
+                   {{view Yn.EmptyView class="is-small"
+                     contentI18n="empty_friends" }}
+    
+
+                {{/if}} 
+
+
+          {{else}} 
+
+            {{view Yn.SpinnerView
+              contentI18n="importing_yoin"}}
+
+          {{/if}} 
+
