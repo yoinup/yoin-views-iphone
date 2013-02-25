@@ -6,107 +6,26 @@
     {{view Yn.MapButtonView class="l-right" 
       actionContentBinding="invitation"
       action="goToMap" }}
-	{{/view }}
-
-  {{#view Yn.ScrollerView class="screen-container" 
-    loggedUserBinding="loggedUser"
-    exclude=".header"
-    excludeGlobal="footer" }}
-
-    <div class="space by-one"></div>
-
-    {{view Yn.VenueBoxView 
-      productBinding="invitation.product"
-      invitationBinding="invitation"
-      hasResend=true
-      hasBrandName=true
-      brandBinding="invitation.venue.brand"
-      venueBinding="invitation.venue" }}
-
-    {{view Yn.MainButtonView class="is-blue" 
-      contentI18n="use_in_store" 
-      actionContentBinding="invitation"
-      action="useIt" }}
+  {{/view }}
 
 
-    {{#if invitation.reverseComments.length }}
+  {{#if hasFoooter }}
 
+    {{#view Yn.ScrollerView class="screen-container" 
+      loggedUserBinding="loggedUser"
+      exclude=".header"
+      excludeGlobal="footer" }}
+      {{template invitation_container}}
+    {{/view }}
 
-      <div class="box invitation-comments">
-        <div class="box-content has-li">
+  {{else}}
 
-          {{#each invitation.reverseComments }}
+    {{#view Yn.ScrollerView class="screen-container" 
+      loggedUserBinding="loggedUser"
+      exclude=".header" }}
+      {{template invitation_container}}
+    {{/view }}
 
-              <div class="box-content-li-no-border box-content-element two-column-table">
-
-                {{#if_eq "view.loggedUser user"}}
-
-                  <div class="main detail-text left-column is-right">
-                    {{comment}}
-                  </div>
-
-                  <div class="right-column">
-                    {{view Yn.SquareImageView class="is-small"
-                      contentBinding="user"
-                      withPhoto=true }}
-                  </div>
-
-                {{else}}
-
-                  <div class="left-column">
-                    {{view Yn.SquareImageView class="is-small"
-                      contentBinding="user"
-                      withPhoto=true }}
-                  </div>
-
-                  <div class="detail-text right-column main">
-                    {{comment}}
-                  </div>
-
-                {{/if_eq}}
-
-              </div>
-          {{/each}}
-
-        </div>
-      </div>
-
-      <div class="space by-one"></div>
-
-    {{/if}}
-
-    <div class="box">
-
-      <div class="box-content">
-        <div class="box-content-element two-column-table">
-
-          <div class="main-text left-column main">
-            {{view Yvi.InvitationCommentInputView id="invitation-comment-input" class="single-input"
-              scrollToOnFocusIn=false
-              valueBinding="inputValue"
-              userBinding="invitation.fromUser"}}
-          </div>
-
-          <div class="control right-column">
-            {{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white"
-              contentI18n="send"
-              action="sendComment"}}
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-
-    <div class="space by-two"></div>
-    <div class="box">
-      {{view Yvi.SelectItemBoxContentView
-        contentI18n="button_terms_and_conditions" 
-        actionContentBinding="invitation"
-        action="showTerms" }}
-    </div>
-    <div class="space by-one"></div>
-
-	{{/view }}
+  {{/if}}
 
 {{/with}}
