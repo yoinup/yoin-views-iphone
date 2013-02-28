@@ -24,29 +24,23 @@
 
         {{/view}}
 
-        {{#if _hasYoinFriends}} 
 
-          {{#view Yn.ScrollerView
-            exclude=".header, #choose-user-menu-tabs"
-            viewName="yoin" }}
+        {{#view Yn.ScrollerView
+          exclude=".header, #choose-user-menu-tabs"
+          viewName="yoin" }}
 
-            {{template "choose_user_yoin"}}
+          {{template "choose_user_yoin"}}
 
-          {{/view}}
+        {{/view}}
 
-        {{/if}}
 
-        {{#if showNears}} 
+        {{#view Yn.ScrollerView
+          exclude=".header, #choose-user-menu-tabs"
+          viewName="nearby" }}
 
-          {{#view Yn.ScrollerView
-            exclude=".header, #choose-user-menu-tabs"
-            viewName="nearby" }}
+          {{template "choose_user_nears"}}
 
-            {{template "choose_user_nears"}}
-
-          {{/view}}
-
-        {{/if}}
+        {{/view}}
 
     {{/view}}
 
