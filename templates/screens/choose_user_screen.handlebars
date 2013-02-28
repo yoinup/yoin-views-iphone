@@ -11,58 +11,48 @@
 
     {{#if hasYoinFriends}} 
 
-        {{view Yvi.ChooseUserMenuTabsView id="choose-user-menu-tabs" 
-          selectedBinding="option" }}
-
-        {{#view Yn.TabMainView
-          currentTabViewBinding="option"}}
-
-            {{#view Yn.ScrollerView
-              exclude=".header, #choose-user-menu-tabs"
-              viewName="facebook" }}
-
-              {{template "choose_user_facebook"}}
-
-            {{/view}}
-
-            {{#view Yn.ScrollerView
-              exclude=".header, #choose-user-menu-tabs"
-              viewName="yoin" }}
-
-              {{template "choose_user_yoin"}}
-
-
-            {{/view}}
-
-        {{/view}}
+      {{view Yvi.ChooseUserMenuTabsView id="choose-user-menu-tabs" 
+        selectedBinding="option" }}
 
     {{else}}
 
-        {{#view Yn.TabMainView
-          currentTabViewBinding="option"}}
-
-            {{#view Yn.ScrollerView
-              exclude=".header"
-              viewName="facebook" }}
-
-              {{template "choose_user_facebook"}}
-
-            {{/view}}
-
-            {{#view Yn.ScrollerView
-              exclude=".header"
-              viewName="yoin" }}
-
-              {{template "choose_user_yoin"}}
-
-
-            {{/view}}
-
-        {{/view}}
-
+      {{view Yvi.ChooseUser2MenuTabsView id="choose-user-menu-tabs" 
+        selectedBinding="option" }}
 
     {{/if}}
 
+    {{#view Yn.TabMainView
+      currentTabViewBinding="option"}}
+
+        {{#view Yn.ScrollerView
+          exclude=".header, #choose-user-menu-tabs"
+          viewName="facebook" }}
+
+          {{template "choose_user_facebook"}}
+
+        {{/view}}
+
+        {{#if hasYoinFriends}} 
+
+          {{#view Yn.ScrollerView
+            exclude=".header, #choose-user-menu-tabs"
+            viewName="yoin" }}
+
+            {{template "choose_user_yoin"}}
+
+          {{/view}}
+
+        {{/if}}
+
+        {{#view Yn.ScrollerView
+          exclude=".header, #choose-user-menu-tabs"
+          viewName="nearby" }}
+
+          {{template "choose_user_nears"}}
+
+        {{/view}}
+
+    {{/view}}
 
 </div>
 

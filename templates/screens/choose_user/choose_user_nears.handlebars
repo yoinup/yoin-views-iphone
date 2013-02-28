@@ -1,0 +1,53 @@
+{{#if locationActive }} 
+
+  {{#if nearsContent.isLoaded }} 
+
+      {{#if nearsContent.length }} 
+
+        <div class="space by-one"></div>
+        <div class="box">
+
+          <div class="box-content has-li">
+
+            {{#each nearsContent}}
+
+              <div class="box-content-li has-tap">
+
+                {{view Yn.TapUserShortBlockView  
+                  imagetype="is-small"
+                  typeBinding="Yn.UserType.appuser"
+                  contentBinding="user" 
+                  showCity=false 
+                  showStatus=false
+                  action="selectUser"
+                  actionContentBinding="user"}}
+
+              </div>
+
+            {{/each}}
+
+          </div>
+
+        </div>
+        <div class="space by-one"></div>
+
+      {{else}}
+
+         {{view Yn.EmptyView class="is-small"
+           contentI18n="empty_nearby" }}
+
+      {{/if}} 
+
+  {{else}}
+
+    {{view Yn.SpinnerView
+      contentI18n="importing_nearby"}}
+
+  {{/if}} 
+
+{{else}}
+
+  {{view Yn.EmptyView class="is-small" 
+    contentI18n="choose_user_location_is_not_active" }}
+
+{{/if}} 
