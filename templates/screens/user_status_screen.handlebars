@@ -11,7 +11,7 @@
 
 <div class="header-action">
 
-	<div class="left">
+	<div class="ha-left">
 	
     {{view Yn.InputView id="user-status-input" class="single-input"
       type="text" placeholderI18n="write_status_message" 
@@ -19,9 +19,7 @@
 		
 	</div>
 	
-	<div class="middle"></div>
-	
-	<div class="right">
+	<div class="ha-right">
 	
     {{view Yn.AdaptativeButtonView class="is-blue button-text is-small is-font-white" 
       contentI18n="save" action="writeStatus" }}
@@ -45,10 +43,11 @@
 			{{#each options}}
 
           <div class="box-content-li box-content-element two-column-table">
-
-            <div class="main-text left-column">
-              {{I18n key=name}}
+              
+            <div class="main main-text left-column">
+              {{I18n keyBinding=name}}
             </div>
+
             
             <div class="control right-column"> 
 
