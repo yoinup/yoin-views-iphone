@@ -9,17 +9,9 @@
 
 <div class="screen-container">
 
-    {{#if hasYoinFriends}} 
-
-      {{view Yvi.ChooseUserMenuTabsView id="choose-user-menu-tabs" 
-        selectedBinding="option" }}
-
-    {{else}}
-
-      {{view Yvi.ChooseUser2MenuTabsView id="choose-user-menu-tabs" 
-        selectedBinding="option" }}
-
-    {{/if}}
+    {{view Yn.MenuTabsButtonView id="choose-user-menu-tabs" 
+      contentBinding="_options"
+      selectedBinding="option" }}
 
     {{#view Yn.TabMainView
       currentTabViewBinding="option"}}
@@ -32,7 +24,7 @@
 
         {{/view}}
 
-        {{#if hasYoinFriends}} 
+        {{#if _hasYoinFriends}} 
 
           {{#view Yn.ScrollerView
             exclude=".header, #choose-user-menu-tabs"
@@ -44,13 +36,17 @@
 
         {{/if}}
 
-        {{#view Yn.ScrollerView
-          exclude=".header, #choose-user-menu-tabs"
-          viewName="nearby" }}
+        {{#if showNears}} 
 
-          {{template "choose_user_nears"}}
+          {{#view Yn.ScrollerView
+            exclude=".header, #choose-user-menu-tabs"
+            viewName="nearby" }}
 
-        {{/view}}
+            {{template "choose_user_nears"}}
+
+          {{/view}}
+
+        {{/if}}
 
     {{/view}}
 
