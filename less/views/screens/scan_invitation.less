@@ -9,6 +9,9 @@
 
 @bar-width: 250px;
 
+//@scan-border-radius: @border-box-radius-size;
+@scan-border-radius: 4%;
+
 #scan-invitation-screen {
 
 	> .screen-container {
@@ -49,7 +52,7 @@
 					height: @qr-height;
 
 					background-color: @pure-white;
-					border-radius: @button_rounded_header-margin;
+					border-radius: @scan-border-radius;
 					box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.3);
 
 					> .qr-code {
@@ -66,7 +69,7 @@
 
 					padding: 10px;
 					background-color: @pure-white;
-					border-radius: @button_rounded_header-margin;
+					border-radius: @scan-border-radius;
 					box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.3);
 
           > .bar-code {
