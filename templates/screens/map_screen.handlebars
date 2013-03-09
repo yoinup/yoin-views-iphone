@@ -8,8 +8,8 @@
       <div class="header-title">
         {{#if showVenue}}
           {{venue.brand.name}}
-        {{else}}
           {{I18n map_title}}
+        {{else}}
         {{/if}}
       </div>
 
@@ -35,7 +35,7 @@
         
         <div class="ha-right">
         
-          {{view Yvi.SwitchGeopositionEnablerButton class="geo-button is-grey is-small icon is-icon-small" 
+          {{view Yvi.SwitchGeopositionEnablerButton class="rectangle-button is-grey is-small icon is-icon-small" 
             isOnBinding="isOnGeopositionEnabler"
             icon="o" 
             action="switchGeopositionEnabler" }}

@@ -2,6 +2,7 @@
 @import 'sizes';
 @import 'textstyles';
 @import 'paddings';
+@import 'radius';
 
 // 180 -> 50px
 @qr-width: 140px;
@@ -9,32 +10,10 @@
 
 @bar-width: 250px;
 
-//@scan-border-radius: @border-box-radius-size;
-@scan-border-radius: 4%;
 
 #scan-invitation-screen {
 
 	> .screen-container {
-
-    > .action-buttons {
-
-      height: 30px;
-
-      > .qr-action-button {
-        width: 115px;
-      }
-
-      > .qr-action-button.fl {
-        float: left;
-        margin-left: 11px;
-      }
-
-      > .qr-action-button.fr {
-        float: right;
-        margin-right: 11px;
-      }
-
-    }
 
 		> .invitation-localizer.box {
 
@@ -44,16 +23,21 @@
 				padding-top: 5%;
 				padding-bottom: 5%;
 
-				> .qr-container {
-          // TODO : CAMBIAR ESTO - NO CONSEGUIA CENTRARLO
-					margin-left: 67px; 
+				> .qr-container, > .bar-container {
+
+					border-radius: @border-box-radius-size;
 					padding: 10px;
-					width: @qr-width;
-					height: @qr-height;
 
 					background-color: @pure-white;
-					border-radius: @scan-border-radius;
 					box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.3);
+
+        }
+
+				> .qr-container {
+
+          margin: 0 auto;
+					width: @qr-width;
+					height: @qr-height;
 
 					> .qr-code {
 						width: @qr-width;
@@ -61,16 +45,12 @@
 					}
 
 				}
-
+        
+        // TODO: fluid
 				> .bar-container {
 
 					margin-left: 15px; 
 					width: @bar-width;
-
-					padding: 10px;
-					background-color: @pure-white;
-					border-radius: @scan-border-radius;
-					box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.3);
 
           > .bar-code {
 
