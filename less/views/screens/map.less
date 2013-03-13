@@ -1,12 +1,10 @@
 @import 'sizes';
 @import 'colors';
 
-
 @import 'textstyles';
 @import 'paddings';
 @import 'lists';
 @import 'gradients';
-
 
 
 #map-screen {
@@ -31,33 +29,28 @@
 
   > .cities-section {
 
-    z-index: 1;
-
-
     > .cities {
 
       > .city {
 
         .box-padding-horizontal;
 
-      }
+        &:active, &.touch {
+          .box-press;
+        }
 
-      > .city:active, > .city.touch {
-        .box-press;
-      }
+        &.is-selected {
 
-      > .city.is-selected {
+          &::after {
+            font-family: 'Yoin Icons';
+            content: 'F';
+            -webkit-font-smoothing: antialiased;
+            text-decoration: none;
+            float: right;
+            margin-top: 2px;
+          }
 
-      }
-
-      > .city.is-selected::after {
-
-        font-family: 'Yoin Icons';
-        content: 'F';
-        -webkit-font-smoothing: antialiased;
-        text-decoration: none;
-        float: right;
-        margin-top: 2px;
+        }
 
       }
 
