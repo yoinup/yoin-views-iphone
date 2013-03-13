@@ -49,12 +49,12 @@
   {{/view }}
 
 
-  {{#view Yn.ScrollerView class="cities-section aside back" 
+  {{#view Yn.ScrollerView class="cities-section is-flat-bg aside back" 
     selectedCityBinding="selectedCity"}}
     <div class="cities">
       {{#each cities}}
         {{#view Yvi.MapCityView 
-          class="city main-text"
+          class="list-li city main-text"
           action="selectCity"
           actionContentBinding="this"
           contentBinding="this"

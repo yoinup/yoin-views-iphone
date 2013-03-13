@@ -32,25 +32,18 @@
   > .cities-section {
 
     z-index: 1;
-    background-color: @grey01;
 
 
     > .cities {
 
+      > .city {
 
-      > .city:active, > .city.touch {
-
-          .box-press;
-          //.border-bottom-box-radius-style;
+        .box-padding-horizontal;
 
       }
 
-
-      > .city {
-
-        .box-padding-style;
-        .list-element-fill-border;
-
+      > .city:active, > .city.touch {
+        .box-press;
       }
 
       > .city.is-selected {
