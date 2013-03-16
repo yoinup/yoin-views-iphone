@@ -3,8 +3,9 @@
 {{#view Yn.HeaderView}}
   {{view Yn.BackButtonView }}
   <div class="header-title">
-      {{I18n privacy_policy}}
+
     {{#if isPrivacy }}
+      {{I18n privacy_policy}}
     {{else}}
       {{I18n terms_and_conditions}}
     {{/if}}
@@ -12,7 +13,7 @@
 {{/view }}
 
 
-{{#if hasFoooter }}
+{{#if hasFooter }}
 
   {{#view Yn.ScrollerView class="screen-container"
     exclude=".header"
