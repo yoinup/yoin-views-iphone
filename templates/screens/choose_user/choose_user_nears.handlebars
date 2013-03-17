@@ -33,8 +33,8 @@
 
       {{else}}
 
-         {{view Yn.EmptyView class="is-small"
-           contentI18n="empty_nearby" }}
+        <div class="empty-view is-absolute"></div>
+        <div class="empty-text is-absolute">{{I18n empty_nearby}}</div>
 
       {{/if}} 
 
@@ -47,7 +47,7 @@
 
 {{else}}
 
-  {{view Yn.EmptyView class="is-small" 
-    contentI18n="choose_user_location_is_not_active" }}
+  <div class="empty-view is-absolute"></div>
+  <div class="empty-text is-absolute">{{I18n choose_user_location_is_not_active}}</div>
 
 {{/if}} 

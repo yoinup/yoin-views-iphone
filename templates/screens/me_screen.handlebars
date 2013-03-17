@@ -95,8 +95,10 @@
 
 							{{else }}
 
-								{{view Yn.EmptyView class="is-small is-vertical-center"
-									contentI18n="empty_friends" }}
+								<div class="space by-five"></div>
+                <div class="empty-view is-relative"></div>
+								<div class="space by-one"></div>
+                <div class="empty-text is-relative">{{I18n empty_friends}}</div>
 
 							{{/if}}
 
@@ -140,8 +142,10 @@
 
 						{{else }}
 
-								{{view Yn.EmptyView class="is-small is-vertical-center"
-                  contentI18n="empty_activity"}}
+              <div class="space by-five"></div>
+              <div class="empty-view is-relative"></div>
+              <div class="space by-one"></div>
+              <div class="empty-text is-relative">{{I18n empty_activity}}</div>
 
 						{{/if}}
 
