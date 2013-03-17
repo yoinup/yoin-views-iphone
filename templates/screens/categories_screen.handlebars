@@ -5,11 +5,16 @@
 	<div class="header-title">{{I18n categories_title}}</div>
 {{/view }}
 
-<div class="screen-container is-flat-bg">
+<div class="screen-container">
+
 
   {{#if orderCategories.isLoaded}}
 
-      <div class="categories-list">
+      <div class="space by-one"></div>
+
+      <div class="box">
+        <div class="box-content has-li">
+
 
         {{view Yvi.CategoryItemView
           icon="m"
@@ -28,7 +33,10 @@
           icon="j"
           nameI18n="categories_all"}}
 
+        </div>
       </div>
+
+      <div class="space by-one"></div>
 
   {{else}}
 

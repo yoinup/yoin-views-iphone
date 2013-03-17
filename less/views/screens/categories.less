@@ -8,83 +8,62 @@
 
   > .screen-container {
 
-    > .categories-list {
+    > .box {
 
-      > .category-item {
+      > .box-content {
 
-      }
-      
-      > .category-item:active, .category-item.touch, .category-item.is-pending {
-      
-        background-color: @grey04;
-      
-      }
-
-      > .category-item {
-        > .left-column > .square-image {
-          background: white;
-        }
-      }
-
-      > .category-item:first-child {
-        > .left-column > .square-image {
-          background: @pink01;
-        }
-      }
-
-      > .category-item:nth-of-type(2) {
-        > .left-column > .square-image {
-          background: @blue00;
-        }
-      }
-
-      > .category-item:nth-of-type(3) {
-        > .left-column > .square-image {
-          background: @green01;
-        }
-      }
-
-      > .category-item:nth-of-type(4) {
-        > .left-column > .square-image {
-          background: @purple02;
-        }
-      }
-
-      > .category-item:nth-of-type(5) {
-        > .left-column > .square-image {
-          background: @coffeebrown;
-        }
-      }
-
-      > .category-item:nth-of-type(6) {
-        > .left-column > .square-image {
-          background: @skyblue;
-        }
-      }
-
-      > .category-item:last-child {
-        > .left-column > .square-image {
-          background: @grey05;
-        }
-      }
-
-
-    }
-
-  }
-
-}
-
-
-@media screen and (device-height: 568px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
-  #categories-screen {
-    > .screen-container {
-      > .categories-list {
         > .category-item {
-          padding-top: @box-padding-vertical*2;
-          padding-bottom: @box-padding-vertical*2;
+          > .left-column > .square-image {
+            background: white;
+          }
         }
+
+        > .category-item:first-child {
+          > .left-column > .square-image {
+            background: @pink01;
+          }
+        }
+
+        > .category-item:nth-of-type(2) {
+          > .left-column > .square-image {
+            background: @blue00;
+          }
+        }
+
+        > .category-item:nth-of-type(3) {
+          > .left-column > .square-image {
+            background: @green01;
+          }
+        }
+
+        > .category-item:nth-of-type(4) {
+          > .left-column > .square-image {
+            background: @purple02;
+          }
+        }
+
+        > .category-item:nth-of-type(5) {
+          > .left-column > .square-image {
+            background: @coffeebrown;
+          }
+        }
+
+        > .category-item:nth-of-type(6) {
+          > .left-column > .square-image {
+            background: @skyblue;
+          }
+        }
+
+        > .category-item:last-child {
+          > .left-column > .square-image {
+            background: @grey05;
+          }
+        }
+
       }
+
     }
+
   }
+
 }
