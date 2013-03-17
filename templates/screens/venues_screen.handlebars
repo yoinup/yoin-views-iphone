@@ -39,7 +39,7 @@
 
                     {{#if nextThreeFriends.length }}
 
-                      {{#view Yn.BtapView class="box-content has-tap" 
+                      {{#view Yn.BtapView class="box-content has-tap"
                         action="addFriend"}}
 
                         <div id="select-friend-content" class="box-content-element three-column-table">
@@ -137,8 +137,10 @@
                 <div class="space by-one"></div>
 
               {{else}}
-                {{view Yn.EmptyView contentI18n="empty_venues"
-                class="is-small" }}
+                <div class="space by-two"></div>
+                <div class="empty-view"></div>
+                <div class="space by-one"></div>
+                <div class="empty-text">{{I18n empty_venues}}</div>
               {{/if}}
 
           {{/if}}
