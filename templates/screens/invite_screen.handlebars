@@ -193,9 +193,27 @@
     {{/if}}
   {{/if}}
 
-  {{view Yvi.InviteMainButtonView class="is-blue" 
+  <div class="space by-two"></div>
+  <div class="detail-text is-center is-not-in-box">
+    {{I18n invite_pay_with_card_message}}
+  </div>
+
+  {{view Yvi.InviteMainButtonView class="is-blue single-space" 
     usernameBinding="username"
     action="sendInvitation"}}
+
+
+  {{#unless product.isFree}}
+
+    <div class="detail-text is-center is-not-in-box">
+      {{I18n or}}
+    </div>
+
+    {{view Yn.MainButtonView class="is-green single-space" 
+      contentI18n="invite_meet_button_message"
+      action="meetSomeone" }}
+
+  {{/unless}}
 
 {{/view }}
 
