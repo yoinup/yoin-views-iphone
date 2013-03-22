@@ -8,10 +8,42 @@
       brandBinding="invitation.venue.brand"
       venueBinding="invitation.venue" }}
 
-    {{view Yn.MainButtonView class="is-blue" 
-      contentI18n="use_in_store" 
-      actionContentBinding="invitation"
-      action="useIt" }}
+    {{#if invitation.recommendation }}
+
+        {{view Yn.MainButtonView class="is-blue" 
+          contentI18n="accept_recommendation" 
+          actionContentBinding="invitation"
+          action="accept" }}
+
+        {{view Yn.MainButtonView class="is-red" 
+          contentI18n="cancel_recommendation" 
+          actionContentBinding="invitation"
+          action="cancel" }}
+
+    {{else}}
+
+      {{#if invitation.accepted }}
+
+        {{view Yn.MainButtonView class="is-blue" 
+          contentI18n="use_in_store" 
+          actionContentBinding="invitation"
+          action="useIt" }}
+
+      {{else}}
+
+        {{view Yn.MainButtonView class="is-blue" 
+          contentI18n="accept_invitation" 
+          actionContentBinding="invitation"
+          action="accept" }}
+
+        {{view Yn.MainButtonView class="is-red" 
+          contentI18n="cancel_invitation" 
+          actionContentBinding="invitation"
+          action="cancel" }}
+
+      {{/if}}
+
+    {{/if}}
 
 
     {{#if invitation.reverseComments.length }}

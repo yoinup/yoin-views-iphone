@@ -21,9 +21,9 @@
 
         {{#each invitations}}
 
-          <div class="box">
+          <div {{bindAttr class=":box recommendation:is-recommendation"}} >
 
-            {{#view Yn.BtapView class="box-content has-tap" 
+            {{#view Yn.BtapView class="box-content has-tap"
               action="goToInvitation"
               actionContentBinding=this}} 
 
