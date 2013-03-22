@@ -3,22 +3,33 @@
     {{view Yn.VenueBoxView 
       productBinding="invitation.product"
       invitationBinding="invitation"
-      hasResend=true
+      hasResendBinding="hasResend"
       hasBrandName=true
       brandBinding="invitation.venue.brand"
       venueBinding="invitation.venue" }}
 
     {{#if invitation.recommendation }}
 
-        {{view Yn.MainButtonView class="is-blue" 
-          contentI18n="accept_recommendation" 
-          actionContentBinding="invitation"
-          action="accept" }}
+        {{#if invitation.accepted }}
 
-        {{view Yn.MainButtonView class="is-red" 
-          contentI18n="cancel_recommendation" 
-          actionContentBinding="invitation"
-          action="cancel" }}
+          {{view Yn.MainButtonView class="is-blue" 
+            contentI18n="close_recommendation" 
+            actionContentBinding="invitation"
+            action="closeRecommendation" }}
+
+        {{else}}
+
+          {{view Yn.MainButtonView class="is-blue" 
+            contentI18n="accept_recommendation" 
+            actionContentBinding="invitation"
+            action="accept" }}
+
+          {{view Yn.MainButtonView class="is-red" 
+            contentI18n="reject_recommendation" 
+            actionContentBinding="invitation"
+            action="reject" }}
+
+        {{/if}}
 
     {{else}}
 
@@ -37,9 +48,9 @@
           action="accept" }}
 
         {{view Yn.MainButtonView class="is-red" 
-          contentI18n="cancel_invitation" 
+          contentI18n="reject_invitation" 
           actionContentBinding="invitation"
-          action="cancel" }}
+          action="reject" }}
 
       {{/if}}
 
