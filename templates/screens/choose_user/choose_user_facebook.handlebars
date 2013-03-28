@@ -21,19 +21,18 @@
 
               {{#if facebookContent.isLoaded }} 
 
-
                     {{#if facebookContent.length }} 
 
                         <div class="space by-one"></div>
 
-                        {{#view Yvi.ChooseUserBoxContentView 
+                        {{#view Yvi.ChooseUserBoxView class="box"
                           searchInputBinding="view.searchInput" }}
 
                           {{#each facebookContent}}
 
                             {{#view Yvi.ChooseUserContentView 
                               searchBinding="view.searchInput"
-                              nameBinding="user.fbName" }}
+                              nameBinding="name" }}
 
                               {{view Yn.TapUserShortBlockView
                                 imagetype="is-small"
