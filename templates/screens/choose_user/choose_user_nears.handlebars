@@ -5,28 +5,28 @@
       {{#if nearsContent.length }} 
 
         <div class="space by-one"></div>
-        <div class="box">
 
-          <div class="box-content has-li">
+        {{#view Yvi.ChooseUserBoxView class="box"
+          searchInputBinding="view.searchInput" }}
 
-            {{#each nearsContent}}
+          {{#each nearsContent}}
 
-              <div class="box-content-li has-tap">
+            {{#view Yvi.ChooseUserContentView 
+              searchBinding="searchInput"
+              nameBinding="user.name" }}
+              {{view Yn.TapUserShortBlockView  
+                imagetype="is-small"
+                typeBinding="Yn.UserType.appuser"
+                contentBinding="this" 
+                showCity=false 
+                showStatus=false
+                action="selectUser"
+                actionContentBinding="this"}}
+            {{/view}}
 
-                {{view Yn.TapUserShortBlockView  
-                  imagetype="is-small"
-                  typeBinding="Yn.UserType.appuser"
-                  contentBinding="this" 
-                  showCity=false 
-                  showStatus=false
-                  action="selectUser"
-                  actionContentBinding="this"}}
+          {{/each}}
 
-              </div>
-
-            {{/each}}
-
-          </div>
+        {{/view}}
 
         </div>
         <div class="space by-one"></div>

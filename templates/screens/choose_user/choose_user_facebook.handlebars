@@ -25,29 +25,30 @@
                     {{#if facebookContent.length }} 
 
                         <div class="space by-one"></div>
-                        <div class="box">
 
-                          <div class="box-content has-li">
+                        {{#view Yvi.ChooseUserBoxContentView 
+                          searchInputBinding="view.searchInput" }}
 
-                            {{#each facebookContent}}
+                          {{#each facebookContent}}
 
-                              <div class="box-content-li has-tap">
-                                {{view Yn.TapUserShortBlockView
-                                  imagetype="is-small"
-                                  typeBinding="Yn.UserType.FbChannel"
-                                  fbIdBinding="id"
-                                  fbNameBinding="name"
-                                  action="selectFacebookUser"
-                                  actionContentBinding="this"}}
-                              </div>
+                            {{#view Yvi.ChooseUserContentView 
+                              searchBinding="view.searchInput"
+                              nameBinding="user.fbName" }}
 
-
-                            {{/each}}
-
-                          </div>
+                              {{view Yn.TapUserShortBlockView
+                                imagetype="is-small"
+                                typeBinding="Yn.UserType.FbChannel"
+                                fbIdBinding="id"
+                                fbNameBinding="name"
+                                action="selectFacebookUser"
+                                actionContentBinding="this"}}
+                            {{/view}}
 
 
-                        </div>
+                          {{/each}}
+                        {{/view}}
+
+
                         <div class="space by-one"></div>
 
                     {{else}} 

@@ -191,15 +191,18 @@
   {{/if}}
 
   <div class="space by-two"></div>
-  <div class="detail-text is-center is-not-in-box">
-    {{I18n invite_pay_with_card_message}}
-  </div>
+
+  {{#if product }}
+    {{#unless product.isFree}}
+      <div class="detail-text is-center is-not-in-box">
+        {{I18n invite_pay_with_card_message}}
+      </div>
+    {{/unless}}
+  {{/if}}
 
   {{view Yvi.InviteMainButtonView class="is-blue single-space" 
     usernameBinding="username"
     action="sendInvitation"}}
-
-
 
 {{/view }}
 

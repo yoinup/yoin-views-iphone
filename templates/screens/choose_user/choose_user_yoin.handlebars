@@ -5,14 +5,15 @@
                 {{#if yoinContent.length }} 
 
                   <div class="space by-one"></div>
-                  <div class="box">
 
-                    <div class="box-content has-li">
+                  {{#view Yvi.ChooseUserBoxView class="box"
+                    searchInputBinding="view.searchInput" }}
 
                       {{#each yoinContent}}
 
-                        <div class="box-content-li has-tap">
-
+                        {{#view Yvi.ChooseUserContentView 
+                          searchBinding="view.searchInput"
+                          nameBinding="user.name" }}
                           {{view Yn.TapUserShortBlockView  
                             imagetype="is-small"
                             typeBinding="Yn.UserType.appuser"
@@ -21,14 +22,12 @@
                             showStatus=false
                             action="selectUser"
                             actionContentBinding="user"}}
-
-                        </div>
+                        {{/view}}
 
                       {{/each}}
 
-                    </div>
+                    {{/view}}
 
-                  </div>
                   <div class="space by-one"></div>
 
                 {{else}}

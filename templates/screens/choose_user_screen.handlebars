@@ -13,11 +13,21 @@
       contentBinding="_options"
       selectedBinding="option" }}
 
+    <div class="header-action">
+      <div class="ha-single-box">
+        {{view Yn.InputView class="single-input" 
+        placeholderI18n="search"
+        enableKeyChange=true
+        valueBinding="searchInput"}}
+      </div>
+    </div>
+
     {{#view Yn.TabMainView
       currentTabViewBinding="option"}}
 
         {{#view Yn.ScrollerView
           exclude=".header, #choose-user-menu-tabs"
+          searchInputBinding="searchInput"
           viewName="facebook" }}
 
           {{template "choose_user_facebook"}}
@@ -27,6 +37,7 @@
 
         {{#view Yn.ScrollerView
           exclude=".header, #choose-user-menu-tabs"
+          searchInputBinding="searchInput"
           viewName="yoin" }}
 
           {{template "choose_user_yoin"}}
@@ -36,6 +47,7 @@
 
         {{#view Yn.ScrollerView
           exclude=".header, #choose-user-menu-tabs"
+          searchInputBinding="searchInput"
           viewName="nearby" }}
 
           {{template "choose_user_nears"}}
