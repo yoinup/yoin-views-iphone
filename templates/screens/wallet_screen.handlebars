@@ -1,6 +1,8 @@
 {{#with view }}
 
 	{{#view Yn.HeaderView}}
+
+    {{view Yn.MenuButtonView }}
 		<div class="header-title">{{I18n wallet_title}}</div>
 
     {{#if invitations.length }}
@@ -10,7 +12,6 @@
 
   {{#view Yn.ScrollerView class="screen-container" 
     exclude=".header"
-    excludeGlobal="footer"
     viewName="unexchanged" }}
 
     {{#if invitations.isLoaded }}

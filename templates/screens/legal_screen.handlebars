@@ -13,25 +13,11 @@
 {{/view }}
 
 
-{{#if hasFooter }}
+{{#view Yn.ScrollerView class="screen-container"
+  exclude=".header" }}
+  
+  {{template legal_container}}
 
-  {{#view Yn.ScrollerView class="screen-container"
-    exclude=".header"
-    excludeGlobal="footer" }}
-    
-    {{template legal_container}}
-
-  {{/view }}
-
-{{else}}
-
-  {{#view Yn.ScrollerView class="screen-container"
-    exclude=".header" }}
-    
-    {{template legal_container}}
-
-  {{/view }}
-
-{{/if}}
+{{/view }}
 
 {{/with}}

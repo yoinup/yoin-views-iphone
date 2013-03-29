@@ -9,23 +9,10 @@
   {{/view }}
 
 
-  {{#if hasFooter }}
-
-    {{#view Yn.ScrollerView class="screen-container" 
-      loggedUserBinding="loggedUser"
-      exclude=".header"
-      excludeGlobal="footer" }}
-      {{template invitation_container}}
-    {{/view }}
-
-  {{else}}
-
-    {{#view Yn.ScrollerView class="screen-container" 
-      loggedUserBinding="loggedUser"
-      exclude=".header" }}
-      {{template invitation_container}}
-    {{/view }}
-
-  {{/if}}
+  {{#view Yn.ScrollerView class="screen-container" 
+    loggedUserBinding="loggedUser"
+    exclude=".header" }}
+    {{template invitation_container}}
+  {{/view }}
 
 {{/with}}

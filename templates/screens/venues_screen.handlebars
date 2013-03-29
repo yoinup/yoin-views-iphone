@@ -2,17 +2,15 @@
 
 {{#view Yn.HeaderView }}
 
-  {{view Yn.AdaptativeButtonView class="header-button l-left is-orange button-text is-small is-font-white" 
-    contentI18n="categories_title" action="goToCategories"}}
+	{{view Yn.MenuButtonView }}
 	<div class="brand-container is-small"></div>
-	{{view Yn.MapButtonView class="l-right" action="goToMap" }}
+	{{view Yn.MapButtonView action="goToMap" }}
 
 {{/view }}
 
 {{#view Yn.RefreshScrollerView class="screen-container"
   holdPeriod=100
   exclude=".header"
-  excludeGlobal="footer"
   isRefreshedBinding="isRefreshed"
   hasNextBinding="hasNext"
   hasUserBinding="hasUser"

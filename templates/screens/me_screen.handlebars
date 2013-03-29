@@ -2,6 +2,7 @@
 
 {{#view Yn.HeaderView class="with-big-shadow"}}
 
+  {{view Yn.MenuButtonView }}
 	<div class="header-title">{{I18n me_title}}</div>
 	
 	{{view Yn.IconBtapView class="l-right header-button rectangle-button is-small is-orange icon" 
@@ -67,7 +68,6 @@
 
 			{{#view Yn.ScrollerView class="me-tab-pane friend" 
 				exclude=".header, #me-content-header, .submenu-tabs"
-				excludeGlobal="footer"
 				viewName="friend" }}
 
 
@@ -111,7 +111,6 @@
 
 				{{#view Yn.ScrollerView class="me-tab-pane activity" 
           exclude=".header, #me-content-header, .submenu-tabs"
-          excludeGlobal="footer"
           userBinding="user"
 					viewName="activity" }}
 
