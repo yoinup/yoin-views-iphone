@@ -4,7 +4,7 @@
 
     {{#view Yn.HeaderView class="without-shadow"}}
 
-      {{view Yvi.HeaderCloseButtonMapView }}
+      {{view Yn.HeaderCloseButtonView }}
       <div class="header-title">
         {{#if showVenue}}
           {{venue.brand.name}}
@@ -14,7 +14,7 @@
       </div>
 
       {{#if withHeaderAction }}
-        {{#view Yvi.CityAdaptativeButtonView class="header-button l-right is-orange button-text is-small is-font-white" 
+        {{#view Yn.AdaptativeButtonView class="header-button l-right is-orange button-text is-small is-font-white" 
           action="goToCities"}}
           {{selectedCity.name}}
         {{/view}}
