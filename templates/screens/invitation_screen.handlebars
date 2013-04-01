@@ -8,7 +8,6 @@
       action="goToMap" }}
   {{/view }}
 
-
   {{#view Yn.ScrollerView class="screen-container" 
     loggedUserBinding="loggedUser"
     exclude=".header" }}
@@ -23,28 +22,34 @@
         brandBinding="invitation.venue.brand"
         venueBinding="invitation.venue" }}
 
+      {{#unless_eq "view.loggedUser invitation.fromUser"}}
 
-      {{#if invitation.accepted }}
+        {{#if invitation.accepted }}
 
-        {{view Yn.MainButtonView class="is-blue" 
-          contentI18n="use_in_store" 
-          actionContentBinding="invitation"
-          action="useIt" }}
+          {{view Yn.MainButtonView class="is-blue" 
+            contentI18n="use_in_store" 
+            actionContentBinding="invitation"
+            action="useIt" }}
+
+        {{else}}
+
+          {{view Yn.MainButtonView class="is-blue" 
+            contentI18n="accept_invitation" 
+            actionContentBinding="invitation"
+            action="accept" }}
+
+          {{view Yn.MainButtonView class="is-red" 
+            contentI18n="reject_invitation" 
+            actionContentBinding="invitation"
+            action="reject" }}
+
+        {{/if}}
 
       {{else}}
 
-        {{view Yn.MainButtonView class="is-blue" 
-          contentI18n="accept_invitation" 
-          actionContentBinding="invitation"
-          action="accept" }}
+        <div class="space by-one"></div>
 
-        {{view Yn.MainButtonView class="is-red" 
-          contentI18n="reject_invitation" 
-          actionContentBinding="invitation"
-          action="reject" }}
-
-      {{/if}}
-
+      {{/unless_eq}}
 
       {{#if invitation.reverseComments.length }}
 
@@ -101,7 +106,8 @@
               {{view Yvi.InvitationCommentInputView id="invitation-comment-input" class="single-input"
                 scrollToOnFocusIn=false
                 valueBinding="inputValue"
-                userBinding="invitation.fromUser"}}
+                loggedUserBinding="loggedUser"
+                invitationBinding="invitation" }}
             </div>
 
             <div class="control right-column">
@@ -115,13 +121,17 @@
 
       </div>
 
-      <div class="space by-two"></div>
-      <div class="box">
-        {{view Yvi.SelectItemBoxContentView
-          contentI18n="button_terms_and_conditions" 
-          actionContentBinding="invitation"
-          action="showTerms" }}
-      </div>
+      {{#unless_eq "view.loggedUser invitation.fromUser"}}
+
+        <div class="space by-two"></div>
+        <div class="box">
+          {{view Yvi.SelectItemBoxContentView
+            contentI18n="button_terms_and_conditions" 
+            actionContentBinding="invitation"
+            action="showTerms" }}
+        </div>
+
+      {{/unless_eq}}
       <div class="space by-one"></div>
 
   {{/view }}
