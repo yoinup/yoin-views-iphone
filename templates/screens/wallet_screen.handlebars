@@ -1,77 +1,34 @@
 {{#with view }}
 
-	{{#view Yn.HeaderView}}
+{{#view Yn.HeaderView class="without-shadow" }}
+  {{view Yn.MenuButtonView }}
+  <div class="header-title">{{I18n wallet_title}}</div>
 
-    {{view Yn.MenuButtonView }}
-		<div class="header-title">{{I18n wallet_title}}</div>
+  {{#if invitations.length }}
+    {{view Yn.MapButtonView class="l-right" action="goToMap" }}
+  {{/if}}
+{{/view }}
 
-    {{#if invitations.length }}
-      {{view Yn.MapButtonView class="l-right" action="goToMap" }}
-    {{/if}}
-	{{/view }}
+<div class="screen-container">
 
-  {{#view Yn.ScrollerView class="screen-container" 
-    exclude=".header"
-    viewName="unexchanged" }}
+  {{view Yn.MenuTabsButtonView id="wallet-menu-tabs" 
+    contentBinding="_options"
+    selectedBinding="option" }}
 
-    {{#if invitations.isLoaded }}
+  {{#view Yn.TabMainView
+    currentTabViewBinding="option"}}
 
-      {{#if invitations.length }}
-  
-        <div class="space by-one"></div>
+      {{view Yvi.WalletContentView
+        invitationsBinding="receivedInvitations"
+        exclude=".header, #wallet-menu-tabs"
+        viewName="wallet_received" }}
 
-        {{#each invitations}}
-
-          <div {{bindAttr class=":box recommendation:is-recommendation"}} >
-
-            {{#view Yn.BtapView class="box-content has-tap"
-              action="goToInvitation"
-              actionContentBinding=this}} 
-
-              <div class="box-content-element three-column-table">
-
-                <div class="picture left-column">
-                  {{view Yn.SquareImageView class="is-normal" contentBinding="product" withPhoto=true }}
-                </div>
-
-                <div class="name middle-column">
-
-                  <div class="main-text">
-                    {{product.name}}
-                  </div>
-
-                  <div class="detail-text">
-                    <span class="icon with-text is-icon-small city" icon="i"></span>
-                    {{venue.address}}
-                  </div>
-
-                </div>
-
-                <div class="control right-column">
-                  <span class="icon is-icon-normal is-icon-grey with-text arrow"></span>
-                </div>
-              </div>
-
-            {{/view}}
-
-          </div>
-
-          <div class="space by-one"></div>
-
-        {{/each}}
-
-      {{else }}
-
-        <div class="empty-view is-absolute"></div>
-        <div class="empty-text is-absolute">{{I18n empty_wallet}}</div>
-
-      {{/if}}
-
-
-    {{else }}
-      {{view Yn.SpinnerView}}
-    {{/if }}
+      {{view Yvi.WalletContentView
+        invitationsBinding="sentInvitations"
+        exclude=".header, #wallet-menu-tabs"
+        viewName="wallet_sent" }}
 
   {{/view}}
 
+</div>
 {{/with}}
