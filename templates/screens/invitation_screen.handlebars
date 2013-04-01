@@ -2,7 +2,7 @@
 
 	{{#view Yn.HeaderView}}
     {{view Yn.BackButtonView }}
-		<div class="header-title">{{I18n your_invitation}}</div>
+
     {{view Yn.MapButtonView class="l-right" 
       actionContentBinding="invitation"
       action="goToMap" }}
@@ -14,15 +14,34 @@
 
       <div class="space by-one"></div>
 
+
       {{view Yn.VenueBoxView 
         productBinding="invitation.product"
         invitationBinding="invitation"
-        hasResendBinding="hasResend"
+        hasResendBinding="isInvitationToLoggedUser"
         hasBrandName=true
         brandBinding="invitation.venue.brand"
         venueBinding="invitation.venue" }}
 
-      {{#unless_eq "view.loggedUser invitation.fromUser"}}
+      <div class="space by-one"></div>
+
+      <div class="box">
+        <div class="box-content">
+
+          {{#if isInvitationToLoggedUser }}
+            {{view Yn.UserShortBlockView
+              imagetype="is-normal"
+              contentBinding="invitation.fromUser" }}
+          {{else}}
+            {{view Yn.UserShortBlockView
+              imagetype="is-normal"
+              contentBinding="invitation.toUser" }}
+          {{/if}}
+
+        </div>
+      </div>
+
+      {{#if isInvitationToLoggedUser }}
 
         {{#if invitation.accepted }}
 
@@ -49,7 +68,7 @@
 
         <div class="space by-one"></div>
 
-      {{/unless_eq}}
+      {{/if}}
 
       {{#if invitation.reverseComments.length }}
 
@@ -121,7 +140,7 @@
 
       </div>
 
-      {{#unless_eq "view.loggedUser invitation.fromUser"}}
+      {{#if isInvitationToLoggedUser }}
 
         <div class="space by-two"></div>
         <div class="box">
@@ -131,7 +150,7 @@
             action="showTerms" }}
         </div>
 
-      {{/unless_eq}}
+      {{/if}}
       <div class="space by-one"></div>
 
   {{/view }}
