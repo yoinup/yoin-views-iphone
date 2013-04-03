@@ -8,15 +8,11 @@
 
 {{/view }}
 
-{{#view Yn.RefreshScrollerView class="screen-container"
-  holdPeriod=100
+{{#view Yn.ScrollerView class="screen-container"
   exclude=".header"
-  isRefreshedBinding="isRefreshed"
-  hasNextBinding="hasNext"
   hasUserBinding="hasUser"
   isGeopositionOnBinding="isGeopositionOn"
-  loggedUserBinding="loggedUser"
-  lengthBinding="content.length" }}
+  loggedUserBinding="loggedUser"}}
 
 
     <div class="scroller-container fix-scrolling-touch">
