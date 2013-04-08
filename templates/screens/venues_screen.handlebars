@@ -137,14 +137,10 @@
                 <div class="empty-text is-relative">{{I18n empty_venues}}</div>
               {{/if}}
 
+
           {{/if}}
 
       </div>
-
-    {{#unless isContentLoaded}}
-      {{view Yvi.VenuesSpinnerView 
-        selectedCityBinding="selectedCity" }}
-    {{/unless}}
 
 {{/view}}
 

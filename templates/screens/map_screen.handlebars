@@ -2,7 +2,7 @@
 
   {{#view Yvi.MapSectionView class="map-section"}}
 
-    {{#view Yn.HeaderView class="without-shadow"}}
+    {{#view Yn.HeaderView id="map-header" class="without-shadow"}}
 
       {{view Yn.HeaderCloseButtonView }}
       <div class="header-title">
@@ -13,9 +13,9 @@
         {{/if}}
       </div>
 
-      {{#if withHeaderAction }}
+      {{#if showCities }}
         {{#view Yn.AdaptativeButtonView class="header-button l-right is-orange button-text is-small is-font-white" 
-          action="goToCities"}}
+          action="openCities"}}
           {{selectedCity.name}}
         {{/view}}
       {{/if}}
@@ -24,7 +24,7 @@
 
     {{#if withHeaderAction }}
 
-      <div class="header-action">
+      <div id="map-header-action" class="header-action">
         <div class="ha-left">
 
           {{#view Yvi.MapFormInputView}}
