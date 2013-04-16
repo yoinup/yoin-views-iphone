@@ -1,5 +1,5 @@
 /*!
- * Pusher JavaScript Library v2.0.1
+ * Pusher JavaScript Library v2.0.2
  * http://pusherapp.com/
  *
  * Copyright 2013, Pusher
@@ -500,7 +500,7 @@
 }).call(this);
 
 ;(function() {
-  Pusher.VERSION = '2.0.1';
+  Pusher.VERSION = '2.0.2';
   Pusher.PROTOCOL = 6;
 
   // WS connection parameters
@@ -2650,6 +2650,8 @@
     };
     this.bind("connected", sendTimeline);
     setInterval(sendTimeline, 60000);
+
+    this.updateStrategy();
   }
   var prototype = ConnectionManager.prototype;
 
@@ -2668,13 +2670,7 @@
       return;
     }
 
-    var strategy = this.options.getStrategy({
-      key: this.key,
-      timeline: this.timeline,
-      encrypted: this.encrypted
-    });
-
-    if (!strategy.isSupported()) {
+    if (!this.strategy.isSupported()) {
       this.updateState("failed");
       return;
     }
@@ -2693,14 +2689,14 @@
     var self = this;
     var callback = function(error, transport) {
       if (error) {
-        self.runner = strategy.connect(0, callback);
+        self.runner = self.strategy.connect(0, callback);
       } else {
         // we don't support switching connections yet
         self.runner.abort();
         self.setConnection(self.wrapTransport(transport));
       }
     };
-    this.runner = strategy.connect(0, callback);
+    this.runner = this.strategy.connect(0, callback);
 
     this.setUnavailableTimer();
   };
@@ -2746,6 +2742,15 @@
       this.connection.close();
       this.abandonConnection();
     }
+  };
+
+  /** @private */
+  prototype.updateStrategy = function() {
+    this.strategy = this.options.getStrategy({
+      key: this.key,
+      timeline: this.timeline,
+      encrypted: this.encrypted
+    });
   };
 
   /** @private */
@@ -2846,6 +2851,7 @@
       },
       ssl_only: function() {
         self.encrypted = true;
+        self.updateStrategy();
         self.retryIn(0);
       },
       refused: function() {
