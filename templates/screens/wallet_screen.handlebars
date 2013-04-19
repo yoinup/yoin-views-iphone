@@ -16,11 +16,13 @@
 
       {{view Yvi.WalletContentView
         invitationsBinding="receivedInvitations"
+        areReceivedInvitations=true
         exclude=".header, #wallet-menu-tabs"
         viewName="wallet_received" }}
 
       {{view Yvi.WalletContentView
         invitationsBinding="sentInvitations"
+        areReceivedInvitations=false
         exclude=".header, #wallet-menu-tabs"
         viewName="wallet_sent" }}
 

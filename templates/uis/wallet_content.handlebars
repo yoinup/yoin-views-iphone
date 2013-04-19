@@ -49,7 +49,13 @@
   {{else }}
 
     <div class="empty-view is-absolute"></div>
-    <div class="empty-text is-absolute">{{I18n empty_wallet}}</div>
+    <div class="empty-text is-absolute">
+      {{#if areReceivedInvitations }}
+        {{I18n empty_received_wallet}}
+      {{else}}
+        {{I18n empty_sent_wallet}}
+      {{/if}}
+    </div>
 
   {{/if}}
 
