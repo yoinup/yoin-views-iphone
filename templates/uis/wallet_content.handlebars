@@ -24,11 +24,17 @@
 
               <div class="main-text">
                 {{product.name}}
+
               </div>
 
               <div class="detail-text">
                 <span class="icon with-text is-icon-small city" icon="i"></span>
                 {{venue.address}}
+              </div>
+
+              <div class="detail-text">
+                <span class="icon with-text is-icon-small" icon="w"></span>
+                {{humanize dateBinding="created" }}
               </div>
 
             </div>
