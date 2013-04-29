@@ -6,35 +6,37 @@
 
     <div class="space by-one"></div>
 
-    {{#each invitations}}
+    {{#each invitation in invitations}}
 
-      <div {{bindAttr class=":box recommendation:is-recommendation"}} >
+      <div {{bindAttr class=":box invitation.isPending:is-pending"}} >
 
         {{#view Yn.BtapView class="box-content has-tap"
           action="goToInvitation"
-          actionContentBinding=this}} 
+          actionContentBinding=invitation}} 
 
           <div class="box-content-element three-column-table">
 
             <div class="picture left-column">
-              {{view Yn.SquareImageView class="is-normal" contentBinding="product" withPhoto=true }}
+              {{view Yn.SquareImageView class="is-normal" 
+                contentBinding="invitation.product" 
+                withPhoto=true }}
             </div>
 
             <div class="name middle-column">
 
               <div class="main-text">
-                {{product.name}}
+                {{invitation.product.name}}
 
               </div>
 
               <div class="detail-text">
                 <span class="icon with-text is-icon-small city" icon="i"></span>
-                {{venue.address}}
+                {{invitation.venue.address}}
               </div>
 
               <div class="detail-text">
                 <span class="icon with-text is-icon-small" icon="w"></span>
-                {{humanize dateBinding="created" }}
+                {{humanize dateBinding="invitation.created" }}
               </div>
 
             </div>
