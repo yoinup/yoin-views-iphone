@@ -45,21 +45,10 @@
 
         {{#if invitation.accepted }}
 
-          {{#unless invitation.processing }}
-
             {{view Yn.MainButtonView class="is-blue" 
               contentI18n="use_in_store" 
               actionContentBinding="invitation"
               action="useIt" }}
-
-          {{else}}
-
-            {{view Yn.MainButtonView class="is-blue" 
-              contentI18n="button_show_code" 
-              actionContentBinding="invitation"
-              action="showInvitationCode" }}
-
-          {{/unless}}
 
         {{else}}
 
