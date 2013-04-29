@@ -52,15 +52,19 @@
 
         {{else}}
 
-          {{view Yn.MainButtonView class="is-blue" 
-            contentI18n="accept_invitation" 
-            actionContentBinding="invitation"
-            action="accept" }}
+          {{#if invitation.isPending }}
 
-          {{view Yn.MainButtonView class="is-red" 
-            contentI18n="reject_invitation" 
-            actionContentBinding="invitation"
-            action="reject" }}
+            {{view Yn.MainButtonView class="is-blue" 
+              contentI18n="accept_invitation" 
+              actionContentBinding="invitation"
+              action="accept" }}
+
+            {{view Yn.MainButtonView class="is-red" 
+              contentI18n="reject_invitation" 
+              actionContentBinding="invitation"
+              action="reject" }}
+
+          {{/if}}
 
         {{/if}}
 

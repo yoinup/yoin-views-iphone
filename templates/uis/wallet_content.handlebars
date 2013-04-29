@@ -8,7 +8,7 @@
 
     {{#each invitations}}
 
-      <div {{bindAttr class=":box this.isPending:is-pending"}} >
+      <div {{bindAttr class=":box this.isPending:is-pending this.rejected:is-rejected"}} >
 
         {{#view Yn.BtapView class="box-content has-tap"
           action="goToInvitation"
