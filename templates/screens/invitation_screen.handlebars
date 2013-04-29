@@ -18,7 +18,7 @@
       {{view Yn.VenueBoxView 
         productBinding="invitation.product"
         invitationBinding="invitation"
-        hasResendBinding="isInvitationToLoggedUser"
+        hasResendBinding="canResend"
         hasBrandName=true
         brandBinding="invitation.venue.brand"
         venueBinding="invitation.venue" }}
@@ -63,6 +63,10 @@
               contentI18n="reject_invitation" 
               actionContentBinding="invitation"
               action="reject" }}
+
+          {{else}}
+
+            <div class="space by-one"></div>
 
           {{/if}}
 
@@ -146,13 +150,21 @@
 
       {{#if isInvitationToLoggedUser }}
 
-        <div class="space by-two"></div>
-        <div class="box">
-          {{view Yvi.SelectItemBoxContentView
-            contentI18n="button_terms_and_conditions" 
-            actionContentBinding="invitation"
-            action="showTerms" }}
-        </div>
+        {{#unless invitation.consumed }}
+
+          {{#unless invitation.rejected }}
+
+            <div class="space by-two"></div>
+            <div class="box">
+              {{view Yvi.SelectItemBoxContentView
+                contentI18n="button_terms_and_conditions" 
+                actionContentBinding="invitation"
+                action="showTerms" }}
+            </div>
+
+          {{/unless}}
+
+        {{/unless}}
 
       {{/if}}
       <div class="space by-one"></div>

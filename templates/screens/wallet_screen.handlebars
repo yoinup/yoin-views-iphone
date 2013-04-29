@@ -33,13 +33,13 @@
       currentTabViewBinding="option"}}
 
         {{view Yvi.WalletContentView
-          invitationsBinding="receivedInvitations"
+          invitationsBinding="inboxReceivedInvitations"
           areReceivedInvitations=true
           exclude=".header, #wallet-menu-tabs"
           viewName="wallet_received" }}
 
         {{view Yvi.WalletContentView
-          invitationsBinding="sentInvitations"
+          invitationsBinding="inboxSentInvitations"
           areReceivedInvitations=false
           exclude=".header, #wallet-menu-tabs"
           viewName="wallet_sent" }}
