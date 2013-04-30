@@ -1,0 +1,89 @@
+{{#with view}}
+
+{{#view Yn.HeaderView }}
+
+	{{view Yn.MenuButtonView }}
+	<div class="header-title">{{I18n notification_pl}}</div>
+
+  {{#view Yn.AdaptativeButtonView class="header-button l-right is-blue button-text is-small is-font-white" 
+    action="clear"}}
+    {{I18n clear}}
+  {{/view}}
+
+{{/view }}
+
+{{#view Yn.ScrollerView class="screen-container" 
+  loggedUserBinding="loggedUser"
+  exclude=".header" }}
+
+  {{#if notifications.isLoaded }}
+
+    {{#if notifications.length }}
+      
+      <div class="space by-one"></div>
+
+      {{#each item in notifications}}
+
+        <div class="box">
+
+          {{#view Yn.BtapView class="box-content has-tap"
+            action="goToInvitation"
+            actionContentBinding=item.invitation}} 
+
+            <div class="box-content-element three-column-table">
+
+              <div class="picture left-column">
+
+                {{#if item.invitation.fromUser.isLoaded }}
+
+                  {{#if_eq "view._parentView._parentView._parentView._parentView._parentView.loggedUser item.invitation.fromUser" }}
+
+                    {{view Yn.SquareImageView class="is-normal" 
+                      contentBinding="item.invitation.fromUser" 
+                      withPhoto=true }}
+
+                  {{else}}
+
+                    {{view Yn.SquareImageView class="is-normal" 
+                      contentBinding="item.invitation.toUser" 
+                      withPhoto=true }}
+
+                  {{/if_eq}}
+
+                {{/if}}
+
+              </div>
+
+              <div class="name middle-column">
+                {{item.message}}
+              </div>
+
+              <div class="control right-column">
+                <span class="icon is-icon-normal is-icon-grey with-text arrow"></span>
+              </div>
+
+            </div>
+
+          {{/view}}
+
+        </div>
+
+        <div class="space by-one"></div>
+      {{/each}}
+
+    {{else}}
+
+      <div class="empty-view is-absolute"></div>
+      <div class="empty-text is-absolute">
+          {{I18n empty_notifications}}
+      </div>
+
+    {{/if}}
+
+  {{else}}
+    {{view Yn.SpinnerView}}
+  {{/if}}
+
+{{/view }}
+
+{{/with }}
