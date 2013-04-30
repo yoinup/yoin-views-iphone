@@ -5,10 +5,12 @@
 	{{view Yn.MenuButtonView }}
 	<div class="header-title">{{I18n notification_pl}}</div>
 
-  {{#view Yn.AdaptativeButtonView class="header-button l-right is-blue button-text is-small is-font-white" 
-    action="clear"}}
-    {{I18n clear}}
-  {{/view}}
+  {{#if notifications.length }}
+    {{#view Yn.AdaptativeButtonView class="header-button l-right is-blue button-text is-small is-font-white" 
+      action="clear"}}
+      {{I18n clear}}
+    {{/view}}
+  {{/if}}
 
 {{/view }}
 
