@@ -3,7 +3,11 @@
 {{#view Yn.HeaderView }}
 
 	{{view Yn.MenuButtonView }}
-	<div class="header-title">{{I18n notification_pl}}</div>
+	<div class="header-title">{{I18n notifications_title}}</div>
+
+  {{view Yn.IconBtapView class="header-button rectangle-button l-right is-orange button-text is-small" 
+    icon="e"
+    action="refresh"}}
 
 {{/view }}
 
