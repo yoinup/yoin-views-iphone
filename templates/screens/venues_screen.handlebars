@@ -2,9 +2,23 @@
 
 {{#view Yn.HeaderView }}
 
-  {{partial menu_button }}
+  {{view Yn.MenuButtonView }}
 	<div class="brand-container is-small"></div>
-	{{view Yn.MapButtonView action="goToMap" }}
+
+  {{#view Yn.IconBtapView class="header-button rectangle-button l-right is-small is-orange"
+    icon="u"
+    action="goToNotifications" }}
+
+    {{#if notificationsCounter }}
+
+      <div class="notification-counter-label">
+        {{notificationsCounter}}
+      </div>
+
+    {{/if}}
+
+  {{/view}}
+
 
 {{/view }}
 

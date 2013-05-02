@@ -6,13 +6,14 @@
 
   <div class="main-text-menu middle-column">
     {{text}}
-    {{#if counter }}
-      ({{counter}})
-    {{/if }}
   </div>
 
   <div class="control right-column">
-    <span class="icon is-icon-normal button-text is-font-white with-text arrow"></span>
+    {{#if counter }}
+      <div class="menu-counter-label">
+        {{counter}}
+      </div>
+    {{/if }}
   </div>
 
 {{/with}}

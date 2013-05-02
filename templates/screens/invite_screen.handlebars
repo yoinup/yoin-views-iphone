@@ -116,7 +116,7 @@
         {{I18n invite_to_venue_title}}:
       </div>
       <div class="box-content">
-        <div class="box-content-element two-column-table">
+        <div class="box-content-element three-column-table">
           <div class="picture left-column">
             {{view Yn.SquareImageView class="is-normal" contentBinding="venue.brand" withPhoto=true }}
           </div>
@@ -127,6 +127,12 @@
               {{#if venue.zip}}, {{venue.zip}} {{/if}}
             </div>
           </div>
+
+          <div class="control right-column">
+            {{view Yn.BtapView class="map-button" 
+              action="showMap" }}
+          </div>
+
         </div>
       </div>
     </div>
