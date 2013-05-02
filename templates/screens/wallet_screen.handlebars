@@ -1,69 +1,29 @@
 {{#with view }}
-
 {{#view Yn.HeaderView class="without-shadow" }}
-  {{view Yn.MenuButtonView }}
+
+  {{partial menu_button }}
   <div class="header-title">{{I18n wallet_title}}</div>
 
-  {{#if isInbox }}
+  {{view Yvi.WalletOptionButtonView class="header-button rectangle-button l-right is-orange button-text is-small"
+    isInboxBinding="isInbox"
+    action="changeInbox"}}
 
-    {{#view Yn.AdaptativeButtonView class="header-button l-right is-orange button-text is-small is-font-white" 
-      action="changeInbox"}}
-      {{I18n archived}}
-    {{/view}}
-
-  {{else}}
-
-    {{#view Yn.AdaptativeButtonView class="header-button l-right is-blue button-text is-small is-font-white" 
-      action="changeInbox"}}
-      {{I18n inbox}}
-    {{/view}}
-
-  {{/if}}
 {{/view }}
-
 <div class="screen-container">
 
-  {{view Yn.MenuTabsButtonView id="wallet-menu-tabs" 
-    contentBinding="_options"
-    selectedBinding="option" }}
-
   {{#if isInbox }}
 
-    {{#view Yn.TabMainView
-      currentTabViewBinding="option"}}
-
-        {{view Yvi.WalletContentView
-          invitationsBinding="inboxReceivedInvitations"
-          areReceivedInvitations=true
-          exclude=".header, #wallet-menu-tabs"
-          viewName="wallet_received" }}
-
-        {{view Yvi.WalletContentView
-          invitationsBinding="inboxSentInvitations"
-          areReceivedInvitations=false
-          exclude=".header, #wallet-menu-tabs"
-          viewName="wallet_sent" }}
-
-    {{/view}}
+    {{view Yvi.WalletContentView
+      invitationsBinding="inboxInvitations"
+      isInbox=true
+      exclude=".header" }}
 
   {{else}}
 
-    {{#view Yn.TabMainView
-      currentTabViewBinding="option"}}
-
-        {{view Yvi.WalletContentView
-          invitationsBinding="archivedReceivedInvitations"
-          areReceivedInvitations=true
-          exclude=".header, #wallet-menu-tabs"
-          viewName="wallet_received" }}
-
-        {{view Yvi.WalletContentView
-          invitationsBinding="archivedSentInvitations"
-          areReceivedInvitations=false
-          exclude=".header, #wallet-menu-tabs"
-          viewName="wallet_sent" }}
-
-    {{/view}}
+    {{view Yvi.WalletContentView
+      invitationsBinding="archivedInvitations"
+      isInbox=false
+      exclude=".header" }}
 
   {{/if}}
 

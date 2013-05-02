@@ -58,10 +58,10 @@
 
     <div class="empty-view is-absolute"></div>
     <div class="empty-text is-absolute">
-      {{#if areReceivedInvitations }}
-        {{I18n empty_received_wallet}}
+      {{#if isInbox }}
+        {{I18n empty_inbox_wallet}}
       {{else}}
-        {{I18n empty_sent_wallet}}
+        {{I18n empty_archived_wallet}}
       {{/if}}
     </div>
 
