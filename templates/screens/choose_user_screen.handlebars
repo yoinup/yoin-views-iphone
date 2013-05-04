@@ -22,39 +22,45 @@
       </div>
     </div>
 
-    {{#view Yn.TabMainView
-      currentTabViewBinding="option"}}
+    {{#if initContent }}
 
-        {{#view Yn.ScrollerView
-          exclude=".header, .header-action, #choose-user-menu-tabs"
-          searchInputBinding="searchInput"
-          viewName="facebook" }}
+      {{#view Yn.TabMainView
+        currentTabViewBinding="option"}}
 
-          {{template "choose_user_facebook"}}
+          {{#view Yn.ScrollerView
+            exclude=".header, .header-action, #choose-user-menu-tabs"
+            searchInputBinding="searchInput"
+            viewName="facebook" }}
 
-        {{/view}}
+            {{template "choose_user_facebook"}}
 
-
-        {{#view Yn.ScrollerView
-          exclude=".header, .header-action, #choose-user-menu-tabs"
-          searchInputBinding="searchInput"
-          viewName="yoin" }}
-
-          {{template "choose_user_yoin"}}
-
-        {{/view}}
+          {{/view}}
 
 
-        {{#view Yn.ScrollerView
-          exclude=".header, .header-action, #choose-user-menu-tabs"
-          searchInputBinding="searchInput"
-          viewName="nearby" }}
+          {{#view Yn.ScrollerView
+            exclude=".header, .header-action, #choose-user-menu-tabs"
+            searchInputBinding="searchInput"
+            viewName="yoin" }}
 
-          {{template "choose_user_nears"}}
+            {{template "choose_user_yoin"}}
 
-        {{/view}}
+          {{/view}}
 
-    {{/view}}
+
+          {{#view Yn.ScrollerView
+            exclude=".header, .header-action, #choose-user-menu-tabs"
+            searchInputBinding="searchInput"
+            viewName="nearby" }}
+
+            {{template "choose_user_nears"}}
+
+          {{/view}}
+
+      {{/view}}
+
+  {{else}}
+    {{view Yn.SpinnerView}}
+  {{/if}}
 
 </div>
 

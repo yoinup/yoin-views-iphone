@@ -11,19 +11,23 @@
 {{/view }}
 <div class="screen-container">
 
-  {{#if isInbox }}
+  {{#if initContent }}
 
-    {{view Yvi.WalletContentView
-      invitationsBinding="inboxInvitations"
-      isInbox=true
-      exclude=".header" }}
+    {{#if isInbox }}
 
-  {{else}}
+      {{view Yvi.WalletContentView
+        invitationsBinding="inboxInvitations"
+        isInbox=true
+        exclude=".header" }}
 
-    {{view Yvi.WalletContentView
-      invitationsBinding="archivedInvitations"
-      isInbox=false
-      exclude=".header" }}
+    {{else}}
+
+      {{view Yvi.WalletContentView
+        invitationsBinding="archivedInvitations"
+        isInbox=false
+        exclude=".header" }}
+
+    {{/if}}
 
   {{/if}}
 
