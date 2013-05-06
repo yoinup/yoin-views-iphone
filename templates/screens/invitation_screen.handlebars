@@ -17,7 +17,6 @@
       {{view Yn.VenueBoxView 
         productBinding="invitation.product"
         invitationBinding="invitation"
-        hasResendBinding="canResend"
         brandBinding="invitation.venue.brand"
         venueBinding="invitation.venue" }}
 
@@ -47,6 +46,11 @@
               contentI18n="use_in_store" 
               actionContentBinding="invitation"
               action="useIt" }}
+
+            {{view Yn.MainButtonView class="is-green" 
+              contentI18n="button_resend" 
+              actionContentBinding="invitation"
+              action="resend" }}
 
         {{else}}
 

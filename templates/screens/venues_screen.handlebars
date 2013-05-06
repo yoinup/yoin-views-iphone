@@ -106,14 +106,13 @@
 
             {{#each item in content}}
 
-
-              {{#if item.products.isLoaded }}
+              {{#if item.embeddedProducts.isLoaded }}
 
                 {{view Yn.LandingVenueBoxView 
-                  productsBinding="item.products"
+                  productsBinding="item.embeddedProducts"
                   hasSelectedUserBinding="view.hasUser"
                   venueBinding="item"
-                  brandBinding="item.brand"
+                  brandBinding="item.embeddedBrand"
                   isGeopositionOnBinding="view.isGeopositionOn"
                   loggedUserBinding="view.loggedUser" }}
 
