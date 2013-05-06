@@ -30,9 +30,9 @@
 
   <div class="space by-one"></div>
 
-  <div class="box">
+  {{#if friends.isLoaded }}
 
-    {{#if friends.isLoaded }}
+      <div class="box">
 
         {{#if hasUser }}
           {{view Yvi.InviteUserBoxContentView 
@@ -80,6 +80,7 @@
 
                   </div>
                 {{/view}}
+
               {{else}}
 
                 {{view Yvi.SelectItemBoxContentView
@@ -88,84 +89,63 @@
 
               {{/if}}
 
-        {{/if}}
 
-
-    {{else}}
-
-        {{view Yvi.SelectItemBoxContentView
-          contentI18n="select_a_friend"
-          action="addFriend"}}
-
-    {{/if}}
-
-  </div>
-
-  {{#if isContentLoaded}}
-
-      <div class="space by-half"></div>
-      <div class="main-text text is-not-box l-right">
-
-        {{#if hasUser }}
-
-          {{I18n products_around}}
-          {{username}}
-
-          {{#if selectedCity }}
-            ({{selectedCity.name}})
-          {{/if}}
-
-        {{else}}
-          {{I18n products_around}} {{selectedCity.name}}
         {{/if}}
 
       </div>
-      <div class="space by-half"></div>
 
-      {{#if content.length }}
+      {{#if isContentLoaded}}
 
-        {{#each item in content}}
+          <div class="space by-half"></div>
+          <div class="main-text text is-not-box l-right">
+            {{showSearchingText}}
+          </div>
+          <div class="space by-half"></div>
+
+          {{#if content.length }}
+
+            {{#each item in content}}
 
 
-          {{#if item.products.isLoaded }}
+              {{#if item.products.isLoaded }}
 
-            {{view Yn.VenueBoxView 
-              productsBinding="item.products"
-              hasSelectedUserBinding="view.hasUser"
-              venueBinding="item"
-              brandBinding="item.brand"
-              hasSelect=true
-              isGeopositionOnBinding="view.isGeopositionOn"
-              loggedUserBinding="view.loggedUser" }}
+                {{view Yn.LandingVenueBoxView 
+                  productsBinding="item.products"
+                  hasSelectedUserBinding="view.hasUser"
+                  venueBinding="item"
+                  brandBinding="item.brand"
+                  isGeopositionOnBinding="view.isGeopositionOn"
+                  loggedUserBinding="view.loggedUser" }}
+
+                <div class="space by-one"></div>
+              {{/if}}
+
+            {{/each}}
 
             <div class="space by-one"></div>
+
+          {{else}}
+            <div class="space by-two"></div>
+            <div class="empty-view is-relative"></div>
+            <div class="space by-one"></div>
+            <div class="empty-text is-relative">{{I18n empty_venues}}</div>
           {{/if}}
 
-        {{/each}}
-
-
-        {{#if view.showBottomView }}
-          {{view Yn.MiniSpinnerView }}
-        {{/if }}
-
-        <div class="space by-one"></div>
-
       {{else}}
-        <div class="space by-two"></div>
-        <div class="empty-view is-relative"></div>
-        <div class="space by-one"></div>
-        <div class="empty-text is-relative">{{I18n empty_venues}}</div>
+
+          <div class="space by-four"></div>
+          <div class="space by-four"></div>
+          {{view Yvi.VenuesSpinnerView class="is-relative"
+            selectedCityBinding="selectedCity" }}
+
       {{/if}}
+
 
   {{else}}
 
-      <div class="space by-four"></div>
-      <div class="space by-four"></div>
-      {{view Yvi.VenuesSpinnerView class="is-relative"
-        selectedCityBinding="selectedCity" }}
+    {{view Yn.SpinnerView}}
 
   {{/if}}
-
 
 {{/view}}
 
