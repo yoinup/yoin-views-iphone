@@ -32,15 +32,30 @@
 
                             {{#view Yvi.ChooseUserContentView 
                               searchBinding="view.searchInput"
-                              nameBinding="name" }}
+                              nameBinding="name" 
+                              action="selectFacebookUser"
+                              actionContentBinding="this"}}
 
-                              {{view Yn.TapUserShortBlockView
-                                imagetype="is-small"
-                                typeBinding="Yn.UserType.FbChannel"
-                                fbIdBinding="id"
-                                fbNameBinding="name"
-                                action="selectFacebookUser"
-                                actionContentBinding="this"}}
+
+                                <div class="two-column-table">
+
+                                  <div class="picture left-column">
+
+                                    <div class="square-image is-small with-photo">
+                                      <img class="square-image-bg is-icon-normal" {{bindAttr src="picture"}} >
+                                    </div>
+
+                                  </div>
+
+                                  <div class="name middle-column">
+                                    <span class="main-text">
+                                      {{name}}
+                                    </span>
+                                  </div>
+
+                                </div>
+
+
                             {{/view}}
 
 

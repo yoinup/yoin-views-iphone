@@ -13,15 +13,16 @@
 
                         {{#view Yvi.ChooseUserContentView 
                           searchBinding="view.searchInput"
-                          nameBinding="user.name" }}
-                          {{view Yn.TapUserShortBlockView  
+                          nameBinding="user.name"
+                          action="selectFacebookUser"
+                          actionContentBinding="this"}}
+
+                          {{view Yn.UserShortBlockView  
                             imagetype="is-small"
                             typeBinding="Yn.UserType.appuser"
                             contentBinding="user" 
                             showCity=false 
-                            showStatus=false
-                            action="selectUser"
-                            actionContentBinding="user"}}
+                            showStatus=false }}
                         {{/view}}
 
                       {{/each}}
