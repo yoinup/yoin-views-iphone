@@ -11,7 +11,8 @@
 
 {{/view }}
 
-<div class="screen-container">
+{{#view Yn.ScrollerView class="screen-container" 
+  exclude=".header" }}
 
 
   {{#if canSms }}
@@ -106,8 +107,6 @@
       {{/view}}
   {{/if }}
 
-
-
-</div>
+{{/view }}
 
 {{/with }}
