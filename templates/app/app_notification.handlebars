@@ -1,0 +1,12 @@
+{{#with view}}
+
+  {{#if notificationIsVisible}}
+
+    {{view Yn.NotificationView
+      typeBinding="notificationType"
+      contentBinding="notificationContent"
+      isInDomBinding="notificationIsVisible" }}
+
+  {{/if}}
+
+{{/with}}

@@ -1,0 +1,36 @@
+{{#with view}}
+
+  {{#view App.TabMainView id="app-tab-main" }}
+
+    {{view Yvi.NavigationView id="venues-navigation" 
+      pushIsAnimated=true
+      initViewClass="App.VenuesScreenView"
+      viewName="venues"}}
+
+    {{view Yvi.NavigationView id="wallet-navigation" 
+      pushIsAnimated=true
+      initViewClass="App.WalletScreenView"
+      viewName="wallet"}}
+
+    {{view Yvi.NavigationView id="settings-navigation" 
+      pushIsAnimated=true
+      initViewClass="App.SettingsScreenView"
+      viewName="settings"}}
+
+  {{/view}}
+
+  {{view Yvi.MenuScreenView class="aside-left"
+    homeCounterBinding="App.friendsController.newFriends.length"
+    invitationsCounterBinding="App.inboxInvitationsController.pendingCounter"
+    manager="App.tabManager"}}
+
+  {{view App.CheckoutView id="checkout-modal" 
+    class="from-up screen"}}
+
+  {{view App.NotificationsView id="notifications-modal" 
+    class="from-down screen"}}
+
+  {{view App.ChooseUserScreenView
+    class="from-right screen"}}
+
+{{/with}}
