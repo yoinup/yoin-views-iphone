@@ -16,9 +16,11 @@
     <div class="header-action">
       <div class="ha-single-box">
         {{view Yn.InputView class="single-input" 
-        placeholderI18n="search"
-        enableKeyChange=true
-        valueBinding="searchInput"}}
+          placeholderI18n="search"
+          enableKeyChange=true
+          hasDelayed=true
+          valueDelayedBinding="searchInputDelayed"
+          valueBinding="searchInput"}}
       </div>
     </div>
 
@@ -29,7 +31,7 @@
 
           {{#view Yn.ScrollerView
             exclude=".header, .header-action, #choose-user-menu-tabs"
-            searchInputBinding="searchInput"
+            searchInputBinding="searchInputDelayed"
             viewName="facebook" }}
 
             {{template "choose_user_facebook"}}
@@ -39,7 +41,7 @@
 
           {{#view Yn.ScrollerView
             exclude=".header, .header-action, #choose-user-menu-tabs"
-            searchInputBinding="searchInput"
+            searchInputBinding="searchInputDelayed"
             viewName="yoin" }}
 
             {{template "choose_user_yoin"}}
@@ -49,7 +51,7 @@
 
           {{#view Yn.ScrollerView
             exclude=".header, .header-action, #choose-user-menu-tabs"
-            searchInputBinding="searchInput"
+            searchInputBinding="searchInputDelayed"
             viewName="nearby" }}
 
             {{template "choose_user_nears"}}
