@@ -1,5 +1,5 @@
 {{#with view }}
-{{#view Yn.HeaderView class="without-shadow" }}
+{{#view Yn.HeaderView id="wallet-header" class="without-shadow" }}
 
   {{view Yn.MenuButtonView }}
   <div class="header-title">{{I18n wallet_title}}</div>
@@ -18,14 +18,14 @@
       {{view Yvi.WalletContentView
         invitationsBinding="inboxInvitations"
         isInbox=true
-        exclude=".header" }}
+        excludeGlobal="wallet-header" }}
 
     {{else}}
 
       {{view Yvi.WalletContentView
         invitationsBinding="archivedInvitations"
         isInbox=false
-        exclude=".header" }}
+        excludeGlobal="wallet-header" }}
 
     {{/if}}
 
