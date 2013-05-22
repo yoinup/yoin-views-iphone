@@ -15,7 +15,9 @@
   loggedUserBinding="loggedUser"
   exclude=".header" }}
 
-  {{#unless isFetchingContent }}
+  {{#if initContent }}
+
+    {{#if notifications.isLoaded }}
 
       {{#if notifications.length }}
         
@@ -35,7 +37,7 @@
 
                   {{#if this.invitation.fromUser.isLoaded }}
 
-                    {{#if_eq "view._parentView._parentView._parentView._parentView._parentView.loggedUser this.invitation.fromUser" }}
+                    {{#if_eq "view._parentView._parentView._parentView._parentView._parentView._parentView.loggedUser this.invitation.fromUser" }}
 
                       {{view Yn.SquareImageView class="is-normal" 
                         contentBinding="invitation.toUser" 
@@ -78,7 +80,9 @@
 
     {{else}}
       {{view Yn.SpinnerView}}
-    {{/unless}}
+    {{/if}}
+
+  {{/if}}
 
 {{/view }}
 
