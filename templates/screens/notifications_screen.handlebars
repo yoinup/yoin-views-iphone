@@ -28,28 +28,39 @@
           <div {{bindAttr class=":box isNotified:is-notified:is-pending"}} >
 
             {{#view Yn.BtapView class="box-content has-tap"
-              action="goToInvitation"
+              action="goToNotification"
               actionContentBinding=this}} 
 
               <div class="box-content-element three-column-table">
 
                 <div class="picture left-column">
 
-                  {{#if this.invitation.fromUser.isLoaded }}
+                  {{#if this.invitation }}
 
-                    {{#if_eq "view._parentView._parentView._parentView._parentView._parentView._parentView.loggedUser this.invitation.fromUser" }}
+                    {{#if this.invitation.fromUser.isLoaded }}
 
-                      {{view Yn.SquareImageView class="is-normal" 
-                        contentBinding="invitation.toUser" 
-                        withPhoto=true }}
+                      {{#if_eq "view._parentView._parentView._parentView._parentView._parentView._parentView._parentView.loggedUser this.invitation.fromUser" }}
 
-                    {{else}}
+                        {{view Yn.SquareImageView class="is-normal" 
+                          contentBinding="invitation.toUser" 
+                          withPhoto=true }}
 
-                      {{view Yn.SquareImageView class="is-normal" 
-                        contentBinding="invitation.fromUser" 
-                        withPhoto=true }}
+                      {{else}}
 
-                    {{/if_eq}}
+                        {{view Yn.SquareImageView class="is-normal" 
+                          contentBinding="invitation.fromUser" 
+                          withPhoto=true }}
+
+                      {{/if_eq}}
+
+
+                    {{/if}}
+
+                  {{else}}
+
+                    {{view Yn.SquareImageView class="is-normal" 
+                      contentBinding="user" 
+                      withPhoto=true }}
 
                   {{/if}}
 
@@ -64,7 +75,9 @@
                 </div>
 
                 <div class="control right-column">
-                  <span class="icon is-icon-normal is-icon-grey with-text arrow"></span>
+                  {{#if this.invitation }}
+                    <span class="icon is-icon-normal is-icon-grey with-text arrow"></span>
+                  {{/if}}
                 </div>
 
               </div>
