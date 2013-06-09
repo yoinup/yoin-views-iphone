@@ -5,6 +5,11 @@
   {{view Yn.HeaderCloseButtonView }}
 	<div class="header-title">{{I18n header_choose_user}}</div>
 
+  {{#view Yn.AdaptativeButtonView class="header-button l-right is-orange button-text is-small is-font-white" 
+    action="pickContact"}}
+    {{I18n about}}
+  {{/view}}
+
 {{/view }}
 
 <div class="screen-container">
