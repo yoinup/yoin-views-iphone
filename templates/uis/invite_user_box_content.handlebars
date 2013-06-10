@@ -10,6 +10,12 @@
             <div class="main-text">{{facebookUser.name}}</div>
           </div>
       {{else}}
+
+        {{#if agendaUser }}
+          <div class="name left-column main">
+            <div class="main-text">{{agendaUser.name}}</div>
+          </div>
+        {{else}}
           <div class="picture left-column">
             {{view Yn.SquareImageView class="is-normal" contentBinding="user" withPhoto=true }}
           </div>
@@ -22,6 +28,8 @@
               </div>
             {{/if}}
           </div>
+        {{/if}}
+
       {{/if}}
 
       <div class="action-button right-column">

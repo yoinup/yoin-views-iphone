@@ -30,9 +30,17 @@
               imagetype="is-normal"
               contentBinding="invitation.fromUser" }}
           {{else}}
-            {{view Yn.UserShortBlockView
-              imagetype="is-normal"
-              contentBinding="invitation.toUser" }}
+
+            {{#if invitation.toUser }}
+              {{view Yn.UserShortBlockView
+                imagetype="is-normal"
+                contentBinding="invitation.toUser" }}
+            {{else}}
+              {{view Yn.UnregisteredUserShortBlockView
+                imagetype="is-normal"
+                invitationBinding="invitation" }}
+            {{/if}}
+
           {{/if}}
 
         </div>

@@ -41,9 +41,13 @@
 
                       {{#if_eq "view._parentView._parentView._parentView._parentView._parentView._parentView._parentView._parentView.loggedUser this.invitation.fromUser" }}
 
-                        {{view Yn.SquareImageView class="is-normal" 
-                          contentBinding="invitation.toUser" 
-                          withPhoto=true }}
+                        {{#if this.invitation.toUser }}
+
+                          {{view Yn.SquareImageView class="is-normal" 
+                            contentBinding="invitation.toUser" 
+                            withPhoto=true }}
+
+                        {{/if}}
 
                       {{else}}
 
