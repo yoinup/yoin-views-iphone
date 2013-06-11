@@ -5,6 +5,12 @@
   {{view Yn.HeaderCloseButtonView }}
   <div class="header-title">{{I18n header_invite}}</div>
 
+
+  {{#view Yn.AdaptativeButtonView class="header-button l-right is-blue button-text is-small is-font-white" 
+    action="sendInvitation"}}
+    {{I18n invite}}
+  {{/view}}
+
 {{/view }}
 
 
