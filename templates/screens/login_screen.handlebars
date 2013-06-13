@@ -4,24 +4,185 @@
   {{view Yn.SpinnerView }}
 {{/if}}
 
+{{view Yn.IconBtapView class="landing-close-button"
+  icon="x"
+  action="close"}}
+
 <div class="row one">
   <div class="space by-four"></div> 
-  <div class="brand-landing-container brand-container is-small"></div>
+  <div class="brand-landing-container brand-container is-medium"></div>
 </div>
 
 {{#if hasConnection}}
 
-  <div class="row two">
 
-  </div>
+  {{#if isFbLogin}}
 
-  <div class="row three">
+    <div class="row two"></div>
 
-    {{view Yn.SocialLargeButtonView class="facebook" 
-      contentI18n="login_facebook" 
-      action="loginWithFb" }}
+    <div class="row three">
 
-  </div>
+      {{view Yn.SocialLargeButtonView class="facebook" 
+        contentI18n="login_facebook" 
+        action="loginWithFb" }}
+
+
+        <div class="space by-one"></div>
+        <div class="login-submenu"> 
+          {{#view Yn.BtapView classNames="login-submenu-item" 
+            tagName="span" 
+            action="goToRegisterUsingEmail" }} 
+              {{I18n register_using_email}} 
+          {{/view}} /  
+          {{#view Yn.BtapView classNames="login-submenu-item" 
+            tagName="span" 
+            action="goToLoginUsingEmail"}} 
+              {{I18n login_using_email}} 
+          {{/view}} 
+        </div>
+
+    </div>
+
+  {{else}}
+
+    {{#if isEmailLogin}}
+
+      <div class="row two is-half"></div>
+
+      <div class="row three">
+
+        <div class="big-input-content">
+          {{view Yn.InputView id="login-email" class="big-input up" 
+            inputName="email"
+            type="email"
+            placeholderI18n="email" }} 
+
+          {{view Yn.InputView id="login-password" class="big-input down" 
+            inputName="password"
+            type="password"
+            placeholderI18n="password" }} 
+        </div>
+        <div class="space by-one"></div>
+
+        {{!view Yn.SingleLargeButtonView class="is-grey is-font-black" 
+          contentI18n="login"
+          inputs="login-email login-password" 
+          action="loginWithEmail" }}
+
+
+        <div class="space by-one"></div>
+        <div class="login-submenu"> 
+          {{#view Yn.BtapView classNames="login-submenu-item" 
+            tagName="span" 
+            action="loginUsingEmail"}} 
+              {{I18n forgot_your_password}} 
+          {{/view}} 
+        </div>
+
+
+      </div>
+
+    {{else}}
+
+      {{#if isEmailRegister}}
+
+        <div class="row two is-third-quarter"></div>
+
+        <div class="row three">
+
+          <div class="big-input-content">
+            {{view Yn.InputView id="register-email" class="big-input up" 
+              inputName="email"
+              type="email"
+              placeholderI18n="email" }} 
+
+            {{view Yn.InputView id="register-password" class="big-input down" 
+              inputName="password"
+              type="password"
+              placeholderI18n="password" }} 
+          </div>
+          <div class="space by-one"></div>
+
+          {{view Yn.SingleLargeButtonView class="is-blue is-font-white" 
+            contentI18n="register"
+            inputs="register-email register-password" 
+            action="registerWithEmail" }}
+
+        </div>
+
+      {{else}}
+
+        {{#if isPasswordReset}}
+
+          <div class="row two is-third-quarter"></div>
+
+          <div class="landing-description">
+            {{I18n reset_password_description}}
+          </div>
+
+          <div class="space by-one"></div>
+
+          <div class="row three">
+
+            <div class="big-input-content">
+              {{view Yn.InputView id="reset-password-email" class="big-input up down" 
+                inputName="email"
+                type="email"
+                placeholderI18n="email" }} 
+            </div>
+
+            <div class="space by-one"></div>
+
+            {{view Yn.SingleLargeButtonView class="is-grey is-font-black" 
+              contentI18n="continue_unreserved"
+              inputs="reset-password-email" 
+              action="resetPassword" }}
+
+          </div>
+
+        {{else}}
+
+          {{#if isPasswordChange}}
+
+            <div class="row two is-third-quarter"></div>
+
+            <div class="landing-description">
+              {{I18n insert_confirmation_code_description}}
+            </div>
+
+            <div class="space by-one"></div>
+
+            <div class="row three">
+
+              <div class="big-input-content">
+                {{view Yn.InputView id="reset-code" class="big-input up" 
+                  inputName="confirmation-code"
+                  placeholderI18n="reset_password_code" }} 
+
+                {{view Yn.InputView id="reset-password" class="big-input down" 
+                  inputName="password"
+                  type="password"
+                  placeholderI18n="password" }} 
+              </div>
+
+              <div class="space by-one"></div>
+
+              {{view Yn.SingleLargeButtonView class="is-blue is-font-white" 
+                contentI18n="continue_unreserved"
+                inputs="reset-password-email" 
+                action="resetPassword" }}
+
+            </div>
+
+          {{/if}}
+
+        {{/if}}
+
+      {{/if}}
+
+    {{/if}}
+
+  {{/if}}
 
 {{else}}
 

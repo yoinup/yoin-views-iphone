@@ -1,28 +1,71 @@
 @import 'landing';
+@import 'colors';
+@import 'textstyles';
 
 #login-screen {
 
+  > .landing-close-button {
+    position: absolute;
+    margin-left: 5px;
+    margin-top: 5px;
+    color: @red-dark;
+  }
+
 	> .row.one {
-
     height: 20%;
-
 	}
 
-	> .row.two {
 
+	> .row.two {
     height: 40%;
 
     > .text.is-center {
-
       padding-top: 45%;
-
     }
 
+  }
+
+	> .row.two.is-half {
+    height: 20%;
+  }
+
+	> .row.two.is-third-quarter {
+    height: 30%;
   }
 	
 	> .row.three {
     height: 40%;
-	
 	}
+
+}
+
+.landing-description {
+
+  text-align: center;
+  .text-style;
+  .text-is-font-white-style;
+
+}
+
+
+.login-submenu {
+
+  text-align: center;
+
+  .text-style;
+  .text-is-font-white-style;
+  .letter-press;
+
+  > .login-submenu-item {
+
+
+  }
+
+  > .login-submenu-item.is-pending, > .login-submenu-item:active, > .login-submenu-item.touch {
+
+    font-weight: bold;
+
+  }
+
 
 }
