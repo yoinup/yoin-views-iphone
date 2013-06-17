@@ -26,31 +26,24 @@
 
       <div class="box-content">
 
-        <div class="box-content-element three-column-table">
+        <div class="box-content-element two-column-table">
 
           <div class="picture left-column"> 
             {{view Yn.SquareImageView class="is-normal" contentBinding="user" withPhoto=true }}
           </div>
 
           <div class="name middle-column">
-            <div class="main-text">
-              {{user.name}}
-            </div>
 
-            {{#if user.city}}
-              <div class="detail-text">
-                <span class="icon with-text is-icon-small" icon="i"></span>
-                {{user.city.name}}
-              </div>
-            {{/if}}
+            {{view Yn.InputView id="input-username" 
+              class="main-text is-transparent"
+              inputName="username"
+              type="text"
+              placeholderI18n="name"
+              focusOutAction="changeName"
+              valueBinding="user.name" }}
 
           </div>
 
-          <div class="control right-column">
-            {{view Yn.AdaptativeButtonView class="is-grey button-text is-small is-font-black" 
-              contentI18n="edit" 
-              action="goToEditSettings" }}
-          </div>
 
         </div>
 
