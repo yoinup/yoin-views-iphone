@@ -2,7 +2,13 @@
 {{#view Yn.HeaderView id="wallet-header" class="without-shadow" }}
 
   {{view Yn.MenuButtonView }}
-  <div class="header-title">{{I18n wallet_title}}</div>
+  <div class="header-title">
+    {{#if isInbox }}
+      {{I18n inbox_wallet_title}}
+    {{else}}
+      {{I18n archived_wallet_title}}
+    {{/if}}
+  </div>
 
   {{view Yvi.WalletOptionButtonView class="header-button rectangle-button l-right is-orange button-text is-small"
     isInboxBinding="isInbox"
