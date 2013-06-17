@@ -5,15 +5,6 @@
   {{view Yn.HeaderCloseButtonView }}
 	<div class="header-title">{{I18n header_choose_user}}</div>
 
-  {{!view Yn.IconBtapView class="header-button rectangle-button l-right is-small is-blue"
-    icon="u"
-    action="goToNotifications" }}
-
-  {{#view Yn.AdaptativeButtonView class="header-button l-right is-blue button-text is-small is-font-white" 
-    action="pickContact"}}
-    {{I18n contact_pl}}
-  {{/view}}
-
 {{/view }}
 
 <div class="screen-container">
@@ -47,6 +38,14 @@
 
           {{/view}}
 
+          {{#view Yn.ScrollerView
+            exclude=".header, .header-action, #choose-user-menu-tabs"
+            viewName="contacts" }}
+
+
+          {{/view}}
+
+
 
           {{#view Yn.ScrollerView
             exclude=".header, .header-action, #choose-user-menu-tabs"
@@ -66,6 +65,7 @@
             {{template "choose_user_nears"}}
 
           {{/view}}
+
 
       {{/view}}
 
