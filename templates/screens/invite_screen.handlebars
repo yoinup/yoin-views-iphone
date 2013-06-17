@@ -186,18 +186,19 @@
 
   {{#if hasUser }}
     {{#if venue }}
+        
+      {{#unless agendaUser }}
+          <div class="space by-one"></div>
+          <div class="box">
+            <div class="box-content has-padding">
 
-      <div class="space by-one"></div>
+              {{view Yvi.InviteWriteInputView id="invite-comment" class="single-input" 
+                usernameBinding="username"
+                valueBinding="inputValue" }}
 
-      <div class="box">
-        <div class="box-content has-padding">
-
-          {{view Yvi.InviteWriteInputView id="invite-comment" class="single-input" 
-            usernameBinding="username"
-            valueBinding="inputValue" }}
-
-        </div>
-      </div>
+            </div>
+          </div>
+      {{/unless}}
 
     {{/if}}
   {{/if}}
