@@ -5,7 +5,7 @@
 {{/if}}
 
 {{#unless isFbLogin}}
-  {{view Yn.IconBtapView class="landing-close-button"
+  {{view Yn.IconBtapView class="landing-close-button is-icon-big"
     icon="x"
     action="close"}}
 {{/unless}}
@@ -29,12 +29,13 @@
 
 
         <div class="space by-one"></div>
+        <div class="space by-half"></div>
         <div class="login-submenu"> 
           {{#view Yn.BtapView classNames="login-submenu-item" 
             tagName="span" 
             action="goToRegisterUsingEmail" }} 
               {{I18n register_using_email}} 
-          {{/view}} /  
+          {{/view}}&nbsp;&nbsp;/&nbsp;&nbsp;  
           {{#view Yn.BtapView classNames="login-submenu-item" 
             tagName="span" 
             action="goToLoginUsingEmail"}} 
@@ -71,6 +72,7 @@
           action="loginWithEmail" }}
 
         <div class="space by-one"></div>
+        <div class="space by-half"></div>
         <div class="login-submenu"> 
           {{#view Yn.BtapView classNames="login-submenu-item" 
             tagName="span" 
