@@ -20,19 +20,15 @@
   {{#if initContent }}
 
     {{#if isInbox }}
-
       {{view Yvi.WalletContentView
         invitationsBinding="inboxInvitations"
         isInbox=true
         excludeGlobal="wallet-header" }}
-
     {{else}}
-
       {{view Yvi.WalletContentView
         invitationsBinding="archivedInvitations"
         isInbox=false
         excludeGlobal="wallet-header" }}
-
     {{/if}}
 
   {{/if}}
