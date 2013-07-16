@@ -31,7 +31,9 @@
                 {{#each content}}
                   <div class="box-content-li">
                     {{view Yn.InviteUserShortBlockView class="is-normal" 
-                      contentBinding="this" 
+                      contentBinding="this"
+                      contentPhotoBinding="this"
+                      userNameBinding="name"
                       imagetype="is-normal"  }}
                   </div>
                 {{/each}}
